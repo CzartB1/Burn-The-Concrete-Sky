@@ -1,0 +1,154 @@
+[gd_scene load_steps=7 format=3 uid="uid://6u7p3n73gi11"]
+
+[ext_resource type="Script" path="res://scripts/systems/upgrades/shopkeeper.gd" id="1_844um"]
+[ext_resource type="PackedScene" uid="uid://3tdjy78ipj88" path="res://meshes/human_male_base.blend" id="2_d6oxk"]
+[ext_resource type="Script" path="res://scripts/systems/upgrades/weapon_menu.gd" id="3_b40wm"]
+[ext_resource type="Script" path="res://scripts/systems/upgrades/weapon_button.gd" id="4_c6rd5"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_205ab"]
+size = Vector3(3.91986, 2.56885, 3.84277)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gdblg"]
+bg_color = Color(0, 0, 0, 1)
+
+[node name="weapon_shopkeeper" type="Area3D" node_paths=PackedStringArray("weapon_screen", "screen_canvas") groups=["shops"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15, -1.4747, 8)
+script = ExtResource("1_844um")
+weapon_screen = NodePath("CanvasLayer/weapon_screen")
+screen_canvas = NodePath("CanvasLayer")
+
+[node name="human_male_base" parent="." instance=ExtResource("2_d6oxk")]
+transform = Transform3D(-5.24537e-08, 0, 1.2, 0, 1.2, 0, -1.2, 0, -5.24537e-08, 0, 0, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.25577, 0.784424, 0)
+shape = SubResource("BoxShape3D_205ab")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = 6
+
+[node name="weapon_screen" type="Control" parent="CanvasLayer" node_paths=PackedStringArray("menu", "w_button1", "w_button2", "w_button3", "money_label")]
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("3_b40wm")
+menu = NodePath(".")
+w_button1 = NodePath("Panel/MarginContainer/HBoxContainer/weapon1_button")
+w_button2 = NodePath("Panel/MarginContainer/HBoxContainer/weapon1_button2")
+w_button3 = NodePath("Panel/MarginContainer/HBoxContainer/weapon1_button3")
+money_label = NodePath("Panel/money_label")
+metadata/_edit_lock_ = true
+
+[node name="Panel" type="Panel" parent="CanvasLayer/weapon_screen"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_gdblg")
+metadata/_edit_lock_ = true
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/weapon_screen/Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 67.0
+offset_top = 113.0
+offset_right = -67.0
+offset_bottom = -345.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/weapon_screen/Panel/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 100
+alignment = 1
+
+[node name="weapon1_button" type="Button" parent="CanvasLayer/weapon_screen/Panel/MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "ability 1
+"
+script = ExtResource("4_c6rd5")
+
+[node name="weapon1_button2" type="Button" parent="CanvasLayer/weapon_screen/Panel/MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "ability 1
+"
+script = ExtResource("4_c6rd5")
+
+[node name="weapon1_button3" type="Button" parent="CanvasLayer/weapon_screen/Panel/MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "ability 1
+"
+script = ExtResource("4_c6rd5")
+
+[node name="exit_button" type="Button" parent="CanvasLayer/weapon_screen/Panel"]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 502.0
+offset_top = -98.0
+offset_right = -502.0
+offset_bottom = -67.0
+grow_horizontal = 2
+grow_vertical = 0
+size_flags_horizontal = 3
+text = "back"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/weapon_screen/Panel"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -87.0
+offset_top = -157.0
+offset_right = 87.0
+offset_bottom = -117.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_constants/separation = 15
+alignment = 1
+
+[node name="weapon1select_button" type="Button" parent="CanvasLayer/weapon_screen/Panel/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Weapon 1"
+
+[node name="weapon2select_button" type="Button" parent="CanvasLayer/weapon_screen/Panel/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Weapon 2"
+
+[node name="money_label" type="RichTextLabel" parent="CanvasLayer/weapon_screen/Panel"]
+layout_mode = 0
+offset_left = 22.0
+offset_top = 27.0
+offset_right = 257.0
+offset_bottom = 67.0
+size_flags_horizontal = 8
+theme_override_font_sizes/normal_font_size = 26
+text = "100"
+autowrap_mode = 0
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]
+[connection signal="pressed" from="CanvasLayer/weapon_screen/Panel/MarginContainer/HBoxContainer/weapon1_button" to="CanvasLayer/weapon_screen/Panel/MarginContainer/HBoxContainer/weapon1_button" method="_on_pressed"]
+[connection signal="pressed" from="CanvasLayer/weapon_screen/Panel/MarginContainer/HBoxContainer/weapon1_button2" to="CanvasLayer/weapon_screen/Panel/MarginContainer/HBoxContainer/weapon1_button2" method="_on_pressed"]
+[connection signal="pressed" from="CanvasLayer/weapon_screen/Panel/MarginContainer/HBoxContainer/weapon1_button3" to="CanvasLayer/weapon_screen/Panel/MarginContainer/HBoxContainer/weapon1_button3" method="_on_pressed"]
+[connection signal="pressed" from="CanvasLayer/weapon_screen/Panel/exit_button" to="CanvasLayer/weapon_screen" method="_on_exit_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/weapon_screen/Panel/HBoxContainer/weapon1select_button" to="CanvasLayer/weapon_screen" method="_on_weapon_1_select_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/weapon_screen/Panel/HBoxContainer/weapon2select_button" to="CanvasLayer/weapon_screen" method="_on_weapon_2_select_button_pressed"]

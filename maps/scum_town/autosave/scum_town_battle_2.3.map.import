@@ -1,0 +1,14 @@
+[remap]
+
+importer="qodot.map"
+type="Resource"
+uid="uid://m8pargfj8y18"
+path="res://.godot/imported/scum_town_battle_2.3.map-bce2591d5b8515884f2e10e3c3724721.tres"
+
+[deps]
+
+source_file="res://maps/scum_town/autosave/scum_town_battle_2.3.map"
+dest_files=["res://.godot/imported/scum_town_battle_2.3.map-bce2591d5b8515884f2e10e3c3724721.tres"]
+
+[params]
+

@@ -1,0 +1,32 @@
+[gd_scene load_steps=6 format=3 uid="uid://b88c6k2bkb3fh"]
+
+[ext_resource type="Script" path="res://scripts/misc/money.gd" id="1_8k767"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_s5n2g"]
+radius = 0.2
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_3cbfd"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_f6n0q"]
+albedo_color = Color(1, 0.7, 0, 1)
+
+[sub_resource type="PrismMesh" id="PrismMesh_y16gm"]
+material = SubResource("StandardMaterial3D_f6n0q")
+size = Vector3(0.3, 0.3, 0.3)
+
+[node name="money" type="RigidBody3D" groups=["Effects"]]
+collision_layer = 16
+script = ExtResource("1_8k767")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("SphereShape3D_s5n2g")
+
+[node name="Area3D" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+shape = SubResource("SphereShape3D_3cbfd")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("PrismMesh_y16gm")
+
+[connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]

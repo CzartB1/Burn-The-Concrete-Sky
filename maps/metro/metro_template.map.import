@@ -1,0 +1,14 @@
+[remap]
+
+importer="qodot.map"
+type="Resource"
+uid="uid://cslsmecl1mxpv"
+path="res://.godot/imported/metro_template.map-ecf9e3bbb19e3ad67fa64571c0c423b5.tres"
+
+[deps]
+
+source_file="res://maps/metro/metro_template.map"
+dest_files=["res://.godot/imported/metro_template.map-ecf9e3bbb19e3ad67fa64571c0c423b5.tres"]
+
+[params]
+

@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://bxsgrr3so08hu"]
+
+[sub_resource type="Gradient" id="Gradient_ph40f"]
+colors = PackedColorArray(0.54902, 0, 0, 1, 0.54902, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_b1r8q"]
+gradient = SubResource("Gradient_ph40f")
+
+[node name="blood_splatter" type="Decal" groups=["Effects"]]
+size = Vector3(1, 1, 1)
+texture_albedo = SubResource("GradientTexture2D_b1r8q")
+upper_fade = 1.65024e-05
+lower_fade = 1e-05
+cull_mask = 1048560

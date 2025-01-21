@@ -1,0 +1,14 @@
+[remap]
+
+importer="qodot.map"
+type="Resource"
+uid="uid://wuo4fhaltr43"
+path="res://.godot/imported/testmap_boss.map-344ac0e63ecc3e103e791d4201053db9.tres"
+
+[deps]
+
+source_file="res://maps/test/testmap_boss.map"
+dest_files=["res://.godot/imported/testmap_boss.map-344ac0e63ecc3e103e791d4201053db9.tres"]
+
+[params]
+

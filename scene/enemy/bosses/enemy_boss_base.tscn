@@ -1,0 +1,129 @@
+[gd_scene load_steps=15 format=3 uid="uid://5h1usjqaabvb"]
+
+[ext_resource type="Script" path="res://scripts/enemy/enemy.gd" id="1_2tx1q"]
+[ext_resource type="Script" path="res://scripts/enemy/states/masters/boss_behavior.gd" id="2_hu7mq"]
+[ext_resource type="Script" path="res://addons/finite_state_machine/scripts/finite_state_machine.gd" id="3_fmc7f"]
+[ext_resource type="Script" path="res://scripts/enemy/states/masters/boss_phase.gd" id="4_bonpb"]
+[ext_resource type="Script" path="res://addons/finite_state_machine/scripts/state_machine_state.gd" id="4_ccsq6"]
+[ext_resource type="Script" path="res://scripts/enemy/states/idle_state.gd" id="5_oxotu"]
+[ext_resource type="Script" path="res://scripts/enemy/states/chase_state.gd" id="6_kfbsx"]
+[ext_resource type="Script" path="res://scripts/enemy/states/avoid_state.gd" id="7_810qt"]
+[ext_resource type="PackedScene" uid="uid://derh5gmq2d8f8" path="res://scene/utilities/gore/gore_manager.tscn" id="8_j4loi"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_gjrny"]
+radius = 1.0
+height = 4.0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3t5hi"]
+albedo_color = Color(1, 0.0352941, 0, 1)
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_67f57"]
+material = SubResource("StandardMaterial3D_3t5hi")
+radius = 1.0
+height = 4.0
+
+[sub_resource type="BoxMesh" id="BoxMesh_f57f6"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_un28l"]
+bg_color = Color(0.572549, 0, 0, 1)
+
+[node name="enemy_test" type="CharacterBody3D" node_paths=PackedStringArray("navigation_agent", "gore_manager") groups=["Enemy"]]
+script = ExtResource("1_2tx1q")
+hp = 1000
+navigation_agent = NodePath("behavior_master/NavigationAgent3D")
+gore_manager = NodePath("gore_manager")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+shape = SubResource("CapsuleShape3D_gjrny")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+mesh = SubResource("CapsuleMesh_67f57")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="MeshInstance3D"]
+transform = Transform3D(0.764849, 0, 0, 0, 0.241913, 0, 0, 0, 0.29789, 0, 0.991486, -1.01338)
+mesh = SubResource("BoxMesh_f57f6")
+skeleton = NodePath("../..")
+
+[node name="Muzzle" type="Node3D" parent="MeshInstance3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1)
+
+[node name="Looker" type="Node3D" parent="."]
+
+[node name="aim_ray" type="RayCast3D" parent="."]
+target_position = Vector3(0, 0, -100)
+collision_mask = 3
+debug_shape_custom_color = Color(1, 0.427451, 0.635294, 1)
+debug_shape_thickness = 5
+
+[node name="behavior_master" type="Node3D" parent="." node_paths=PackedStringArray("phases", "health_bar", "master", "state_machine", "aim_node", "attack_timer", "look_ray", "dead_state", "idle_state", "chase_state", "avoid_state")]
+script = ExtResource("2_hu7mq")
+phases = [NodePath("phase_base")]
+health_bar = NodePath("../HUD/ProgressBar")
+master = NodePath("..")
+state_machine = NodePath("FiniteStateMachine")
+aim_node = NodePath("aimnode")
+attack_timer = NodePath("attack_timer")
+look_ray = NodePath("../aim_ray")
+dead_state = NodePath("FiniteStateMachine/Dead")
+idle_state = NodePath("FiniteStateMachine/Idle")
+chase_state = NodePath("FiniteStateMachine/Chase")
+avoid_state = NodePath("FiniteStateMachine/Avoid")
+
+[node name="phase_base" type="Node3D" parent="behavior_master"]
+script = ExtResource("4_bonpb")
+
+[node name="FiniteStateMachine" type="Node" parent="behavior_master"]
+script = ExtResource("3_fmc7f")
+
+[node name="Dead" type="Node" parent="behavior_master/FiniteStateMachine"]
+script = ExtResource("4_ccsq6")
+
+[node name="Idle" type="Node" parent="behavior_master/FiniteStateMachine" node_paths=PackedStringArray("behavior")]
+script = ExtResource("5_oxotu")
+behavior = NodePath("../..")
+
+[node name="Chase" type="Node" parent="behavior_master/FiniteStateMachine" node_paths=PackedStringArray("behavior")]
+script = ExtResource("6_kfbsx")
+behavior = NodePath("../..")
+
+[node name="Avoid" type="Node" parent="behavior_master/FiniteStateMachine" node_paths=PackedStringArray("behavior")]
+script = ExtResource("7_810qt")
+behavior = NodePath("../..")
+
+[node name="NavigationAgent3D" type="NavigationAgent3D" parent="behavior_master"]
+navigation_layers = 255
+debug_enabled = true
+
+[node name="attack_timer" type="Timer" parent="behavior_master"]
+
+[node name="aimnode" type="Node3D" parent="behavior_master"]
+top_level = true
+
+[node name="gore_manager" parent="." instance=ExtResource("8_j4loi")]
+
+[node name="HUD" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ProgressBar" type="ProgressBar" parent="HUD"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -373.0
+offset_top = 21.0
+offset_right = 373.0
+offset_bottom = 48.0
+grow_horizontal = 2
+theme_override_styles/fill = SubResource("StyleBoxFlat_un28l")
+value = 50.0
+show_percentage = false
+
+[connection signal="velocity_computed" from="behavior_master/NavigationAgent3D" to="behavior_master" method="_on_navigation_agent_3d_velocity_computed"]
+[connection signal="timeout" from="behavior_master/attack_timer" to="behavior_master" method="_on_attack_timer_timeout"]

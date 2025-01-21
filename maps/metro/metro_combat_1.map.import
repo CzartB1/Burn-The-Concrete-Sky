@@ -1,0 +1,14 @@
+[remap]
+
+importer="qodot.map"
+type="Resource"
+uid="uid://dlrco7g46vsqb"
+path="res://.godot/imported/metro_combat_1.map-0238299c70979226b912242be5a10544.tres"
+
+[deps]
+
+source_file="res://maps/metro/metro_combat_1.map"
+dest_files=["res://.godot/imported/metro_combat_1.map-0238299c70979226b912242be5a10544.tres"]
+
+[params]
+

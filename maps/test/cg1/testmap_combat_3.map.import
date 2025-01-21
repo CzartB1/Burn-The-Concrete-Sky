@@ -1,0 +1,14 @@
+[remap]
+
+importer="qodot.map"
+type="Resource"
+uid="uid://don6ck37ds2ne"
+path="res://.godot/imported/testmap_combat_3.map-aa03d14b91c3c2bcf57a85bc2d02e8ca.tres"
+
+[deps]
+
+source_file="res://maps/test/cg1/testmap_combat_3.map"
+dest_files=["res://.godot/imported/testmap_combat_3.map-aa03d14b91c3c2bcf57a85bc2d02e8ca.tres"]
+
+[params]
+

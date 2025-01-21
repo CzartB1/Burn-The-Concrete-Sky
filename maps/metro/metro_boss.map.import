@@ -1,0 +1,14 @@
+[remap]
+
+importer="qodot.map"
+type="Resource"
+uid="uid://cmt7vobtw3ysn"
+path="res://.godot/imported/metro_boss.map-1968597aad3527b32d6af6604af51962.tres"
+
+[deps]
+
+source_file="res://maps/metro/metro_boss.map"
+dest_files=["res://.godot/imported/metro_boss.map-1968597aad3527b32d6af6604af51962.tres"]
+
+[params]
+

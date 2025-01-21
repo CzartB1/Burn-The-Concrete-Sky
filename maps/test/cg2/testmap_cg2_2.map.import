@@ -1,0 +1,14 @@
+[remap]
+
+importer="qodot.map"
+type="Resource"
+uid="uid://be1syorpefget"
+path="res://.godot/imported/testmap_cg2_2.map-fccdd0f9bae6d236994606a716b0da2c.tres"
+
+[deps]
+
+source_file="res://maps/test/cg2/testmap_cg2_2.map"
+dest_files=["res://.godot/imported/testmap_cg2_2.map-fccdd0f9bae6d236994606a716b0da2c.tres"]
+
+[params]
+

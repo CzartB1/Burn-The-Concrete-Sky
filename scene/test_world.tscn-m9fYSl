@@ -1,0 +1,77 @@
+[gd_scene load_steps=25 format=3 uid="uid://dwx34svdy6oqn"]
+
+[ext_resource type="Script" path="res://scripts/systems/rooms/room_manager.gd" id="2_eglug"]
+[ext_resource type="PackedScene" uid="uid://cebc076cxalyg" path="res://scene/rooms/combat_group/test_cg_1.tscn" id="3_8qmyu"]
+[ext_resource type="PackedScene" uid="uid://dobo5bwy3fiha" path="res://scene/rooms/combat_group/test_cg_2.tscn" id="4_qu5kh"]
+[ext_resource type="PackedScene" uid="uid://b2hulkw5wkfy1" path="res://scene/enemy/enemy_ranged.tscn" id="5_aibue"]
+[ext_resource type="PackedScene" uid="uid://gagx2whtjcm6" path="res://scene/rooms/combat_group/test_cg_3.tscn" id="5_kwnv4"]
+[ext_resource type="PackedScene" uid="uid://cetmp2xotayla" path="res://scene/enemy/enemy_melee.tscn" id="7_4mwhw"]
+[ext_resource type="PackedScene" uid="uid://c7augcs4p0odc" path="res://scene/rooms/test/room_intro.tscn" id="7_ls522"]
+[ext_resource type="PackedScene" uid="uid://chi0yi6krxebk" path="res://scene/rooms/test/test_cg1/room_rest.tscn" id="7_mf3ok"]
+[ext_resource type="PackedScene" uid="uid://cni56etq4fbs0" path="res://scene/enemy/enemy_sniper.tscn" id="7_pyqgo"]
+[ext_resource type="PackedScene" uid="uid://mbh05supgl71" path="res://scene/enemy/enemy_healer.tscn" id="8_536yj"]
+[ext_resource type="PackedScene" uid="uid://47qm8jauxjtt" path="res://scene/enemy/enemy_invisible.tscn" id="9_73kr6"]
+[ext_resource type="PackedScene" uid="uid://bokolxfdwrhar" path="res://scene/rooms/test/room_boss.tscn" id="9_eqyys"]
+[ext_resource type="PackedScene" uid="uid://c0e0v3nbu267t" path="res://scene/enemy/enemy_melee_shield.tscn" id="9_yl67r"]
+[ext_resource type="PackedScene" uid="uid://dks7eg8o5s7al" path="res://scene/player/characters/Remnant.tscn" id="10_0jsb7"]
+[ext_resource type="Script" path="res://scripts/player/char_select/char_select_screen.gd" id="10_brlb2"]
+[ext_resource type="PackedScene" uid="uid://dgx2clkxdsth2" path="res://scene/player/characters/Silver.tscn" id="11_m1rxn"]
+[ext_resource type="Script" path="res://scripts/player/char_select/char_select_button.gd" id="11_om8lt"]
+[ext_resource type="PackedScene" uid="uid://cj7kkva2uk3m0" path="res://scene/player/characters/Impact.tscn" id="12_b3tjq"]
+[ext_resource type="PackedScene" uid="uid://d5vt4gjy1jd2" path="res://scene/player/characters/Mirage.tscn" id="13_ojb4m"]
+[ext_resource type="Script" path="res://scripts/systems/char_manager.gd" id="20_0ogmo"]
+
+[sub_resource type="Animation" id="Animation_koyps"]
+resource_name = "fade_in"
+length = 0.1
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CanvasLayer/Transition/ColorRect:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_wryib"]
+resource_name = "fade_out"
+length = 0.1
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CanvasLayer/Transition/ColorRect:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_qwopu"]
+_data = {
+"fade_in": SubResource("Animation_koyps"),
+"fade_out": SubResource("Animation_wryib")
+}
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gdblg"]
+bg_color = Color(0, 0, 0, 1)
+
+[node name="Node3D" type="Node3D"]
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.735821, -0.436941, 0.517348, 0.0330399, 0.786235, 0.617044, -0.676369, -0.436941, 0.592965, 0, 10.1473, 0)
+light_energy = 0.75
+shadow_enabled = true
+shadow_opacity = 0.5
+
+[node name="room_manager" type="Node3D" parent="." node_paths=PackedStringArray("intro_room", "rest_room", "boss_room", "combatgroup", "combatgroups") groups=["room_manager"]]
+script = ExtResource("2_eglug")
+intro_room = NodePath

@@ -1,0 +1,62 @@
+[gd_scene load_steps=4 format=3 uid="uid://bbrv0muijwlh6"]
+
+[ext_resource type="Script" path="res://scripts/player/economy_manager.gd" id="1_al3fy"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_y1gv5"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+expand_margin_top = 1.0
+expand_margin_bottom = 1.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_k7xds"]
+bg_color = Color(0.92549, 0.647059, 0, 1)
+expand_margin_top = 1.0
+expand_margin_bottom = 1.0
+
+[node name="economy_manager" type="Node3D" node_paths=PackedStringArray("money_label", "money_timer", "multiplier_label", "multiplier_timer_bar") groups=["Economy"]]
+script = ExtResource("1_al3fy")
+money_label = NodePath("CanvasLayer/money_label")
+money_timer = NodePath("money_label_timer")
+multiplier_label = NodePath("CanvasLayer/VBoxContainer/mult_label")
+multiplier_timer_bar = NodePath("CanvasLayer/VBoxContainer/ProgressBar")
+
+[node name="money_label_timer" type="Timer" parent="."]
+wait_time = 5.0
+one_shot = true
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="money_label" type="RichTextLabel" parent="CanvasLayer"]
+offset_left = 22.0
+offset_top = 27.0
+offset_right = 257.0
+offset_bottom = 67.0
+size_flags_horizontal = 8
+theme_override_font_sizes/normal_font_size = 26
+text = "100"
+autowrap_mode = 0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer"]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -157.0
+offset_top = 40.0
+offset_right = -90.0
+offset_bottom = 119.0
+grow_horizontal = 0
+alignment = 1
+
+[node name="mult_label" type="RichTextLabel" parent="CanvasLayer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/normal_font_size = 45
+bbcode_enabled = true
+text = "[center]8.5"
+fit_content = true
+
+[node name="ProgressBar" type="ProgressBar" parent="CanvasLayer/VBoxContainer"]
+layout_mode = 2
+theme_override_styles/background = SubResource("StyleBoxFlat_y1gv5")
+theme_override_styles/fill = SubResource("StyleBoxFlat_k7xds")
+show_percentage = false
+
+[connection signal="timeout" from="money_label_timer" to="." method="_on_money_label_timer_timeout"]

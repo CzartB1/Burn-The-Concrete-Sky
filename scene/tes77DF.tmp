@@ -1,0 +1,349 @@
+[gd_scene load_steps=25 format=3 uid="uid://dwx34svdy6oqn"]
+
+[ext_resource type="Script" path="res://scripts/systems/rooms/room_manager.gd" id="2_eglug"]
+[ext_resource type="PackedScene" uid="uid://cebc076cxalyg" path="res://scene/rooms/combat_group/test_cg_1.tscn" id="3_8qmyu"]
+[ext_resource type="PackedScene" uid="uid://dobo5bwy3fiha" path="res://scene/rooms/combat_group/test_cg_2.tscn" id="4_qu5kh"]
+[ext_resource type="PackedScene" uid="uid://b2hulkw5wkfy1" path="res://scene/enemy/enemy_ranged.tscn" id="5_aibue"]
+[ext_resource type="PackedScene" uid="uid://gagx2whtjcm6" path="res://scene/rooms/combat_group/test_cg_3.tscn" id="5_kwnv4"]
+[ext_resource type="PackedScene" uid="uid://cetmp2xotayla" path="res://scene/enemy/enemy_melee.tscn" id="7_4mwhw"]
+[ext_resource type="PackedScene" uid="uid://chi0yi6krxebk" path="res://scene/rooms/test/test_cg1/room_rest.tscn" id="7_mf3ok"]
+[ext_resource type="PackedScene" uid="uid://cni56etq4fbs0" path="res://scene/enemy/enemy_sniper.tscn" id="7_pyqgo"]
+[ext_resource type="PackedScene" uid="uid://mbh05supgl71" path="res://scene/enemy/enemy_healer.tscn" id="8_536yj"]
+[ext_resource type="PackedScene" uid="uid://47qm8jauxjtt" path="res://scene/enemy/enemy_invisible.tscn" id="9_73kr6"]
+[ext_resource type="PackedScene" uid="uid://bokolxfdwrhar" path="res://scene/rooms/test/room_boss.tscn" id="9_eqyys"]
+[ext_resource type="PackedScene" uid="uid://c0e0v3nbu267t" path="res://scene/enemy/enemy_melee_shield.tscn" id="9_yl67r"]
+[ext_resource type="PackedScene" uid="uid://dks7eg8o5s7al" path="res://scene/player/characters/Remnant.tscn" id="10_0jsb7"]
+[ext_resource type="Script" path="res://scripts/player/char_select/char_select_screen.gd" id="10_brlb2"]
+[ext_resource type="PackedScene" uid="uid://dgx2clkxdsth2" path="res://scene/player/characters/Silver.tscn" id="11_m1rxn"]
+[ext_resource type="Script" path="res://scripts/player/char_select/char_select_button.gd" id="11_om8lt"]
+[ext_resource type="PackedScene" uid="uid://cj7kkva2uk3m0" path="res://scene/player/characters/Impact.tscn" id="12_b3tjq"]
+[ext_resource type="PackedScene" uid="uid://d5vt4gjy1jd2" path="res://scene/player/characters/Mirage.tscn" id="13_ojb4m"]
+[ext_resource type="Script" path="res://scripts/systems/char_manager.gd" id="20_0ogmo"]
+[ext_resource type="Script" path="res://scripts/player/UI/player_stat_screen.gd" id="20_wjgrw"]
+
+[sub_resource type="Animation" id="Animation_koyps"]
+resource_name = "fade_in"
+length = 0.1
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CanvasLayer/Transition/ColorRect:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_wryib"]
+resource_name = "fade_out"
+length = 0.1
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CanvasLayer/Transition/ColorRect:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_qwopu"]
+_data = {
+"fade_in": SubResource("Animation_koyps"),
+"fade_out": SubResource("Animation_wryib")
+}
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gdblg"]
+bg_color = Color(0, 0, 0, 1)
+
+[node name="Node3D" type="Node3D"]
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.735821, -0.436941, 0.517348, 0.0330399, 0.786235, 0.617044, -0.676369, -0.436941, 0.592965, 0, 10.1473, 0)
+light_energy = 0.75
+shadow_enabled = true
+shadow_opacity = 0.5
+
+[node name="room_manager" type="Node3D" parent="." node_paths=PackedStringArray("rest_room", "boss_room", "combatgroup", "combatgroups", "demo_lock_screen") groups=["room_manager"]]
+script = ExtResource("2_eglug")
+rest_room = NodePath("room_rest")
+boss_room = NodePath("room_boss")
+boss_count = 8
+combatgroup = NodePath("test_cg1")
+combatgroups = [NodePath("test_cg1"), NodePath("test_cg2"), NodePath("test_cg3")]
+demo_lock = true
+demo_lock_screen = NodePath("../stats/demo_lock")
+
+[node name="test_cg1" parent="room_manager" node_paths=PackedStringArray("manager", "next_group") instance=ExtResource("3_8qmyu")]
+commons = Array[PackedScene]([ExtResource("7_4mwhw"), ExtResource("5_aibue")])
+elites = Array[PackedScene]([ExtResource("8_536yj"), ExtResource("9_73kr6"), ExtResource("7_pyqgo"), ExtResource("9_yl67r")])
+manager = NodePath("..")
+next_group = [NodePath("../test_cg2"), NodePath("../test_cg3")]
+
+[node name="test_cg2" parent="room_manager" node_paths=PackedStringArray("manager", "next_group") instance=ExtResource("4_qu5kh")]
+manager = NodePath("..")
+next_group = [NodePath("../test_cg1")]
+
+[node name="test_cg3" parent="room_manager" node_paths=PackedStringArray("manager", "next_group") instance=ExtResource("5_kwnv4")]
+manager = NodePath("..")
+next_group = [NodePath("../test_cg1")]
+
+[node name="room_boss" parent="room_manager" instance=ExtResource("9_eqyys")]
+
+[node name="room_rest" parent="room_manager" node_paths=PackedStringArray("manager") instance=ExtResource("7_mf3ok")]
+manager = NodePath("..")
+
+[node name="stats" type="CanvasLayer" parent="."]
+layer = 5
+
+[node name="demo_lock" type="Control" parent="stats" node_paths=PackedStringArray("kill_label", "rooms_cleared_label", "playtime_label", "money_label", "mult_label")]
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("20_wjgrw")
+kill_label = NodePath("VBoxContainer/kills")
+rooms_cleared_label = NodePath("VBoxContainer/roomcleared")
+playtime_label = NodePath("VBoxContainer/playtime")
+money_label = NodePath("VBoxContainer/moneyearnd")
+mult_label = NodePath("VBoxContainer/highstmult")
+
+[node name="ColorRect" type="ColorRect" parent="stats/demo_lock"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="RichTextLabel" type="RichTextLabel" parent="stats/demo_lock"]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_top = 23.0
+offset_bottom = 107.0
+grow_horizontal = 2
+theme_override_font_sizes/bold_font_size = 30
+bbcode_enabled = true
+text = "[center][b]YOU'VE REACHED THE END OF THE DEMO!
+THANK YOU FOR PLAYING!"
+fit_content = true
+
+[node name="VBoxContainer" type="VBoxContainer" parent="stats/demo_lock"]
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = 67.0
+offset_top = 14.0
+offset_right = -67.0
+offset_bottom = 170.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+
+[node name="kills" type="RichTextLabel" parent="stats/demo_lock/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_font_sizes/normal_font_size = 20
+bbcode_enabled = true
+text = "Enemies Killed: 0"
+fit_content = true
+
+[node name="roomcleared" type="RichTextLabel" parent="stats/demo_lock/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_font_sizes/normal_font_size = 20
+bbcode_enabled = true
+text = "Rooms Cleared: 0"
+fit_content = true
+
+[node name="playtime" type="RichTextLabel" parent="stats/demo_lock/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_font_sizes/normal_font_size = 20
+bbcode_enabled = true
+text = "Playtime: 0"
+fit_content = true
+
+[node name="moneyearnd" type="RichTextLabel" parent="stats/demo_lock/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_font_sizes/normal_font_size = 20
+bbcode_enabled = true
+text = "Money Earned: 0"
+fit_content = true
+
+[node name="highstmult" type="RichTextLabel" parent="stats/demo_lock/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_font_sizes/normal_font_size = 20
+bbcode_enabled = true
+text = "Highest Multiplier: 0"
+fit_content = true
+
+[node name="HBoxContainer" type="HBoxContainer" parent="stats/demo_lock"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -152.0
+offset_top = -72.0
+offset_right = 152.0
+offset_bottom = -40.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_constants/separation = 5
+alignment = 1
+
+[node name="choose char" type="Button" parent="stats/demo_lock/HBoxContainer"]
+layout_mode = 2
+text = "Play Again"
+
+[node name="exit" type="Button" parent="stats/demo_lock/HBoxContainer"]
+layout_mode = 2
+text = "Exit"
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = 5
+
+[node name="Transition" type="AnimationPlayer" parent="CanvasLayer" groups=["Transition"]]
+root_node = NodePath("../..")
+libraries = {
+"": SubResource("AnimationLibrary_qwopu")
+}
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer/Transition"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="character_select_screen" type="Control" parent="CanvasLayer" groups=["char_select"]]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("10_brlb2")
+
+[node name="Panel" type="Panel" parent="CanvasLayer/character_select_screen"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_gdblg")
+
+[node name="done_button" type="Button" parent="CanvasLayer/character_select_screen/Panel" node_paths=PackedStringArray("selector")]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -391.0
+offset_top = -77.0
+offset_right = -93.0
+offset_bottom = -25.0
+grow_horizontal = 0
+grow_vertical = 0
+text = "Choose Character"
+script = ExtResource("11_om8lt")
+selector = NodePath("../..")
+char_id = 3
+
+[node name="desc text" type="RichTextLabel" parent="CanvasLayer/character_select_screen/Panel"]
+layout_mode = 1
+anchors_preset = 11
+anchor_left = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -437.0
+offset_top = 385.0
+offset_right = -26.0
+offset_bottom = -95.0
+grow_horizontal = 0
+grow_vertical = 2
+text = "Selecter char is"
+
+[node name="GridContainer" type="GridContainer" parent="CanvasLayer/character_select_screen/Panel"]
+layout_mode = 1
+anchors_preset = 9
+anchor_bottom = 1.0
+offset_left = 17.0
+offset_top = 23.0
+offset_right = 265.0
+offset_bottom = -51.0
+grow_vertical = 2
+columns = 5
+
+[node name="remnant_button" type="Button" parent="CanvasLayer/character_select_screen/Panel/GridContainer" node_paths=PackedStringArray("selector")]
+layout_mode = 2
+text = "Remnant 
+"
+script = ExtResource("11_om8lt")
+selector = NodePath("../../..")
+char_name = "Remnant"
+
+[node name="silver_button" type="Button" parent="CanvasLayer/character_select_screen/Panel/GridContainer" node_paths=PackedStringArray("selector")]
+layout_mode = 2
+text = "Silver
+"
+script = ExtResource("11_om8lt")
+selector = NodePath("../../..")
+char_id = 1
+char_name = "Silver"
+
+[node name="impact_button" type="Button" parent="CanvasLayer/character_select_screen/Panel/GridContainer" node_paths=PackedStringArray("selector")]
+layout_mode = 2
+text = "Impact"
+script = ExtResource("11_om8lt")
+selector = NodePath("../../..")
+char_id = 2
+char_name = "Impact"
+
+[node name="mirage_button" type="Button" parent="CanvasLayer/character_select_screen/Panel/GridContainer" node_paths=PackedStringArray("selector")]
+layout_mode = 2
+text = "Mirage
+"
+script = ExtResource("11_om8lt")
+selector = NodePath("../../..")
+char_id = 3
+char_name = "Mirage"
+
+[node name="char_manager" type="Control" parent="CanvasLayer" node_paths=PackedStringArray("room_manager") groups=["char_manager"]]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("20_0ogmo")
+room_manager = NodePath("../../room_manager")
+characters = Array[PackedScene]([ExtResource("10_0jsb7"), ExtResource("11_m1rxn"), ExtResource("12_b3tjq"), ExtResource("13_ojb4m")])
+
+[connection signal="pressed" from="stats/demo_lock/HBoxContainer/choose char" to="stats/demo_lock" method="_on_choose_char_pressed"]
+[connection signal="pressed" from="stats/demo_lock/HBoxContainer/exit" to="stats/demo_lock" method="_on_exit_pressed"]
+[connection signal="pressed" from="CanvasLayer/character_select_screen/Panel/done_button" to="CanvasLayer/character_select_screen" method="_on_done_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/character_select_screen/Panel/GridContainer/remnant_button" to="CanvasLayer/character_select_screen/Panel/GridContainer/remnant_button" method="_on_pressed"]
+[connection signal="pressed" from="CanvasLayer/character_select_screen/Panel/GridContainer/silver_button" to="CanvasLayer/character_select_screen/Panel/GridContainer/silver_button" method="_on_pressed"]
+[connection signal="pressed" from="CanvasLayer/character_select_screen/Panel/GridContainer/impact_button" to="CanvasLayer/character_select_screen/Panel/GridContainer/impact_button" method="_on_pressed"]
+[connection signal="pressed" from="CanvasLayer/character_select_screen/Panel/GridContainer/mirage_button" to="CanvasLayer/character_select_screen/Panel/GridContainer/mirage_button" method="_on_pressed"]

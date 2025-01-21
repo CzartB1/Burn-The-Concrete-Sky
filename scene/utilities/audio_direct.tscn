@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://18m6337h3n1d"]
+
+[ext_resource type="Script" path="res://scripts/misc/audio_direct.gd" id="1_s3x2w"]
+
+[node name="audio_direct" type="AudioStreamPlayer3D"]
+script = ExtResource("1_s3x2w")
+
+[connection signal="finished" from="." to="." method="_on_finished"]

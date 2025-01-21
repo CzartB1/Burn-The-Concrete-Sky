@@ -1,0 +1,50 @@
+[gd_scene load_steps=10 format=3 uid="uid://d2ssiplk0o8os"]
+
+[ext_resource type="Script" path="res://scripts/player/upgrade_manager.gd" id="1_vpp7q"]
+[ext_resource type="Script" path="res://scripts/player/upgrades/upgrade.gd" id="2_jt6tb"]
+[ext_resource type="Script" path="res://scripts/player/upgrades/focus.gd" id="3_p0mjj"]
+[ext_resource type="Script" path="res://scripts/player/upgrades/tachypsychia.gd" id="4_ff6n0"]
+[ext_resource type="Script" path="res://scripts/player/upgrades/last_stand.gd" id="5_0qw0a"]
+[ext_resource type="Script" path="res://scripts/player/upgrades/heavy.gd" id="6_t4tkq"]
+[ext_resource type="Script" path="res://scripts/player/upgrades/quick_as_the_wind.gd" id="7_tehaf"]
+[ext_resource type="Script" path="res://scripts/player/upgrades/wind_blade.gd" id="8_ygamq"]
+[ext_resource type="PackedScene" uid="uid://dcr5km4dago7k" path="res://scene/player/upgrades/wind_blade_object.tscn" id="9_4w774"]
+
+[node name="upgrade_manager" type="Node3D" node_paths=PackedStringArray("upgrade_list")]
+script = ExtResource("1_vpp7q")
+upgrade_list = [NodePath("wind_blade"), NodePath("quick_as_the_wind"), NodePath("heavy"), NodePath("last_stand"), NodePath("tachypsychia"), NodePath("focus")]
+
+[node name="upgrade" type="Node" parent="."]
+script = ExtResource("2_jt6tb")
+
+[node name="focus" type="Node" parent="."]
+script = ExtResource("3_p0mjj")
+price = 200
+
+[node name="tachypsychia" type="Node" parent="."]
+script = ExtResource("4_ff6n0")
+price = 300
+
+[node name="last_stand" type="Node" parent="." node_paths=PackedStringArray("i_timer")]
+script = ExtResource("5_0qw0a")
+i_timer = NodePath("Timer")
+price = 500
+
+[node name="Timer" type="Timer" parent="last_stand"]
+wait_time = 2.0
+one_shot = true
+
+[node name="heavy" type="Node" parent="."]
+script = ExtResource("6_t4tkq")
+price = 300
+
+[node name="quick_as_the_wind" type="Node" parent="."]
+script = ExtResource("7_tehaf")
+price = 450
+
+[node name="wind_blade" type="Node" parent="."]
+script = ExtResource("8_ygamq")
+blade = ExtResource("9_4w774")
+price = 300
+
+[connection signal="timeout" from="last_stand/Timer" to="last_stand" method="_on_timer_timeout"]

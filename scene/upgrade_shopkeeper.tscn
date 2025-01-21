@@ -1,0 +1,41 @@
+[gd_scene load_steps=5 format=3 uid="uid://bceq1kcso5i56"]
+
+[ext_resource type="Script" path="res://scripts/systems/upgrades/shopkeeper.gd" id="1_xxxas"]
+[ext_resource type="PackedScene" uid="uid://3tdjy78ipj88" path="res://meshes/human_male_base.blend" id="2_kei07"]
+[ext_resource type="PackedScene" uid="uid://5rnl8sgiev1v" path="res://scene/player/upgrades/upgrade_screen.tscn" id="3_yo67n"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_205ab"]
+size = Vector3(3.91986, 2.56885, 3.84277)
+
+[node name="upgrade_shopkeeper" type="Area3D" node_paths=PackedStringArray("upgrade_screen", "screen_canvas") groups=["shops"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15, -1.4747, 4)
+script = ExtResource("1_xxxas")
+upgrade_screen = NodePath("CanvasLayer/upgrade_screen")
+screen_canvas = NodePath("CanvasLayer")
+
+[node name="human_male_base" parent="." instance=ExtResource("2_kei07")]
+transform = Transform3D(-5.24537e-08, 0, 1.2, 0, 1.2, 0, -1.2, 0, -5.24537e-08, 0, 0, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.25577, 0.784424, 0)
+shape = SubResource("BoxShape3D_205ab")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = 6
+
+[node name="upgrade_screen" parent="CanvasLayer" instance=ExtResource("3_yo67n")]
+mouse_filter = 2
+
+[node name="Panel" parent="CanvasLayer/upgrade_screen" index="0"]
+visible = false
+
+[node name="money_label" parent="CanvasLayer/upgrade_screen/Panel" index="3"]
+offset_left = 0.0
+offset_top = 0.0
+offset_right = 235.0
+offset_bottom = 40.0
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]
+
+[editable path="CanvasLayer/upgrade_screen"]

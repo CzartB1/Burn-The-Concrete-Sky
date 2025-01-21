@@ -1,0 +1,43 @@
+[gd_scene load_steps=9 format=3 uid="uid://bpfjiepxftms8"]
+
+[ext_resource type="Script" path="res://scripts/player/footstep_detector.gd" id="1_gpwuu"]
+[ext_resource type="AudioStream" uid="uid://chiit86na75ri" path="res://audios/effects/footsteps/zapsplat_foley_footstep_single_shallow_puddle_water_002_30458.mp3" id="2_fhg1j"]
+[ext_resource type="AudioStream" uid="uid://vitby6d872ti" path="res://audios/effects/footsteps/zapsplat_foley_footstep_single_wet_dirt_001_30460.mp3" id="3_sawh4"]
+[ext_resource type="AudioStream" uid="uid://baxb21ofu4hes" path="res://audios/effects/footsteps/zapsplat_foley_footstep_single_wet_dirt_010_30469.mp3" id="4_4buju"]
+[ext_resource type="AudioStream" uid="uid://bipkiw32ki8yn" path="res://audios/effects/footsteps/zapsplat_foley_footstep_single_boys_sneaker_on_concrete_005_50915.mp3" id="5_ia6x6"]
+[ext_resource type="AudioStream" uid="uid://danbigtreogct" path="res://audios/effects/footsteps/zapsplat_foley_footstep_single_female_leather_shoe_on_concrete_street_011_50934.mp3" id="6_he1j4"]
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_2838g"]
+playback_mode = 1
+random_pitch = 1.5
+random_volume_offset_db = 0.7
+streams_count = 3
+stream_0/stream = ExtResource("2_fhg1j")
+stream_1/stream = ExtResource("3_sawh4")
+stream_2/stream = ExtResource("4_4buju")
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_xx7wi"]
+playback_mode = 1
+random_pitch = 1.7
+random_volume_offset_db = 0.5
+streams_count = 2
+stream_0/stream = ExtResource("5_ia6x6")
+stream_1/stream = ExtResource("6_he1j4")
+
+[node name="footstep_detector" type="Node3D" node_paths=PackedStringArray("character_controller", "raycast_node", "audio_player")]
+script = ExtResource("1_gpwuu")
+character_controller = NodePath("")
+raycast_node = NodePath("RayCast3D")
+footstep_interval = 0.2
+audio_player = NodePath("AudioStreamPlayer3D")
+material_groups = ["water", "metal", "wood"]
+footstep_sounds = Array[AudioStream]([SubResource("AudioStreamRandomizer_2838g")])
+default_footstep_sound = SubResource("AudioStreamRandomizer_xx7wi")
+
+[node name="RayCast3D" type="RayCast3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.830083, 0)
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]
+attenuation_model = 3
+volume_db = -15.0
+max_db = 1.0

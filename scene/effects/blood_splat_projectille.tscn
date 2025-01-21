@@ -1,0 +1,68 @@
+[gd_scene load_steps=13 format=3 uid="uid://c4skxyme680aw"]
+
+[ext_resource type="Script" path="res://scripts/misc/gore_system/blood_splat_projectille.gd" id="1_prw4p"]
+[ext_resource type="PackedScene" uid="uid://bxsgrr3so08hu" path="res://scene/effects/blood_splatter.tscn" id="2_yi6ae"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_ku24v"]
+radius = 0.001
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_gd4ps"]
+radius = 0.25
+
+[sub_resource type="Gradient" id="Gradient_1wy6m"]
+offsets = PackedFloat32Array(0.475728, 1)
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_l3pdm"]
+gradient = SubResource("Gradient_1wy6m")
+
+[sub_resource type="Curve" id="Curve_cp1ix"]
+_data = [Vector2(0.179167, 1), 0.0, -0.791753, 0, 0, Vector2(1, 0), -1.23711, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_2pwu6"]
+curve = SubResource("Curve_cp1ix")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_c8sko"]
+scale_min = 0.5
+scale_max = 0.5
+scale_curve = SubResource("CurveTexture_2pwu6")
+color = Color(1, 0, 0, 1)
+color_initial_ramp = SubResource("GradientTexture1D_l3pdm")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qoxsg"]
+vertex_color_use_as_albedo = true
+billboard_mode = 1
+billboard_keep_scale = true
+
+[sub_resource type="QuadMesh" id="QuadMesh_rtjna"]
+material = SubResource("StandardMaterial3D_qoxsg")
+
+[sub_resource type="BoxMesh" id="BoxMesh_u6gem"]
+
+[node name="blood_splat_projectille" type="RigidBody3D" groups=["Effects"]]
+script = ExtResource("1_prw4p")
+blood_splatter = ExtResource("2_yi6ae")
+splatter_scale = Vector2(0.5, 1)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("SphereShape3D_ku24v")
+disabled = true
+
+[node name="Area3D" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+shape = SubResource("SphereShape3D_gd4ps")
+
+[node name="GPUParticles3D" type="GPUParticles3D" parent="."]
+amount = 3
+lifetime = 0.2
+visibility_aabb = AABB(-1, -1, -1, 2, 2, 2)
+process_material = SubResource("ParticleProcessMaterial_c8sko")
+draw_pass_1 = SubResource("QuadMesh_rtjna")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+visible = false
+mesh = SubResource("BoxMesh_u6gem")
+
+[connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]

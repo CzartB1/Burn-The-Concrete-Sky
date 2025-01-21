@@ -1,0 +1,5 @@
+!!DO NOT DELETE!!
+Godot file caching system is shit.
+It won't delete the cache of the global vars even if the files are gone.
+Or at least that's how I understand it.
+Regardless, Godot file caching is absolute HORSESHIT!!!

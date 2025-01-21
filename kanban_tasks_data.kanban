@@ -1,0 +1,439 @@
+{
+	"categories": [
+		{
+			"uuid": "bf6822f7-a948-4785-8d8a-efbc39150a16",
+			"title": "Task",
+			"color": "5172ff"
+		}
+	],
+	"stages": [
+		{
+			"uuid": "46f536bd-cd88-4307-86eb-79cb9102d0eb",
+			"title": "Todo",
+			"tasks": [
+				"84a2e9e5-ef74-48c7-9d90-a9aae9be4c20",
+				"68df170c-1a62-47d2-bbf9-bfb6fe3668a1",
+				"fa416722-0941-4ad6-99c0-89f5c48e28cb",
+				"015a3333-d245-4073-bddf-31b2cf4a5e0e",
+				"a5580c75-92e4-4ade-b65a-06cafb030686",
+				"c2e4dca1-a2d0-4891-a59b-39a4f4ea6efc",
+				"1ce79fd3-c598-4464-b747-af3674d5717a"
+			]
+		},
+		{
+			"uuid": "08a8f383-6e31-4886-a8f9-4b61555b5d70",
+			"title": "Doing",
+			"tasks": [
+				"2dcd0b0c-a09d-456f-8ad8-5d332bd3d842",
+				"f8c41945-2d68-4961-97ec-ab491dcb840a",
+				"758e60f0-41ee-47fc-8ac9-994d95c1539d",
+				"cf4b0e9c-8fa6-4fa2-a080-a9910721d486",
+				"a0132107-a042-4bd9-badf-ce83179218a0"
+			]
+		},
+		{
+			"uuid": "0ec02a96-1f18-4e45-8f05-bdaaa387baf4",
+			"title": "Done",
+			"tasks": [
+				"4773b241-5751-476e-8f1d-1f6a643ef8fb",
+				"a7e6ac08-b521-4659-b629-feb86baf3d47",
+				"8551cdbc-1e5e-4491-a747-2fc74afcc376",
+				"29d6c6c1-f417-482a-a9c9-bb5dcc8e436b",
+				"9af79126-6ecc-4c5e-b59d-a23ba1aa2585"
+			]
+		}
+	],
+	"tasks": [
+		{
+			"uuid": "a0132107-a042-4bd9-badf-ce83179218a0",
+			"title": "Enemy AI",
+			"description": "Just basic template",
+			"category": "bf6822f7-a948-4785-8d8a-efbc39150a16",
+			"steps": [
+				{
+					"details": "Finite State Machine",
+					"done": true
+				},
+				{
+					"details": "Idle State",
+					"done": true
+				},
+				{
+					"details": "Chase State",
+					"done": true
+				},
+				{
+					"details": "Charging",
+					"done": false
+				},
+				{
+					"details": "Snipers",
+					"done": false
+				},
+				{
+					"details": "Ranged Attack",
+					"done": true
+				},
+				{
+					"details": "Death",
+					"done": true
+				},
+				{
+					"details": "Move Away State",
+					"done": true
+				},
+				{
+					"details": "Move around when shooting",
+					"done": false
+				},
+				{
+					"details": "smoother movement",
+					"done": true
+				},
+				{
+					"details": "better aiming",
+					"done": true
+				},
+				{
+					"details": "stuck fix",
+					"done": true
+				},
+				{
+					"details": "better chasing",
+					"done": true
+				},
+				{
+					"details": "attack spread",
+					"done": true
+				}
+			]
+		},
+		{
+			"uuid": "a5580c75-92e4-4ade-b65a-06cafb030686",
+			"title": "Weapon System",
+			"description": "Just the basic. For templates",
+			"category": "bf6822f7-a948-4785-8d8a-efbc39150a16",
+			"steps": [
+				{
+					"details": "Ranged Weapons",
+					"done": true
+				},
+				{
+					"details": "Melee Weapons",
+					"done": true
+				},
+				{
+					"details": "Explosions",
+					"done": false
+				},
+				{
+					"details": "Status Effects",
+					"done": false
+				},
+				{
+					"details": "Secondary Weapons",
+					"done": true
+				},
+				{
+					"details": "weapon spot swap",
+					"done": false
+				},
+				{
+					"details": "multiple weapon",
+					"done": true
+				},
+				{
+					"details": "buy weapon",
+					"done": false
+				}
+			]
+		},
+		{
+			"uuid": "f8c41945-2d68-4961-97ec-ab491dcb840a",
+			"title": "Upgrades system",
+			"description": "",
+			"category": "bf6822f7-a948-4785-8d8a-efbc39150a16",
+			"steps": [
+				{
+					"details": "Stat upgrade",
+					"done": true
+				},
+				{
+					"details": "Upgrade UI",
+					"done": true
+				},
+				{
+					"details": "Mechanical Upgrade",
+					"done": true
+				},
+				{
+					"details": "shop",
+					"done": false
+				}
+			]
+		},
+		{
+			"uuid": "84a2e9e5-ef74-48c7-9d90-a9aae9be4c20",
+			"title": "Character System",
+			"description": "",
+			"category": "bf6822f7-a948-4785-8d8a-efbc39150a16",
+			"steps": [
+				{
+					"details": "Character Select",
+					"done": true
+				},
+				{
+					"details": "Model",
+					"done": false
+				},
+				{
+					"details": "Animation",
+					"done": false
+				},
+				{
+					"details": "Skills",
+					"done": false
+				},
+				{
+					"details": "Upgrades",
+					"done": false
+				}
+			]
+		},
+		{
+			"uuid": "4773b241-5751-476e-8f1d-1f6a643ef8fb",
+			"title": "Enemy Spawner",
+			"description": "",
+			"category": "bf6822f7-a948-4785-8d8a-efbc39150a16",
+			"steps": []
+		},
+		{
+			"uuid": "a7e6ac08-b521-4659-b629-feb86baf3d47",
+			"title": "Player System",
+			"description": "",
+			"category": "bf6822f7-a948-4785-8d8a-efbc39150a16",
+			"steps": [
+				{
+					"details": "HP",
+					"done": true
+				},
+				{
+					"details": "HUD",
+					"done": true
+				}
+			]
+		},
+		{
+			"uuid": "514d2f6c-525e-4ce3-8e4c-d72f97f7a49b",
+			"title": "Boss",
+			"description": "",
+			"category": "bf6822f7-a948-4785-8d8a-efbc39150a16",
+			"steps": [
+				{
+					"details": "Disable the invisible door thingi on the boss room",
+					"done": true
+				},
+				{
+					"details": "Boss fight",
+					"done": false
+				},
+				{
+					"details": "Boss enttiy",
+					"done": false
+				},
+				{
+					"details": "Fodder enemies helping them",
+					"done": false
+				}
+			]
+		},
+		{
+			"uuid": "68df170c-1a62-47d2-bbf9-bfb6fe3668a1",
+			"title": "Weapon system",
+			"description": "",
+			"category": "bf6822f7-a948-4785-8d8a-efbc39150a16",
+			"steps": [
+				{
+					"details": "weapon",
+					"done": true
+				},
+				{
+					"details": "change weapon in upgrade",
+					"done": false
+				},
+				{
+					"details": "starting weapon",
+					"done": false
+				},
+				{
+					"details": "meshes",
+					"done": false
+				},
+				{
+					"details": "GAME FEEL",
+					"done": false
+				}
+			]
+		},
+		{
+			"uuid": "fa416722-0941-4ad6-99c0-89f5c48e28cb",
+			"title": "NPC Interaction",
+			"description": "",
+			"category": "bf6822f7-a948-4785-8d8a-efbc39150a16",
+			"steps": [
+				{
+					"details": "Interacting",
+					"done": false
+				},
+				{
+					"details": "Dialogue",
+					"done": false
+				},
+				{
+					"details": "Shopkeeper",
+					"done": false
+				}
+			]
+		},
+		{
+			"uuid": "8551cdbc-1e5e-4491-a747-2fc74afcc376",
+			"title": "arch in combat map 3 too short",
+			"description": "",
+			"category": "bf6822f7-a948-4785-8d8a-efbc39150a16",
+			"steps": []
+		},
+		{
+			"uuid": "29d6c6c1-f417-482a-a9c9-bb5dcc8e436b",
+			"title": "Room 2 broken",
+			"description": "",
+			"category": "bf6822f7-a948-4785-8d8a-efbc39150a16",
+			"steps": []
+		},
+		{
+			"uuid": "c2e4dca1-a2d0-4891-a59b-39a4f4ea6efc",
+			"title": "Player Animation",
+			"description": "",
+			"category": "bf6822f7-a948-4785-8d8a-efbc39150a16",
+			"steps": [
+				{
+					"details": "Forward-Backwards",
+					"done": true
+				},
+				{
+					"details": "Sideways",
+					"done": true
+				},
+				{
+					"details": "Detect direction",
+					"done": true
+				},
+				{
+					"details": "Shoot",
+					"done": false
+				},
+				{
+					"details": "Reload",
+					"done": false
+				},
+				{
+					"details": "Dead(ragdoll)",
+					"done": false
+				}
+			]
+		},
+		{
+			"uuid": "015a3333-d245-4073-bddf-31b2cf4a5e0e",
+			"title": "Controller support",
+			"description": "",
+			"category": "bf6822f7-a948-4785-8d8a-efbc39150a16",
+			"steps": [
+				{
+					"details": "Movement",
+					"done": true
+				},
+				{
+					"details": "Shooting",
+					"done": true
+				},
+				{
+					"details": "UI",
+					"done": false
+				}
+			]
+		},
+		{
+			"uuid": "9af79126-6ecc-4c5e-b59d-a23ba1aa2585",
+			"title": "Player melee Weapon",
+			"description": "",
+			"category": "bf6822f7-a948-4785-8d8a-efbc39150a16",
+			"steps": []
+		},
+		{
+			"uuid": "2dcd0b0c-a09d-456f-8ad8-5d332bd3d842",
+			"title": "replace placeholder",
+			"description": "",
+			"category": "bf6822f7-a948-4785-8d8a-efbc39150a16",
+			"steps": [
+				{
+					"details": "sword slash effect",
+					"done": false
+				}
+			]
+		},
+		{
+			"uuid": "758e60f0-41ee-47fc-8ac9-994d95c1539d",
+			"title": "Shop",
+			"description": "",
+			"category": "bf6822f7-a948-4785-8d8a-efbc39150a16",
+			"steps": [
+				{
+					"details": "UI",
+					"done": false
+				},
+				{
+					"details": "Give upgrade",
+					"done": true
+				},
+				{
+					"details": "Change weapon",
+					"done": true
+				},
+				{
+					"details": "NPC",
+					"done": false
+				},
+				{
+					"details": "MONEY $$$",
+					"done": false
+				}
+			]
+		},
+		{
+			"uuid": "cf4b0e9c-8fa6-4fa2-a080-a9910721d486",
+			"title": "Remove arches and ceiling decoration",
+			"description": "for visibility and to not confuse player between ceilings and walls",
+			"category": "bf6822f7-a948-4785-8d8a-efbc39150a16",
+			"steps": []
+		},
+		{
+			"uuid": "1ce79fd3-c598-4464-b747-af3674d5717a",
+			"title": "Economy",
+			"description": "",
+			"category": "bf6822f7-a948-4785-8d8a-efbc39150a16",
+			"steps": []
+		}
+	],
+	"layout": {
+		"columns": [
+			[
+				"46f536bd-cd88-4307-86eb-79cb9102d0eb"
+			],
+			[
+				"08a8f383-6e31-4886-a8f9-4b61555b5d70"
+			],
+			[
+				"0ec02a96-1f18-4e45-8f05-bdaaa387baf4"
+			]
+		]
+	}
+}

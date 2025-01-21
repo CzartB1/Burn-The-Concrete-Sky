@@ -1,0 +1,14 @@
+[remap]
+
+importer="qodot.map"
+type="Resource"
+uid="uid://df35xr82cuw2x"
+path="res://.godot/imported/the_pit_combat_3.2.map-343b0cf1fe20062c37512b6815afc21b.tres"
+
+[deps]
+
+source_file="res://maps/the_pit/autosave/the_pit_combat_3.2.map"
+dest_files=["res://.godot/imported/the_pit_combat_3.2.map-343b0cf1fe20062c37512b6815afc21b.tres"]
+
+[params]
+

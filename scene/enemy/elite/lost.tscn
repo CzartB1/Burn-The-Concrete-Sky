@@ -1,0 +1,195 @@
+[gd_scene load_steps=21 format=3 uid="uid://kh8x4dwsv522"]
+
+[ext_resource type="Script" path="res://scripts/enemy/enemy.gd" id="1_pj2m2"]
+[ext_resource type="PackedScene" uid="uid://cvsfsqck1xyi5" path="res://meshes/enemies/losts/lost.blend" id="2_fpg8i"]
+[ext_resource type="Script" path="res://scripts/enemy/states/masters/behavior_ranged.gd" id="2_pem4h"]
+[ext_resource type="PackedScene" uid="uid://derh5gmq2d8f8" path="res://scene/utilities/gore/gore_manager.tscn" id="2_x8b4j"]
+[ext_resource type="Script" path="res://addons/finite_state_machine/scripts/finite_state_machine.gd" id="3_itb51"]
+[ext_resource type="Script" path="res://addons/finite_state_machine/scripts/state_machine_state.gd" id="4_8tijc"]
+[ext_resource type="PackedScene" uid="uid://d2fex6enn48vn" path="res://scene/enemy/elite/lost_proj.tscn" id="4_32v53"]
+[ext_resource type="Script" path="res://scripts/enemy/states/idle_state.gd" id="5_6fdxg"]
+[ext_resource type="Script" path="res://scripts/enemy/states/chase_state.gd" id="6_exrv7"]
+[ext_resource type="Script" path="res://scripts/enemy/states/avoid_state.gd" id="7_ivoqt"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_gjrny"]
+radius = 0.406947
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_cvuv1"]
+animation = &"upperbody_attack"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_tvlyy"]
+animation = &"upperbody_idle"
+
+[sub_resource type="AnimationNodeBlend2" id="AnimationNodeBlend2_6ptj5"]
+filter_enabled = true
+filters = ["metarig/Skeleton3D:foot.L", "metarig/Skeleton3D:foot.R", "metarig/Skeleton3D:hip", "metarig/Skeleton3D:hip.L", "metarig/Skeleton3D:hip.R", "metarig/Skeleton3D:shin.L", "metarig/Skeleton3D:shin.R", "metarig/Skeleton3D:thigh.L", "metarig/Skeleton3D:thigh.R"]
+
+[sub_resource type="AnimationNodeOneShot" id="AnimationNodeOneShot_4sdd6"]
+filter_enabled = true
+filters = ["", "metarig/Skeleton3D:forearm.L", "metarig/Skeleton3D:forearm.R", "metarig/Skeleton3D:head", "metarig/Skeleton3D:spine", "metarig/Skeleton3D:upper_arm.L", "metarig/Skeleton3D:upper_arm.R"]
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_tpc8d"]
+animation = &"idle"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_n7hp7"]
+animation = &"idle"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_0igb3"]
+animation = &"run"
+use_custom_timeline = true
+timeline_length = 1.0
+stretch_time_scale = true
+start_offset = 0.0
+loop_mode = 1
+
+[sub_resource type="AnimationNodeBlendSpace1D" id="AnimationNodeBlendSpace1D_wx5di"]
+blend_point_0/node = SubResource("AnimationNodeAnimation_tpc8d")
+blend_point_0/pos = -1.0
+blend_point_1/node = SubResource("AnimationNodeAnimation_n7hp7")
+blend_point_1/pos = 0.0
+blend_point_2/node = SubResource("AnimationNodeAnimation_0igb3")
+blend_point_2/pos = 1.0
+min_space = 0.0
+
+[sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_ilvdg"]
+graph_offset = Vector2(-60, 111.769)
+nodes/Animation/node = SubResource("AnimationNodeAnimation_tvlyy")
+nodes/Animation/position = Vector2(-500, 80)
+"nodes/Animation 2/node" = SubResource("AnimationNodeAnimation_cvuv1")
+"nodes/Animation 2/position" = Vector2(-460, 260)
+nodes/Blend2/node = SubResource("AnimationNodeBlend2_6ptj5")
+nodes/Blend2/position = Vector2(60, 140)
+nodes/attack/node = SubResource("AnimationNodeOneShot_4sdd6")
+nodes/attack/position = Vector2(-240, 20)
+nodes/moveBlend/node = SubResource("AnimationNodeBlendSpace1D_wx5di")
+nodes/moveBlend/position = Vector2(-200, 260)
+node_connections = [&"Blend2", 0, &"attack", &"Blend2", 1, &"moveBlend", &"attack", 0, &"Animation", &"attack", 1, &"Animation 2", &"output", 0, &"Blend2"]
+
+[node name="enemy_ranged" type="CharacterBody3D" node_paths=PackedStringArray("navigation_agent", "gore_manager") groups=["Enemy"]]
+script = ExtResource("1_pj2m2")
+navigation_agent = NodePath("behavior_master/NavigationAgent3D")
+mult_loot = 0.5
+gore_manager = NodePath("gore_manager")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("CapsuleShape3D_gjrny")
+
+[node name="shoot_cooldown" type="Timer" parent="."]
+
+[node name="Muzzle" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.346103, -0.576913)
+
+[node name="lost" parent="." instance=ExtResource("2_fpg8i")]
+transform = Transform3D(-1.2, 0, -1.81195e-07, 0, 1.2, 0, 1.81195e-07, 0, -1.2, 0, -1, 0)
+
+[node name="Skeleton3D" parent="lost/metarig" index="0"]
+bones/0/position = Vector3(0, 1.00169, -0.00681275)
+bones/0/scale = Vector3(1, 1, 1)
+bones/1/rotation = Quaternion(0.0096611, -0.707041, 0.0096611, 0.707041)
+bones/1/scale = Vector3(1, 1, 1)
+bones/2/rotation = Quaternion(0.0585182, -1.19043e-07, 6.86611e-09, 0.998286)
+bones/3/rotation = Quaternion(-0.431823, -0.546371, -0.563336, 0.44459)
+bones/3/scale = Vector3(1, 1, 1)
+bones/4/rotation = Quaternion(-0.235678, 0.409053, -0.384824, 0.793122)
+bones/5/rotation = Quaternion(0.47669, 0.260815, -0.648871, 0.532643)
+bones/6/rotation = Quaternion(-0.0223499, -0.00118914, -0.0266289, 0.999395)
+bones/6/scale = Vector3(1, 1, 1)
+bones/7/rotation = Quaternion(-0.431823, 0.546371, 0.563336, 0.44459)
+bones/7/scale = Vector3(1, 1, 1)
+bones/8/rotation = Quaternion(-0.228549, -0.414088, 0.375007, 0.797287)
+bones/8/scale = Vector3(1, 1, 1)
+bones/9/rotation = Quaternion(0.480037, -0.259526, 0.660363, 0.515879)
+bones/10/rotation = Quaternion(-0.0225636, 0.00381004, 0.0141313, 0.999638)
+bones/12/rotation = Quaternion(-0.19775, -1.1684e-07, -7.07229e-08, 0.980253)
+bones/13/position = Vector3(-0.133213, 0.298144, 0.210985)
+bones/14/rotation = Quaternion(0.706698, 0.02403, 0.706699, -0.02403)
+bones/14/scale = Vector3(1, 1, 1)
+bones/15/rotation = Quaternion(0.436793, -1.16285e-08, 1.03817e-08, 0.899562)
+bones/16/rotation = Quaternion(-0.763626, 1.03402e-06, -4.53289e-07, 0.645659)
+bones/16/scale = Vector3(1, 1, 1)
+bones/17/rotation = Quaternion(0.703673, -0.0696021, 0.703673, 0.069602)
+bones/17/scale = Vector3(1, 1, 1)
+bones/18/rotation = Quaternion(0.0600594, -1.51171e-08, 4.85394e-09, 0.998195)
+bones/19/rotation = Quaternion(-0.682957, 7.83714e-07, -7.32749e-07, 0.730459)
+bones/19/scale = Vector3(1, 1, 1)
+bones/20/rotation = Quaternion(-0.655919, -0.0708456, 0.0243406, 0.751105)
+bones/20/scale = Vector3(1, 1, 1)
+bones/21/rotation = Quaternion(-0.0243409, 0.751105, 0.655919, -0.0708453)
+
+[node name="AnimationTree" type="AnimationTree" parent="."]
+root_node = NodePath("../lost")
+tree_root = SubResource("AnimationNodeBlendTree_ilvdg")
+anim_player = NodePath("../lost/AnimationPlayer")
+parameters/Blend2/blend_amount = 1.0
+parameters/attack/active = false
+parameters/attack/internal_active = false
+parameters/attack/request = 0
+parameters/moveBlend/blend_position = 1.04777
+
+[node name="Looker" type="Node3D" parent="."]
+
+[node name="aim_ray" type="RayCast3D" parent="."]
+target_position = Vector3(0, 0, -100)
+collision_mask = 3
+debug_shape_custom_color = Color(1, 0.427451, 0.635294, 1)
+debug_shape_thickness = 5
+
+[node name="behavior_master" type="Node3D" parent="." node_paths=PackedStringArray("muzzles", "shoot_cooldown", "master", "state_machine", "aim_node", "attack_timer", "look_ray", "dead_state", "idle_state", "chase_state", "avoid_state", "anim")]
+script = ExtResource("2_pem4h")
+muzzles = [NodePath("muzzle")]
+bullet = ExtResource("4_32v53")
+fire_rate = 4.0
+shoot_cooldown = NodePath("../shoot_cooldown")
+spread = 2.0
+reload_duration = 0.0
+master = NodePath("..")
+state_machine = NodePath("FiniteStateMachine")
+speed = 6.0
+dist_to_chase = 10.0
+aim_node = NodePath("aimnode")
+attack_timer = NodePath("attack_timer")
+attack_speed = 0.0
+look_ray = NodePath("../aim_ray")
+dead_state = NodePath("FiniteStateMachine/Dead")
+idle_state = NodePath("FiniteStateMachine/Idle")
+chase_state = NodePath("FiniteStateMachine/Chase")
+avoid_state = NodePath("FiniteStateMachine/Avoid")
+anim = NodePath("../AnimationTree")
+
+[node name="FiniteStateMachine" type="Node" parent="behavior_master"]
+script = ExtResource("3_itb51")
+
+[node name="Dead" type="Node" parent="behavior_master/FiniteStateMachine"]
+script = ExtResource("4_8tijc")
+
+[node name="Idle" type="Node" parent="behavior_master/FiniteStateMachine" node_paths=PackedStringArray("behavior")]
+script = ExtResource("5_6fdxg")
+behavior = NodePath("../..")
+
+[node name="Chase" type="Node" parent="behavior_master/FiniteStateMachine" node_paths=PackedStringArray("behavior")]
+script = ExtResource("6_exrv7")
+behavior = NodePath("../..")
+
+[node name="Avoid" type="Node" parent="behavior_master/FiniteStateMachine" node_paths=PackedStringArray("behavior")]
+script = ExtResource("7_ivoqt")
+behavior = NodePath("../..")
+
+[node name="NavigationAgent3D" type="NavigationAgent3D" parent="behavior_master"]
+navigation_layers = 255
+
+[node name="attack_timer" type="Timer" parent="behavior_master"]
+autostart = true
+
+[node name="muzzle" type="Node3D" parent="behavior_master"]
+transform = Transform3D(0.2, 0, 0, 0, 0.4, 0, 0, 0, 0.2, 0, 0.226133, -1.24578)
+
+[node name="aimnode" type="Node3D" parent="behavior_master"]
+top_level = true
+
+[node name="gore_manager" parent="." instance=ExtResource("2_x8b4j")]
+
+[connection signal="timeout" from="shoot_cooldown" to="behavior_master" method="_on_shoot_cooldown_timeout"]
+[connection signal="velocity_computed" from="behavior_master/NavigationAgent3D" to="behavior_master" method="_on_navigation_agent_3d_velocity_computed"]
+[connection signal="timeout" from="behavior_master/attack_timer" to="behavior_master" method="_on_attack_timer_timeout"]
+
+[editable path="lost"]

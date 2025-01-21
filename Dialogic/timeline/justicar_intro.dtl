@@ -1,0 +1,9 @@
+"You're awake."\
+\
+A cloaked figure stands in front of you. It opens its cloak and you see... a gift?
+- Accept the gift
+	[signal arg="justicar_start"]
+	[end_timeline]
+- Walk Away
+	[signal arg="walkaway_start"]
+	[end_timeline]

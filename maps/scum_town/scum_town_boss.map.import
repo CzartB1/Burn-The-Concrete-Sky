@@ -1,0 +1,14 @@
+[remap]
+
+importer="qodot.map"
+type="Resource"
+uid="uid://cc2o7fj1qorgp"
+path="res://.godot/imported/scum_town_boss.map-a33b58a73a50367820c5ceef42e3fef3.tres"
+
+[deps]
+
+source_file="res://maps/scum_town/scum_town_boss.map"
+dest_files=["res://.godot/imported/scum_town_boss.map-a33b58a73a50367820c5ceef42e3fef3.tres"]
+
+[params]
+

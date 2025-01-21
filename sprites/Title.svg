@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="210mm"
+   height="297mm"
+   viewBox="0 0 210 297"
+   version="1.1"
+   id="svg5"
+   inkscape:version="1.2.1 (9c6d41e410, 2022-07-14)"
+   sodipodi:docname="Title.svg"
+   inkscape:export-filename="Title.svg"
+   inkscape:export-xdpi="96"
+   inkscape:export-ydpi="96"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview7"
+     pagecolor="#505050"
+     bordercolor="#eeeeee"
+     borderopacity="1"
+     inkscape:showpageshadow="0"
+     inkscape:pageopacity="0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#505050"
+     inkscape:document-units="mm"
+     showgrid="false"
+     inkscape:zoom="1.0670983"
+     inkscape:cx="338.76915"
+     inkscape:cy="480.74295"
+     inkscape:window-width="1920"
+     inkscape:window-height="1027"
+     inkscape:window-x="-8"
+     inkscape:window-y="-8"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="layer2" />
+  <defs
+     id="defs2">
+    <rect
+       x="208.07035"
+       y="315.41875"
+       width="360.47858"
+       height="54.336844"
+       id="rect1017" />
+    <rect
+       x="0"
+       y="426.74302"
+       width="793.70079"
+       height="185.54044"
+       id="rect299" />
+    <rect
+       x="208.07035"
+       y="315.41875"
+       width="360.47858"
+       height="54.336844"
+       id="rect1152" />
+  </defs>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1">
+    <text
+       xml:space="preserve"
+       transform="matrix(2.3825392,0,0,5.2288395,-839.62256,-2139.9863)"
+       id="text297"
+       style="font-size:18.6667px;font-family:'Courier New';-inkscape-font-specification:'Courier New';text-align:center;letter-spacing:-0.0810188px;word-spacing:-4.86113px;white-space:pre;shape-inside:url(#rect299);display:inline;fill:#000000;stroke-width:1.92378"><tspan
+         x="352.40662"
+         y="443.3514"
+         id="tspan3323"><tspan
+           dx="0 0 0 0 0 0 0 0 4.8611288 -4.8611302"
+           style="font-family:Tagmarker;-inkscape-font-specification:Tagmarker;fill:#ffffff"
+           id="tspan3321">CONCRETE SKY</tspan></tspan></text>
+  </g>
+  <g
+     inkscape:groupmode="layer"
+     id="layer2"
+     inkscape:label="Layer 2">
+    <text
+       xml:space="preserve"
+       transform="matrix(3.558264,0,0,4.8786465,-1276.7079,-1496.6238)"
+       id="text1015"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:18.6667px;font-family:Tagmarker;-inkscape-font-specification:Tagmarker;text-align:center;letter-spacing:-0.952544px;white-space:pre;shape-inside:url(#rect1017);display:inline;fill:#fe0000;fill-opacity:1;stroke-width:1.92378;image-rendering:auto"><tspan
+         x="361.38473"
+         y="331.75133"
+         id="tspan3327"><tspan
+           dx="0 0 0 0.95254397 -0.95254445"
+           style="font-family:Hexa;-inkscape-font-specification:Hexa"
+           id="tspan3325">Burn the</tspan></tspan></text>
+  </g>
+</svg>

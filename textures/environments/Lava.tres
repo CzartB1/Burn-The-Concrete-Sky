@@ -1,0 +1,21 @@
+[gd_resource type="ShaderMaterial" load_steps=3 format=3 uid="uid://dpr8d6duaw65i"]
+
+[ext_resource type="Shader" path="res://textures/gore/blood_pool.gdshader" id="1_1ustc"]
+[ext_resource type="Texture2D" uid="uid://m2d06sriv6p8" path="res://textures/environments/Lava.png" id="1_lehyx"]
+
+[resource]
+render_priority = -1
+shader = ExtResource("1_1ustc")
+shader_parameter/albedo = Color(1, 1, 1, 1)
+shader_parameter/scroll_speed1 = Vector2(0.05, 0)
+shader_parameter/scroll_speed2 = Vector2(-0.03, 0)
+shader_parameter/blend_factor = 1.5
+shader_parameter/scale1 = Vector2(1, 1)
+shader_parameter/scale2 = Vector2(1, 1)
+shader_parameter/wave_strength = 0.6
+shader_parameter/wave_scale = 0.02
+shader_parameter/pixelation_level = 64
+shader_parameter/FoamSize = 0.5
+shader_parameter/WaterOpacity = 1.0
+shader_parameter/FoamGlowIntensity = 0.5
+shader_parameter/water_texture2 = ExtResource("1_lehyx")

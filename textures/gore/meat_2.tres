@@ -1,0 +1,8 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://cp6bkk0fsmx57"]
+
+[ext_resource type="Texture2D" uid="uid://5ku2toqs0jft" path="res://textures/gore/meat_2.png" id="1_4beup"]
+
+[resource]
+albedo_texture = ExtResource("1_4beup")
+metallic_specular = 0.0
+texture_filter = 2

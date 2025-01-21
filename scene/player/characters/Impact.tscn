@@ -1,0 +1,255 @@
+[gd_scene load_steps=32 format=3 uid="uid://cj7kkva2uk3m0"]
+
+[ext_resource type="Script" path="res://scripts/player/player.gd" id="1_2kbpr"]
+[ext_resource type="PackedScene" uid="uid://bsluxy1if04dd" path="res://meshes/player/characters/Impact/impact.blend" id="2_ivvde"]
+[ext_resource type="Script" path="res://scripts/player/player_anim_manager.gd" id="3_70vgf"]
+[ext_resource type="PackedScene" uid="uid://7elo11bnf3va" path="res://scene/player/weapon_holder.tscn" id="4_ch0b0"]
+[ext_resource type="PackedScene" uid="uid://d2ssiplk0o8os" path="res://scene/player/upgrades/upgrade_manager.tscn" id="5_1mgav"]
+[ext_resource type="Script" path="res://scripts/player/abilities/gladiator_ability.gd" id="6_5m3vd"]
+[ext_resource type="PackedScene" uid="uid://b7s666fjvh0kq" path="res://scene/player/characters/abilities/impact_grapple.tscn" id="7_cjr57"]
+[ext_resource type="Script" path="res://scripts/player/player_cam.gd" id="7_kbhwl"]
+[ext_resource type="PackedScene" uid="uid://bi7qoo74n8kdj" path="res://scene/player/player_hud.tscn" id="10_65p3m"]
+[ext_resource type="Script" path="res://scripts/player/footstep_detector.gd" id="11_jnd4o"]
+[ext_resource type="PackedScene" uid="uid://bbrv0muijwlh6" path="res://scene/player/player_economy_manager.tscn" id="11_x4fxv"]
+[ext_resource type="AudioStream" uid="uid://danbigtreogct" path="res://audios/effects/footsteps/zapsplat_foley_footstep_single_female_leather_shoe_on_concrete_street_011_50934.mp3" id="12_cdf7j"]
+[ext_resource type="AudioStream" uid="uid://bipkiw32ki8yn" path="res://audios/effects/footsteps/zapsplat_foley_footstep_single_boys_sneaker_on_concrete_005_50915.mp3" id="12_som4r"]
+[ext_resource type="AudioStream" uid="uid://chiit86na75ri" path="res://audios/effects/footsteps/zapsplat_foley_footstep_single_shallow_puddle_water_002_30458.mp3" id="12_yb76m"]
+[ext_resource type="AudioStream" uid="uid://vitby6d872ti" path="res://audios/effects/footsteps/zapsplat_foley_footstep_single_wet_dirt_001_30460.mp3" id="13_01num"]
+[ext_resource type="AudioStream" uid="uid://baxb21ofu4hes" path="res://audios/effects/footsteps/zapsplat_foley_footstep_single_wet_dirt_010_30469.mp3" id="14_1kygx"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_6vhwg"]
+radius = 0.252089
+height = 1.67993
+
+[sub_resource type="AnimationNodeBlend2" id="AnimationNodeBlend2_7drsd"]
+filter_enabled = true
+filters = ["metarig/Skeleton3D:foot.L", "metarig/Skeleton3D:foot.R", "metarig/Skeleton3D:hip", "metarig/Skeleton3D:shin.L", "metarig/Skeleton3D:shin.R", "metarig/Skeleton3D:spine", "metarig/Skeleton3D:thigh.L", "metarig/Skeleton3D:thigh.R"]
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_s2tak"]
+animation = &"run"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_16dnq"]
+animation = &"run_backwards"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_pu2p2"]
+animation = &"strafe_left"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_6yklf"]
+animation = &"strafe_right"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_mcnsv"]
+animation = &"idle"
+
+[sub_resource type="AnimationNodeBlendSpace2D" id="AnimationNodeBlendSpace2D_5eaqr"]
+blend_point_0/node = SubResource("AnimationNodeAnimation_s2tak")
+blend_point_0/pos = Vector2(0, 1)
+blend_point_1/node = SubResource("AnimationNodeAnimation_16dnq")
+blend_point_1/pos = Vector2(0, -1)
+blend_point_2/node = SubResource("AnimationNodeAnimation_pu2p2")
+blend_point_2/pos = Vector2(-1, 0)
+blend_point_3/node = SubResource("AnimationNodeAnimation_6yklf")
+blend_point_3/pos = Vector2(1, 0)
+blend_point_4/node = SubResource("AnimationNodeAnimation_mcnsv")
+blend_point_4/pos = Vector2(0, 0)
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_ncltw"]
+animation = &"weapon_pistol"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_rdnqv"]
+animation = &"weapon_rifle"
+
+[sub_resource type="AnimationNodeBlendSpace1D" id="AnimationNodeBlendSpace1D_1crn4"]
+blend_point_0/node = SubResource("AnimationNodeAnimation_ncltw")
+blend_point_0/pos = 0.0
+blend_point_1/node = SubResource("AnimationNodeAnimation_rdnqv")
+blend_point_1/pos = 1.0
+min_space = 0.0
+
+[sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_u1ytm"]
+graph_offset = Vector2(-428.372, -9.30301)
+nodes/Blend2/node = SubResource("AnimationNodeBlend2_7drsd")
+nodes/Blend2/position = Vector2(240, 100)
+nodes/BlendSpace2D/node = SubResource("AnimationNodeBlendSpace2D_5eaqr")
+nodes/BlendSpace2D/position = Vector2(-60, 180)
+nodes/output/position = Vector2(440, 160)
+nodes/weapon_anim_id/node = SubResource("AnimationNodeBlendSpace1D_1crn4")
+nodes/weapon_anim_id/position = Vector2(20, -20)
+node_connections = [&"Blend2", 0, &"weapon_anim_id", &"Blend2", 1, &"BlendSpace2D", &"output", 0, &"Blend2"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_c71mp"]
+size = Vector3(276.536, 0.001, 129.934)
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_2838g"]
+playback_mode = 1
+random_pitch = 1.5
+random_volume_offset_db = 0.7
+streams_count = 3
+stream_0/stream = ExtResource("12_yb76m")
+stream_1/stream = ExtResource("13_01num")
+stream_2/stream = ExtResource("14_1kygx")
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_xx7wi"]
+playback_mode = 1
+random_pitch = 1.7
+random_volume_offset_db = 0.5
+streams_count = 2
+stream_0/stream = ExtResource("12_som4r")
+stream_1/stream = ExtResource("12_cdf7j")
+
+[node name="player" type="CharacterBody3D" node_paths=PackedStringArray("upgrade_manager", "HP_bar", "time_slow_bar", "charge_bar", "body", "cont_look_target", "cam", "cam_holder", "anim_manager") groups=["Player"]]
+floor_block_on_wall = false
+script = ExtResource("1_2kbpr")
+upgrade_manager = NodePath("upgrade_manager")
+HP_bar = NodePath("player_HUD/HUD/VBoxContainer/HP bar")
+time_slow_bar = NodePath("player_HUD/HUD/mouse_icon/TextureProgressBar")
+charge_bar = NodePath("player_HUD/HUD/mouse_icon/melee charge bar")
+body = NodePath("body")
+move_speed = 15
+dash_amount = 2
+cont_look_target = NodePath("cont_look_target")
+cam = NodePath("cam_holder/Camera3D")
+cam_holder = NodePath("cam_holder")
+anim_manager = NodePath("body/anim_manager")
+
+[node name="body" type="CollisionShape3D" parent="."]
+shape = SubResource("CapsuleShape3D_6vhwg")
+
+[node name="impact" parent="body" instance=ExtResource("2_ivvde")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, -0.778036, 0)
+
+[node name="Skeleton3D" parent="body/impact/metarig" index="0"]
+bones/0/position = Vector3(2.63418e-09, 0.98482, -0.00681275)
+bones/0/rotation = Quaternion(0, 0.382684, 0, 0.92388)
+bones/0/scale = Vector3(1, 1, 1)
+bones/1/rotation = Quaternion(0.0104663, -0.642728, 0.00878231, 0.765973)
+bones/1/scale = Vector3(1, 1, 1)
+bones/2/rotation = Quaternion(0.00703262, 3.4626e-05, -0.025019, 0.999662)
+bones/3/rotation = Quaternion(-0.433772, -0.606757, -0.500619, 0.439396)
+bones/3/scale = Vector3(1, 1, 1)
+bones/4/rotation = Quaternion(-0.139716, 0.513122, -0.410077, 0.740961)
+bones/5/rotation = Quaternion(0.557421, -0.188373, -0.129852, 0.798083)
+bones/6/rotation = Quaternion(-0.0211187, 0.000166143, -0.0379608, 0.999056)
+bones/6/scale = Vector3(1, 1, 1)
+bones/7/rotation = Quaternion(-0.450151, 0.557541, 0.512628, 0.472996)
+bones/7/scale = Vector3(1, 1, 1)
+bones/8/rotation = Quaternion(-0.100058, -0.110108, 0.817731, 0.556041)
+bones/9/rotation = Quaternion(0.222084, -0.0148282, 0.0314846, 0.974406)
+bones/9/scale = Vector3(1, 1, 1)
+bones/10/rotation = Quaternion(-0.0213207, 0.00243081, 0.0257741, 0.999438)
+bones/10/scale = Vector3(1, 1, 1)
+bones/11/rotation = Quaternion(0.165634, 0.214311, -0.0302835, 0.962143)
+bones/12/rotation = Quaternion(-0.239012, 0.00234275, 0.0149519, 0.970899)
+bones/13/position = Vector3(0.00558721, 0.0621001, 0.098)
+bones/13/rotation = Quaternion(0.92217, -0.0257154, 0.382468, 0.0515656)
+bones/13/scale = Vector3(1, 1, 1)
+bones/14/rotation = Quaternion(0.101164, -2.37752e-08, 1.56363e-08, 0.99487)
+bones/15/rotation = Quaternion(-0.650472, 0.00978567, -0.00973531, 0.759405)
+bones/15/scale = Vector3(1, 1, 1)
+bones/16/position = Vector3(0.00558726, 0.0621001, -0.098)
+bones/16/rotation = Quaternion(0.902539, -0.0328106, 0.409308, 0.129665)
+bones/16/scale = Vector3(1, 1, 1)
+bones/17/rotation = Quaternion(0.580846, -0.00236451, 0.0450081, 0.812764)
+bones/18/rotation = Quaternion(-0.706223, 0.000191688, -0.00399732, 0.707978)
+bones/18/scale = Vector3(1, 1, 1)
+bones/19/rotation = Quaternion(-0.655919, -0.0708456, 0.0243406, 0.751105)
+bones/19/scale = Vector3(1, 1, 1)
+bones/20/rotation = Quaternion(-0.0243409, 0.751105, 0.655919, -0.0708453)
+
+[node name="BoneAttachment3D" type="BoneAttachment3D" parent="body/impact/metarig/Skeleton3D" index="5"]
+transform = Transform3D(-0.997096, 0.0307138, 0.0696823, 0.0706507, 0.0316627, 0.996999, 0.0284152, 0.999027, -0.0337409, -0.207116, 1.52151, 0.520549)
+bone_name = "hand.R"
+bone_idx = 10
+
+[node name="weapon_holder" parent="body/impact/metarig/Skeleton3D/BoneAttachment3D" node_paths=PackedStringArray("master") instance=ExtResource("4_ch0b0")]
+transform = Transform3D(1.20617, 0.0854649, -0.0343733, -0.0371537, 0.0383019, -1.2085, -0.0842933, 1.20605, 0.0408155, -0.259071, -0.498914, -0.542495)
+master = NodePath("../../../../../..")
+current_1_id = 1
+
+[node name="Ability" type="Node3D" parent="body" node_paths=PackedStringArray("cooldown_timer", "cooldown_bar", "body")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1)
+script = ExtResource("6_5m3vd")
+cooldown_timer = NodePath("Timer")
+hook_object = ExtResource("7_cjr57")
+cooldown_bar = NodePath("../../player_HUD/HUD/VBoxContainer/Ability bar")
+body = NodePath("..")
+
+[node name="Timer" type="Timer" parent="body/Ability"]
+one_shot = true
+
+[node name="anim_manager" type="AnimationTree" parent="body" node_paths=PackedStringArray("master", "body")]
+root_node = NodePath("../impact")
+tree_root = SubResource("AnimationNodeBlendTree_u1ytm")
+anim_player = NodePath("../impact/AnimationPlayer")
+parameters/Blend2/blend_amount = 1.0
+parameters/BlendSpace2D/blend_position = Vector2(0.499598, 0.497797)
+parameters/weapon_anim_id/blend_position = -0.00719895
+script = ExtResource("3_70vgf")
+master = NodePath("../..")
+body = NodePath("..")
+
+[node name="upgrade_manager" parent="." node_paths=PackedStringArray("player", "weapon_manager") instance=ExtResource("5_1mgav")]
+player = NodePath("..")
+weapon_manager = NodePath("../body/impact/metarig/Skeleton3D/BoneAttachment3D/weapon_holder")
+
+[node name="look_plane" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0134459, 0)
+collision_layer = 32768
+collision_mask = 0
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="look_plane"]
+shape = SubResource("BoxShape3D_c71mp")
+
+[node name="cam_holder" type="Node3D" parent="." node_paths=PackedStringArray("master", "cam", "body") groups=["Camera"]]
+transform = Transform3D(1, 0, 0, 0, 0.906308, -0.422618, 0, 0.422618, 0.906308, 0, 0, 0)
+top_level = true
+script = ExtResource("7_kbhwl")
+master = NodePath("..")
+cam = NodePath("Camera3D")
+body = NodePath("../body")
+
+[node name="Camera3D" type="Camera3D" parent="cam_holder"]
+transform = Transform3D(1, 0, 0, 0, -8.9407e-08, 1, 0, -1, -8.9407e-08, 0, 38.0416, 0)
+projection = 1
+size = 20.0
+
+[node name="dash_timer" type="Timer" parent="."]
+wait_time = 0.1
+one_shot = true
+
+[node name="dash_cooldown" type="Timer" parent="."]
+one_shot = true
+
+[node name="cont_look_target" type="Node3D" parent="."]
+
+[node name="economy_manager" parent="." instance=ExtResource("11_x4fxv")]
+
+[node name="player_HUD" parent="." instance=ExtResource("10_65p3m")]
+
+[node name="HBoxContainer" parent="player_HUD/HUD/VBoxContainer" index="2" node_paths=PackedStringArray("weapon_holder")]
+weapon_holder = NodePath("../../../../body/impact/metarig/Skeleton3D/BoneAttachment3D/weapon_holder")
+
+[node name="footstep_detector" type="Node3D" parent="." node_paths=PackedStringArray("character_controller", "raycast_node", "audio_player")]
+script = ExtResource("11_jnd4o")
+character_controller = NodePath("..")
+raycast_node = NodePath("RayCast3D")
+footstep_interval = 0.2
+audio_player = NodePath("AudioStreamPlayer3D")
+material_groups = ["water", "metal", "wood"]
+footstep_sounds = Array[AudioStream]([SubResource("AudioStreamRandomizer_2838g")])
+default_footstep_sound = SubResource("AudioStreamRandomizer_xx7wi")
+
+[node name="RayCast3D" type="RayCast3D" parent="footstep_detector"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.830083, 0)
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="footstep_detector"]
+attenuation_model = 3
+volume_db = -15.0
+max_db = 1.0
+
+[connection signal="timeout" from="body/Ability/Timer" to="body/Ability" method="cooldown_timer_timeout"]
+[connection signal="timeout" from="dash_timer" to="." method="_on_dash_timer_timeout"]
+[connection signal="timeout" from="dash_cooldown" to="." method="_on_dash_timer_timeout"]
+[connection signal="timeout" from="dash_cooldown" to="." method="_on_dash_cooldown_timeout"]
+
+[editable path="body/impact"]
+[editable path="player_HUD"]

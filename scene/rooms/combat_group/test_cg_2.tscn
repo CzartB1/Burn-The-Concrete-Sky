@@ -1,0 +1,31 @@
+[gd_scene load_steps=10 format=3 uid="uid://dobo5bwy3fiha"]
+
+[ext_resource type="Script" path="res://scripts/systems/rooms/combat_group.gd" id="1_wulxw"]
+[ext_resource type="PackedScene" uid="uid://cetmp2xotayla" path="res://scene/enemy/enemy_melee.tscn" id="2_5k56y"]
+[ext_resource type="PackedScene" uid="uid://bec01vxm0w464" path="res://scene/rooms/test/test_cg2/room_cg2_1.tscn" id="3_1kaj4"]
+[ext_resource type="PackedScene" uid="uid://ws57loxbjyuh" path="res://scene/rooms/test/test_cg2/room_rest_cg2.tscn" id="3_4mt3y"]
+[ext_resource type="PackedScene" uid="uid://cni56etq4fbs0" path="res://scene/enemy/enemy_sniper.tscn" id="3_egx6l"]
+[ext_resource type="PackedScene" uid="uid://crl4uprshby1o" path="res://scene/rooms/test/test_cg2/room_cg2_2.tscn" id="4_gmh0s"]
+[ext_resource type="PackedScene" uid="uid://fsiodlolvois" path="res://scene/rooms/test/test_cg2/room_cg2_3.tscn" id="5_igyys"]
+[ext_resource type="PackedScene" uid="uid://brvxceh61ahpp" path="res://scene/rooms/test/test_cg2/room_boss_cg2.tscn" id="7_ugyc6"]
+[ext_resource type="AudioStream" uid="uid://wr18kx8p1l8l" path="res://audios/music/placeholders/the-final-boss-battle-158700.mp3" id="9_2m1xi"]
+
+[node name="test_cg2" type="Node3D" node_paths=PackedStringArray("rooms", "intro_room", "rest_room", "boss_room")]
+script = ExtResource("1_wulxw")
+rooms = [NodePath("room_1"), NodePath("room_2"), NodePath("room_3")]
+commons = Array[PackedScene]([ExtResource("2_5k56y")])
+elites = Array[PackedScene]([ExtResource("3_egx6l")])
+intro_room = NodePath("room_rest")
+rest_room = NodePath("room_rest")
+boss_room = NodePath("room_boss")
+
+[node name="room_rest" parent="." groups=["room"] instance=ExtResource("3_4mt3y")]
+
+[node name="room_1" parent="." groups=["room"] instance=ExtResource("3_1kaj4")]
+
+[node name="room_2" parent="." groups=["room"] instance=ExtResource("4_gmh0s")]
+
+[node name="room_3" parent="." groups=["room"] instance=ExtResource("5_igyys")]
+
+[node name="room_boss" parent="." groups=["room"] instance=ExtResource("7_ugyc6")]
+boss_music = ExtResource("9_2m1xi")

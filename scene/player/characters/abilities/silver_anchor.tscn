@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://csngan3cvkpl7"]
+
+[ext_resource type="Texture2D" uid="uid://did4oc2cacg5g" path="res://meshes/effects/player/abilities/silver/silver_card.png" id="1_0orrq"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_h6hk2"]
+cull_mode = 2
+specular_mode = 1
+albedo_texture = ExtResource("1_0orrq")
+metallic = 0.4
+roughness = 0.57
+
+[sub_resource type="QuadMesh" id="QuadMesh_iywyr"]
+material = SubResource("StandardMaterial3D_h6hk2")
+size = Vector2(0.4, 0.75)
+
+[node name="SilverAnchor" type="Node3D"]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.905421, 0.424515, 0, -0.424515, 0.905421, 0, 0, 0, 1, 0, 0.107541, 0)
+mesh = SubResource("QuadMesh_iywyr")

@@ -1,0 +1,113 @@
+[gd_scene load_steps=14 format=3 uid="uid://bu2ltr6e61sok"]
+
+[ext_resource type="Script" path="res://scripts/enemy/enemy.gd" id="1_okdsr"]
+[ext_resource type="Script" path="res://scripts/enemy/states/masters/behavior_charge.gd" id="2_me32v"]
+[ext_resource type="Script" path="res://addons/finite_state_machine/scripts/finite_state_machine.gd" id="3_du5aq"]
+[ext_resource type="Script" path="res://addons/finite_state_machine/scripts/state_machine_state.gd" id="4_gpk41"]
+[ext_resource type="Script" path="res://scripts/enemy/states/idle_state.gd" id="5_3k51x"]
+[ext_resource type="Script" path="res://scripts/enemy/states/chase_state.gd" id="6_a1fto"]
+[ext_resource type="Script" path="res://scripts/enemy/states/avoid_state.gd" id="7_6byx0"]
+[ext_resource type="PackedScene" uid="uid://derh5gmq2d8f8" path="res://scene/utilities/gore/gore_manager.tscn" id="8_0whwh"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_gjrny"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3t5hi"]
+albedo_color = Color(1, 0.0352941, 0, 1)
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_67f57"]
+material = SubResource("StandardMaterial3D_3t5hi")
+
+[sub_resource type="BoxMesh" id="BoxMesh_f57f6"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_4qbp4"]
+size = Vector3(0.769531, 1.2876, 0.338318)
+
+[node name="enemy_charge" type="CharacterBody3D" node_paths=PackedStringArray("navigation_agent", "gore_manager") groups=["Enemy"]]
+script = ExtResource("1_okdsr")
+navigation_agent = NodePath("behavior_master/NavigationAgent3D")
+gore_manager = NodePath("gore_manager")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("CapsuleShape3D_gjrny")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("CapsuleMesh_67f57")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="MeshInstance3D"]
+transform = Transform3D(0.764849, 0, 0, 0, 0.241913, 0, 0, 0, 0.29789, 0, 0.459297, -0.426675)
+mesh = SubResource("BoxMesh_f57f6")
+skeleton = NodePath("../..")
+
+[node name="Muzzle" type="Node3D" parent="MeshInstance3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1)
+
+[node name="Looker" type="Node3D" parent="."]
+
+[node name="aim_ray" type="RayCast3D" parent="."]
+target_position = Vector3(0, 0, -100)
+collision_mask = 3
+debug_shape_custom_color = Color(1, 0.427451, 0.635294, 1)
+debug_shape_thickness = 5
+
+[node name="behavior_master" type="Node3D" parent="." node_paths=PackedStringArray("charge_ray", "cooldown_timer", "master", "state_machine", "aim_node", "attack_timer", "look_ray", "dead_state", "idle_state", "chase_state", "avoid_state")]
+script = ExtResource("2_me32v")
+charge_speed = 17.0
+charge_duration = 0.2
+charge_ray = NodePath("../aim_ray")
+cooldown_timer = NodePath("cooldown_timer")
+master = NodePath("..")
+state_machine = NodePath("FiniteStateMachine")
+dist_to_chase = 2.0
+dist_to_avoid = 0.0
+aim_node = NodePath("aimnode")
+attack_timer = NodePath("attack_timer")
+look_ray = NodePath("../aim_ray")
+dead_state = NodePath("FiniteStateMachine/Dead")
+idle_state = NodePath("FiniteStateMachine/Idle")
+chase_state = NodePath("FiniteStateMachine/Chase")
+avoid_state = NodePath("FiniteStateMachine/Avoid")
+
+[node name="FiniteStateMachine" type="Node" parent="behavior_master"]
+script = ExtResource("3_du5aq")
+
+[node name="Dead" type="Node" parent="behavior_master/FiniteStateMachine"]
+script = ExtResource("4_gpk41")
+
+[node name="Idle" type="Node" parent="behavior_master/FiniteStateMachine" node_paths=PackedStringArray("behavior")]
+script = ExtResource("5_3k51x")
+behavior = NodePath("../..")
+
+[node name="Chase" type="Node" parent="behavior_master/FiniteStateMachine" node_paths=PackedStringArray("behavior")]
+script = ExtResource("6_a1fto")
+behavior = NodePath("../..")
+
+[node name="Avoid" type="Node" parent="behavior_master/FiniteStateMachine" node_paths=PackedStringArray("behavior")]
+script = ExtResource("7_6byx0")
+behavior = NodePath("../..")
+
+[node name="NavigationAgent3D" type="NavigationAgent3D" parent="behavior_master"]
+navigation_layers = 255
+avoidance_enabled = true
+radius = 1.0
+
+[node name="attack_timer" type="Timer" parent="behavior_master"]
+
+[node name="aimnode" type="Node3D" parent="behavior_master"]
+top_level = true
+
+[node name="charge_hitbox" type="Area3D" parent="behavior_master"]
+input_ray_pickable = false
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="behavior_master/charge_hitbox"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.143799, -0.529738)
+shape = SubResource("BoxShape3D_4qbp4")
+
+[node name="cooldown_timer" type="Timer" parent="behavior_master"]
+one_shot = true
+
+[node name="gore_manager" parent="." instance=ExtResource("8_0whwh")]
+
+[connection signal="velocity_computed" from="behavior_master/NavigationAgent3D" to="behavior_master" method="_on_navigation_agent_3d_velocity_computed"]
+[connection signal="timeout" from="behavior_master/attack_timer" to="behavior_master" method="_on_attack_timer_timeout"]
+[connection signal="body_entered" from="behavior_master/charge_hitbox" to="behavior_master" method="_on_charge_hitbox_body_entered"]
+[connection signal="timeout" from="behavior_master/cooldown_timer" to="behavior_master" method="_on_cooldow_timeout"]

@@ -1,0 +1,24 @@
+[gd_scene load_steps=4 format=3 uid="uid://dcr5km4dago7k"]
+
+[ext_resource type="Script" path="res://scripts/player/upgrades/wind_blade_object.gd" id="1_kcw5y"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_7rswg"]
+radius = 1.8
+
+[sub_resource type="SphereMesh" id="SphereMesh_r8rey"]
+radius = 1.75
+
+[node name="wind_blade_object" type="Area3D" groups=["temps"]]
+script = ExtResource("1_kcw5y")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("SphereShape3D_7rswg")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("SphereMesh_r8rey")
+
+[node name="Timer" type="Timer" parent="."]
+autostart = true
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

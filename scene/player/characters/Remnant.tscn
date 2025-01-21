@@ -1,0 +1,233 @@
+[gd_scene load_steps=28 format=3 uid="uid://dks7eg8o5s7al"]
+
+[ext_resource type="Script" path="res://scripts/player/player.gd" id="1_o64jm"]
+[ext_resource type="PackedScene" uid="uid://c5c1e0lvux7ox" path="res://meshes/player/characters/Remnant/Remnant_new.blend" id="2_h1g6s"]
+[ext_resource type="Script" path="res://scripts/player/player_anim_manager.gd" id="3_ugo0p"]
+[ext_resource type="PackedScene" uid="uid://7elo11bnf3va" path="res://scene/player/weapon_holder.tscn" id="4_70iq4"]
+[ext_resource type="PackedScene" uid="uid://d2ssiplk0o8os" path="res://scene/player/upgrades/upgrade_manager.tscn" id="5_v0ccl"]
+[ext_resource type="Script" path="res://scripts/player/abilities/remnant_ability.gd" id="6_0gqog"]
+[ext_resource type="PackedScene" uid="uid://cbe7vyi0jjwbi" path="res://scene/player/characters/abilities/remnant_ability_area.tscn" id="7_2q1sr"]
+[ext_resource type="Script" path="res://scripts/player/player_cam.gd" id="7_ydq5y"]
+[ext_resource type="PackedScene" uid="uid://bpfjiepxftms8" path="res://scene/player/footstep_detector.tscn" id="10_e0dsa"]
+[ext_resource type="PackedScene" uid="uid://bi7qoo74n8kdj" path="res://scene/player/player_hud.tscn" id="10_sryfb"]
+[ext_resource type="PackedScene" uid="uid://bbrv0muijwlh6" path="res://scene/player/player_economy_manager.tscn" id="11_1u1ne"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_6vhwg"]
+radius = 0.382597
+height = 1.7
+
+[sub_resource type="AnimationNodeBlend2" id="AnimationNodeBlend2_7drsd"]
+filter_enabled = true
+filters = ["metarig/Skeleton3D:foot.L", "metarig/Skeleton3D:foot.R", "metarig/Skeleton3D:hip", "metarig/Skeleton3D:shin.L", "metarig/Skeleton3D:shin.R", "metarig/Skeleton3D:spine", "metarig/Skeleton3D:thigh.L", "metarig/Skeleton3D:thigh.R"]
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_s2tak"]
+animation = &"run"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_16dnq"]
+animation = &"run_backwards"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_pu2p2"]
+animation = &"strafe_left"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_6yklf"]
+animation = &"strafe_right"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_mcnsv"]
+animation = &"idle"
+
+[sub_resource type="AnimationNodeBlendSpace2D" id="AnimationNodeBlendSpace2D_5eaqr"]
+blend_point_0/node = SubResource("AnimationNodeAnimation_s2tak")
+blend_point_0/pos = Vector2(0, 1)
+blend_point_1/node = SubResource("AnimationNodeAnimation_16dnq")
+blend_point_1/pos = Vector2(0, -1)
+blend_point_2/node = SubResource("AnimationNodeAnimation_pu2p2")
+blend_point_2/pos = Vector2(-1, 0)
+blend_point_3/node = SubResource("AnimationNodeAnimation_6yklf")
+blend_point_3/pos = Vector2(1, 0)
+blend_point_4/node = SubResource("AnimationNodeAnimation_mcnsv")
+blend_point_4/pos = Vector2(0, 0)
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_ncltw"]
+animation = &"weapon_pistol"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_rdnqv"]
+animation = &"weapon_rifle"
+
+[sub_resource type="AnimationNodeBlendSpace1D" id="AnimationNodeBlendSpace1D_1crn4"]
+blend_point_0/node = SubResource("AnimationNodeAnimation_ncltw")
+blend_point_0/pos = 0.0
+blend_point_1/node = SubResource("AnimationNodeAnimation_rdnqv")
+blend_point_1/pos = 1.0
+min_space = 0.0
+
+[sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_u1ytm"]
+graph_offset = Vector2(-624, 109)
+nodes/Blend2/node = SubResource("AnimationNodeBlend2_7drsd")
+nodes/Blend2/position = Vector2(260, -40)
+nodes/BlendSpace2D/node = SubResource("AnimationNodeBlendSpace2D_5eaqr")
+nodes/BlendSpace2D/position = Vector2(20, 200)
+nodes/output/position = Vector2(480, -20)
+nodes/weapon_anim_id/node = SubResource("AnimationNodeBlendSpace1D_1crn4")
+nodes/weapon_anim_id/position = Vector2(20, -20)
+node_connections = [&"Blend2", 0, &"weapon_anim_id", &"Blend2", 1, &"BlendSpace2D", &"output", 0, &"Blend2"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_c71mp"]
+size = Vector3(276.536, 0.001, 129.934)
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_27x45"]
+
+[sub_resource type="Sky" id="Sky_04xiq"]
+sky_material = SubResource("ProceduralSkyMaterial_27x45")
+
+[sub_resource type="Environment" id="Environment_61b4n"]
+background_mode = 1
+sky = SubResource("Sky_04xiq")
+ambient_light_source = 1
+ambient_light_color = Color(1, 1, 1, 1)
+
+[node name="Remnant" type="CharacterBody3D" node_paths=PackedStringArray("upgrade_manager", "HP_bar", "time_slow_bar", "charge_bar", "body", "cont_look_target", "cam", "cam_holder", "anim_manager") groups=["Player"]]
+script = ExtResource("1_o64jm")
+upgrade_manager = NodePath("upgrade_manager")
+hp = 30
+HP_bar = NodePath("player_HUD/HUD/VBoxContainer/HP bar")
+time_slow_bar = NodePath("player_HUD/HUD/mouse_icon/TextureProgressBar")
+charge_bar = NodePath("player_HUD/HUD/mouse_icon/melee charge bar")
+body = NodePath("body")
+dash_speed = 60
+dash_duration = 0.25
+controller = true
+cont_look_target = NodePath("cont_look_target")
+cam = NodePath("cam_holder/Camera3D")
+cam_holder = NodePath("cam_holder")
+anim_manager = NodePath("body/anim_manager")
+combat_music_index = 1
+
+[node name="body" type="CollisionShape3D" parent="."]
+shape = SubResource("CapsuleShape3D_6vhwg")
+
+[node name="Remnant_new" parent="body" instance=ExtResource("2_h1g6s")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, -1, 0)
+
+[node name="Skeleton3D" parent="body/Remnant_new/metarig" index="0"]
+bones/0/position = Vector3(2.63418e-09, 0.986909, -0.00681275)
+bones/0/rotation = Quaternion(0, 0.382684, 0, 0.92388)
+bones/0/scale = Vector3(1, 1, 1)
+bones/1/rotation = Quaternion(0.0104663, -0.642728, 0.00878231, 0.765973)
+bones/1/scale = Vector3(1, 1, 1)
+bones/2/rotation = Quaternion(-0.0287027, 7.78153e-09, -5.77402e-09, 0.999588)
+bones/3/rotation = Quaternion(-0.593886, -0.4772, -0.483882, 0.430625)
+bones/4/rotation = Quaternion(-0.228885, 0.315441, -0.487017, 0.781616)
+bones/5/rotation = Quaternion(0.292023, -0.192419, -0.432532, 0.831032)
+bones/6/rotation = Quaternion(-0.11098, -0.101144, -0.0547067, 0.987148)
+bones/6/scale = Vector3(1, 1, 1)
+bones/7/rotation = Quaternion(-0.517395, 0.457718, 0.513062, 0.509475)
+bones/7/scale = Vector3(1, 1, 1)
+bones/8/rotation = Quaternion(-0.189766, -0.660966, 0.489922, 0.535807)
+bones/8/scale = Vector3(1, 1, 1)
+bones/9/rotation = Quaternion(0.845884, 0.160233, 0.135912, 0.490238)
+bones/9/scale = Vector3(1, 1, 1)
+bones/10/rotation = Quaternion(-0.279863, -0.00430775, 0.0571182, 0.95833)
+bones/10/scale = Vector3(1, 1, 1)
+bones/11/rotation = Quaternion(0.0379731, 0.21804, -0.00782301, 0.975169)
+bones/12/rotation = Quaternion(-0.0634644, -0.000805138, -0.00753154, 0.997955)
+bones/13/position = Vector3(0.00558721, 0.0621001, 0.098)
+bones/13/rotation = Quaternion(0.917448, -0.004559, 0.379214, 0.120269)
+bones/13/scale = Vector3(1, 1, 1)
+bones/14/rotation = Quaternion(0.274633, 1.11141e-05, 0.0012575, 0.961548)
+bones/15/rotation = Quaternion(-0.64997, -0.0302144, 0.0300594, 0.758764)
+bones/15/scale = Vector3(1, 1, 1)
+bones/16/position = Vector3(0.00558726, 0.0621001, -0.098)
+bones/16/rotation = Quaternion(0.908123, -0.0269702, 0.413937, -0.0569329)
+bones/16/scale = Vector3(1, 1, 1)
+bones/17/rotation = Quaternion(0.219786, -0.000123974, 0.0207892, 0.975327)
+bones/18/rotation = Quaternion(-0.724675, 0.0336023, -0.0518228, 0.686318)
+bones/18/scale = Vector3(1, 1, 1)
+bones/19/rotation = Quaternion(-0.655919, -0.0708456, 0.0243406, 0.751105)
+bones/19/scale = Vector3(1, 1, 1)
+bones/20/rotation = Quaternion(-0.0243409, 0.751105, 0.655919, -0.0708453)
+
+[node name="BoneAttachment3D" type="BoneAttachment3D" parent="body/Remnant_new/metarig/Skeleton3D" index="8"]
+transform = Transform3D(-0.993284, -0.0336957, 0.110689, 0.111174, -0.0128681, 0.993718, -0.0320596, 0.999349, 0.0165277, -0.347369, 1.4591, 0.10737)
+bone_name = "hand.R"
+bone_idx = 10
+
+[node name="weapon_holder" parent="body/Remnant_new/metarig/Skeleton3D/BoneAttachment3D" node_paths=PackedStringArray("master") instance=ExtResource("4_70iq4")]
+transform = Transform3D(1.20617, 0.0854649, -0.0343733, -0.0371537, 0.0383019, -1.2085, -0.0842933, 1.20605, 0.0408155, -0.259071, -0.498914, -0.542495)
+master = NodePath("../../../../../..")
+current_1_id = 6
+
+[node name="anim_manager" type="AnimationTree" parent="body" node_paths=PackedStringArray("master", "body")]
+root_node = NodePath("../Remnant_new")
+tree_root = SubResource("AnimationNodeBlendTree_u1ytm")
+anim_player = NodePath("../Remnant_new/AnimationPlayer")
+parameters/Blend2/blend_amount = 1.0
+parameters/BlendSpace2D/blend_position = Vector2(0.499598, 0.497797)
+parameters/weapon_anim_id/blend_position = 1.00066
+script = ExtResource("3_ugo0p")
+master = NodePath("../..")
+body = NodePath("..")
+
+[node name="upgrade_manager" parent="." node_paths=PackedStringArray("player", "weapon_manager") instance=ExtResource("5_v0ccl")]
+player = NodePath("..")
+weapon_manager = NodePath("../body/Remnant_new/metarig/Skeleton3D/BoneAttachment3D/weapon_holder")
+
+[node name="Ability" type="Node3D" parent="." node_paths=PackedStringArray("cooldown_timer", "cooldown_bar", "body")]
+script = ExtResource("6_0gqog")
+cooldown_timer = NodePath("Timer")
+area = ExtResource("7_2q1sr")
+cooldown_bar = NodePath("../player_HUD/HUD/VBoxContainer/Ability bar")
+body = NodePath("../body")
+
+[node name="Timer" type="Timer" parent="Ability"]
+wait_time = 3.0
+one_shot = true
+
+[node name="look_plane" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0134459, 0)
+collision_layer = 32768
+collision_mask = 0
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="look_plane"]
+shape = SubResource("BoxShape3D_c71mp")
+
+[node name="cam_holder" type="Node3D" parent="." node_paths=PackedStringArray("master", "cam", "body") groups=["Camera"]]
+transform = Transform3D(1, 0, 0, 0, 0.906308, -0.422618, 0, 0.422618, 0.906308, 0, 0, 0)
+top_level = true
+script = ExtResource("7_ydq5y")
+master = NodePath("..")
+cam = NodePath("Camera3D")
+body = NodePath("../body")
+
+[node name="Camera3D" type="Camera3D" parent="cam_holder"]
+transform = Transform3D(1, 0, 0, 0, -8.9407e-08, 1, 0, -1, -8.9407e-08, 0, 38.0416, 0)
+environment = SubResource("Environment_61b4n")
+projection = 1
+size = 20.0
+near = 0.001
+
+[node name="dash_timer" type="Timer" parent="."]
+wait_time = 0.1
+one_shot = true
+
+[node name="dash_cooldown" type="Timer" parent="."]
+one_shot = true
+
+[node name="cont_look_target" type="Node3D" parent="."]
+
+[node name="economy_manager" parent="." instance=ExtResource("11_1u1ne")]
+
+[node name="footstep_detector" parent="." node_paths=PackedStringArray("character_controller") instance=ExtResource("10_e0dsa")]
+character_controller = NodePath("..")
+
+[node name="player_HUD" parent="." instance=ExtResource("10_sryfb")]
+
+[node name="HBoxContainer" parent="player_HUD/HUD/VBoxContainer" index="2" node_paths=PackedStringArray("weapon_holder")]
+weapon_holder = NodePath("../../../../body/Remnant_new/metarig/Skeleton3D/BoneAttachment3D/weapon_holder")
+
+[connection signal="timeout" from="Ability/Timer" to="Ability" method="cooldown_timer_timeout"]
+[connection signal="timeout" from="dash_timer" to="." method="_on_dash_timer_timeout"]
+[connection signal="timeout" from="dash_cooldown" to="." method="_on_dash_timer_timeout"]
+[connection signal="timeout" from="dash_cooldown" to="." method="_on_dash_cooldown_timeout"]
+
+[editable path="body/Remnant_new"]
+[editable path="player_HUD"]

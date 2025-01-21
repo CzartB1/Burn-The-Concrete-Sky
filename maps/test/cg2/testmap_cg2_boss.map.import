@@ -1,0 +1,14 @@
+[remap]
+
+importer="qodot.map"
+type="Resource"
+uid="uid://cycf6c8wnb0l0"
+path="res://.godot/imported/testmap_cg2_boss.map-bed02f48ab6904ca4df3fa0a562d2249.tres"
+
+[deps]
+
+source_file="res://maps/test/cg2/testmap_cg2_boss.map"
+dest_files=["res://.godot/imported/testmap_cg2_boss.map-bed02f48ab6904ca4df3fa0a562d2249.tres"]
+
+[params]
+

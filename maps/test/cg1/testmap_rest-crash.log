@@ -1,0 +1,15 @@
+Renderer info: NVIDIA GeForce RTX 3060/PCIe/SSE2 version 4.6.0 NVIDIA 535.98 from NVIDIA Corporation
+Depth buffer bits: 24
+Multisampling enabled
+Adding file system path Z:\home\czartb\Documents\Gamedev\TrenchBroom-Win64-v2023.1-Release\defaults\assets
+Adding file system path Z:\home\czartb\Documents\Gamedev\TrenchBroom-Win64-v2023.1-Release\defaults\assets
+Adding file system path C:\users\czartb\Documents\My Projects\Games\project_topdown\.
+Loading document from Z:\home\czartb\Syncthing_shared\Projects\project_topdown\maps\test\cg1\testmap_rest.map
+Adding file system path Z:\home\czartb\Documents\Gamedev\TrenchBroom-Win64-v2023.1-Release\defaults\assets
+Adding file system path Z:\home\czartb\Documents\Gamedev\TrenchBroom-Win64-v2023.1-Release\defaults\assets
+Adding file system path C:\users\czartb\Documents\My Projects\Games\project_topdown\.
+Adding file system path C:\users\czartb\Documents\My Projects\Games\project_topdown\textures
+Adding file system path C:\users\czartb\Documents\My Projects\Games\project_topdown\definitions
+Could not load builtin entity definition file 'project_topdown.fgd': Z:\home\czartb\Documents\Gamedev\TrenchBroom-Win64-v2023.1-Release\games\project_topdown\project_topdown.fgd
+Loaded texture collection 'textures\test' in 4ms
+Loaded Z:\home\czartb\Syncthing_shared\Projects\project_topdown\maps\test\cg1\testmap_rest.map in 106ms

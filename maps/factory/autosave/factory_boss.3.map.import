@@ -1,0 +1,14 @@
+[remap]
+
+importer="qodot.map"
+type="Resource"
+uid="uid://bxb7g7a6obwnv"
+path="res://.godot/imported/factory_boss.3.map-cbb563d3ac9668f00654c6f576f855cf.tres"
+
+[deps]
+
+source_file="res://maps/factory/autosave/factory_boss.3.map"
+dest_files=["res://.godot/imported/factory_boss.3.map-cbb563d3ac9668f00654c6f576f855cf.tres"]
+
+[params]
+

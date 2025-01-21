@@ -1,0 +1,120 @@
+[gd_scene load_steps=4 format=3 uid="uid://5rnl8sgiev1v"]
+
+[ext_resource type="Script" path="res://scripts/player/upgrades/upgrade_screen.gd" id="1_ylfma"]
+[ext_resource type="Script" path="res://scripts/systems/upgrades/ability_button.gd" id="2_e6tq1"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gdblg"]
+bg_color = Color(0, 0, 0, 1)
+
+[node name="upgrade_screen" type="Control" node_paths=PackedStringArray("menu", "up_button1", "up_button2", "up_button3", "money_label")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ylfma")
+menu = NodePath("Panel")
+up_button1 = NodePath("Panel/MarginContainer/HBoxContainer/ability1_button")
+up_button2 = NodePath("Panel/MarginContainer/HBoxContainer/ability2_button")
+up_button3 = NodePath("Panel/MarginContainer/HBoxContainer/ability3_button")
+money_label = NodePath("Panel/money_label")
+metadata/_edit_lock_ = true
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_gdblg")
+metadata/_edit_lock_ = true
+
+[node name="MarginContainer" type="MarginContainer" parent="Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 67.0
+offset_top = 113.0
+offset_right = -67.0
+offset_bottom = -345.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Panel/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 100
+alignment = 1
+
+[node name="ability1_button" type="Button" parent="Panel/MarginContainer/HBoxContainer" node_paths=PackedStringArray("menu")]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "ability 1
+"
+script = ExtResource("2_e6tq1")
+menu = NodePath("../../../..")
+
+[node name="ability2_button" type="Button" parent="Panel/MarginContainer/HBoxContainer" node_paths=PackedStringArray("menu")]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "ability 2"
+script = ExtResource("2_e6tq1")
+upgrade_id = 1
+menu = NodePath("../../../..")
+
+[node name="ability3_button" type="Button" parent="Panel/MarginContainer/HBoxContainer" node_paths=PackedStringArray("menu")]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "ability 3"
+script = ExtResource("2_e6tq1")
+upgrade_id = 2
+menu = NodePath("../../../..")
+
+[node name="exit_button" type="Button" parent="Panel"]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 502.0
+offset_top = -98.0
+offset_right = -502.0
+offset_bottom = -67.0
+grow_horizontal = 2
+grow_vertical = 0
+size_flags_horizontal = 3
+text = "back"
+
+[node name="buy_button" type="Button" parent="Panel"]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 502.0
+offset_top = -140.0
+offset_right = -502.0
+offset_bottom = -109.0
+grow_horizontal = 2
+grow_vertical = 0
+size_flags_horizontal = 3
+text = "buy"
+
+[node name="money_label" type="RichTextLabel" parent="Panel"]
+layout_mode = 0
+offset_left = 22.0
+offset_top = 27.0
+offset_right = 257.0
+offset_bottom = 67.0
+size_flags_horizontal = 8
+theme_override_font_sizes/normal_font_size = 26
+text = "100"
+autowrap_mode = 0
+
+[connection signal="pressed" from="Panel/MarginContainer/HBoxContainer/ability1_button" to="Panel/MarginContainer/HBoxContainer/ability1_button" method="_on_pressed"]
+[connection signal="pressed" from="Panel/MarginContainer/HBoxContainer/ability2_button" to="Panel/MarginContainer/HBoxContainer/ability2_button" method="_on_pressed"]
+[connection signal="pressed" from="Panel/MarginContainer/HBoxContainer/ability3_button" to="Panel/MarginContainer/HBoxContainer/ability3_button" method="_on_pressed"]
+[connection signal="pressed" from="Panel/exit_button" to="." method="_on_exit_button_pressed"]
+[connection signal="pressed" from="Panel/buy_button" to="." method="_on_buy_button_pressed"]

@@ -1,0 +1,225 @@
+[gd_scene load_steps=17 format=3 uid="uid://7elo11bnf3va"]
+
+[ext_resource type="Script" path="res://scripts/player/weapon/weapon_manager.gd" id="1_rku58"]
+[ext_resource type="Script" path="res://scripts/player/weapon/projectile_gun.gd" id="2_toky6"]
+[ext_resource type="PackedScene" uid="uid://8ysnnu4dntee" path="res://scene/player/player_bullet.tscn" id="3_0j408"]
+[ext_resource type="Texture2D" uid="uid://b4digkieaudvy" path="res://sprites/pow.png" id="3_v305p"]
+[ext_resource type="Script" path="res://scripts/player/weapon/melee_weapon.gd" id="4_lfc15"]
+[ext_resource type="Texture2D" uid="uid://cmoka0opia5yq" path="res://sprites/slash-placeholder.png" id="5_pwomt"]
+[ext_resource type="AudioStream" uid="uid://eys01vibqmhu" path="res://audios/weapons/shotgun_1.wav" id="6_psg06"]
+[ext_resource type="PackedScene" uid="uid://cu23ddimpx0vu" path="res://meshes/effects/weapons/muzzle_flash.blend" id="7_wps2v"]
+[ext_resource type="PackedScene" uid="uid://dqltrr3q0qnho" path="res://meshes/player/weapons/double_barrel.blend" id="8_5yu2w"]
+[ext_resource type="AudioStream" uid="uid://c6een0c0m2u80" path="res://audios/weapons/mg_1.wav" id="8_o1aab"]
+[ext_resource type="AudioStream" uid="uid://66amfm225ril" path="res://audios/weapons/revolver_1.wav" id="9_o61uu"]
+[ext_resource type="PackedScene" uid="uid://bok2o8kqabga8" path="res://meshes/player/weapons/lmg_common.blend" id="9_ugy7q"]
+[ext_resource type="PackedScene" uid="uid://llmcibq3mjbm" path="res://meshes/player/weapons/revolver_common.blend" id="11_4ifep"]
+[ext_resource type="PackedScene" uid="uid://5ys7ompy1j6u" path="res://meshes/player/weapons/ar_common.blend" id="11_g3slb"]
+[ext_resource type="PackedScene" uid="uid://c2u4ckc0gt2cq" path="res://meshes/player/weapons/pistol_common.blend" id="15_mngps"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_nchdq"]
+size = Vector3(1.2627, 1, 0.804445)
+
+[node name="weapon_holder" type="Node3D" node_paths=PackedStringArray("weapons")]
+script = ExtResource("1_rku58")
+current_1_id = 2
+weapons = [NodePath("fist"), NodePath("shotgun"), NodePath("machine_gun"), NodePath("sword"), NodePath("Revolver"), NodePath("Pistol"), NodePath("assault_rifle")]
+
+[node name="fist" type="Node3D" parent="." node_paths=PackedStringArray("manager", "hitbox", "visual_effects", "cooldown_timer")]
+script = ExtResource("4_lfc15")
+manager = NodePath("..")
+hitbox = NodePath("Area3D")
+visual_effects = NodePath("Area3D/CollisionShape3D/Sprite3D")
+cooldown_timer = NodePath("cooldown")
+
+[node name="Area3D" type="Area3D" parent="fist"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.533335)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="fist/Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.0977792)
+shape = SubResource("BoxShape3D_nchdq")
+
+[node name="Sprite3D" type="Sprite3D" parent="fist/Area3D/CollisionShape3D"]
+transform = Transform3D(0.5, -3.72529e-08, -5.24025e-14, -4.59755e-16, -2.18557e-08, 1, -3.72529e-08, -0.5, -4.37114e-08, -0.0158014, 0, -0.251304)
+modulate = Color(0, 0, 0, 1)
+pixel_size = 0.005
+texture = ExtResource("3_v305p")
+
+[node name="cooldown" type="Timer" parent="fist"]
+wait_time = 0.2
+one_shot = true
+
+[node name="shotgun" type="Node3D" parent="." node_paths=PackedStringArray("manager", "muzzles", "muzzle_flash")]
+visible = false
+script = ExtResource("2_toky6")
+manager = NodePath("..")
+muzzles = [NodePath("muzzle")]
+bullet = ExtResource("3_0j408")
+damage = 5
+spread = 10.0
+pellets = 5
+max_ammo = 2
+reload_duration = 0.5
+bullet_counted_reload = true
+muzzle_flash = NodePath("muzzle_flash")
+anim_id = 1
+gunshot_sound = ExtResource("6_psg06")
+price = 250
+
+[node name="muzzle" type="Node3D" parent="shotgun"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1.18281)
+
+[node name="muzzle_flash" parent="shotgun" instance=ExtResource("7_wps2v")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0.116593, 0.536008, -1.18357)
+
+[node name="OmniLight3D" type="OmniLight3D" parent="shotgun/muzzle_flash"]
+light_color = Color(1, 0.815686, 0.419608, 1)
+light_energy = 0.4
+omni_range = 2.0
+
+[node name="double_barrel" parent="shotgun" instance=ExtResource("8_5yu2w")]
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0.129903, 0.501052, -0.568073)
+
+[node name="machine_gun" type="Node3D" parent="." node_paths=PackedStringArray("manager", "muzzles", "muzzle_flash")]
+visible = false
+script = ExtResource("2_toky6")
+manager = NodePath("..")
+muzzles = [NodePath("muzzle")]
+bullet = ExtResource("3_0j408")
+fire_rate = 8.0
+damage = 5
+spread = 1.5
+max_ammo = 50
+muzzle_flash = NodePath("muzzle_flash")
+anim_id = 1
+gunshot_sound = ExtResource("8_o1aab")
+price = 150
+
+[node name="muzzle" type="Node3D" parent="machine_gun"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1.18281)
+
+[node name="muzzle_flash" parent="machine_gun" instance=ExtResource("7_wps2v")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0.144604, 0.534947, -1.77125)
+
+[node name="OmniLight3D" type="OmniLight3D" parent="machine_gun/muzzle_flash"]
+light_color = Color(1, 0.815686, 0.419608, 1)
+light_energy = 0.4
+omni_range = 2.0
+
+[node name="lmg_common" parent="machine_gun" instance=ExtResource("9_ugy7q")]
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0.141042, 0.479726, -0.797982)
+
+[node name="assault_rifle" type="Node3D" parent="." node_paths=PackedStringArray("manager", "muzzles", "muzzle_flash")]
+visible = false
+script = ExtResource("2_toky6")
+manager = NodePath("..")
+muzzles = [NodePath("muzzle")]
+bullet = ExtResource("3_0j408")
+fire_rate = 8.0
+damage = 5
+spread = 1.5
+max_ammo = 50
+muzzle_flash = NodePath("muzzle_flash")
+anim_id = 1
+gunshot_sound = ExtResource("8_o1aab")
+price = 150
+
+[node name="ar_common" parent="assault_rifle" instance=ExtResource("11_g3slb")]
+transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0.138757, 0.522058, -0.56377)
+
+[node name="muzzle" type="Node3D" parent="assault_rifle"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1.18281)
+
+[node name="muzzle_flash" parent="assault_rifle" instance=ExtResource("7_wps2v")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0.144604, 0.525665, -1.41713)
+
+[node name="OmniLight3D" type="OmniLight3D" parent="assault_rifle/muzzle_flash"]
+light_color = Color(1, 0.815686, 0.419608, 1)
+light_energy = 0.4
+omni_range = 2.0
+
+[node name="sword" type="Node3D" parent="." node_paths=PackedStringArray("manager", "hitbox", "visual_effects", "cooldown_timer")]
+script = ExtResource("4_lfc15")
+manager = NodePath("..")
+hitbox = NodePath("Area3D")
+visual_effects = NodePath("Area3D/CollisionShape3D/Sprite3D")
+deflect_bullet = true
+cooldown_timer = NodePath("cooldown")
+price = 150
+
+[node name="Area3D" type="Area3D" parent="sword"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.533335)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="sword/Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.355713)
+shape = SubResource("BoxShape3D_nchdq")
+
+[node name="Sprite3D" type="Sprite3D" parent="sword/Area3D/CollisionShape3D"]
+transform = Transform3D(0.258819, -0.965926, -4.2222e-08, 0, -4.37114e-08, 1, -0.965926, -0.258819, -1.13133e-08, 0.0703011, 0, 0.365055)
+pixel_size = 0.005
+texture = ExtResource("5_pwomt")
+
+[node name="cooldown" type="Timer" parent="sword"]
+wait_time = 0.3
+one_shot = true
+
+[node name="Revolver" type="Node3D" parent="." node_paths=PackedStringArray("manager", "muzzles", "muzzle_flash")]
+visible = false
+script = ExtResource("2_toky6")
+manager = NodePath("..")
+muzzles = [NodePath("../machine_gun/muzzle")]
+bullet = ExtResource("3_0j408")
+fire_rate = 4.0
+damage = 10
+spread = 0.0
+max_ammo = 6
+reload_duration = 0.5
+bullet_counted_reload = true
+muzzle_flash = NodePath("muzzle_flash")
+gunshot_sound = ExtResource("9_o61uu")
+price = 300
+
+[node name="muzzle" type="Node3D" parent="Revolver"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1.18281)
+
+[node name="muzzle_flash" parent="Revolver" instance=ExtResource("7_wps2v")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0.146226, 0.596794, -1.11462)
+
+[node name="OmniLight3D" type="OmniLight3D" parent="Revolver/muzzle_flash"]
+light_color = Color(1, 0.815686, 0.419608, 1)
+light_energy = 0.4
+omni_range = 2.0
+
+[node name="revolver_common" parent="Revolver" instance=ExtResource("11_4ifep")]
+transform = Transform3D(0.0697967, -0.00214996, -0.00487779, 0.00198906, 0.0699319, -0.00236186, 0.00494558, 0.0022164, 0.0697899, 0.160184, 0.547151, -0.612012)
+
+[node name="Pistol" type="Node3D" parent="." node_paths=PackedStringArray("manager", "muzzles", "muzzle_flash")]
+script = ExtResource("2_toky6")
+manager = NodePath("..")
+muzzles = [NodePath("muzzle")]
+bullet = ExtResource("3_0j408")
+fire_rate = 8.0
+damage = 5
+spread = 0.0
+max_ammo = 12
+reload_duration = 0.5
+muzzle_flash = NodePath("muzzle_flash")
+price = 75
+
+[node name="muzzle" type="Node3D" parent="Pistol"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1.18281)
+
+[node name="muzzle_flash" parent="Pistol" instance=ExtResource("7_wps2v")]
+transform = Transform3D(-0.2, 0, -3.01992e-08, 0, 0.2, 0, 3.01992e-08, 0, -0.2, 0.124624, 0.558908, -0.741285)
+
+[node name="OmniLight3D" type="OmniLight3D" parent="Pistol/muzzle_flash"]
+light_color = Color(1, 0.815686, 0.419608, 1)
+light_energy = 0.4
+omni_range = 2.0
+
+[node name="pistol_common" parent="Pistol" instance=ExtResource("15_mngps")]
+transform = Transform3D(0.075, 0, 0, 0, 0.075, 0, 0, 0, 0.075, 0.137532, 0.515562, -0.51398)
+
+[node name="AudioListener3D" type="AudioListener3D" parent="."]
+
+[connection signal="timeout" from="fist/cooldown" to="fist" method="_on_cooldown_timeout"]
+[connection signal="timeout" from="sword/cooldown" to="sword" method="_on_cooldown_timeout"]

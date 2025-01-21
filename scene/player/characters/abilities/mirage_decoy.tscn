@@ -1,0 +1,71 @@
+[gd_scene load_steps=6 format=3 uid="uid://dofv6wsmohjmf"]
+
+[ext_resource type="Script" path="res://scripts/player/abilities/kunoichi_decoy.gd" id="1_1pmwv"]
+[ext_resource type="PackedScene" uid="uid://cp7y4m5g1v21j" path="res://scene/utilities/stun_area.tscn" id="2_tdyq1"]
+[ext_resource type="PackedScene" uid="uid://bkps0liwiv650" path="res://meshes/player_male_base.blend" id="3_r2ceb"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_eyfec"]
+radius = 0.421632
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_ifews"]
+
+[node name="decoy" type="CharacterBody3D" node_paths=PackedStringArray("timer") groups=["Abilities"]]
+collision_layer = 2
+collision_mask = 2
+script = ExtResource("1_1pmwv")
+stun_area = ExtResource("2_tdyq1")
+timer = NodePath("Timer")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("CapsuleShape3D_eyfec")
+
+[node name="player_male_base" parent="CollisionShape3D" instance=ExtResource("3_r2ceb")]
+transform = Transform3D(-1.2, 0, -1.04907e-07, 0, 1.2, 0, 1.04907e-07, 0, -1.2, 0, -1, 0)
+
+[node name="Skeleton3D" parent="CollisionShape3D/player_male_base/metarig" index="0"]
+bones/0/position = Vector3(2.62701e-09, 0.988224, -0.00681275)
+bones/0/rotation = Quaternion(0, 0.382684, 0, 0.92388)
+bones/0/scale = Vector3(1, 1, 1)
+bones/1/rotation = Quaternion(0.0104663, -0.642728, 0.00878231, 0.765973)
+bones/1/scale = Vector3(1, 1, 1)
+bones/2/rotation = Quaternion(-0.0287109, -1.19157e-07, -3.52757e-09, 0.999588)
+bones/3/rotation = Quaternion(-0.455256, -0.527034, -0.543388, 0.468728)
+bones/3/scale = Vector3(1, 1, 1)
+bones/4/rotation = Quaternion(-0.260254, 0.536736, -0.489061, 0.636398)
+bones/5/rotation = Quaternion(0.617735, -0.0868378, -0.0958598, 0.775676)
+bones/6/rotation = Quaternion(-0.0211187, 0.000166152, -0.0379608, 0.999056)
+bones/6/scale = Vector3(1, 1, 1)
+bones/7/rotation = Quaternion(-0.447143, 0.556891, 0.513434, 0.475732)
+bones/7/scale = Vector3(1, 1, 1)
+bones/8/rotation = Quaternion(-0.237632, -0.367405, 0.752321, 0.492502)
+bones/8/scale = Vector3(1, 1, 1)
+bones/9/rotation = Quaternion(0.427223, -0.000392148, 0.0191263, 0.903944)
+bones/9/scale = Vector3(1, 1, 1)
+bones/10/rotation = Quaternion(-0.0213207, 0.00243081, 0.0257741, 0.999437)
+bones/11/rotation = Quaternion(0.165634, 0.214311, -0.0302835, 0.962143)
+bones/12/rotation = Quaternion(-0.154804, -1.17772e-07, -5.53621e-08, 0.987945)
+bones/13/rotation = Quaternion(0.921547, 0.0183332, 0.379716, 0.0789363)
+bones/13/scale = Vector3(1, 1, 1)
+bones/14/rotation = Quaternion(-0.0117801, -2.35805e-08, 1.56135e-08, 0.999931)
+bones/15/rotation = Quaternion(-0.649618, -0.0385437, 0.0383459, 0.758314)
+bones/15/scale = Vector3(1, 1, 1)
+bones/16/rotation = Quaternion(0.908685, -0.030873, 0.41476, -0.036228)
+bones/16/scale = Vector3(1, 1, 1)
+bones/17/rotation = Quaternion(0.389265, -0.00140529, 0.0322481, 0.92056)
+bones/18/rotation = Quaternion(-0.708037, 0.0404062, -0.0595694, 0.702498)
+bones/18/scale = Vector3(1, 1, 1)
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 5.0
+one_shot = true
+autostart = true
+
+[node name="Area3D" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+shape = SubResource("CapsuleShape3D_ifews")
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]
+
+[editable path="CollisionShape3D/player_male_base"]

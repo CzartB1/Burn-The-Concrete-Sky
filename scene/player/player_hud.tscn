@@ -1,0 +1,507 @@
+[gd_scene load_steps=20 format=3 uid="uid://bi7qoo74n8kdj"]
+
+[ext_resource type="Texture2D" uid="uid://cddj8k55a3nh1" path="res://sprites/crosshair.png" id="1_iujy2"]
+[ext_resource type="Shader" path="res://shader/posterize.gdshader" id="1_t8rcp"]
+[ext_resource type="Script" path="res://scripts/player/UI/player_cleared_screen.gd" id="1_wdgp3"]
+[ext_resource type="Texture2D" uid="uid://did7m5jvkwgf3" path="res://sprites/CircularProgressBar.png" id="2_m6pgi"]
+[ext_resource type="Script" path="res://scripts/player/UI/player_death_screen.gd" id="4_w4vkn"]
+[ext_resource type="Script" path="res://scripts/player/UI/player_stat_screen.gd" id="5_pswk3"]
+[ext_resource type="Script" path="res://scripts/player/UI/player_weapon_UI.gd" id="5_slv7q"]
+[ext_resource type="Script" path="res://scripts/misc/letterboxing.gd" id="6_j5g7i"]
+[ext_resource type="Script" path="res://scripts/menus/pause_menu.gd" id="7_nlpmb"]
+[ext_resource type="Texture2D" uid="uid://bgjrfnbyusacn" path="res://sprites/UI/button_background.png" id="10_18jnf"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_yknq1"]
+shader = ExtResource("1_t8rcp")
+shader_parameter/steps = 8.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ebhvy"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_762oj"]
+bg_color = Color(1, 1, 1, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cir7g"]
+bg_color = Color(0.84, 0.84, 0.84, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4raoc"]
+bg_color = Color(0.786166, 0.0107821, 3.85046e-07, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dusv0"]
+bg_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_gv8hh"]
+texture = ExtResource("10_18jnf")
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_vws7g"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_gesil"]
+
+[node name="player_HUD" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="."]
+visible = false
+material = SubResource("ShaderMaterial_yknq1")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="letterboxing" type="CanvasLayer" parent="." groups=["l8rbox"]]
+visible = false
+script = ExtResource("6_j5g7i")
+
+[node name="ColorRect" type="ColorRect" parent="letterboxing"]
+anchors_preset = 10
+anchor_right = 1.0
+offset_top = -64.0
+offset_bottom = 32.0
+grow_horizontal = 2
+color = Color(0, 0, 0, 1)
+
+[node name="ColorRect2" type="ColorRect" parent="letterboxing"]
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -32.0
+offset_bottom = 64.0
+grow_horizontal = 2
+grow_vertical = 0
+color = Color(0, 0, 0, 1)
+
+[node name="HUD" type="CanvasLayer" parent="."]
+layer = 4
+
+[node name="mouse_icon" type="Control" parent="HUD"]
+layout_mode = 3
+anchors_preset = 0
+
+[node name="melee charge bar" type="ProgressBar" parent="HUD/mouse_icon"]
+layout_mode = 0
+offset_left = -32.0
+offset_top = -32.0
+offset_right = 36.0
+offset_bottom = -28.0
+theme_override_styles/background = SubResource("StyleBoxFlat_ebhvy")
+theme_override_styles/fill = SubResource("StyleBoxFlat_762oj")
+max_value = 2.0
+rounded = true
+show_percentage = false
+
+[node name="TextureRect" type="TextureRect" parent="HUD/mouse_icon"]
+modulate = Color(1, 1, 1, 0.780392)
+layout_mode = 0
+offset_left = -8.5
+offset_top = -8.5
+offset_right = 7.5
+offset_bottom = 7.5
+texture = ExtResource("1_iujy2")
+
+[node name="TextureProgressBar" type="TextureProgressBar" parent="HUD/mouse_icon"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -16.0
+offset_top = -16.0
+offset_right = 190.0
+offset_bottom = 190.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.15, 0.15)
+value = 75.0
+fill_mode = 4
+texture_progress = ExtResource("2_m6pgi")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HUD"]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -167.0
+offset_top = -95.0
+offset_right = 167.0
+offset_bottom = -28.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_constants/separation = 0
+alignment = 1
+
+[node name="Ability bar" type="ProgressBar" parent="HUD/VBoxContainer"]
+custom_minimum_size = Vector2(0, 5)
+layout_mode = 2
+theme_override_styles/fill = SubResource("StyleBoxFlat_cir7g")
+value = 75.0
+rounded = true
+show_percentage = false
+
+[node name="HP bar" type="ProgressBar" parent="HUD/VBoxContainer"]
+custom_minimum_size = Vector2(0, 12)
+layout_mode = 2
+theme_override_styles/fill = SubResource("StyleBoxFlat_4raoc")
+value = 75.0
+rounded = true
+show_percentage = false
+
+[node name="HBoxContainer" type="HBoxContainer" parent="HUD/VBoxContainer" node_paths=PackedStringArray("box_1", "box_2", "ammo_c_1", "ammo_c_2")]
+layout_mode = 2
+theme_override_constants/separation = 0
+script = ExtResource("5_slv7q")
+box_1 = NodePath("wbox_1")
+box_2 = NodePath("wbox_2")
+active_color = Color(1, 1, 1, 0.278431)
+inactive_color = Color(0.27, 0.27, 0.27, 0.376471)
+ammo_c_1 = NodePath("wbox_1/ammo_counter")
+ammo_c_2 = NodePath("wbox_2/ammo_counter2")
+
+[node name="wbox_1" type="ColorRect" parent="HUD/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(167, 50)
+layout_mode = 2
+size_flags_horizontal = 2
+size_flags_vertical = 4
+color = Color(1, 1, 1, 0.278431)
+
+[node name="ammo_counter" type="Label" parent="HUD/VBoxContainer/HBoxContainer/wbox_1"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -49.0
+offset_top = -25.0
+grow_horizontal = 0
+grow_vertical = 0
+text = "10/10"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="wbox_2" type="ColorRect" parent="HUD/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(167, 50)
+layout_mode = 2
+size_flags_horizontal = 10
+size_flags_vertical = 4
+color = Color(0.27, 0.27, 0.27, 0.376471)
+
+[node name="ammo_counter2" type="Label" parent="HUD/VBoxContainer/HBoxContainer/wbox_2"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -49.0
+offset_top = -25.0
+grow_horizontal = 0
+grow_vertical = 0
+text = "10/10"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="cleared_screen" type="Control" parent="." groups=["Clear_Screen"]]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_wdgp3")
+
+[node name="Timer" type="Timer" parent="cleared_screen"]
+wait_time = 2.0
+one_shot = true
+
+[node name="RichTextLabel" type="RichTextLabel" parent="cleared_screen"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -204.0
+offset_top = -23.0
+offset_right = 204.0
+offset_bottom = 23.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/bold_font_size = 32
+bbcode_enabled = true
+text = "[center][b]CLEARED"
+
+[node name="death_screen" type="Control" parent="." node_paths=PackedStringArray("stat_screen", "stat_canvas") groups=["death_screen"]]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("4_w4vkn")
+stat_screen = NodePath("../stats/stat_screen")
+stat_canvas = NodePath("../stats")
+stat_screen_fade_speed = 10.0
+
+[node name="RichTextLabel" type="RichTextLabel" parent="death_screen"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -204.0
+offset_top = -23.0
+offset_right = 204.0
+offset_bottom = 23.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/bold_font_size = 32
+bbcode_enabled = true
+text = "[center][b]DEATH"
+
+[node name="Timer" type="Timer" parent="death_screen"]
+wait_time = 5.0
+one_shot = true
+
+[node name="stats" type="CanvasLayer" parent="."]
+layer = 5
+
+[node name="stat_screen" type="Control" parent="stats" node_paths=PackedStringArray("kill_label", "rooms_cleared_label", "playtime_label", "money_label", "mult_label")]
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("5_pswk3")
+kill_label = NodePath("VBoxContainer/kills")
+rooms_cleared_label = NodePath("VBoxContainer/roomcleared")
+playtime_label = NodePath("VBoxContainer/playtime")
+money_label = NodePath("VBoxContainer/moneyearnd")
+mult_label = NodePath("VBoxContainer/highstmult")
+
+[node name="Panel" type="Panel" parent="stats/stat_screen"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_dusv0")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="stats/stat_screen"]
+layout_mode = 1
+anchors_preset = 9
+anchor_bottom = 1.0
+offset_left = 32.0
+offset_top = 56.0
+offset_right = 320.0
+offset_bottom = -56.0
+grow_vertical = 2
+size_flags_horizontal = 3
+
+[node name="kills" type="RichTextLabel" parent="stats/stat_screen/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_font_sizes/normal_font_size = 20
+bbcode_enabled = true
+text = "Enemies Killed: 0"
+fit_content = true
+
+[node name="roomcleared" type="RichTextLabel" parent="stats/stat_screen/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_font_sizes/normal_font_size = 20
+bbcode_enabled = true
+text = "Rooms Cleared: 0"
+fit_content = true
+
+[node name="playtime" type="RichTextLabel" parent="stats/stat_screen/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_font_sizes/normal_font_size = 20
+bbcode_enabled = true
+text = "Playtime: 0"
+fit_content = true
+
+[node name="moneyearnd" type="RichTextLabel" parent="stats/stat_screen/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_font_sizes/normal_font_size = 20
+bbcode_enabled = true
+text = "Money Earned: 0"
+fit_content = true
+
+[node name="highstmult" type="RichTextLabel" parent="stats/stat_screen/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_font_sizes/normal_font_size = 20
+bbcode_enabled = true
+text = "Highest Multiplier: 0"
+fit_content = true
+
+[node name="HBoxContainer" type="HBoxContainer" parent="stats/stat_screen"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -152.0
+offset_top = -72.0
+offset_right = 152.0
+offset_bottom = -40.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_constants/separation = 5
+alignment = 1
+
+[node name="restart" type="Button" parent="stats/stat_screen/HBoxContainer"]
+layout_mode = 2
+text = "Restart"
+
+[node name="choose char" type="Button" parent="stats/stat_screen/HBoxContainer"]
+layout_mode = 2
+text = "Choose Another Character"
+
+[node name="exit" type="Button" parent="stats/stat_screen/HBoxContainer"]
+layout_mode = 2
+text = "Exit"
+
+[node name="pause_menu" type="CanvasLayer" parent="." node_paths=PackedStringArray("menu", "HUD")]
+layer = 6
+script = ExtResource("7_nlpmb")
+menu = NodePath("Panel")
+HUD = NodePath("../HUD/VBoxContainer")
+
+[node name="Panel" type="ColorRect" parent="pause_menu"]
+anchors_preset = 13
+anchor_left = 0.5
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -92.0
+offset_right = 92.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 0
+color = Color(0, 0, 0, 1)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="pause_menu/Panel"]
+layout_mode = 1
+anchors_preset = 13
+anchor_left = 0.5
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -167.0
+offset_top = 184.0
+offset_right = 167.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 25
+alignment = 1
+
+[node name="resume" type="Button" parent="pause_menu/Panel/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxTexture_gv8hh")
+theme_override_styles/hover_pressed = SubResource("StyleBoxTexture_gv8hh")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxTexture_gv8hh")
+theme_override_styles/hover = SubResource("StyleBoxTexture_gv8hh")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxTexture_gv8hh")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_gv8hh")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_vws7g")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_gesil")
+text = "Resume"
+
+[node name="restart" type="Button" parent="pause_menu/Panel/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxTexture_gv8hh")
+theme_override_styles/hover_pressed = SubResource("StyleBoxTexture_gv8hh")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxTexture_gv8hh")
+theme_override_styles/hover = SubResource("StyleBoxTexture_gv8hh")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxTexture_gv8hh")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_gv8hh")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_vws7g")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_gesil")
+text = "Restart"
+
+[node name="options" type="Button" parent="pause_menu/Panel/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxTexture_gv8hh")
+theme_override_styles/hover_pressed = SubResource("StyleBoxTexture_gv8hh")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxTexture_gv8hh")
+theme_override_styles/hover = SubResource("StyleBoxTexture_gv8hh")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxTexture_gv8hh")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_gv8hh")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_vws7g")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_gesil")
+text = "Options"
+
+[node name="main_menu_exit" type="Button" parent="pause_menu/Panel/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxTexture_gv8hh")
+theme_override_styles/hover_pressed = SubResource("StyleBoxTexture_gv8hh")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxTexture_gv8hh")
+theme_override_styles/hover = SubResource("StyleBoxTexture_gv8hh")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxTexture_gv8hh")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_gv8hh")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_vws7g")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_gesil")
+text = "Main Menu"
+
+[node name="exit_desktop" type="Button" parent="pause_menu/Panel/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxTexture_gv8hh")
+theme_override_styles/hover_pressed = SubResource("StyleBoxTexture_gv8hh")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxTexture_gv8hh")
+theme_override_styles/hover = SubResource("StyleBoxTexture_gv8hh")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxTexture_gv8hh")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_gv8hh")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_vws7g")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_gesil")
+text = "Desktop"
+
+[connection signal="timeout" from="cleared_screen/Timer" to="cleared_screen" method="_on_timer_timeout"]
+[connection signal="timeout" from="death_screen/Timer" to="death_screen" method="_on_timer_timeout"]
+[connection signal="pressed" from="stats/stat_screen/HBoxContainer/restart" to="stats/stat_screen" method="_on_restart_pressed"]
+[connection signal="pressed" from="stats/stat_screen/HBoxContainer/choose char" to="stats/stat_screen" method="_on_choose_char_pressed"]
+[connection signal="pressed" from="stats/stat_screen/HBoxContainer/exit" to="stats/stat_screen" method="_on_exit_pressed"]
+[connection signal="pressed" from="pause_menu/Panel/VBoxContainer/resume" to="pause_menu" method="_on_resume_pressed"]
+[connection signal="pressed" from="pause_menu/Panel/VBoxContainer/restart" to="pause_menu" method="_on_restart_pressed"]
+[connection signal="pressed" from="pause_menu/Panel/VBoxContainer/main_menu_exit" to="pause_menu" method="_on_main_menuu_exit_pressed"]
+[connection signal="pressed" from="pause_menu/Panel/VBoxContainer/exit_desktop" to="pause_menu" method="_on_exit_desktop_pressed"]

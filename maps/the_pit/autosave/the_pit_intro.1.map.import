@@ -1,0 +1,14 @@
+[remap]
+
+importer="qodot.map"
+type="Resource"
+uid="uid://bok6p6rphqkop"
+path="res://.godot/imported/the_pit_intro.1.map-946343d789eb3925ac7a438f41781abd.tres"
+
+[deps]
+
+source_file="res://maps/the_pit/autosave/the_pit_intro.1.map"
+dest_files=["res://.godot/imported/the_pit_intro.1.map-946343d789eb3925ac7a438f41781abd.tres"]
+
+[params]
+

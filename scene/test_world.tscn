@@ -1,0 +1,510 @@
+[gd_scene load_steps=36 format=3 uid="uid://dwx34svdy6oqn"]
+
+[ext_resource type="Script" path="res://scripts/systems/rooms/room_manager.gd" id="2_eglug"]
+[ext_resource type="PackedScene" uid="uid://cebc076cxalyg" path="res://scene/rooms/combat_group/test_cg_1.tscn" id="3_8qmyu"]
+[ext_resource type="PackedScene" uid="uid://ec2asu88nit2" path="res://scene/enemy/Common/wretch.tscn" id="3_ec2g0"]
+[ext_resource type="PackedScene" uid="uid://dobo5bwy3fiha" path="res://scene/rooms/combat_group/test_cg_2.tscn" id="4_qu5kh"]
+[ext_resource type="PackedScene" uid="uid://br6en1t6sqi7x" path="res://scene/enemy/elite/bloated.tscn" id="4_wb7kj"]
+[ext_resource type="PackedScene" uid="uid://gagx2whtjcm6" path="res://scene/rooms/combat_group/test_cg_3.tscn" id="5_kwnv4"]
+[ext_resource type="PackedScene" uid="uid://kh8x4dwsv522" path="res://scene/enemy/elite/lost.tscn" id="6_td813"]
+[ext_resource type="PackedScene" uid="uid://chi0yi6krxebk" path="res://scene/rooms/test/test_cg1/room_rest.tscn" id="7_mf3ok"]
+[ext_resource type="PackedScene" uid="uid://bokolxfdwrhar" path="res://scene/rooms/test/room_boss.tscn" id="9_eqyys"]
+[ext_resource type="PackedScene" uid="uid://dks7eg8o5s7al" path="res://scene/player/characters/Remnant.tscn" id="10_0jsb7"]
+[ext_resource type="Script" path="res://scripts/player/char_select/char_select_screen.gd" id="10_brlb2"]
+[ext_resource type="PackedScene" uid="uid://dgx2clkxdsth2" path="res://scene/player/characters/Silver.tscn" id="11_m1rxn"]
+[ext_resource type="Script" path="res://scripts/player/char_select/char_select_button.gd" id="11_om8lt"]
+[ext_resource type="PackedScene" uid="uid://cj7kkva2uk3m0" path="res://scene/player/characters/Impact.tscn" id="12_b3tjq"]
+[ext_resource type="PackedScene" uid="uid://d5vt4gjy1jd2" path="res://scene/player/characters/Mirage.tscn" id="13_ojb4m"]
+[ext_resource type="Texture2D" uid="uid://8iaj88bwu0w" path="res://sprites/UI/char select/char_select_portrait.png" id="17_qa77x"]
+[ext_resource type="Script" path="res://scripts/systems/char_manager.gd" id="20_0ogmo"]
+[ext_resource type="Script" path="res://scripts/player/UI/player_stat_screen.gd" id="20_wjgrw"]
+[ext_resource type="Script" path="res://scripts/systems/music_manager.gd" id="21_ss30e"]
+[ext_resource type="AudioStream" uid="uid://ww5tyx75bmgb" path="res://audios/music/char_themes/remnant_song.wav" id="23_nbrpy"]
+[ext_resource type="AudioStream" uid="uid://dq603slg7hjl0" path="res://audios/music/placeholders/sci-fi-ambient-music-183269.mp3" id="23_tcdhp"]
+[ext_resource type="AudioStream" uid="uid://cfpjrddawhlh3" path="res://audios/music/placeholders/epic-battle-song-loop-182700.mp3" id="23_wm11b"]
+[ext_resource type="AudioStream" uid="uid://wr18kx8p1l8l" path="res://audios/music/placeholders/the-final-boss-battle-158700.mp3" id="24_7t3sc"]
+[ext_resource type="AudioStream" uid="uid://d05pde8k01dgy" path="res://audios/music/placeholders/chicago-shuffle-blues-3912.mp3" id="25_uv8ym"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gdblg"]
+bg_color = Color(0, 0, 0, 1)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7j5q7"]
+atlas = ExtResource("17_qa77x")
+region = Rect2(0, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sade2"]
+atlas = ExtResource("17_qa77x")
+region = Rect2(0, 96, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kdaxs"]
+atlas = ExtResource("17_qa77x")
+region = Rect2(0, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8a5c7"]
+atlas = ExtResource("17_qa77x")
+region = Rect2(0, 128, 32, 32)
+
+[sub_resource type="AudioStreamInteractive" id="AudioStreamInteractive_f3hkl"]
+clip_count = 2
+clip_0/name = &"placeholder"
+clip_0/stream = ExtResource("23_wm11b")
+clip_0/auto_advance = 0
+clip_1/name = &"Remnant"
+clip_1/stream = ExtResource("23_nbrpy")
+clip_1/auto_advance = 0
+
+[sub_resource type="AudioStreamInteractive" id="AudioStreamInteractive_nry77"]
+clip_count = 4
+clip_0/name = &"Ambient"
+clip_0/stream = ExtResource("23_tcdhp")
+clip_0/auto_advance = 0
+clip_1/name = &"Combat"
+clip_1/stream = SubResource("AudioStreamInteractive_f3hkl")
+clip_1/auto_advance = 0
+clip_2/name = &"Boss"
+clip_2/stream = ExtResource("24_7t3sc")
+clip_2/auto_advance = 0
+clip_3/name = &"Rest"
+clip_3/stream = ExtResource("25_uv8ym")
+clip_3/auto_advance = 0
+_transitions = {
+Vector2i(0, 1): {
+"fade_beats": 1,
+"fade_mode": 4,
+"from_time": 1,
+"to_time": 1
+},
+Vector2i(0, 2): {
+"fade_beats": 1,
+"fade_mode": 2,
+"from_time": 0,
+"to_time": 1
+},
+Vector2i(0, 3): {
+"fade_beats": 1,
+"fade_mode": 0,
+"from_time": 0,
+"to_time": 1
+},
+Vector2i(1, 0): {
+"fade_beats": 1,
+"fade_mode": 3,
+"from_time": 1,
+"to_time": 2
+},
+Vector2i(3, 0): {
+"fade_beats": 1,
+"fade_mode": 3,
+"from_time": 1,
+"to_time": 0
+}
+}
+
+[sub_resource type="Animation" id="Animation_koyps"]
+resource_name = "fade_in"
+length = 0.1
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CanvasLayer2/Transition/ColorRect:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_wryib"]
+resource_name = "fade_out"
+length = 0.1
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CanvasLayer2/Transition/ColorRect:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_qwopu"]
+_data = {
+"fade_in": SubResource("Animation_koyps"),
+"fade_out": SubResource("Animation_wryib")
+}
+
+[sub_resource type="Environment" id="Environment_5440b"]
+background_mode = 1
+ambient_light_source = 1
+ambient_light_energy = 0.8
+reflected_light_source = 1
+tonemap_mode = 1
+ssao_enabled = true
+ssil_radius = 4.66
+fog_mode = 1
+fog_light_color = Color(0, 0, 0, 1)
+fog_density = 1.0
+volumetric_fog_density = 0.0091
+volumetric_fog_albedo = Color(0, 0, 0, 1)
+adjustment_enabled = true
+adjustment_brightness = 0.83
+adjustment_contrast = 1.22
+
+[node name="Node3D" type="Node3D"]
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.72095, 0.692987, 0, -0.692987, 0.72095, 0, 10.1473, 0)
+directional_shadow_mode = 0
+
+[node name="room_manager" type="Node3D" parent="." node_paths=PackedStringArray("rest_room", "boss_room", "combatgroup", "combatgroups", "demo_lock_screen") groups=["room_manager"]]
+script = ExtResource("2_eglug")
+rest_room = NodePath("room_rest")
+boss_room = NodePath("room_boss")
+boss_count = 8
+combatgroup = NodePath("the_pit")
+combatgroups = [NodePath("the_pit"), NodePath("scum_town"), NodePath("factory")]
+demo_lock = true
+demo_lock_screen = NodePath("../stats/demo_lock")
+
+[node name="the_pit" parent="room_manager" node_paths=PackedStringArray("manager", "next_group") instance=ExtResource("3_8qmyu")]
+commons = Array[PackedScene]([ExtResource("3_ec2g0")])
+elites = Array[PackedScene]([ExtResource("4_wb7kj"), ExtResource("6_td813")])
+manager = NodePath("..")
+next_group = [NodePath("../scum_town"), NodePath("../factory")]
+
+[node name="scum_town" parent="room_manager" node_paths=PackedStringArray("manager", "next_group") instance=ExtResource("4_qu5kh")]
+manager = NodePath("..")
+next_group = [NodePath("../the_pit")]
+
+[node name="factory" parent="room_manager" node_paths=PackedStringArray("manager", "next_group") instance=ExtResource("5_kwnv4")]
+manager = NodePath("..")
+next_group = [NodePath("../the_pit")]
+
+[node name="room_boss" parent="room_manager" instance=ExtResource("9_eqyys")]
+visible = false
+
+[node name="room_rest" parent="room_manager" node_paths=PackedStringArray("manager") instance=ExtResource("7_mf3ok")]
+visible = false
+manager = NodePath("..")
+
+[node name="stats" type="CanvasLayer" parent="."]
+layer = 5
+
+[node name="demo_lock" type="Control" parent="stats" node_paths=PackedStringArray("kill_label", "rooms_cleared_label", "playtime_label", "money_label", "mult_label")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("20_wjgrw")
+kill_label = NodePath("VBoxContainer/kills")
+rooms_cleared_label = NodePath("VBoxContainer/roomcleared")
+playtime_label = NodePath("VBoxContainer/playtime")
+money_label = NodePath("VBoxContainer/moneyearnd")
+mult_label = NodePath("VBoxContainer/highstmult")
+
+[node name="ColorRect" type="ColorRect" parent="stats/demo_lock"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="RichTextLabel" type="RichTextLabel" parent="stats/demo_lock"]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_top = 23.0
+offset_bottom = 107.0
+grow_horizontal = 2
+theme_override_font_sizes/bold_font_size = 30
+bbcode_enabled = true
+text = "[center][b]YOU'VE REACHED THE END OF THE DEMO!
+THANK YOU FOR PLAYING!"
+fit_content = true
+
+[node name="VBoxContainer" type="VBoxContainer" parent="stats/demo_lock"]
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = 67.0
+offset_top = 14.0
+offset_right = -67.0
+offset_bottom = 170.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+
+[node name="kills" type="RichTextLabel" parent="stats/demo_lock/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_font_sizes/normal_font_size = 20
+bbcode_enabled = true
+text = "Enemies Killed: 0"
+fit_content = true
+
+[node name="roomcleared" type="RichTextLabel" parent="stats/demo_lock/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_font_sizes/normal_font_size = 20
+bbcode_enabled = true
+text = "Rooms Cleared: 0"
+fit_content = true
+
+[node name="playtime" type="RichTextLabel" parent="stats/demo_lock/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_font_sizes/normal_font_size = 20
+bbcode_enabled = true
+text = "Playtime: 0"
+fit_content = true
+
+[node name="moneyearnd" type="RichTextLabel" parent="stats/demo_lock/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_font_sizes/normal_font_size = 20
+bbcode_enabled = true
+text = "Money Earned: 0"
+fit_content = true
+
+[node name="highstmult" type="RichTextLabel" parent="stats/demo_lock/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_font_sizes/normal_font_size = 20
+bbcode_enabled = true
+text = "Highest Multiplier: 0"
+fit_content = true
+
+[node name="HBoxContainer" type="HBoxContainer" parent="stats/demo_lock"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -152.0
+offset_top = -72.0
+offset_right = 152.0
+offset_bottom = -40.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_constants/separation = 5
+alignment = 1
+
+[node name="choose char" type="Button" parent="stats/demo_lock/HBoxContainer"]
+layout_mode = 2
+text = "Play Again"
+
+[node name="exit" type="Button" parent="stats/demo_lock/HBoxContainer"]
+layout_mode = 2
+text = "Exit"
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = 5
+
+[node name="character_select_screen" type="Control" parent="CanvasLayer" node_paths=PackedStringArray("room_manager", "name_text", "desc_text", "abl_text") groups=["char_select"]]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("10_brlb2")
+room_manager = NodePath("../../room_manager")
+characters = Array[PackedScene]([ExtResource("10_0jsb7"), ExtResource("11_m1rxn"), ExtResource("12_b3tjq"), ExtResource("13_ojb4m")])
+name_text = NodePath("Panel/name text")
+desc_text = NodePath("Panel/desc text")
+abl_text = NodePath("Panel/ability text")
+
+[node name="Panel" type="Panel" parent="CanvasLayer/character_select_screen"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_gdblg")
+
+[node name="done_button" type="Button" parent="CanvasLayer/character_select_screen/Panel" node_paths=PackedStringArray("room_manager", "name_text", "desc_text", "abl_text")]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -391.0
+offset_top = -77.0
+offset_right = -93.0
+offset_bottom = -25.0
+grow_horizontal = 0
+grow_vertical = 0
+focus_neighbor_left = NodePath("../GridContainer/remnant_button")
+focus_neighbor_top = NodePath("../GridContainer/remnant_button")
+focus_neighbor_right = NodePath("../GridContainer/mirage_button")
+text = "Choose Character"
+script = ExtResource("10_brlb2")
+room_manager = NodePath("../../../../room_manager")
+characters = Array[PackedScene]([ExtResource("10_0jsb7"), ExtResource("11_m1rxn"), ExtResource("12_b3tjq"), ExtResource("13_ojb4m")])
+name_text = NodePath("../name text")
+desc_text = NodePath("../desc text")
+abl_text = NodePath("../ability text")
+
+[node name="name text" type="RichTextLabel" parent="CanvasLayer/character_select_screen/Panel"]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 75.0
+offset_top = -333.0
+offset_right = 486.0
+offset_bottom = -284.0
+grow_vertical = 0
+theme_override_font_sizes/bold_font_size = 36
+bbcode_enabled = true
+
+[node name="desc text" type="RichTextLabel" parent="CanvasLayer/character_select_screen/Panel"]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 75.0
+offset_top = -280.0
+offset_right = 486.0
+offset_bottom = -157.0
+grow_vertical = 0
+text = "Choose a character!"
+
+[node name="ability text" type="RichTextLabel" parent="CanvasLayer/character_select_screen/Panel"]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 75.0
+offset_top = -154.0
+offset_right = 486.0
+offset_bottom = -39.0
+grow_vertical = 0
+theme_override_font_sizes/normal_font_size = 16
+theme_override_font_sizes/bold_font_size = 18
+bbcode_enabled = true
+
+[node name="GridContainer" type="GridContainer" parent="CanvasLayer/character_select_screen/Panel"]
+layout_mode = 1
+anchors_preset = 9
+anchor_bottom = 1.0
+offset_left = 75.0
+offset_top = 85.0
+offset_right = 215.0
+offset_bottom = -531.0
+grow_vertical = 2
+scale = Vector2(3, 3)
+columns = 5
+
+[node name="remnant_button" type="TextureButton" parent="CanvasLayer/character_select_screen/Panel/GridContainer" node_paths=PackedStringArray("selector")]
+layout_mode = 2
+focus_neighbor_left = NodePath("../mirage_button")
+focus_neighbor_right = NodePath("../silver_button")
+focus_neighbor_bottom = NodePath("../../done_button")
+texture_normal = SubResource("AtlasTexture_7j5q7")
+stretch_mode = 4
+script = ExtResource("11_om8lt")
+selector = NodePath("../../..")
+char_name = "REMNANT"
+ablt_name = "Holographic Shield"
+ablt_desc = "Block incoming projectiles with a shield in front of him."
+
+[node name="silver_button" type="TextureButton" parent="CanvasLayer/character_select_screen/Panel/GridContainer" node_paths=PackedStringArray("selector")]
+layout_mode = 2
+focus_neighbor_left = NodePath("../remnant_button")
+focus_neighbor_right = NodePath("../impact_button")
+focus_neighbor_bottom = NodePath("../../done_button")
+texture_normal = SubResource("AtlasTexture_sade2")
+stretch_mode = 4
+script = ExtResource("11_om8lt")
+selector = NodePath("../../..")
+char_id = 1
+char_name = "SILVER"
+ablt_name = "Anchor Card"
+ablt_desc = "Place a card which as an an anchor where you can teleport back to."
+
+[node name="impact_button" type="TextureButton" parent="CanvasLayer/character_select_screen/Panel/GridContainer" node_paths=PackedStringArray("selector")]
+layout_mode = 2
+focus_neighbor_left = NodePath("../silver_button")
+focus_neighbor_right = NodePath("../mirage_button")
+focus_neighbor_bottom = NodePath("../../done_button")
+texture_normal = SubResource("AtlasTexture_kdaxs")
+stretch_mode = 4
+script = ExtResource("11_om8lt")
+selector = NodePath("../../..")
+char_id = 2
+char_name = "IMPACT"
+ablt_name = "Grapple Charge"
+ablt_desc = "Get close to enemies with her grappling hook."
+
+[node name="mirage_button" type="TextureButton" parent="CanvasLayer/character_select_screen/Panel/GridContainer" node_paths=PackedStringArray("selector")]
+layout_mode = 2
+focus_neighbor_left = NodePath("../impact_button")
+focus_neighbor_right = NodePath("../remnant_button")
+focus_neighbor_bottom = NodePath("../../done_button")
+texture_normal = SubResource("AtlasTexture_8a5c7")
+stretch_mode = 4
+script = ExtResource("11_om8lt")
+selector = NodePath("../../..")
+char_id = 3
+char_name = "MIRAGE"
+ablt_name = "Decoy"
+ablt_desc = "Place a decoy to trick the enemies."
+
+[node name="char_manager" type="Control" parent="CanvasLayer" node_paths=PackedStringArray("room_manager") groups=["char_manager"]]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("20_0ogmo")
+room_manager = NodePath("../../room_manager")
+characters = Array[PackedScene]([ExtResource("10_0jsb7"), ExtResource("11_m1rxn"), ExtResource("12_b3tjq"), ExtResource("13_ojb4m")])
+
+[node name="music_manager" type="AudioStreamPlayer" parent="." node_paths=PackedStringArray("manager") groups=["Music"]]
+stream = SubResource("AudioStreamInteractive_nry77")
+autoplay = true
+script = ExtResource("21_ss30e")
+manager = NodePath("../room_manager")
+
+[node name="CanvasLayer2" type="CanvasLayer" parent="."]
+
+[node name="Transition" type="AnimationPlayer" parent="CanvasLayer2" groups=["Transition"]]
+root_node = NodePath("../..")
+libraries = {
+"": SubResource("AnimationLibrary_qwopu")
+}
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer2/Transition"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_5440b")
+
+[connection signal="pressed" from="stats/demo_lock/HBoxContainer/choose char" to="stats/demo_lock" method="_on_choose_char_pressed"]
+[connection signal="pressed" from="stats/demo_lock/HBoxContainer/exit" to="stats/demo_lock" method="_on_exit_pressed"]
+[connection signal="pressed" from="CanvasLayer/character_select_screen/Panel/done_button" to="CanvasLayer/character_select_screen" method="_on_done_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/character_select_screen/Panel/GridContainer/remnant_button" to="CanvasLayer/character_select_screen/Panel/GridContainer/remnant_button" method="_on_pressed"]
+[connection signal="pressed" from="CanvasLayer/character_select_screen/Panel/GridContainer/silver_button" to="CanvasLayer/character_select_screen/Panel/GridContainer/silver_button" method="_on_pressed"]
+[connection signal="pressed" from="CanvasLayer/character_select_screen/Panel/GridContainer/impact_button" to="CanvasLayer/character_select_screen/Panel/GridContainer/impact_button" method="_on_pressed"]
+[connection signal="pressed" from="CanvasLayer/character_select_screen/Panel/GridContainer/mirage_button" to="CanvasLayer/character_select_screen/Panel/GridContainer/mirage_button" method="_on_pressed"]

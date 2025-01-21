@@ -1,0 +1,176 @@
+[gd_scene load_steps=21 format=3 uid="uid://nhi2cs0lg025"]
+
+[ext_resource type="Script" path="res://scripts/enemy/enemy.gd" id="1_t80xs"]
+[ext_resource type="PackedScene" uid="uid://cneqckvnvqhcc" path="res://meshes/enemies/pistolero/pistolero.blend" id="2_adi1k"]
+[ext_resource type="Script" path="res://scripts/enemy/states/masters/behavior_ranged.gd" id="3_5ifrp"]
+[ext_resource type="PackedScene" uid="uid://goav50e4qvt0" path="res://scene/enemy/enemy_bullet.tscn" id="4_rayfs"]
+[ext_resource type="Script" path="res://addons/finite_state_machine/scripts/finite_state_machine.gd" id="5_k5bkb"]
+[ext_resource type="Script" path="res://addons/finite_state_machine/scripts/state_machine_state.gd" id="6_w4qjc"]
+[ext_resource type="Script" path="res://scripts/enemy/states/idle_state.gd" id="7_5ee6s"]
+[ext_resource type="Script" path="res://scripts/enemy/states/chase_state.gd" id="8_8tbff"]
+[ext_resource type="Script" path="res://scripts/enemy/states/avoid_state.gd" id="9_tx2ht"]
+[ext_resource type="PackedScene" uid="uid://derh5gmq2d8f8" path="res://scene/utilities/gore/gore_manager.tscn" id="10_gempp"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_gjrny"]
+radius = 0.292645
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_cvuv1"]
+animation = &"idle"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_tvlyy"]
+animation = &"idle"
+
+[sub_resource type="AnimationNodeBlend2" id="AnimationNodeBlend2_6ptj5"]
+filter_enabled = true
+filters = ["metarig/Skeleton3D:foot.L", "metarig/Skeleton3D:foot.R", "metarig/Skeleton3D:hip", "metarig/Skeleton3D:hip.L", "metarig/Skeleton3D:shin.L", "metarig/Skeleton3D:shin.R", "metarig/Skeleton3D:thigh.L", "metarig/Skeleton3D:thigh.R"]
+
+[sub_resource type="AnimationNodeOneShot" id="AnimationNodeOneShot_4sdd6"]
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_km5qw"]
+animation = &"idle"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_wwefs"]
+animation = &"idle"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_mgser"]
+animation = &"walk"
+use_custom_timeline = true
+timeline_length = 1.0
+stretch_time_scale = true
+start_offset = 0.0
+loop_mode = 1
+
+[sub_resource type="AnimationNodeBlendSpace1D" id="AnimationNodeBlendSpace1D_wx5di"]
+blend_point_0/node = SubResource("AnimationNodeAnimation_km5qw")
+blend_point_0/pos = -1.0
+blend_point_1/node = SubResource("AnimationNodeAnimation_wwefs")
+blend_point_1/pos = 0.0
+blend_point_2/node = SubResource("AnimationNodeAnimation_mgser")
+blend_point_2/pos = 1.0
+min_space = 0.0
+
+[sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_xul8q"]
+graph_offset = Vector2(-832.286, 42.6587)
+nodes/Animation/node = SubResource("AnimationNodeAnimation_tvlyy")
+nodes/Animation/position = Vector2(-500, 80)
+"nodes/Animation 2/node" = SubResource("AnimationNodeAnimation_cvuv1")
+"nodes/Animation 2/position" = Vector2(-460, 260)
+nodes/Blend2/node = SubResource("AnimationNodeBlend2_6ptj5")
+nodes/Blend2/position = Vector2(60, 140)
+nodes/attack/node = SubResource("AnimationNodeOneShot_4sdd6")
+nodes/attack/position = Vector2(-240, 20)
+nodes/moveBlend/node = SubResource("AnimationNodeBlendSpace1D_wx5di")
+nodes/moveBlend/position = Vector2(-200, 260)
+node_connections = [&"Blend2", 0, &"attack", &"Blend2", 1, &"moveBlend", &"attack", 0, &"Animation", &"attack", 1, &"Animation 2", &"output", 0, &"Blend2"]
+
+[node name="enemy_ranged" type="CharacterBody3D" node_paths=PackedStringArray("navigation_agent", "gore_manager") groups=["Enemy"]]
+script = ExtResource("1_t80xs")
+navigation_agent = NodePath("behavior_master/NavigationAgent3D")
+mult_loot = 0.5
+gore_manager = NodePath("gore_manager")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("CapsuleShape3D_gjrny")
+
+[node name="shoot_cooldown" type="Timer" parent="."]
+
+[node name="pistolero" parent="." instance=ExtResource("2_adi1k")]
+transform = Transform3D(-1.2, 0, 1.04907e-07, 0, 1.2, 0, -1.04907e-07, 0, -1.2, 0, -1, 0)
+
+[node name="Skeleton3D" parent="pistolero/metarig" index="0"]
+bones/0/position = Vector3(0, 0.995939, -0.00681275)
+bones/1/rotation = Quaternion(-0.0583406, -0.607113, -0.0447664, 0.791205)
+bones/2/rotation = Quaternion(0.0585182, -1.15263e-07, 7.4644e-09, 0.998286)
+bones/3/rotation = Quaternion(-0.539901, -0.44005, -0.453665, 0.555924)
+bones/4/rotation = Quaternion(-0.459773, 0.549693, -0.463777, 0.52092)
+bones/5/rotation = Quaternion(-0.477822, 0.506694, 0.522407, 0.491974)
+bones/6/rotation = Quaternion(-0.111951, -0.0679237, 0.511101, 0.849488)
+bones/7/rotation = Quaternion(0.135772, -0.00739314, 0.000478688, 0.990712)
+bones/10/rotation = Quaternion(0.168204, -0.129242, 0.0182628, 0.977072)
+bones/12/rotation = Quaternion(0.702851, -0.0774595, 0.702852, 0.0774595)
+bones/13/rotation = Quaternion(0.057598, -1.57258e-08, 5.01279e-09, 0.99834)
+bones/14/rotation = Quaternion(-0.648942, 7.97528e-07, -7.16348e-07, 0.760838)
+bones/15/rotation = Quaternion(0.704793, -0.057153, 0.704793, 0.057153)
+bones/16/rotation = Quaternion(0.616151, -1.01474e-08, 1.30386e-08, 0.787628)
+bones/17/rotation = Quaternion(-0.703997, 7.40927e-07, -7.77869e-07, 0.710203)
+bones/19/rotation = Quaternion(-0.0243409, 0.751105, 0.655919, -0.0708453)
+
+[node name="Muzzle" type="Node3D" parent="pistolero/metarig/Skeleton3D/Revolver" index="0"]
+transform = Transform3D(-1.00807, 0, -8.81281e-08, 0, 1.00807, 0, 8.81281e-08, 0, -1.00807, -0.444068, 1.53635, 1.1025)
+
+[node name="AnimationTree" type="AnimationTree" parent="."]
+root_node = NodePath("../pistolero")
+tree_root = SubResource("AnimationNodeBlendTree_xul8q")
+anim_player = NodePath("../pistolero/AnimationPlayer")
+parameters/Blend2/blend_amount = 1.0
+parameters/attack/active = false
+parameters/attack/internal_active = false
+parameters/attack/request = 0
+parameters/moveBlend/blend_position = 0.999346
+
+[node name="Looker" type="Node3D" parent="."]
+
+[node name="aim_ray" type="RayCast3D" parent="."]
+target_position = Vector3(0, 0, -100)
+collision_mask = 3
+debug_shape_custom_color = Color(1, 0.427451, 0.635294, 1)
+debug_shape_thickness = 5
+
+[node name="behavior_master" type="Node3D" parent="." node_paths=PackedStringArray("muzzles", "shoot_cooldown", "master", "state_machine", "aim_node", "attack_timer", "look_ray", "dead_state", "idle_state", "chase_state", "avoid_state", "anim")]
+script = ExtResource("3_5ifrp")
+muzzles = [NodePath("muzzle")]
+bullet = ExtResource("4_rayfs")
+fire_rate = 1.0
+shoot_cooldown = NodePath("../shoot_cooldown")
+spread = 2.0
+reload_duration = 5.0
+master = NodePath("..")
+state_machine = NodePath("FiniteStateMachine")
+dist_to_chase = 10.0
+aim_node = NodePath("aimnode")
+attack_timer = NodePath("attack_timer")
+attack_speed = 0.0
+look_ray = NodePath("../aim_ray")
+dead_state = NodePath("FiniteStateMachine/Dead")
+idle_state = NodePath("FiniteStateMachine/Idle")
+chase_state = NodePath("FiniteStateMachine/Chase")
+avoid_state = NodePath("FiniteStateMachine/Avoid")
+anim = NodePath("../AnimationTree")
+
+[node name="FiniteStateMachine" type="Node" parent="behavior_master"]
+script = ExtResource("5_k5bkb")
+
+[node name="Dead" type="Node" parent="behavior_master/FiniteStateMachine"]
+script = ExtResource("6_w4qjc")
+
+[node name="Idle" type="Node" parent="behavior_master/FiniteStateMachine" node_paths=PackedStringArray("behavior")]
+script = ExtResource("7_5ee6s")
+behavior = NodePath("../..")
+
+[node name="Chase" type="Node" parent="behavior_master/FiniteStateMachine" node_paths=PackedStringArray("behavior")]
+script = ExtResource("8_8tbff")
+behavior = NodePath("../..")
+
+[node name="Avoid" type="Node" parent="behavior_master/FiniteStateMachine" node_paths=PackedStringArray("behavior")]
+script = ExtResource("9_tx2ht")
+behavior = NodePath("../..")
+
+[node name="NavigationAgent3D" type="NavigationAgent3D" parent="behavior_master"]
+navigation_layers = 255
+
+[node name="attack_timer" type="Timer" parent="behavior_master"]
+autostart = true
+
+[node name="muzzle" type="Node3D" parent="behavior_master"]
+transform = Transform3D(0.2, 0, 0, 0, 0.4, 0, 0, 0, 0.2, 0, 0.226133, -1.24578)
+
+[node name="aimnode" type="Node3D" parent="behavior_master"]
+top_level = true
+
+[node name="gore_manager" parent="." instance=ExtResource("10_gempp")]
+
+[connection signal="timeout" from="shoot_cooldown" to="behavior_master" method="_on_shoot_cooldown_timeout"]
+[connection signal="velocity_computed" from="behavior_master/NavigationAgent3D" to="behavior_master" method="_on_navigation_agent_3d_velocity_computed"]
+[connection signal="timeout" from="behavior_master/attack_timer" to="behavior_master" method="_on_attack_timer_timeout"]
+
+[editable path="pistolero"]

@@ -1,0 +1,55 @@
+[gd_scene load_steps=10 format=3 uid="uid://b7s666fjvh0kq"]
+
+[ext_resource type="Script" path="res://scripts/player/abilities/gladiator_grapple.gd" id="1_m5u8c"]
+[ext_resource type="PackedScene" uid="uid://cp7y4m5g1v21j" path="res://scene/utilities/stun_area.tscn" id="2_61vj7"]
+[ext_resource type="Texture2D" uid="uid://bljqohb032g47" path="res://meshes/player/characters/Impact/Textures/impact-grapple.png" id="3_5ubtb"]
+[ext_resource type="Script" path="res://addons/LineRenderer/line_renderer.gd" id="3_w66jv"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_qf046"]
+radius = 0.3
+
+[sub_resource type="SphereMesh" id="SphereMesh_g4kbt"]
+radius = 0.3
+height = 0.6
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_sisht"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xtgjp"]
+transparency = 1
+shading_mode = 0
+albedo_texture = ExtResource("3_5ubtb")
+
+[sub_resource type="ImmediateMesh" id="ImmediateMesh_hq75f"]
+
+[node name="grapple_point" type="CharacterBody3D" node_paths=PackedStringArray("line") groups=["Abilities"]]
+script = ExtResource("1_m5u8c")
+line = NodePath("LineRenderer3D")
+stun_area = ExtResource("2_61vj7")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("SphereShape3D_qf046")
+disabled = true
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+layers = 8193
+mesh = SubResource("SphereMesh_g4kbt")
+
+[node name="Area3D" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+shape = SubResource("SphereShape3D_sisht")
+
+[node name="LineRenderer3D" type="MeshInstance3D" parent="."]
+material_override = SubResource("StandardMaterial3D_xtgjp")
+mesh = SubResource("ImmediateMesh_hq75f")
+script = ExtResource("3_w66jv")
+points = Array[Vector3]([Vector3(5, 0, 0), Vector3(-5, 0, 0)])
+start_thickness = 1.0
+end_thickness = 1.0
+
+[node name="Timer" type="Timer" parent="."]
+one_shot = true
+autostart = true
+
+[connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

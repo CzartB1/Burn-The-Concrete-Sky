@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://bqiys4354dkyo"]
+
+[ext_resource type="Script" path="res://scripts/enemy/enemy_spawner.gd" id="1_t23lb"]
+[ext_resource type="PackedScene" uid="uid://ckvitxqasphd0" path="res://scene/enemy/enemy_base.tscn" id="2_qt3j3"]
+
+[node name="spawner" type="Node3D" node_paths=PackedStringArray("spawners")]
+script = ExtResource("1_t23lb")
+spawners = [null, null, null]
+enemies = Array[PackedScene]([ExtResource("2_qt3j3")])
+elites_spawn_delay_probability = Vector2i(1, 1)
+
+[node name="spawn_timer" type="Timer" parent="."]
+wait_time = 0.025
+one_shot = true
+
+[connection signal="timeout" from="spawn_timer" to="." method="_on_spawn_timer_timeout"]

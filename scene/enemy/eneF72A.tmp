@@ -1,0 +1,51 @@
+[gd_scene load_steps=12 format=3 uid="uid://ckvitxqasphd0"]
+
+[ext_resource type="Script" path="res://scripts/enemy/enemy.gd" id="1_rr712"]
+[ext_resource type="Script" path="res://scripts/enemy/states/masters/enemy_base_behavior_master.gd" id="2_uoxeu"]
+[ext_resource type="Script" path="res://addons/finite_state_machine/scripts/finite_state_machine.gd" id="4_jssdr"]
+[ext_resource type="Script" path="res://addons/finite_state_machine/scripts/state_machine_state.gd" id="5_4npax"]
+[ext_resource type="Script" path="res://scripts/enemy/states/idle_state.gd" id="6_gk66t"]
+[ext_resource type="Script" path="res://scripts/enemy/states/chase_state.gd" id="7_4w7xi"]
+[ext_resource type="Script" path="res://scripts/enemy/states/avoid_state.gd" id="8_xqhe8"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_gjrny"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3t5hi"]
+albedo_color = Color(1, 0.0352941, 0, 1)
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_67f57"]
+material = SubResource("StandardMaterial3D_3t5hi")
+
+[sub_resource type="BoxMesh" id="BoxMesh_f57f6"]
+
+[node name="enemy_test" type="CharacterBody3D" node_paths=PackedStringArray("navigation_agent") groups=["Enemy"]]
+script = ExtResource("1_rr712")
+navigation_agent = NodePath("behavior_master/NavigationAgent3D")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("CapsuleShape3D_gjrny")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("CapsuleMesh_67f57")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="MeshInstance3D"]
+transform = Transform3D(0.764849, 0, 0, 0, 0.241913, 0, 0, 0, 0.29789, 0, 0.459297, -0.426675)
+mesh = SubResource("BoxMesh_f57f6")
+skeleton = NodePath("../..")
+
+[node name="Muzzle" type="Node3D" parent="MeshInstance3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1)
+
+[node name="Looker" type="Node3D" parent="."]
+
+[node name="aim_ray" type="RayCast3D" parent="."]
+target_position = Vector3(0, 0, -100)
+collision_mask = 3
+debug_shape_custom_color = Color(1, 0.427451, 0.635294, 1)
+debug_shape_thickness = 5
+
+[node name="behavior_master" type="Node3D" parent="."]
+script = ExtResource("2_uoxeu")
+dist_to_chase = 7.0
+dist_to_avoid = 2.0
+master = Object(CharacterBody3D,"_import_path":NodePath(""),"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"editor_description":"","transform":Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0),"rotation_edit_mode":0,"rotation_order":2,"top_level":false,"visible":true,"visibility_parent":NodePath(""),"disable_mode":0,"collision_layer":1,"collision_mask":1,"collision_priority":1.0,"input_ray_pickable":true,"input_capture_on_drag":false,"axis_lock_linear_x":false,"axis_lock_linear_y":false,"axis_lock_linear_z":false,"axis_lock_angular_x":false,"axis_lock_angular_y":false,"axis_lock_angular_z":false,"motion_mode":0,"up_direction":Vector3(0, 1, 0),"slide_on_ceiling":true,"velocity":Vector3(0, 0, 0),"max_slides":6,"wall_min_slide_angle":0.261799,"floor_stop_on_slope":true,"floor_constant_speed":false,"floor_block_on_wall":true,"floor_max_angle":0.785398,"floor_snap_length":0.1,"platform_on_leave":0,"platform_floor_layers":4294967295,"platform_wall_layers":0,"safe_margin":0.001,"script":ExtResource("1_rr712"),"hp":10,"navigation_agent":Object(NavigationAgent3D,"_import_path":NodePath(""),"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"editor_description":"","target_position":Vector3(0, 0, 0),"path_desired_distance":1.0,"target_desired_distance":1.0,"path_height_offset":0.0,"path_max_distance":5.0,"navigation_layers":255,"pathfinding_algorithm":0,"path_postprocessing":0,"path_metadata_flags":7,"avoidance_enabled":false,"velocity":Vector3(0, 0, 0),"height":1.0,"radius":0.5,"neighbor_distance":50.0,"max_neighbors":10,"time_horizon_agents":1.0,"time_horizon_obstacles":0.0,"max_speed":10.0,"use_3d_avoidance":false,"keep_y_velocity":true,"avoidance_layers":1,"avoidance_mask":1,"avoidance_prio

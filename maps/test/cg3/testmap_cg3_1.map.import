@@ -1,0 +1,14 @@
+[remap]
+
+importer="qodot.map"
+type="Resource"
+uid="uid://bpxybea5uxohw"
+path="res://.godot/imported/testmap_cg3_1.map-7154bba9a29ec1145841adf6c42e1841.tres"
+
+[deps]
+
+source_file="res://maps/test/cg3/testmap_cg3_1.map"
+dest_files=["res://.godot/imported/testmap_cg3_1.map-7154bba9a29ec1145841adf6c42e1841.tres"]
+
+[params]
+

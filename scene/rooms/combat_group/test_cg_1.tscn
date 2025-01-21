@@ -1,0 +1,23 @@
+[gd_scene load_steps=6 format=3 uid="uid://cebc076cxalyg"]
+
+[ext_resource type="Script" path="res://scripts/systems/rooms/combat_group.gd" id="1_mtgbv"]
+[ext_resource type="PackedScene" uid="uid://btqeey3k04vc2" path="res://scene/rooms/test/test_cg1/room_1.tscn" id="3_h6cxn"]
+[ext_resource type="PackedScene" uid="uid://bi7ur8x77bvb0" path="res://scene/rooms/test/test_cg1/room_3.tscn" id="4_58p0v"]
+[ext_resource type="PackedScene" uid="uid://ctkp4fivu5dna" path="res://scene/rooms/test/test_cg1/room_2.tscn" id="5_vq6ku"]
+[ext_resource type="PackedScene" uid="uid://c7augcs4p0odc" path="res://scene/rooms/test/room_intro.tscn" id="6_5bni7"]
+
+[node name="test_cg1" type="Node3D" node_paths=PackedStringArray("rooms", "intro_room", "rest_room")]
+script = ExtResource("1_mtgbv")
+rooms = [NodePath("room_1"), NodePath("room_2"), NodePath("room_3")]
+intro_room = NodePath("room_intro")
+rest_room = NodePath("rest_toom")
+
+[node name="room_1" parent="." instance=ExtResource("3_h6cxn")]
+
+[node name="room_3" parent="." groups=["room"] instance=ExtResource("4_58p0v")]
+
+[node name="room_2" parent="." groups=["room"] instance=ExtResource("5_vq6ku")]
+
+[node name="room_intro" parent="." instance=ExtResource("6_5bni7")]
+
+[node name="rest_toom" parent="." instance=ExtResource("6_5bni7")]
