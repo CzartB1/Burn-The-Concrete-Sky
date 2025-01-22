@@ -422,8 +422,7 @@ stretch_mode = 4
 script = ExtResource("11_om8lt")
 selector = NodePath("../../..")
 char_name = "REMNANT"
-char_desc = "An armored soldier hailing from a long gone nation."
-ablt_name = "Mobile Shield"
+ablt_name = "Holographic Shield"
 ablt_desc = "Block incoming projectiles with a shield in front of him."
 
 [node name="silver_button" type="TextureButton" parent="CanvasLayer/character_select_screen/Panel/GridContainer" node_paths=PackedStringArray("selector")]
@@ -437,7 +436,6 @@ script = ExtResource("11_om8lt")
 selector = NodePath("../../..")
 char_id = 1
 char_name = "SILVER"
-char_desc = "An enigmatic gentleman-thief."
 ablt_name = "Anchor Card"
 ablt_desc = "Place a card which as an an anchor where you can teleport back to."
 
@@ -452,8 +450,7 @@ script = ExtResource("11_om8lt")
 selector = NodePath("../../..")
 char_id = 2
 char_name = "IMPACT"
-char_desc = "A slave-gladiator fighting for freedom."
-ablt_name = "Grapple"
+ablt_name = "Grapple Charge"
 ablt_desc = "Get close to enemies with her grappling hook."
 
 [node name="mirage_button" type="TextureButton" parent="CanvasLayer/character_select_screen/Panel/GridContainer" node_paths=PackedStringArray("selector")]
@@ -467,7 +464,6 @@ script = ExtResource("11_om8lt")
 selector = NodePath("../../..")
 char_id = 3
 char_name = "MIRAGE"
-char_desc = "An assassin on a quest for vengeance."
 ablt_name = "Decoy"
 ablt_desc = "Place a decoy to trick the enemies."
 

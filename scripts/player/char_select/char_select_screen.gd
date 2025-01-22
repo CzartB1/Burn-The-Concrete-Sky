@@ -12,6 +12,7 @@ var char_name:String
 var char_desc:String
 var char_abl_name:String
 var char_abl_desc:String
+var selected_btn:Char_Select_Button
 var spawned=false
 
 func ready():
@@ -38,6 +39,8 @@ func _process(_delta):
 		var tr=get_tree().get_first_node_in_group("Transition")
 		if tr is AnimationPlayer: tr.play("fade_in")
 		queue_free()
+	
+	if selected_btn: selected_btn.modulate=selected_btn.press_color
 
 func fill_name_texts():
 	name_text.text = "[b]"+str(char_name)+"[/b]"
