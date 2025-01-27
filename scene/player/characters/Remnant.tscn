@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=3 uid="uid://dks7eg8o5s7al"]
+[gd_scene load_steps=34 format=3 uid="uid://dks7eg8o5s7al"]
 
 [ext_resource type="Script" path="res://scripts/player/player.gd" id="1_o64jm"]
 [ext_resource type="PackedScene" uid="uid://c5c1e0lvux7ox" path="res://meshes/player/characters/Remnant/Remnant_new.blend" id="2_h1g6s"]
@@ -22,15 +22,35 @@ filters = ["metarig/Skeleton3D:foot.L", "metarig/Skeleton3D:foot.R", "metarig/Sk
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_s2tak"]
 animation = &"run"
+use_custom_timeline = true
+timeline_length = 1.0
+stretch_time_scale = true
+start_offset = 0.0
+loop_mode = 1
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_16dnq"]
 animation = &"run_backwards"
+use_custom_timeline = true
+timeline_length = 1.0
+stretch_time_scale = true
+start_offset = 0.0
+loop_mode = 1
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_pu2p2"]
 animation = &"strafe_left"
+use_custom_timeline = true
+timeline_length = 1.0
+stretch_time_scale = true
+start_offset = 0.0
+loop_mode = 1
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_6yklf"]
 animation = &"strafe_right"
+use_custom_timeline = true
+timeline_length = 1.0
+stretch_time_scale = true
+start_offset = 0.0
+loop_mode = 1
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_mcnsv"]
 animation = &"idle"
@@ -47,29 +67,60 @@ blend_point_3/pos = Vector2(1, 0)
 blend_point_4/node = SubResource("AnimationNodeAnimation_mcnsv")
 blend_point_4/pos = Vector2(0, 0)
 
+[sub_resource type="AnimationNodeOneShot" id="AnimationNodeOneShot_05s3h"]
+filter_enabled = true
+filters = ["metarig/Skeleton3D:forearm.L", "metarig/Skeleton3D:forearm.R", "metarig/Skeleton3D:hand.L", "metarig/Skeleton3D:hand.R", "metarig/Skeleton3D:head", "metarig/Skeleton3D:neck", "metarig/Skeleton3D:shoulder.L", "metarig/Skeleton3D:shoulder.R", "metarig/Skeleton3D:spine", "metarig/Skeleton3D:spine.001", "metarig/Skeleton3D:upper_arm.L", "metarig/Skeleton3D:upper_arm.R"]
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_snmnv"]
+animation = &"weapon_unarmed_strike"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_5kbr2"]
+animation = &"weapon_melee_swing"
+
+[sub_resource type="AnimationNodeBlendSpace1D" id="AnimationNodeBlendSpace1D_3mmcb"]
+blend_point_0/node = SubResource("AnimationNodeAnimation_snmnv")
+blend_point_0/pos = 0.0
+blend_point_1/node = SubResource("AnimationNodeAnimation_5kbr2")
+blend_point_1/pos = 1.0
+
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_ncltw"]
 animation = &"weapon_pistol"
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_rdnqv"]
 animation = &"weapon_rifle"
 
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_qq0ud"]
+animation = &"weapon_melee"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_6oiu4"]
+animation = &"weapon_unarmed"
+
 [sub_resource type="AnimationNodeBlendSpace1D" id="AnimationNodeBlendSpace1D_1crn4"]
 blend_point_0/node = SubResource("AnimationNodeAnimation_ncltw")
 blend_point_0/pos = 0.0
 blend_point_1/node = SubResource("AnimationNodeAnimation_rdnqv")
 blend_point_1/pos = 1.0
+blend_point_2/node = SubResource("AnimationNodeAnimation_qq0ud")
+blend_point_2/pos = 3.0
+blend_point_3/node = SubResource("AnimationNodeAnimation_6oiu4")
+blend_point_3/pos = 2.0
 min_space = 0.0
+max_space = 3.0
 
-[sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_u1ytm"]
-graph_offset = Vector2(-624, 109)
+[sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_xfqjs"]
+graph_offset = Vector2(-755.044, -78.9343)
 nodes/Blend2/node = SubResource("AnimationNodeBlend2_7drsd")
-nodes/Blend2/position = Vector2(260, -40)
+nodes/Blend2/position = Vector2(240, 100)
 nodes/BlendSpace2D/node = SubResource("AnimationNodeBlendSpace2D_5eaqr")
-nodes/BlendSpace2D/position = Vector2(20, 200)
-nodes/output/position = Vector2(480, -20)
+nodes/BlendSpace2D/position = Vector2(-60, 180)
+nodes/melee_attack/node = SubResource("AnimationNodeOneShot_05s3h")
+nodes/melee_attack/position = Vector2(20, -80)
+nodes/melee_attack_type/node = SubResource("AnimationNodeBlendSpace1D_3mmcb")
+nodes/melee_attack_type/position = Vector2(-260, 80)
+nodes/output/position = Vector2(440, 160)
 nodes/weapon_anim_id/node = SubResource("AnimationNodeBlendSpace1D_1crn4")
-nodes/weapon_anim_id/position = Vector2(20, -20)
-node_connections = [&"Blend2", 0, &"weapon_anim_id", &"Blend2", 1, &"BlendSpace2D", &"output", 0, &"Blend2"]
+nodes/weapon_anim_id/position = Vector2(-260, -80)
+node_connections = [&"Blend2", 0, &"melee_attack", &"Blend2", 1, &"BlendSpace2D", &"melee_attack", 0, &"weapon_anim_id", &"melee_attack", 1, &"melee_attack_type", &"output", 0, &"Blend2"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_c71mp"]
 size = Vector3(276.536, 0.001, 129.934)
@@ -109,45 +160,48 @@ shape = SubResource("CapsuleShape3D_6vhwg")
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, -1, 0)
 
 [node name="Skeleton3D" parent="body/Remnant_new/metarig" index="0"]
-bones/0/position = Vector3(2.63418e-09, 0.986909, -0.00681275)
+bones/0/position = Vector3(2.63418e-09, 0.986296, -0.00681275)
 bones/0/rotation = Quaternion(0, 0.382684, 0, 0.92388)
 bones/0/scale = Vector3(1, 1, 1)
 bones/1/rotation = Quaternion(0.0104663, -0.642728, 0.00878231, 0.765973)
 bones/1/scale = Vector3(1, 1, 1)
 bones/2/rotation = Quaternion(-0.0287027, 7.78153e-09, -5.77402e-09, 0.999588)
 bones/3/rotation = Quaternion(-0.593886, -0.4772, -0.483882, 0.430625)
-bones/4/rotation = Quaternion(-0.228885, 0.315441, -0.487017, 0.781616)
-bones/5/rotation = Quaternion(0.292023, -0.192419, -0.432532, 0.831032)
-bones/6/rotation = Quaternion(-0.11098, -0.101144, -0.0547067, 0.987148)
+bones/4/rotation = Quaternion(-0.228758, 0.315604, -0.487086, 0.781544)
+bones/5/rotation = Quaternion(0.292216, -0.192581, -0.432117, 0.831142)
+bones/6/rotation = Quaternion(-0.110896, -0.101148, -0.0546889, 0.987158)
 bones/6/scale = Vector3(1, 1, 1)
-bones/7/rotation = Quaternion(-0.517395, 0.457718, 0.513062, 0.509475)
+bones/7/rotation = Quaternion(-0.51737, 0.457748, 0.513091, 0.509444)
 bones/7/scale = Vector3(1, 1, 1)
 bones/8/rotation = Quaternion(-0.189766, -0.660966, 0.489922, 0.535807)
 bones/8/scale = Vector3(1, 1, 1)
-bones/9/rotation = Quaternion(0.845884, 0.160233, 0.135912, 0.490238)
+bones/9/rotation = Quaternion(0.845934, 0.160275, 0.135903, 0.490142)
 bones/9/scale = Vector3(1, 1, 1)
-bones/10/rotation = Quaternion(-0.279863, -0.00430775, 0.0571182, 0.95833)
+bones/10/rotation = Quaternion(-0.279753, -0.00429899, 0.0571173, 0.958362)
 bones/10/scale = Vector3(1, 1, 1)
 bones/11/rotation = Quaternion(0.0379731, 0.21804, -0.00782301, 0.975169)
 bones/12/rotation = Quaternion(-0.0634644, -0.000805138, -0.00753154, 0.997955)
 bones/13/position = Vector3(0.00558721, 0.0621001, 0.098)
-bones/13/rotation = Quaternion(0.917448, -0.004559, 0.379214, 0.120269)
+bones/13/rotation = Quaternion(0.922842, -0.0344441, 0.383329, 0.0153041)
 bones/13/scale = Vector3(1, 1, 1)
-bones/14/rotation = Quaternion(0.274633, 1.11141e-05, 0.0012575, 0.961548)
-bones/15/rotation = Quaternion(-0.64997, -0.0302144, 0.0300594, 0.758764)
+bones/14/rotation = Quaternion(0.173462, -2.3942e-08, 1.64543e-08, 0.984841)
+bones/15/rotation = Quaternion(-0.650103, 0.0263968, -0.0262611, 0.758933)
 bones/15/scale = Vector3(1, 1, 1)
 bones/16/position = Vector3(0.00558726, 0.0621001, -0.098)
-bones/16/rotation = Quaternion(0.908123, -0.0269702, 0.413937, -0.0569329)
+bones/16/rotation = Quaternion(0.904942, -0.0211368, 0.407413, 0.121025)
 bones/16/scale = Vector3(1, 1, 1)
-bones/17/rotation = Quaternion(0.219786, -0.000123974, 0.0207892, 0.975327)
-bones/18/rotation = Quaternion(-0.724675, 0.0336023, -0.0518228, 0.686318)
+bones/17/rotation = Quaternion(0.417291, -0.000946738, 0.0341547, 0.90813)
+bones/18/rotation = Quaternion(-0.691057, -0.0151827, 0.0155603, 0.722473)
 bones/18/scale = Vector3(1, 1, 1)
 bones/19/rotation = Quaternion(-0.655919, -0.0708456, 0.0243406, 0.751105)
 bones/19/scale = Vector3(1, 1, 1)
 bones/20/rotation = Quaternion(-0.0243409, 0.751105, 0.655919, -0.0708453)
 
+[node name="Helmet" parent="body/Remnant_new/metarig/Skeleton3D" index="7"]
+visible = false
+
 [node name="BoneAttachment3D" type="BoneAttachment3D" parent="body/Remnant_new/metarig/Skeleton3D" index="8"]
-transform = Transform3D(-0.993284, -0.0336957, 0.110689, 0.111174, -0.0128681, 0.993718, -0.0320596, 0.999349, 0.0165277, -0.347369, 1.4591, 0.10737)
+transform = Transform3D(-0.99329, -0.0335479, 0.110674, 0.111141, -0.0123974, 0.993727, -0.0319655, 0.99936, 0.0160429, -0.347356, 1.45856, 0.107371)
 bone_name = "hand.R"
 bone_idx = 10
 
@@ -158,10 +212,14 @@ current_1_id = 6
 
 [node name="anim_manager" type="AnimationTree" parent="body" node_paths=PackedStringArray("master", "body")]
 root_node = NodePath("../Remnant_new")
-tree_root = SubResource("AnimationNodeBlendTree_u1ytm")
+tree_root = SubResource("AnimationNodeBlendTree_xfqjs")
 anim_player = NodePath("../Remnant_new/AnimationPlayer")
 parameters/Blend2/blend_amount = 1.0
 parameters/BlendSpace2D/blend_position = Vector2(0.499598, 0.497797)
+parameters/melee_attack/active = false
+parameters/melee_attack/internal_active = false
+parameters/melee_attack/request = 0
+parameters/melee_attack_type/blend_position = 0
 parameters/weapon_anim_id/blend_position = 1.00066
 script = ExtResource("3_ugo0p")
 master = NodePath("../..")

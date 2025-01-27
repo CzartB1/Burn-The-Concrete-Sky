@@ -1,9 +1,17 @@
-"You're awake."\
+Justicar: A cloaked figure stands before you as you regain your footing after the fall. The figure extends a hand from its cloak and offers a gift.\
 \
-A cloaked figure stands in front of you. It opens its cloak and you see... a gift?
+"You're awake. Take this," a calm but stern voice comes from beneath the golden mask.
 - Accept the gift
 	[signal arg="justicar_start"]
 	[end_timeline]
-- Walk Away
+- Walk away
 	[signal arg="walkaway_start"]
 	[end_timeline]
+- Ask a question
+	Justicar: "What would you like to know?"
+	- Accept the gift
+		[end_timeline]
+		[signal arg="justicar_start"]
+	- Walk away
+		[signal arg="walkaway_start"]
+		[end_timeline]

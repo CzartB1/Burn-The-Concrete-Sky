@@ -5,6 +5,8 @@ extends Node3D
 
 func _process(delta):
 	if master.hp<=0:
+		await get_tree().create_timer(master.death_delay).timeout
 		var instance = explosion.instantiate()
 		get_tree().get_root().add_child(instance)
 		instance.global_position = master.global_position
+		#queue_free()

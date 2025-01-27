@@ -30,6 +30,8 @@ manager = NodePath("..")
 hitbox = NodePath("Area3D")
 visual_effects = NodePath("Area3D/CollisionShape3D/Sprite3D")
 cooldown_timer = NodePath("cooldown")
+stance = 2
+strike_type = 0
 
 [node name="Area3D" type="Area3D" parent="fist"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.533335)

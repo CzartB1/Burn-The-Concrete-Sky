@@ -72,7 +72,7 @@ shading_mode = 0
 albedo_color = Color(1, 0, 0, 1)
 albedo_texture = ExtResource("9_24rre")
 
-[sub_resource type="ImmediateMesh" id="ImmediateMesh_gnf24"]
+[sub_resource type="ImmediateMesh" id="ImmediateMesh_n2qim"]
 
 [node name="watcher" type="CharacterBody3D" node_paths=PackedStringArray("navigation_agent", "gore_manager") groups=["Enemy"]]
 script = ExtResource("1_7degi")
@@ -181,7 +181,7 @@ top_level = true
 
 [node name="LineRenderer3D" type="MeshInstance3D" parent="behavior_master"]
 material_override = SubResource("StandardMaterial3D_4xpis")
-mesh = SubResource("ImmediateMesh_gnf24")
+mesh = SubResource("ImmediateMesh_n2qim")
 script = ExtResource("10_0ajq3")
 points = Array[Vector3]([Vector3(5, 0, 0), Vector3(-5, 0, 0)])
 

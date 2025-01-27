@@ -103,6 +103,8 @@ func _on_spawn_timer_timeout(): # spawn enemy here
 				elites_amount-=1
 				elites_spawn_delay=randi_range(elites_spawn_delay_probability.x,elites_spawn_delay_probability.y)
 				if elites_amount>0: spawn_timer.start()
+		en_id = randi_range(0,enemies.size()-1) #repeated cuz for some ungodly reason, it'll just spawn the same enemies over and over again
+		el_id = randi_range(0,elites.size()-1) #aka for DEI BABY!!!!! These guns does not discriminate!!!!!
 		if elites_amount <= 0: break
 
 func reset_spawner():

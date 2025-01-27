@@ -2,8 +2,14 @@ extends RigidBody3D
 
 @export var attract_radius: float = 5.0 # Distance within which the money flies to the player
 @export var attraction_speed: float = 65.0 # Speed at which the money moves toward the player
+@export var spawn_to_fly_delay: float = 0.4
 var plr: Node = null
 var is_physics_disabled: bool = false # To track whether physics is disabled
+var can_fly=false
+
+func _ready():
+	await get_tree().create_timer(spawn_to_fly_delay).timeout
+	can_fly=true
 
 func _process(delta):
 	# Find the player
@@ -13,7 +19,7 @@ func _process(delta):
 
 	# Check distance to the player
 	var distance = global_transform.origin.distance_to(plr.global_transform.origin)
-	if distance <= attract_radius:
+	if distance <= attract_radius and can_fly:
 		# Disable physics and manually move toward the player
 		if not is_physics_disabled:
 			sleeping = true

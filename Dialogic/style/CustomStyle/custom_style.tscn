@@ -1,0 +1,136 @@
+[gd_scene load_steps=8 format=3 uid="uid://dpek10cnt4lrj"]
+
+[ext_resource type="Script" path="res://Dialogic/style/CustomStyle/default_layout_base.gd" id="1_ifsho"]
+[ext_resource type="AnimationLibrary" uid="uid://c1nobsn3hqg4x" path="res://Dialogic/style/dialogue_animation_library.tres" id="5_j6ogb"]
+[ext_resource type="PackedScene" uid="uid://dhk6j6eb6e3q" path="res://addons/dialogic/Modules/DefaultLayoutParts/Layer_VN_Choices/vn_choice_layer.tscn" id="6_dvwwn"]
+[ext_resource type="Script" path="res://addons/dialogic/Modules/Text/node_input.gd" id="6_fokfa"]
+[ext_resource type="Script" path="res://Dialogic/style/dialogue_anim_script.gd" id="6_x2for"]
+[ext_resource type="PackedScene" uid="uid://bquja8jyk8kbr" path="res://addons/dialogic/Modules/DefaultLayoutParts/Layer_VN_Textbox/vn_textbox_layer.tscn" id="8_vlc13"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_w3d1y"]
+bg_color = Color(0, 0, 0, 1)
+border_width_left = 5
+border_width_right = 5
+border_blend = true
+
+[node name="Custom" type="CanvasLayer"]
+script = ExtResource("1_ifsho")
+
+[node name="DialogicNode_Input" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+script = ExtResource("6_fokfa")
+
+[node name="VN_TextboxLayer" parent="." instance=ExtResource("8_vlc13")]
+apply_overrides_on_ready = true
+
+[node name="Animations" parent="VN_TextboxLayer" index="0"]
+libraries = {
+"": ExtResource("5_j6ogb")
+}
+script = ExtResource("6_x2for")
+
+[node name="Sizer" parent="VN_TextboxLayer/Anchor/AnimationParent" index="0"]
+offset_left = 186.0
+offset_top = -498.0
+offset_right = 510.0
+offset_bottom = -214.0
+
+[node name="Panel" type="Panel" parent="VN_TextboxLayer/Anchor/AnimationParent/Sizer" index="0"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -150.0
+offset_bottom = 215.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_w3d1y")
+
+[node name="DialogTextPanel" parent="VN_TextboxLayer/Anchor/AnimationParent/Sizer" index="1"]
+offset_left = 4.0
+offset_right = -4.0
+
+[node name="DialogicNode_DialogText" parent="VN_TextboxLayer/Anchor/AnimationParent/Sizer/DialogTextPanel" index="0"]
+theme_override_font_sizes/bold_italics_font_size = 12
+theme_override_font_sizes/italics_font_size = 12
+theme_override_font_sizes/normal_font_size = 12
+theme_override_font_sizes/bold_font_size = 12
+
+[node name="VN_ChoiceLayer" parent="." instance=ExtResource("6_dvwwn")]
+mouse_filter = 0
+mouse_force_pass_scroll_events = false
+font_size_custom = 10
+apply_overrides_on_ready = true
+
+[node name="Choices" parent="VN_ChoiceLayer" index="0"]
+offset_left = 194.0
+offset_top = 117.0
+offset_right = 500.0
+offset_bottom = 419.0
+mouse_filter = 0
+mouse_force_pass_scroll_events = false
+alignment = 0
+
+[node name="DialogicNode_ChoiceButton1" parent="VN_ChoiceLayer/Choices" index="0"]
+mouse_force_pass_scroll_events = false
+mouse_default_cursor_shape = 2
+theme_override_font_sizes/font_size = 10
+
+[node name="DialogicNode_ChoiceButton2" parent="VN_ChoiceLayer/Choices" index="1"]
+mouse_force_pass_scroll_events = false
+mouse_default_cursor_shape = 2
+theme_override_font_sizes/font_size = 10
+
+[node name="DialogicNode_ChoiceButton3" parent="VN_ChoiceLayer/Choices" index="2"]
+mouse_force_pass_scroll_events = false
+mouse_default_cursor_shape = 2
+theme_override_font_sizes/font_size = 10
+
+[node name="DialogicNode_ChoiceButton4" parent="VN_ChoiceLayer/Choices" index="3"]
+mouse_force_pass_scroll_events = false
+mouse_default_cursor_shape = 2
+theme_override_font_sizes/font_size = 10
+
+[node name="DialogicNode_ChoiceButton5" parent="VN_ChoiceLayer/Choices" index="4"]
+mouse_force_pass_scroll_events = false
+mouse_default_cursor_shape = 2
+theme_override_font_sizes/font_size = 10
+
+[node name="DialogicNode_ChoiceButton6" parent="VN_ChoiceLayer/Choices" index="5"]
+mouse_force_pass_scroll_events = false
+mouse_default_cursor_shape = 2
+theme_override_font_sizes/font_size = 10
+
+[node name="DialogicNode_ChoiceButton7" parent="VN_ChoiceLayer/Choices" index="6"]
+mouse_force_pass_scroll_events = false
+mouse_default_cursor_shape = 2
+theme_override_font_sizes/font_size = 10
+
+[node name="DialogicNode_ChoiceButton8" parent="VN_ChoiceLayer/Choices" index="7"]
+mouse_force_pass_scroll_events = false
+mouse_default_cursor_shape = 2
+theme_override_font_sizes/font_size = 10
+
+[node name="DialogicNode_ChoiceButton9" parent="VN_ChoiceLayer/Choices" index="8"]
+mouse_force_pass_scroll_events = false
+mouse_default_cursor_shape = 2
+theme_override_font_sizes/font_size = 10
+
+[node name="DialogicNode_ChoiceButton10" parent="VN_ChoiceLayer/Choices" index="9"]
+mouse_force_pass_scroll_events = false
+mouse_default_cursor_shape = 2
+theme_override_font_sizes/font_size = 10
+
+[node name="DialogicNode_ChoiceButton11" parent="VN_ChoiceLayer/Choices" index="10"]
+mouse_force_pass_scroll_events = false
+mouse_default_cursor_shape = 2
+theme_override_font_sizes/font_size = 10
+
+[editable path="VN_TextboxLayer"]
+[editable path="VN_ChoiceLayer"]

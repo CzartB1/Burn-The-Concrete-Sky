@@ -17,6 +17,9 @@ var damage_add: int
 var damage: int
 @export_group("shop")
 @export var price:int=100
+@export_group("animation")
+@export_range(2,3) var stance:int=3
+@export_range(0,1) var strike_type:int=1
 var charging=false
 var attacking: bool = false
 var can_attack=true
@@ -42,6 +45,8 @@ func _physics_process(delta):
 		visual_effects.visible = false
 
 func _process(delta):
+	manager.master.anim_manager.set("parameters/weapon_anim_id/blend_position",float(stance))
+	
 	attack()
 
 func attack():
@@ -65,6 +70,8 @@ func attack():
 		if damage > max_damage: damage=max_damage
 		elif damage < min_damage: damage=min_damage
 		print("final damage: "+str(damage))
+		manager.master.anim_manager.set("parameters/melee_attack_type/blend_position",float(strike_type))
+		manager.master.anim_manager.set("parameters/melee_attack/request",AnimationNodeOneShot.ONE_SHOT_REQUEST_FIRE)
 		charging=false
 		attacking = true
 		await get_tree().create_timer(0.1).timeout

@@ -439,7 +439,7 @@ char_id = 1
 char_name = "SILVER"
 char_desc = "An enigmatic gentleman-thief."
 ablt_name = "Anchor Card"
-ablt_desc = "Place a card which as an an anchor where you can teleport back to."
+ablt_desc = "Place a card which acts as an anchor where you can teleport back to."
 
 [node name="impact_button" type="TextureButton" parent="CanvasLayer/character_select_screen/Panel/GridContainer" node_paths=PackedStringArray("selector")]
 layout_mode = 2

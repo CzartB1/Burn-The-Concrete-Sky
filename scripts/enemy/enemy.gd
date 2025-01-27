@@ -3,6 +3,7 @@ extends CharacterBody3D
 
 @export var hp = 10
 @export var elite=false
+@export var death_delay:float = 0
 var alive = true
 var spawner:enemy_spawner
 var speed:float
@@ -26,15 +27,17 @@ func _ready():
 func _process(_delta):
 	if hp <= 0:
 		alive = false
-		gore_manager.activate_death_effect()
-		if spawner!=null: 
+		stop_nav=true
+		if death_delay>0: await get_tree().create_timer(death_delay).timeout
+		game_manager.stat_kills+=1
+		if spawner!=null:
 			if elite:spawner.elites_killed+=1
 			elif !elite:spawner.common_spawned-=1
-		game_manager.stat_kills+=1
 		var econom=get_tree().get_first_node_in_group("Economy")
 		if econom is Player_Economy_Manager:
-			explode_money()
 			econom.increase_mult(mult_loot)
+		explode_money()
+		gore_manager.activate_death_effect()
 		queue_free()
 
 func set_movement_target(movement_target: Vector3):
@@ -45,7 +48,7 @@ func _physics_process(_delta):
 	elif !is_on_floor(): velocity.y=-19
 	if navigation_agent.is_navigation_finished() or stunned:
 		return
-	if !stop_nav:
+	if !stop_nav and alive:
 		var next_path_position: Vector3 = navigation_agent.get_next_path_position()
 		var current_agent_position: Vector3 = global_position
 		var new_velocity: Vector3 = (next_path_position - current_agent_position).normalized() * speed
@@ -53,6 +56,7 @@ func _physics_process(_delta):
 			navigation_agent.set_velocity(new_velocity)
 		else:
 			_on_velocity_computed(new_velocity)
+	else: _on_velocity_computed(Vector3.ZERO)
 
 func _on_velocity_computed(safe_velocity: Vector3):
 	velocity = safe_velocity

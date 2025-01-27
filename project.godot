@@ -53,8 +53,8 @@ save/autosave_delay=60.0
 save/encryption_on_exports_only=true
 text/autopauses={}
 variables={}
-layout/style_list=["res://scene/utilities/dialogic_style.tres"]
-layout/default_style="res://scene/utilities/dialogic_style.tres"
+layout/style_list=["res://Dialogic/style/style.tres"]
+layout/default_style="res://Dialogic/style/style.tres"
 glossary/default_case_sensitive=true
 animations/join_default="Slide In Up"
 animations/leave_default="Slide Out Down"
@@ -71,7 +71,7 @@ project/assembly_name="project_topdown"
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/Asset_Drawer/plugin.cfg", "res://addons/LineRenderer/plugin.cfg", "res://addons/Todo_Manager/plugin.cfg", "res://addons/dialogic/plugin.cfg", "res://addons/finite_state_machine/plugin.cfg", "res://addons/func_godot/plugin.cfg")
+enabled=PackedStringArray("res://addons/Asset_Drawer/plugin.cfg", "res://addons/LineRenderer/plugin.cfg", "res://addons/Todo_Manager/plugin.cfg", "res://addons/dialogic/plugin.cfg", "res://addons/finite_state_machine/plugin.cfg", "res://addons/func_godot/plugin.cfg", "res://addons/script-ide/plugin.cfg")
 
 [file_customization]
 

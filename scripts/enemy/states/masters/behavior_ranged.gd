@@ -7,9 +7,11 @@ extends Enemy_Behavior_Master
 @export var shoot_cooldown:Timer
 @export var shoot_range = 30
 @export var spread:float = 5
+@export var stop_on_attack=false
 @export_group("Ammo")
 @export var max_ammo:int = 10
 @export var reload_duration:float=3
+@export var continual_attack:bool=false
 @export_group("Animation")
 @export var atk_anim_start_delay:float=0
 @export var end_atk_anim_on_start:bool=true
@@ -25,8 +27,14 @@ func _ready():
 	shoot_cooldown.wait_time=fire_rate
 	previous_position = global_position
 
+func _process(delta):
+	super._process(delta)
+	if continual_attack and is_attacking and can_shoot:
+		look_at_player=true
+		attack()
+	if stop_on_attack: master.stop_nav=is_attacking
+
 func attack():
-	# TODO make like kind of a for statement for burst shooting
 	if can_shoot == false or master.stunned or reloading or master.global_position.distance_to(target)>shoot_range: return 
 	if ammo > 0:
 		if anim!=null and atk_anim_fin:  
