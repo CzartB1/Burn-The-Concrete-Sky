@@ -1,54 +1,129 @@
-[gd_scene format=3 uid="uid://beurm5o4g7kuq"]
+[gd_scene load_steps=6 format=3 uid="uid://beurm5o4g7kuq"]
 
-[node name="SettingsMenu" type="Control"]
+[ext_resource type="Script" path="res://scripts/menus/settings_menu.gd" id="1_15yu6"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hjccn"]
+bg_color = Color(1, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5ysgk"]
+bg_color = Color(1, 0, 0, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_phk8s"]
+draw_center = false
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_vws7g"]
+
+[node name="settingsMenu" type="Control" node_paths=PackedStringArray("master_slider", "music_slider", "sfx_slider", "resolution_option", "fullscreen_toggle")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_15yu6")
+master_slider = NodePath("VBoxContainer/masterV/HSlider")
+music_slider = NodePath("VBoxContainer/MusicV/HSlider")
+sfx_slider = NodePath("VBoxContainer/SFXV/HSlider")
+resolution_option = NodePath("VBoxContainer/Resolution/OptionButton")
+fullscreen_toggle = NodePath("VBoxContainer/Fullscreen/CheckBox")
 
-[node name="PanelContainer" type="PanelContainer" parent="."]
-layout_mode = 2
-offset_right = 1152.0
-offset_bottom = 648.0
-
-[node name="TabContainer" type="TabContainer" parent="PanelContainer"]
-layout_mode = 2
-tab_alignment = 1
-
-[node name="Audio" type="MarginContainer" parent="PanelContainer/TabContainer"]
-layout_mode = 2
-theme_override_constants/margin_left = 30
-theme_override_constants/margin_right = 30
-theme_override_constants/margin_bottom = 100
-
-[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/TabContainer/Audio"]
-layout_mode = 2
-
-[node name="Graphics" type="MarginContainer" parent="PanelContainer/TabContainer"]
-visible = false
-layout_mode = 2
-theme_override_constants/margin_left = 30
-theme_override_constants/margin_right = 30
-theme_override_constants/margin_bottom = 100
-
-[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/TabContainer/Graphics"]
-layout_mode = 2
-
-[node name="Button" type="Button" parent="."]
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
 layout_mode = 1
-anchors_preset = 7
+anchors_preset = 8
 anchor_left = 0.5
-anchor_top = 1.0
+anchor_top = 0.5
 anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = -51.0
-offset_top = -56.0
-offset_right = 48.0
-offset_bottom = -25.0
+anchor_bottom = 0.5
+offset_left = -120.0
+offset_top = -114.0
+offset_right = 120.0
+offset_bottom = 114.0
 grow_horizontal = 2
-grow_vertical = 0
-size_flags_horizontal = 4
-size_flags_vertical = 8
+grow_vertical = 2
+theme_override_constants/separation = 25
+alignment = 1
+
+[node name="Label" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+text = "Settings"
+
+[node name="masterV" type="VBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="VBoxContainer/masterV"]
+layout_mode = 2
+text = "Master Volume"
+
+[node name="HSlider" type="HSlider" parent="VBoxContainer/masterV"]
+layout_mode = 2
+value = 100.0
+
+[node name="MusicV" type="VBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="VBoxContainer/MusicV"]
+layout_mode = 2
+text = "Music Volume"
+
+[node name="HSlider" type="HSlider" parent="VBoxContainer/MusicV"]
+layout_mode = 2
+value = 100.0
+
+[node name="SFXV" type="VBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="VBoxContainer/SFXV"]
+layout_mode = 2
+text = "Sound Effects Volume"
+
+[node name="HSlider" type="HSlider" parent="VBoxContainer/SFXV"]
+layout_mode = 2
+value = 100.0
+
+[node name="Resolution" type="VBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="VBoxContainer/Resolution"]
+layout_mode = 2
+text = "Resolution"
+
+[node name="OptionButton" type="OptionButton" parent="VBoxContainer/Resolution"]
+layout_mode = 2
+
+[node name="Fullscreen" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="CheckBox" type="CheckBox" parent="VBoxContainer/Fullscreen"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="VBoxContainer/Fullscreen"]
+layout_mode = 2
+text = "Fullscreen
+"
+
+[node name="Button" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_styles/focus = SubResource("StyleBoxFlat_hjccn")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxFlat_5ysgk")
+theme_override_styles/hover_pressed = SubResource("StyleBoxFlat_5ysgk")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxFlat_phk8s")
+theme_override_styles/hover = SubResource("StyleBoxFlat_phk8s")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxFlat_hjccn")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_hjccn")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_vws7g")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_vws7g")
 text = "Back"
+
+[connection signal="value_changed" from="VBoxContainer/masterV/HSlider" to="." method="_on_master_slider_value_changed"]
+[connection signal="value_changed" from="VBoxContainer/MusicV/HSlider" to="." method="_on_music_slider_value_changed"]
+[connection signal="value_changed" from="VBoxContainer/SFXV/HSlider" to="." method="_on_sfx_slider_value_changed"]
+[connection signal="item_selected" from="VBoxContainer/Resolution/OptionButton" to="." method="_on_resolution_option_item_selected"]
+[connection signal="toggled" from="VBoxContainer/Fullscreen/CheckBox" to="." method="_on_fullscreen_toggle_toggled"]
