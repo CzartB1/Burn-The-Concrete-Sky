@@ -2,6 +2,21 @@
 
 [ext_resource type="Script" path="res://scripts/menus/pause_menu.gd" id="1_83na2"]
 
+[sub_resource type="Animation" id="Animation_8wiok"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Panel:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(409, 0)]
+}
+
 [sub_resource type="Animation" id="Animation_vmokf"]
 resource_name = "pause_slide_in"
 length = 0.2
@@ -17,21 +32,6 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Vector2(409, 648), Vector2(409, 0)]
-}
-
-[sub_resource type="Animation" id="Animation_8wiok"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Panel:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(409, 0)]
 }
 
 [sub_resource type="Animation" id="Animation_ykost"]
@@ -89,10 +89,11 @@ bg_color = Color(1, 0, 0, 1)
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_gesil"]
 
-[node name="pause_menu" type="CanvasLayer" node_paths=PackedStringArray("menu", "anim")]
+[node name="pause_menu" type="CanvasLayer" node_paths=PackedStringArray("menu", "settingsMenu", "anim")]
 layer = 6
 script = ExtResource("1_83na2")
 menu = NodePath("Panel")
+settingsMenu = NodePath("")
 anim = NodePath("AnimationPlayer")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
@@ -170,7 +171,7 @@ theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_vws7g")
 theme_override_styles/normal = SubResource("StyleBoxEmpty_gesil")
 text = "Restart"
 
-[node name="options" type="Button" parent="Panel/VBoxContainer"]
+[node name="settings" type="Button" parent="Panel/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_colors/font_disabled_color = Color(0.662745, 0.662745, 0.662745, 1)
@@ -188,7 +189,7 @@ theme_override_styles/pressed_mirrored = SubResource("StyleBoxFlat_i0if8")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_me1wi")
 theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_vws7g")
 theme_override_styles/normal = SubResource("StyleBoxEmpty_gesil")
-text = "Options"
+text = "Settings"
 
 [node name="main_menu_exit" type="Button" parent="Panel/VBoxContainer"]
 layout_mode = 2
@@ -232,5 +233,6 @@ text = "Desktop"
 
 [connection signal="pressed" from="Panel/VBoxContainer/resume" to="." method="_on_resume_pressed"]
 [connection signal="pressed" from="Panel/VBoxContainer/restart" to="." method="_on_restart_pressed"]
+[connection signal="pressed" from="Panel/VBoxContainer/settings" to="." method="_on_settings_pressed"]
 [connection signal="pressed" from="Panel/VBoxContainer/main_menu_exit" to="." method="_on_main_menuu_exit_pressed"]
 [connection signal="pressed" from="Panel/VBoxContainer/exit_desktop" to="." method="_on_exit_desktop_pressed"]

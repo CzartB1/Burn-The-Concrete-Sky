@@ -3,6 +3,7 @@
 [ext_resource type="Script" path="res://scripts/misc/audio_direct.gd" id="1_s3x2w"]
 
 [node name="audio_direct" type="AudioStreamPlayer3D"]
+bus = &"SFX"
 script = ExtResource("1_s3x2w")
 
 [connection signal="finished" from="." to="." method="_on_finished"]

@@ -1,10 +1,11 @@
-extends Control
+extends CanvasLayer
 
 @export var master_slider:HSlider
 @export var music_slider:HSlider
 @export var sfx_slider:HSlider
 @export var resolution_option:OptionButton
 @export var fullscreen_toggle:CheckBox
+@export var menu:Control
 
 const CONFIG_PATH = "user://settings.cfg"
 var config = ConfigFile.new()
@@ -85,7 +86,8 @@ func save_settings():
 
 func _on_back_button_pressed():
 	save_settings()
-	queue_free()
+	menu.visible=false
+	menu.z_index=0
 
 func _on_fullscreen_toggle_toggled(button_pressed):
 	apply_video_settings(resolutions[resolution_option.selected], button_pressed)

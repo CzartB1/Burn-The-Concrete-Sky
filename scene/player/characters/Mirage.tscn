@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=3 uid="uid://d5vt4gjy1jd2"]
+[gd_scene load_steps=34 format=3 uid="uid://d5vt4gjy1jd2"]
 
 [ext_resource type="Script" path="res://scripts/player/player.gd" id="1_kcs3k"]
 [ext_resource type="Script" path="res://scripts/player/player_anim_manager.gd" id="3_nk27n"]
@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://dofv6wsmohjmf" path="res://scene/player/characters/abilities/mirage_decoy.tscn" id="7_qgeps"]
 [ext_resource type="PackedScene" uid="uid://bi7qoo74n8kdj" path="res://scene/player/player_hud.tscn" id="10_7fat4"]
 [ext_resource type="PackedScene" uid="uid://bbrv0muijwlh6" path="res://scene/player/player_economy_manager.tscn" id="11_5utuv"]
+[ext_resource type="PackedScene" uid="uid://bpfjiepxftms8" path="res://scene/player/footstep_detector.tscn" id="11_8qkxl"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_6vhwg"]
 radius = 0.212496
@@ -160,45 +161,45 @@ shape = SubResource("CapsuleShape3D_6vhwg")
 transform = Transform3D(-1, 0, -1.50996e-07, 0, 1, 0, 1.50996e-07, 0, -1, 0, -0.861741, 0)
 
 [node name="Skeleton3D" parent="body/Mirage/metarig" index="0"]
-bones/0/position = Vector3(2.63418e-09, 1.0099, -0.00681275)
-bones/0/rotation = Quaternion(0, 0.382684, 0, 0.92388)
+bones/0/position = Vector3(2.63418e-09, 0.97864, -0.00681275)
+bones/0/rotation = Quaternion(0, 0.382684, 0, 0.923879)
 bones/0/scale = Vector3(1, 1, 1)
 bones/1/rotation = Quaternion(0.0104663, -0.642728, 0.00878231, 0.765973)
 bones/1/scale = Vector3(1, 1, 1)
-bones/2/rotation = Quaternion(-0.0287109, -1.19171e-07, -3.64379e-09, 0.999588)
-bones/3/rotation = Quaternion(-0.499479, -0.485389, -0.500431, 0.514283)
+bones/2/rotation = Quaternion(-0.0287109, -1.03833e-07, -1.17261e-09, 0.999588)
+bones/3/rotation = Quaternion(-0.594997, -0.476204, -0.4825, 0.431743)
 bones/3/scale = Vector3(1, 1, 1)
-bones/4/rotation = Quaternion(-0.470373, 0.527164, -0.460305, 0.537556)
-bones/5/rotation = Quaternion(0.00577828, 0.0288373, -0.0601521, 0.997756)
-bones/6/rotation = Quaternion(-0.0211187, 0.000166145, -0.0379608, 0.999056)
+bones/4/rotation = Quaternion(-0.147676, 0.520752, -0.618908, 0.569176)
+bones/5/rotation = Quaternion(0.680714, -0.0481981, 0.145847, 0.716264)
+bones/6/rotation = Quaternion(0.0192105, -0.107204, -0.0304715, 0.993584)
 bones/6/scale = Vector3(1, 1, 1)
-bones/7/rotation = Quaternion(-0.499479, 0.485389, 0.500431, 0.514283)
+bones/7/rotation = Quaternion(-0.47681, 0.499997, 0.554406, 0.463993)
 bones/7/scale = Vector3(1, 1, 1)
-bones/8/rotation = Quaternion(-0.461553, -0.534645, 0.454607, 0.542638)
-bones/9/rotation = Quaternion(0.00641642, -0.0285613, 0.0423503, 0.998674)
+bones/8/rotation = Quaternion(-0.200209, -0.650793, 0.505346, 0.530104)
+bones/9/rotation = Quaternion(0.923287, 0.155815, 0.0968412, 0.337467)
 bones/9/scale = Vector3(1, 1, 1)
-bones/10/rotation = Quaternion(-0.0213207, 0.00243078, 0.0257741, 0.999438)
+bones/10/rotation = Quaternion(-0.109921, 0.00679978, 0.0468696, 0.992812)
 bones/10/scale = Vector3(1, 1, 1)
-bones/11/rotation = Quaternion(0.165634, 0.214311, -0.0302835, 0.962143)
-bones/12/rotation = Quaternion(-0.154804, -1.17944e-07, -5.64614e-08, 0.987945)
-bones/13/position = Vector3(0.00558722, 0.0621002, 0.098)
-bones/13/rotation = Quaternion(0.919492, -0.0372499, 0.380866, 0.0899291)
+bones/11/rotation = Quaternion(0.0856499, 0.218162, 0.0028567, 0.972143)
+bones/12/rotation = Quaternion(-0.112218, -0.00117268, -0.00748315, 0.993655)
+bones/13/position = Vector3(0.00558912, 0.0620795, 0.0979981)
+bones/13/rotation = Quaternion(0.917041, 0.102958, 0.380874, 0.0580567)
 bones/13/scale = Vector3(1, 1, 1)
-bones/14/rotation = Quaternion(0.111851, -1.46449e-08, -6.05286e-10, 0.993725)
-bones/15/rotation = Quaternion(-0.682957, 7.83714e-07, -7.32749e-07, 0.730459)
+bones/14/rotation = Quaternion(-0.0159565, -2.38576e-08, 1.99606e-08, 0.999873)
+bones/15/rotation = Quaternion(-0.646799, -0.073339, 0.0761779, 0.755294)
 bones/15/scale = Vector3(1, 1, 1)
-bones/16/position = Vector3(0.00558724, 0.0621002, -0.098)
-bones/16/rotation = Quaternion(0.905503, 0.0364207, 0.411277, -0.097928)
+bones/16/position = Vector3(0.00558535, 0.0621209, -0.0979981)
+bones/16/rotation = Quaternion(0.903911, -0.0948364, 0.416741, -0.0166584)
 bones/16/scale = Vector3(1, 1, 1)
-bones/17/rotation = Quaternion(0.0671414, 0.00180203, 0.0102415, 0.997689)
-bones/18/rotation = Quaternion(-0.742186, 0.0109108, -0.0176839, 0.669872)
+bones/17/rotation = Quaternion(0.152667, 0.00123786, 0.0160952, 0.988146)
+bones/18/rotation = Quaternion(-0.671452, 0.0722879, -0.0960779, 0.731229)
 bones/18/scale = Vector3(1, 1, 1)
 bones/19/rotation = Quaternion(-0.655919, -0.0708456, 0.0243406, 0.751105)
 bones/19/scale = Vector3(1, 1, 1)
 bones/20/rotation = Quaternion(-0.0243409, 0.751105, 0.655919, -0.0708453)
 
 [node name="BoneAttachment3D" type="BoneAttachment3D" parent="body/Mirage/metarig/Skeleton3D" index="8"]
-transform = Transform3D(-0.824218, -0.00117104, -0.56627, 0.0246826, -0.999122, -0.03386, -0.565733, -0.0418851, 0.823524, -0.215207, 1.00121, -0.164945)
+transform = Transform3D(-0.98335, 0.175283, 0.0479549, 0.151994, 0.648678, 0.745732, 0.099607, 0.740603, -0.664519, -0.269861, 1.54904, 0.0997746)
 bone_name = "hand.R"
 bone_idx = 10
 
@@ -275,10 +276,14 @@ one_shot = true
 [node name="HBoxContainer" parent="player_HUD/HUD/VBoxContainer" index="2" node_paths=PackedStringArray("weapon_holder")]
 weapon_holder = NodePath("../../../../body/Mirage/metarig/Skeleton3D/BoneAttachment3D/weapon_holder")
 
+[node name="footstep_detector" parent="." node_paths=PackedStringArray("character_controller") instance=ExtResource("11_8qkxl")]
+character_controller = NodePath("..")
+
 [connection signal="timeout" from="Ability/Timer" to="Ability" method="cooldown_timer_timeout"]
 [connection signal="timeout" from="dash_timer" to="." method="_on_dash_timer_timeout"]
-[connection signal="timeout" from="dash_cooldown" to="." method="_on_dash_timer_timeout"]
 [connection signal="timeout" from="dash_cooldown" to="." method="_on_dash_cooldown_timeout"]
+[connection signal="timeout" from="dash_cooldown" to="." method="_on_dash_timer_timeout"]
 
 [editable path="body/Mirage"]
 [editable path="player_HUD"]
+[editable path="player_HUD/settingsMenu"]

@@ -24,9 +24,8 @@ streams_count = 2
 stream_0/stream = ExtResource("5_ia6x6")
 stream_1/stream = ExtResource("6_he1j4")
 
-[node name="footstep_detector" type="Node3D" node_paths=PackedStringArray("character_controller", "raycast_node", "audio_player")]
+[node name="footstep_detector" type="Node3D" node_paths=PackedStringArray("raycast_node", "audio_player")]
 script = ExtResource("1_gpwuu")
-character_controller = NodePath("")
 raycast_node = NodePath("RayCast3D")
 footstep_interval = 0.2
 audio_player = NodePath("AudioStreamPlayer3D")
@@ -41,3 +40,4 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.830083, 0)
 attenuation_model = 3
 volume_db = -15.0
 max_db = 1.0
+bus = &"SFX"

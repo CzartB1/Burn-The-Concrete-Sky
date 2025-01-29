@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://bi7qoo74n8kdj"]
+[gd_scene load_steps=17 format=3 uid="uid://bi7qoo74n8kdj"]
 
 [ext_resource type="Texture2D" uid="uid://cddj8k55a3nh1" path="res://sprites/crosshair.png" id="1_iujy2"]
 [ext_resource type="Shader" path="res://shader/posterize.gdshader" id="1_t8rcp"]
@@ -9,6 +9,7 @@
 [ext_resource type="Script" path="res://scripts/player/UI/player_weapon_UI.gd" id="5_slv7q"]
 [ext_resource type="Script" path="res://scripts/misc/letterboxing.gd" id="6_j5g7i"]
 [ext_resource type="PackedScene" uid="uid://blwyb80tpldxb" path="res://scene/menus/pause_menu.tscn" id="9_1yxso"]
+[ext_resource type="PackedScene" uid="uid://beurm5o4g7kuq" path="res://scene/menus/settings_menu.tscn" id="10_3t1xs"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_yknq1"]
 shader = ExtResource("1_t8rcp")
@@ -371,11 +372,17 @@ text = "Choose Another Character"
 layout_mode = 2
 text = "Exit"
 
-[node name="pause_menu" parent="." node_paths=PackedStringArray("HUD") instance=ExtResource("9_1yxso")]
+[node name="pause_menu" parent="." node_paths=PackedStringArray("HUD", "settingsMenu") instance=ExtResource("9_1yxso")]
 HUD = NodePath("../HUD/VBoxContainer")
+settingsMenu = NodePath("../settingsMenu/Panel")
+
+[node name="settingsMenu" parent="." instance=ExtResource("10_3t1xs")]
+layer = 7
 
 [connection signal="timeout" from="cleared_screen/Timer" to="cleared_screen" method="_on_timer_timeout"]
 [connection signal="timeout" from="death_screen/Timer" to="death_screen" method="_on_timer_timeout"]
 [connection signal="pressed" from="stats/stat_screen/HBoxContainer/restart" to="stats/stat_screen" method="_on_restart_pressed"]
 [connection signal="pressed" from="stats/stat_screen/HBoxContainer/choose char" to="stats/stat_screen" method="_on_choose_char_pressed"]
 [connection signal="pressed" from="stats/stat_screen/HBoxContainer/exit" to="stats/stat_screen" method="_on_exit_pressed"]
+
+[editable path="settingsMenu"]

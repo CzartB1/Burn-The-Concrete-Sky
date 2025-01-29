@@ -2,12 +2,15 @@ extends CanvasLayer
 
 @export var menu:Control
 @export var HUD:Control
+@export var settingsMenu:Control
 @export var anim:AnimationPlayer
 var plr
 var last_frame_time: int = 0  # Track time for manual animation updates
 
 func _ready():
 	last_frame_time = Time.get_ticks_usec()
+	settingsMenu.visible=false
+	settingsMenu.z_index=0
 	anim.play("reset")
 	#anim.process_mode = 
 
@@ -64,3 +67,8 @@ func _on_restart_pressed():
 	game_manager.restart(true)
 	game_manager.unpause()
 	Engine.time_scale=1
+
+
+func _on_settings_pressed():
+	settingsMenu.visible=true
+	settingsMenu.z_index=7

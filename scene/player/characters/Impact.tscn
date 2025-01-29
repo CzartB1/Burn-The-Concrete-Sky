@@ -1,4 +1,4 @@
-[gd_scene load_steps=38 format=3 uid="uid://cj7kkva2uk3m0"]
+[gd_scene load_steps=31 format=3 uid="uid://cj7kkva2uk3m0"]
 
 [ext_resource type="Script" path="res://scripts/player/player.gd" id="1_2kbpr"]
 [ext_resource type="PackedScene" uid="uid://bsluxy1if04dd" path="res://meshes/player/characters/Impact/impact.blend" id="2_ivvde"]
@@ -9,13 +9,8 @@
 [ext_resource type="PackedScene" uid="uid://b7s666fjvh0kq" path="res://scene/player/characters/abilities/impact_grapple.tscn" id="7_cjr57"]
 [ext_resource type="Script" path="res://scripts/player/player_cam.gd" id="7_kbhwl"]
 [ext_resource type="PackedScene" uid="uid://bi7qoo74n8kdj" path="res://scene/player/player_hud.tscn" id="10_65p3m"]
-[ext_resource type="Script" path="res://scripts/player/footstep_detector.gd" id="11_jnd4o"]
+[ext_resource type="PackedScene" uid="uid://bpfjiepxftms8" path="res://scene/player/footstep_detector.tscn" id="11_rs8xy"]
 [ext_resource type="PackedScene" uid="uid://bbrv0muijwlh6" path="res://scene/player/player_economy_manager.tscn" id="11_x4fxv"]
-[ext_resource type="AudioStream" uid="uid://danbigtreogct" path="res://audios/effects/footsteps/zapsplat_foley_footstep_single_female_leather_shoe_on_concrete_street_011_50934.mp3" id="12_cdf7j"]
-[ext_resource type="AudioStream" uid="uid://bipkiw32ki8yn" path="res://audios/effects/footsteps/zapsplat_foley_footstep_single_boys_sneaker_on_concrete_005_50915.mp3" id="12_som4r"]
-[ext_resource type="AudioStream" uid="uid://chiit86na75ri" path="res://audios/effects/footsteps/zapsplat_foley_footstep_single_shallow_puddle_water_002_30458.mp3" id="12_yb76m"]
-[ext_resource type="AudioStream" uid="uid://vitby6d872ti" path="res://audios/effects/footsteps/zapsplat_foley_footstep_single_wet_dirt_001_30460.mp3" id="13_01num"]
-[ext_resource type="AudioStream" uid="uid://baxb21ofu4hes" path="res://audios/effects/footsteps/zapsplat_foley_footstep_single_wet_dirt_010_30469.mp3" id="14_1kygx"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_6vhwg"]
 radius = 0.252089
@@ -130,23 +125,6 @@ node_connections = [&"Blend2", 0, &"melee_attack", &"Blend2", 1, &"BlendSpace2D"
 [sub_resource type="BoxShape3D" id="BoxShape3D_c71mp"]
 size = Vector3(276.536, 0.001, 129.934)
 
-[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_2838g"]
-playback_mode = 1
-random_pitch = 1.5
-random_volume_offset_db = 0.7
-streams_count = 3
-stream_0/stream = ExtResource("12_yb76m")
-stream_1/stream = ExtResource("13_01num")
-stream_2/stream = ExtResource("14_1kygx")
-
-[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_xx7wi"]
-playback_mode = 1
-random_pitch = 1.7
-random_volume_offset_db = 0.5
-streams_count = 2
-stream_0/stream = ExtResource("12_som4r")
-stream_1/stream = ExtResource("12_cdf7j")
-
 [node name="player" type="CharacterBody3D" node_paths=PackedStringArray("upgrade_manager", "HP_bar", "time_slow_bar", "charge_bar", "body", "cont_look_target", "cam", "cam_holder", "anim_manager") groups=["Player"]]
 floor_block_on_wall = false
 script = ExtResource("1_2kbpr")
@@ -169,7 +147,7 @@ shape = SubResource("CapsuleShape3D_6vhwg")
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, -0.778036, 0)
 
 [node name="Skeleton3D" parent="body/impact/metarig" index="0"]
-bones/0/position = Vector3(2.63418e-09, 0.987692, -0.00681275)
+bones/0/position = Vector3(2.63418e-09, 0.988176, -0.00681275)
 bones/0/rotation = Quaternion(0, 0.382684, 0, 0.92388)
 bones/0/scale = Vector3(1, 1, 1)
 bones/1/rotation = Quaternion(0.0104663, -0.642728, 0.00878231, 0.765973)
@@ -191,23 +169,23 @@ bones/10/scale = Vector3(1, 1, 1)
 bones/11/rotation = Quaternion(0.0856499, 0.218162, 0.0028567, 0.972143)
 bones/12/rotation = Quaternion(-0.112218, -0.00117268, -0.00748315, 0.993655)
 bones/13/position = Vector3(0.00558721, 0.0621001, 0.098)
-bones/13/rotation = Quaternion(0.923061, -0.035587, 0.382781, -0.0130586)
+bones/13/rotation = Quaternion(0.921551, 0.0180749, 0.379723, 0.0789156)
 bones/13/scale = Vector3(1, 1, 1)
-bones/14/rotation = Quaternion(0.22341, -2.39869e-08, 1.69686e-08, 0.974725)
-bones/15/rotation = Quaternion(-0.64977, 0.0351952, -0.0350143, 0.758508)
+bones/14/rotation = Quaternion(-0.0113724, -2.35832e-08, 1.56207e-08, 0.999935)
+bones/15/rotation = Quaternion(-0.649632, -0.0382439, 0.0380476, 0.758332)
 bones/15/scale = Vector3(1, 1, 1)
 bones/16/position = Vector3(0.00558726, 0.0621001, -0.098)
-bones/16/rotation = Quaternion(0.907794, -0.00597442, 0.406916, 0.101461)
+bones/16/rotation = Quaternion(0.908734, -0.0308499, 0.414799, -0.0345404)
 bones/16/scale = Vector3(1, 1, 1)
-bones/17/rotation = Quaternion(0.243332, 0.000441928, 0.0223754, 0.969685)
-bones/18/rotation = Quaternion(-0.675796, -0.0243929, 0.0258923, 0.73623)
+bones/17/rotation = Quaternion(0.392542, -0.00142425, 0.0324692, 0.91916)
+bones/18/rotation = Quaternion(-0.708078, 0.0401598, -0.0592277, 0.702499)
 bones/18/scale = Vector3(1, 1, 1)
 bones/19/rotation = Quaternion(-0.655919, -0.0708456, 0.0243406, 0.751105)
 bones/19/scale = Vector3(1, 1, 1)
 bones/20/rotation = Quaternion(-0.0243409, 0.751105, 0.655919, -0.0708453)
 
 [node name="BoneAttachment3D" type="BoneAttachment3D" parent="body/impact/metarig/Skeleton3D" index="5"]
-transform = Transform3D(-0.993829, 0.0196863, 0.109162, 0.11064, 0.246181, 0.962888, -0.00791776, 0.969024, -0.24684, -0.296652, 1.50854, 0.120614)
+transform = Transform3D(-0.993829, 0.0196864, 0.109162, 0.11064, 0.246181, 0.962888, -0.0079178, 0.969024, -0.24684, -0.296652, 1.50902, 0.120614)
 bone_name = "hand.R"
 bone_idx = 10
 
@@ -283,28 +261,14 @@ one_shot = true
 [node name="HBoxContainer" parent="player_HUD/HUD/VBoxContainer" index="2" node_paths=PackedStringArray("weapon_holder")]
 weapon_holder = NodePath("../../../../body/impact/metarig/Skeleton3D/BoneAttachment3D/weapon_holder")
 
-[node name="footstep_detector" type="Node3D" parent="." node_paths=PackedStringArray("character_controller", "raycast_node", "audio_player")]
-script = ExtResource("11_jnd4o")
+[node name="footstep_detector" parent="." node_paths=PackedStringArray("character_controller") instance=ExtResource("11_rs8xy")]
 character_controller = NodePath("..")
-raycast_node = NodePath("RayCast3D")
-footstep_interval = 0.2
-audio_player = NodePath("AudioStreamPlayer3D")
-material_groups = ["water", "metal", "wood"]
-footstep_sounds = Array[AudioStream]([SubResource("AudioStreamRandomizer_2838g")])
-default_footstep_sound = SubResource("AudioStreamRandomizer_xx7wi")
-
-[node name="RayCast3D" type="RayCast3D" parent="footstep_detector"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.830083, 0)
-
-[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="footstep_detector"]
-attenuation_model = 3
-volume_db = -15.0
-max_db = 1.0
 
 [connection signal="timeout" from="body/Ability/Timer" to="body/Ability" method="cooldown_timer_timeout"]
 [connection signal="timeout" from="dash_timer" to="." method="_on_dash_timer_timeout"]
-[connection signal="timeout" from="dash_cooldown" to="." method="_on_dash_timer_timeout"]
 [connection signal="timeout" from="dash_cooldown" to="." method="_on_dash_cooldown_timeout"]
+[connection signal="timeout" from="dash_cooldown" to="." method="_on_dash_timer_timeout"]
 
 [editable path="body/impact"]
 [editable path="player_HUD"]
+[editable path="player_HUD/settingsMenu"]

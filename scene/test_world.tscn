@@ -483,6 +483,7 @@ characters = Array[PackedScene]([ExtResource("10_0jsb7"), ExtResource("11_m1rxn"
 [node name="music_manager" type="AudioStreamPlayer" parent="." node_paths=PackedStringArray("manager") groups=["Music"]]
 stream = SubResource("AudioStreamInteractive_nry77")
 autoplay = true
+bus = &"Music"
 script = ExtResource("21_ss30e")
 manager = NodePath("../room_manager")
 
