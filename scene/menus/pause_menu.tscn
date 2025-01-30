@@ -89,11 +89,10 @@ bg_color = Color(1, 0, 0, 1)
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_gesil"]
 
-[node name="pause_menu" type="CanvasLayer" node_paths=PackedStringArray("menu", "settingsMenu", "anim")]
+[node name="pause_menu" type="CanvasLayer" node_paths=PackedStringArray("menu", "anim")]
 layer = 6
 script = ExtResource("1_83na2")
 menu = NodePath("Panel")
-settingsMenu = NodePath("")
 anim = NodePath("AnimationPlayer")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
