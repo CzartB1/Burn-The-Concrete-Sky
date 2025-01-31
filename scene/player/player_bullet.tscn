@@ -16,13 +16,14 @@ height = 1.02023
 radius = 0.379283
 height = 1.44889
 
-[node name="player_bullet" type="CharacterBody3D"]
+[node name="player_bullet" type="CharacterBody3D" node_paths=PackedStringArray("destroyTimer")]
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
 collision_layer = 3
 collision_mask = 3
 motion_mode = 1
 script = ExtResource("1_wxf1h")
 speed = 200
+destroyTimer = NodePath("Timer")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 transform = Transform3D(0.5, 0, 0, 0, -2.18557e-08, -0.5, 0, 0.5, -2.18557e-08, 0, 0, 0)
@@ -34,8 +35,8 @@ shape = SubResource("CapsuleShape3D_jb6pt")
 disabled = true
 
 [node name="Timer" type="Timer" parent="."]
+wait_time = 3.0
 one_shot = true
-autostart = true
 
 [node name="Area3D" type="Area3D" parent="."]
 collision_layer = 3

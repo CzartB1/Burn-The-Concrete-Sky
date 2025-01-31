@@ -8,6 +8,7 @@ extends Node3D
 @export var damage = 8
 @export var spread:float = 5
 @export var pellets:int = 1
+@export var shoot_range: float = 5.0
 var can_shoot=true
 @export_group("reloading")
 @export var max_ammo:int=10
@@ -77,6 +78,7 @@ func shoot(): #TODO add pellets for shotguns and stuff
 			instance.rotation_degrees = muzzles[i].global_rotation_degrees
 			if instance is Player_Bullet:
 				instance.damage = (damage+manager.damage_modifier)*manager.damage_multiplier
+				instance.destroyTimer.wait_time=shoot_range
 			muzzles[i].rotation_degrees.y = start_rot
 	current_ammo-=1
 	if gunshot_sound!=null:

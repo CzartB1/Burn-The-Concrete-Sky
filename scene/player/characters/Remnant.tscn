@@ -160,7 +160,7 @@ shape = SubResource("CapsuleShape3D_6vhwg")
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, -1, 0)
 
 [node name="Skeleton3D" parent="body/Remnant_new/metarig" index="0"]
-bones/0/position = Vector3(2.63418e-09, 0.986296, -0.00681275)
+bones/0/position = Vector3(2.63418e-09, 0.985602, -0.00681275)
 bones/0/rotation = Quaternion(0, 0.382684, 0, 0.92388)
 bones/0/scale = Vector3(1, 1, 1)
 bones/1/rotation = Quaternion(0.0104663, -0.642728, 0.00878231, 0.765973)
@@ -182,16 +182,16 @@ bones/10/scale = Vector3(1, 1, 1)
 bones/11/rotation = Quaternion(0.0379731, 0.21804, -0.00782301, 0.975169)
 bones/12/rotation = Quaternion(-0.0634644, -0.000805138, -0.00753154, 0.997955)
 bones/13/position = Vector3(0.00558721, 0.0621001, 0.098)
-bones/13/rotation = Quaternion(0.922842, -0.0344441, 0.383329, 0.0153041)
+bones/13/rotation = Quaternion(0.922542, -0.033498, 0.383289, 0.0297206)
 bones/13/scale = Vector3(1, 1, 1)
-bones/14/rotation = Quaternion(0.173462, -2.3942e-08, 1.64543e-08, 0.984841)
-bones/15/rotation = Quaternion(-0.650103, 0.0263968, -0.0262611, 0.758933)
+bones/14/rotation = Quaternion(0.147507, -2.38903e-08, 1.61677e-08, 0.989061)
+bones/15/rotation = Quaternion(-0.650243, 0.0216552, -0.0215439, 0.759112)
 bones/15/scale = Vector3(1, 1, 1)
 bones/16/position = Vector3(0.00558726, 0.0621001, -0.098)
-bones/16/rotation = Quaternion(0.904942, -0.0211368, 0.407413, 0.121025)
+bones/16/rotation = Quaternion(0.903314, -0.0284857, 0.407784, 0.130095)
 bones/16/scale = Vector3(1, 1, 1)
-bones/17/rotation = Quaternion(0.417291, -0.000946738, 0.0341547, 0.90813)
-bones/18/rotation = Quaternion(-0.691057, -0.0151827, 0.0155603, 0.722473)
+bones/17/rotation = Quaternion(0.498566, -0.00163603, 0.0395788, 0.865946)
+bones/18/rotation = Quaternion(-0.69847, -0.0104476, 0.00988919, 0.715495)
 bones/18/scale = Vector3(1, 1, 1)
 bones/19/rotation = Quaternion(-0.655919, -0.0708456, 0.0243406, 0.751105)
 bones/19/scale = Vector3(1, 1, 1)
@@ -201,7 +201,7 @@ bones/20/rotation = Quaternion(-0.0243409, 0.751105, 0.655919, -0.0708453)
 visible = false
 
 [node name="BoneAttachment3D" type="BoneAttachment3D" parent="body/Remnant_new/metarig/Skeleton3D" index="8"]
-transform = Transform3D(-0.99329, -0.0335479, 0.110674, 0.111141, -0.0123974, 0.993727, -0.0319655, 0.99936, 0.0160429, -0.347356, 1.45856, 0.107371)
+transform = Transform3D(-0.99329, -0.0335479, 0.110674, 0.111141, -0.0123974, 0.993727, -0.0319655, 0.99936, 0.0160429, -0.347356, 1.45786, 0.107371)
 bone_name = "hand.R"
 bone_idx = 10
 
@@ -289,3 +289,4 @@ weapon_holder = NodePath("../../../../body/Remnant_new/metarig/Skeleton3D/BoneAt
 
 [editable path="body/Remnant_new"]
 [editable path="player_HUD"]
+[editable path="player_HUD/settingsMenu"]

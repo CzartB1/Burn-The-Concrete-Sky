@@ -2,6 +2,7 @@ class_name Player_Bullet
 extends CharacterBody3D
 
 @export var speed = 100
+@export var destroyTimer: Timer
 var damage = 1
 
 func _physics_process(_delta):
@@ -18,4 +19,5 @@ func _on_area_3d_body_entered(body):
 		if body is enemy_shield:
 			print("shield")
 			body.take_damage(damage,global_position)
+		print(str(body.name))
 		queue_free()
