@@ -15,11 +15,6 @@ func _process(delta):
 		cooldown_timer.start()
 		spawned=false
 		cooldown=true
-	
-	if Input.is_action_just_pressed("attack") and decoy!=null: #FIXME make it on release when using melee weapon
-		if decoy is Kunoichi_Decoy:
-			decoy.dead()
-		decoy.queue_free()
 
 func Ability():
 	if spawned or cooldown: 
@@ -45,3 +40,9 @@ func cooldownBarVisibility():
 	elif !cooldown:
 		cooldown_bar.visible=true
 		cooldown_bar.value=cooldown_bar.max_value
+
+func destroy_decoy():
+	if decoy!=null:
+		if decoy is Kunoichi_Decoy:
+			decoy.dead()
+		decoy.queue_free()

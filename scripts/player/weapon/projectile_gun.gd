@@ -39,6 +39,9 @@ func _process(_delta):
 	manager.master.anim_manager.set("parameters/weapon_anim_id/blend_position",float(anim_id))
 	
 	if Input.is_action_pressed("attack")and manager.master.alive and !manager.master.disabled and can_shoot and !game_manager.paused:
+		var dec=get_tree().get_first_node_in_group("Decoy")
+		if dec!=null and dec is Kunoichi_Decoy: dec.dead()
+		
 		if current_ammo>0:
 			shoot()
 			bcr_reloading=false

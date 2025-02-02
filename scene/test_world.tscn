@@ -1,4 +1,4 @@
-[gd_scene load_steps=36 format=3 uid="uid://dwx34svdy6oqn"]
+[gd_scene load_steps=40 format=3 uid="uid://dwx34svdy6oqn"]
 
 [ext_resource type="Script" path="res://scripts/systems/rooms/room_manager.gd" id="2_eglug"]
 [ext_resource type="PackedScene" uid="uid://cebc076cxalyg" path="res://scene/rooms/combat_group/test_cg_1.tscn" id="3_8qmyu"]
@@ -15,7 +15,11 @@
 [ext_resource type="Script" path="res://scripts/player/char_select/char_select_button.gd" id="11_om8lt"]
 [ext_resource type="PackedScene" uid="uid://cj7kkva2uk3m0" path="res://scene/player/characters/Impact.tscn" id="12_b3tjq"]
 [ext_resource type="PackedScene" uid="uid://d5vt4gjy1jd2" path="res://scene/player/characters/Mirage.tscn" id="13_ojb4m"]
+[ext_resource type="Texture2D" uid="uid://bn2nkbug22474" path="res://sprites/UI/char select/gladiator_avatar.png" id="16_ydu0g"]
 [ext_resource type="Texture2D" uid="uid://8iaj88bwu0w" path="res://sprites/UI/char select/char_select_portrait.png" id="17_qa77x"]
+[ext_resource type="Texture2D" uid="uid://cwxoc7kjakq1q" path="res://sprites/UI/char select/remnant_avatar.png" id="17_v0u7v"]
+[ext_resource type="Texture2D" uid="uid://cq66mxy35vl66" path="res://sprites/UI/char select/silver_avatar.png" id="18_difdn"]
+[ext_resource type="Texture2D" uid="uid://dhcrodd3wwxd1" path="res://sprites/UI/char select/mirage_avatar.png" id="19_hvafm"]
 [ext_resource type="Script" path="res://scripts/systems/char_manager.gd" id="20_0ogmo"]
 [ext_resource type="Script" path="res://scripts/player/UI/player_stat_screen.gd" id="20_wjgrw"]
 [ext_resource type="Script" path="res://scripts/systems/music_manager.gd" id="21_ss30e"]
@@ -337,6 +341,56 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_gdblg")
 
+[node name="Busts" type="Control" parent="CanvasLayer/character_select_screen/Panel"]
+layout_mode = 1
+anchors_preset = 11
+anchor_left = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -543.0
+grow_horizontal = 0
+grow_vertical = 2
+
+[node name="Impact" type="TextureRect" parent="CanvasLayer/character_select_screen/Panel/Busts"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("16_ydu0g")
+expand_mode = 1
+
+[node name="Remnant" type="TextureRect" parent="CanvasLayer/character_select_screen/Panel/Busts"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("17_v0u7v")
+expand_mode = 1
+
+[node name="Silver" type="TextureRect" parent="CanvasLayer/character_select_screen/Panel/Busts"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("18_difdn")
+expand_mode = 1
+
+[node name="Mirage" type="TextureRect" parent="CanvasLayer/character_select_screen/Panel/Busts"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("19_hvafm")
+expand_mode = 1
+
 [node name="done_button" type="Button" parent="CanvasLayer/character_select_screen/Panel" node_paths=PackedStringArray("room_manager", "name_text", "desc_text", "abl_text")]
 layout_mode = 1
 anchors_preset = 3
@@ -412,7 +466,7 @@ grow_vertical = 2
 scale = Vector2(3, 3)
 columns = 5
 
-[node name="remnant_button" type="TextureButton" parent="CanvasLayer/character_select_screen/Panel/GridContainer" node_paths=PackedStringArray("selector")]
+[node name="remnant_button" type="TextureButton" parent="CanvasLayer/character_select_screen/Panel/GridContainer" node_paths=PackedStringArray("selector", "bust")]
 layout_mode = 2
 focus_neighbor_left = NodePath("../mirage_button")
 focus_neighbor_right = NodePath("../silver_button")
@@ -425,8 +479,9 @@ char_name = "REMNANT"
 char_desc = "An armored soldier hailing from a long gone nation."
 ablt_name = "Mobile Shield"
 ablt_desc = "Block incoming projectiles with a shield in front of him."
+bust = NodePath("../../Busts/Remnant")
 
-[node name="silver_button" type="TextureButton" parent="CanvasLayer/character_select_screen/Panel/GridContainer" node_paths=PackedStringArray("selector")]
+[node name="silver_button" type="TextureButton" parent="CanvasLayer/character_select_screen/Panel/GridContainer" node_paths=PackedStringArray("selector", "bust")]
 layout_mode = 2
 focus_neighbor_left = NodePath("../remnant_button")
 focus_neighbor_right = NodePath("../impact_button")
@@ -440,8 +495,9 @@ char_name = "SILVER"
 char_desc = "An enigmatic gentleman-thief."
 ablt_name = "Anchor Card"
 ablt_desc = "Place a card which acts as an anchor where you can teleport back to."
+bust = NodePath("../../Busts/Silver")
 
-[node name="impact_button" type="TextureButton" parent="CanvasLayer/character_select_screen/Panel/GridContainer" node_paths=PackedStringArray("selector")]
+[node name="impact_button" type="TextureButton" parent="CanvasLayer/character_select_screen/Panel/GridContainer" node_paths=PackedStringArray("selector", "bust")]
 layout_mode = 2
 focus_neighbor_left = NodePath("../silver_button")
 focus_neighbor_right = NodePath("../mirage_button")
@@ -455,8 +511,9 @@ char_name = "IMPACT"
 char_desc = "A slave-gladiator fighting for freedom."
 ablt_name = "Grapple"
 ablt_desc = "Get close to enemies with her grappling hook."
+bust = NodePath("../../Busts/Impact")
 
-[node name="mirage_button" type="TextureButton" parent="CanvasLayer/character_select_screen/Panel/GridContainer" node_paths=PackedStringArray("selector")]
+[node name="mirage_button" type="TextureButton" parent="CanvasLayer/character_select_screen/Panel/GridContainer" node_paths=PackedStringArray("selector", "bust")]
 layout_mode = 2
 focus_neighbor_left = NodePath("../impact_button")
 focus_neighbor_right = NodePath("../remnant_button")
@@ -470,6 +527,7 @@ char_name = "MIRAGE"
 char_desc = "An assassin on a quest for vengeance."
 ablt_name = "Decoy"
 ablt_desc = "Place a decoy to trick the enemies."
+bust = NodePath("../../Busts/Mirage")
 
 [node name="char_manager" type="Control" parent="CanvasLayer" node_paths=PackedStringArray("room_manager") groups=["char_manager"]]
 layout_mode = 3

@@ -64,6 +64,9 @@ func attack():
 			charge_dur=clamp(Time.get_ticks_msec()/1000.0-charge_start,0,3)
 			manager.master.charge_bar.value=min_damage*(max_damage-min_damage)*charge_dur
 	if can_attack and Input.is_action_just_released("attack") and charging:
+		var dec=get_tree().get_first_node_in_group("Decoy")
+		if dec!=null and dec is Kunoichi_Decoy: dec.dead()
+		
 		manager.master.charge_bar.value=0
 		charge_dur=clamp(Time.get_ticks_msec()/1000.0-charge_start,0,3) #FIX ME sometimes crashes the game. maybe bcs it activated when another function thats needed isn't ready yet.
 		damage=min_damage*(max_damage-min_damage)*charge_dur

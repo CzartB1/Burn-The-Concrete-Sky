@@ -7,16 +7,18 @@ extends TextureButton
 @export_multiline var char_desc:String = "char"
 @export var ablt_name:String = "ability"
 @export_multiline var ablt_desc:String = "ability"
+@export var bust: TextureRect
 @export_group("Colors")
 @export_color_no_alpha var normal_color:Color = Color.WHITE
 @export_color_no_alpha var hover_color:Color = Color.DARK_GRAY
 @export_color_no_alpha var press_color:Color = Color.RED
 
-#func _ready():
-	#text = char_name
+func _ready():
+	bust.visible=false
 #
 func _process(_delta):
 	if is_hovered() and !selector.has_chosen:
+		bust.visible=true
 		modulate=hover_color
 		selector.chosen_char_id=char_id
 		selector.char_name=char_name
@@ -26,8 +28,10 @@ func _process(_delta):
 		selector.fill_name_texts()
 	elif selector.has_chosen and selector.selected_btn==self:
 		modulate=press_color
+		bust.visible=true
 	else:
 		modulate=normal_color
+		bust.visible=false
 
 func _on_pressed():
 	selector.chosen_char_id=char_id
