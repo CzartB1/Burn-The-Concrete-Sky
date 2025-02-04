@@ -7,7 +7,7 @@ extends TextureButton
 @export_multiline var char_desc:String = "char"
 @export var ablt_name:String = "ability"
 @export_multiline var ablt_desc:String = "ability"
-@export var bust: TextureRect
+@export var bust: VideoStreamPlayer 
 @export_group("Colors")
 @export_color_no_alpha var normal_color:Color = Color.WHITE
 @export_color_no_alpha var hover_color:Color = Color.DARK_GRAY

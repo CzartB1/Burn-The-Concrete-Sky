@@ -15,11 +15,11 @@
 [ext_resource type="Script" path="res://scripts/player/char_select/char_select_button.gd" id="11_om8lt"]
 [ext_resource type="PackedScene" uid="uid://cj7kkva2uk3m0" path="res://scene/player/characters/Impact.tscn" id="12_b3tjq"]
 [ext_resource type="PackedScene" uid="uid://d5vt4gjy1jd2" path="res://scene/player/characters/Mirage.tscn" id="13_ojb4m"]
-[ext_resource type="Texture2D" uid="uid://bn2nkbug22474" path="res://sprites/UI/char select/gladiator_avatar.png" id="16_ydu0g"]
+[ext_resource type="VideoStream" path="res://sprites/UI/char select/gladiator_avatar0001-0070.ogv" id="16_nd1av"]
+[ext_resource type="VideoStream" path="res://sprites/UI/char select/remnant_avatar0001-0120.ogv" id="17_nl47w"]
 [ext_resource type="Texture2D" uid="uid://8iaj88bwu0w" path="res://sprites/UI/char select/char_select_portrait.png" id="17_qa77x"]
-[ext_resource type="Texture2D" uid="uid://cwxoc7kjakq1q" path="res://sprites/UI/char select/remnant_avatar.png" id="17_v0u7v"]
-[ext_resource type="Texture2D" uid="uid://cq66mxy35vl66" path="res://sprites/UI/char select/silver_avatar.png" id="18_difdn"]
-[ext_resource type="Texture2D" uid="uid://dhcrodd3wwxd1" path="res://sprites/UI/char select/mirage_avatar.png" id="19_hvafm"]
+[ext_resource type="VideoStream" path="res://sprites/UI/char select/silver_avatar0001-0050.ogv" id="18_mugvg"]
+[ext_resource type="VideoStream" path="res://sprites/UI/char select/mirage_avatar0001-0120.ogv" id="19_2vrga"]
 [ext_resource type="Script" path="res://scripts/systems/char_manager.gd" id="20_0ogmo"]
 [ext_resource type="Script" path="res://scripts/player/UI/player_stat_screen.gd" id="20_wjgrw"]
 [ext_resource type="Script" path="res://scripts/systems/music_manager.gd" id="21_ss30e"]
@@ -351,45 +351,69 @@ offset_left = -543.0
 grow_horizontal = 0
 grow_vertical = 2
 
-[node name="Impact" type="TextureRect" parent="CanvasLayer/character_select_screen/Panel/Busts"]
+[node name="Impact" type="VideoStreamPlayer" parent="CanvasLayer/character_select_screen/Panel/Busts"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = 119.0
+offset_top = 113.0
+offset_right = 584.0
+offset_bottom = 1369.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("16_ydu0g")
-expand_mode = 1
+scale = Vector2(0.35, 0.35)
+stream = ExtResource("16_nd1av")
+autoplay = true
+loop = true
 
-[node name="Remnant" type="TextureRect" parent="CanvasLayer/character_select_screen/Panel/Busts"]
+[node name="Remnant" type="VideoStreamPlayer" parent="CanvasLayer/character_select_screen/Panel/Busts"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = 152.0
+offset_top = 141.0
+offset_right = 217.0
+offset_bottom = 933.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("17_v0u7v")
-expand_mode = 1
+scale = Vector2(0.5, 0.5)
+stream = ExtResource("17_nl47w")
+autoplay = true
+loop = true
 
-[node name="Silver" type="TextureRect" parent="CanvasLayer/character_select_screen/Panel/Busts"]
+[node name="Silver" type="VideoStreamPlayer" parent="CanvasLayer/character_select_screen/Panel/Busts"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = 152.0
+offset_top = 141.0
+offset_right = 217.0
+offset_bottom = 933.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("18_difdn")
-expand_mode = 1
+scale = Vector2(0.5, 0.5)
+stream = ExtResource("18_mugvg")
+autoplay = true
+loop = true
 
-[node name="Mirage" type="TextureRect" parent="CanvasLayer/character_select_screen/Panel/Busts"]
+[node name="Mirage" type="VideoStreamPlayer" parent="CanvasLayer/character_select_screen/Panel/Busts"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = 152.0
+offset_top = 141.0
+offset_right = 217.0
+offset_bottom = 933.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("19_hvafm")
-expand_mode = 1
+scale = Vector2(0.5, 0.5)
+stream = ExtResource("19_2vrga")
+autoplay = true
+loop = true
 
 [node name="done_button" type="Button" parent="CanvasLayer/character_select_screen/Panel" node_paths=PackedStringArray("room_manager", "name_text", "desc_text", "abl_text")]
 layout_mode = 1

@@ -197,9 +197,6 @@ bones/19/rotation = Quaternion(-0.655919, -0.0708456, 0.0243406, 0.751105)
 bones/19/scale = Vector3(1, 1, 1)
 bones/20/rotation = Quaternion(-0.0243409, 0.751105, 0.655919, -0.0708453)
 
-[node name="Helmet" parent="body/Remnant_new/metarig/Skeleton3D" index="7"]
-visible = false
-
 [node name="BoneAttachment3D" type="BoneAttachment3D" parent="body/Remnant_new/metarig/Skeleton3D" index="8"]
 transform = Transform3D(-0.99329, -0.0335479, 0.110674, 0.111141, -0.0123974, 0.993727, -0.0319655, 0.99936, 0.0160429, -0.347356, 1.45786, 0.107371)
 bone_name = "hand.R"
