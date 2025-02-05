@@ -1,0 +1,10 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://bu3myx54j8d0c"]
+
+[ext_resource type="Texture2D" uid="uid://c78kw3ddhidfb" path="res://meshes/player/characters/Remnant/textures/remnant-palette.png" id="1_r8h2f"]
+
+[resource]
+resource_name = "Material"
+cull_mode = 2
+albedo_texture = ExtResource("1_r8h2f")
+roughness = 0.5
+texture_filter = 0

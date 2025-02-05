@@ -99,7 +99,7 @@ shape = SubResource("CapsuleShape3D_6vhwg")
 transform = Transform3D(-1.2, 0, -1.04907e-07, 0, 1.2, 0, 1.04907e-07, 0, -1.2, 0, -1, 0)
 
 [node name="Skeleton3D" parent="body/player_male_base/metarig" index="0"]
-bones/0/position = Vector3(2.63418e-09, 0.988398, -0.00681275)
+bones/0/position = Vector3(2.63418e-09, 0.989249, -0.00681275)
 bones/0/rotation = Quaternion(0, 0.382684, 0, 0.92388)
 bones/0/scale = Vector3(1, 1, 1)
 bones/1/rotation = Quaternion(0.0104663, -0.642728, 0.00878231, 0.765973)
@@ -121,16 +121,16 @@ bones/10/rotation = Quaternion(-0.0213207, 0.00243081, 0.0257741, 0.999438)
 bones/11/rotation = Quaternion(0.165634, 0.214311, -0.0302835, 0.962143)
 bones/12/rotation = Quaternion(-0.239012, 0.00234275, 0.0149519, 0.970899)
 bones/13/position = Vector3(0.00558721, 0.0621001, 0.098)
-bones/13/rotation = Quaternion(0.923247, -0.0458545, 0.381403, 0.00672506)
+bones/13/rotation = Quaternion(0.923086, -0.0419489, 0.380904, -0.0326286)
 bones/13/scale = Vector3(1, 1, 1)
-bones/14/rotation = Quaternion(0.394229, -9.7242e-05, 0.000609036, 0.919012)
-bones/15/rotation = Quaternion(-0.649593, 0.0390732, -0.0388725, 0.758282)
+bones/14/rotation = Quaternion(0.302563, -3.69139e-06, 3.78944e-05, 0.953129)
+bones/15/rotation = Quaternion(-0.649363, 0.0435877, -0.0433638, 0.757989)
 bones/15/scale = Vector3(1, 1, 1)
 bones/16/position = Vector3(0.00558726, 0.0621001, -0.098)
-bones/16/rotation = Quaternion(0.910778, 0.0129181, 0.408529, 0.0584845)
+bones/16/rotation = Quaternion(0.910278, 0.0120843, 0.406843, 0.0756818)
 bones/16/scale = Vector3(1, 1, 1)
-bones/17/rotation = Quaternion(-0.00203623, 0.00217357, 0.00545196, 0.999981)
-bones/18/rotation = Quaternion(-0.676041, -0.0278073, 0.030141, 0.735722)
+bones/17/rotation = Quaternion(0.0410479, 0.00192197, 0.00843552, 0.99912)
+bones/18/rotation = Quaternion(-0.658809, -0.0337865, 0.0354715, 0.750713)
 bones/18/scale = Vector3(1, 1, 1)
 bones/20/rotation = Quaternion(-0.0243409, 0.751105, 0.655919, -0.0708453)
 
@@ -175,7 +175,7 @@ body = NodePath("../body")
 transform = Transform3D(1, 0, 0, 0, -8.9407e-08, 1, 0, -1, -8.9407e-08, 0, 38.0416, 0)
 environment = SubResource("Environment_61b4n")
 projection = 1
-size = 30.0
+size = 20.0
 near = 0.001
 
 [node name="dash_timer" type="Timer" parent="."]
@@ -195,8 +195,8 @@ one_shot = true
 character_controller = NodePath("..")
 
 [connection signal="timeout" from="dash_timer" to="." method="_on_dash_timer_timeout"]
-[connection signal="timeout" from="dash_cooldown" to="." method="_on_dash_cooldown_timeout"]
 [connection signal="timeout" from="dash_cooldown" to="." method="_on_dash_timer_timeout"]
+[connection signal="timeout" from="dash_cooldown" to="." method="_on_dash_cooldown_timeout"]
 
 [editable path="body/player_male_base"]
 [editable path="player_HUD"]

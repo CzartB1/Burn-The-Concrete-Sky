@@ -7230,6 +7230,12 @@ _subresources={
 "slices/amount": 0
 }
 },
+"materials": {
+"Material": {
+"use_external/enabled": true,
+"use_external/path": "res://meshes/player/characters/Remnant/Material.tres"
+}
+},
 "nodes": {
 "PATH:AnimationPlayer": {
 "optimizer/enabled": false

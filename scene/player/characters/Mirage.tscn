@@ -108,7 +108,6 @@ min_space = 0.0
 max_space = 3.0
 
 [sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_u1ytm"]
-graph_offset = Vector2(-755.044, -78.9343)
 nodes/Blend2/node = SubResource("AnimationNodeBlend2_7drsd")
 nodes/Blend2/position = Vector2(240, 100)
 nodes/BlendSpace2D/node = SubResource("AnimationNodeBlendSpace2D_5eaqr")
@@ -161,7 +160,7 @@ shape = SubResource("CapsuleShape3D_6vhwg")
 transform = Transform3D(-1, 0, -1.50996e-07, 0, 1, 0, 1.50996e-07, 0, -1, 0, -0.861741, 0)
 
 [node name="Skeleton3D" parent="body/Mirage/metarig" index="0"]
-bones/0/position = Vector3(2.63418e-09, 0.981846, -0.00681275)
+bones/0/position = Vector3(2.63418e-09, 0.994858, -0.00681275)
 bones/0/rotation = Quaternion(0, 0.382684, 0, 0.923879)
 bones/0/scale = Vector3(1, 1, 1)
 bones/1/rotation = Quaternion(0.0104663, -0.642728, 0.00878231, 0.765973)
@@ -182,24 +181,24 @@ bones/10/rotation = Quaternion(-0.109921, 0.00679978, 0.0468696, 0.992812)
 bones/10/scale = Vector3(1, 1, 1)
 bones/11/rotation = Quaternion(0.0856499, 0.218162, 0.0028567, 0.972143)
 bones/12/rotation = Quaternion(-0.112218, -0.00117268, -0.00748315, 0.993655)
-bones/13/position = Vector3(0.00559199, 0.0620399, 0.0979952)
-bones/13/rotation = Quaternion(0.921549, -0.0558496, 0.382314, -0.038279)
+bones/13/position = Vector3(0.00559315, 0.0620343, 0.097994)
+bones/13/rotation = Quaternion(0.9236, 0.0095797, 0.383192, 0.00590872)
 bones/13/scale = Vector3(1, 1, 1)
-bones/14/rotation = Quaternion(-0.0173322, -2.42965e-08, 2.08427e-08, 0.99985)
-bones/15/rotation = Quaternion(-0.647955, 0.0655701, -0.068185, 0.755781)
+bones/14/rotation = Quaternion(-0.0167029, -2.42549e-08, 2.07002e-08, 0.999861)
+bones/15/rotation = Quaternion(-0.650237, 0.0210604, -0.0218808, 0.759124)
 bones/15/scale = Vector3(1, 1, 1)
-bones/16/position = Vector3(0.00558248, 0.0621604, -0.0979952)
-bones/16/rotation = Quaternion(0.90839, 0.0566808, 0.407327, 0.0754918)
+bones/16/position = Vector3(0.00558132, 0.062166, -0.097994)
+bones/16/rotation = Quaternion(0.897842, -0.0411882, 0.40657, 0.163961)
 bones/16/scale = Vector3(1, 1, 1)
-bones/17/rotation = Quaternion(0.217107, 0.000798514, 0.0205003, 0.975932)
-bones/18/rotation = Quaternion(-0.683642, -0.0513724, 0.0609542, 0.725451)
+bones/17/rotation = Quaternion(0.45726, -0.000883903, 0.0366666, 0.888577)
+bones/18/rotation = Quaternion(-0.682719, -0.0116578, 0.0105653, 0.730512)
 bones/18/scale = Vector3(1, 1, 1)
 bones/19/rotation = Quaternion(-0.655919, -0.0708456, 0.0243406, 0.751105)
 bones/19/scale = Vector3(1, 1, 1)
 bones/20/rotation = Quaternion(-0.0243409, 0.751105, 0.655919, -0.0708453)
 
 [node name="BoneAttachment3D" type="BoneAttachment3D" parent="body/Mirage/metarig/Skeleton3D" index="8"]
-transform = Transform3D(-0.98335, 0.175283, 0.0479549, 0.151994, 0.648678, 0.745732, 0.099607, 0.740603, -0.664519, -0.269861, 1.55224, 0.0997746)
+transform = Transform3D(-0.98335, 0.175283, 0.0479549, 0.151994, 0.648678, 0.745732, 0.099607, 0.740603, -0.664519, -0.269861, 1.56525, 0.0997746)
 bone_name = "hand.R"
 bone_idx = 10
 
@@ -281,8 +280,8 @@ character_controller = NodePath("..")
 
 [connection signal="timeout" from="Ability/Timer" to="Ability" method="cooldown_timer_timeout"]
 [connection signal="timeout" from="dash_timer" to="." method="_on_dash_timer_timeout"]
-[connection signal="timeout" from="dash_cooldown" to="." method="_on_dash_cooldown_timeout"]
 [connection signal="timeout" from="dash_cooldown" to="." method="_on_dash_timer_timeout"]
+[connection signal="timeout" from="dash_cooldown" to="." method="_on_dash_cooldown_timeout"]
 
 [editable path="body/Mirage"]
 [editable path="player_HUD"]

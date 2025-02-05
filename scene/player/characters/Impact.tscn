@@ -147,7 +147,7 @@ shape = SubResource("CapsuleShape3D_6vhwg")
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, -0.778036, 0)
 
 [node name="Skeleton3D" parent="body/impact/metarig" index="0"]
-bones/0/position = Vector3(2.63418e-09, 0.988176, -0.00681275)
+bones/0/position = Vector3(2.63418e-09, 0.988, -0.00681275)
 bones/0/rotation = Quaternion(0, 0.382684, 0, 0.92388)
 bones/0/scale = Vector3(1, 1, 1)
 bones/1/rotation = Quaternion(0.0104663, -0.642728, 0.00878231, 0.765973)
@@ -169,23 +169,23 @@ bones/10/scale = Vector3(1, 1, 1)
 bones/11/rotation = Quaternion(0.0856499, 0.218162, 0.0028567, 0.972143)
 bones/12/rotation = Quaternion(-0.112218, -0.00117268, -0.00748315, 0.993655)
 bones/13/position = Vector3(0.00558721, 0.0621001, 0.098)
-bones/13/rotation = Quaternion(0.921551, 0.0180749, 0.379723, 0.0789156)
+bones/13/rotation = Quaternion(0.921586, 0.01592, 0.379646, 0.0793343)
 bones/13/scale = Vector3(1, 1, 1)
-bones/14/rotation = Quaternion(-0.0113724, -2.35832e-08, 1.56207e-08, 0.999935)
-bones/15/rotation = Quaternion(-0.649632, -0.0382439, 0.0380476, 0.758332)
+bones/14/rotation = Quaternion(-0.0101245, -2.33561e-08, 1.13036e-08, 0.999949)
+bones/15/rotation = Quaternion(-0.648499, -0.0371948, 0.0368886, 0.759411)
 bones/15/scale = Vector3(1, 1, 1)
 bones/16/position = Vector3(0.00558726, 0.0621001, -0.098)
-bones/16/rotation = Quaternion(0.908734, -0.0308499, 0.414799, -0.0345404)
+bones/16/rotation = Quaternion(0.908851, -0.0319482, 0.414967, -0.0277705)
 bones/16/scale = Vector3(1, 1, 1)
-bones/17/rotation = Quaternion(0.392542, -0.00142425, 0.0324692, 0.91916)
-bones/18/rotation = Quaternion(-0.708078, 0.0401598, -0.0592277, 0.702499)
+bones/17/rotation = Quaternion(0.404357, -0.00148559, 0.0332816, 0.913995)
+bones/18/rotation = Quaternion(-0.707135, 0.0393407, -0.057905, 0.703604)
 bones/18/scale = Vector3(1, 1, 1)
 bones/19/rotation = Quaternion(-0.655919, -0.0708456, 0.0243406, 0.751105)
 bones/19/scale = Vector3(1, 1, 1)
 bones/20/rotation = Quaternion(-0.0243409, 0.751105, 0.655919, -0.0708453)
 
 [node name="BoneAttachment3D" type="BoneAttachment3D" parent="body/impact/metarig/Skeleton3D" index="5"]
-transform = Transform3D(-0.993829, 0.0196864, 0.109162, 0.11064, 0.246181, 0.962888, -0.0079178, 0.969024, -0.24684, -0.296652, 1.50902, 0.120614)
+transform = Transform3D(-0.993829, 0.0196864, 0.109162, 0.11064, 0.246181, 0.962888, -0.0079178, 0.969024, -0.24684, -0.296652, 1.50885, 0.120614)
 bone_name = "hand.R"
 bone_idx = 10
 
@@ -266,8 +266,8 @@ character_controller = NodePath("..")
 
 [connection signal="timeout" from="body/Ability/Timer" to="body/Ability" method="cooldown_timer_timeout"]
 [connection signal="timeout" from="dash_timer" to="." method="_on_dash_timer_timeout"]
-[connection signal="timeout" from="dash_cooldown" to="." method="_on_dash_cooldown_timeout"]
 [connection signal="timeout" from="dash_cooldown" to="." method="_on_dash_timer_timeout"]
+[connection signal="timeout" from="dash_cooldown" to="." method="_on_dash_cooldown_timeout"]
 
 [editable path="body/impact"]
 [editable path="player_HUD"]

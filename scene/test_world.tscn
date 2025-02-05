@@ -1,4 +1,4 @@
-[gd_scene load_steps=40 format=3 uid="uid://dwx34svdy6oqn"]
+[gd_scene load_steps=41 format=3 uid="uid://dwx34svdy6oqn"]
 
 [ext_resource type="Script" path="res://scripts/systems/rooms/room_manager.gd" id="2_eglug"]
 [ext_resource type="PackedScene" uid="uid://cebc076cxalyg" path="res://scene/rooms/combat_group/test_cg_1.tscn" id="3_8qmyu"]
@@ -14,6 +14,7 @@
 [ext_resource type="PackedScene" uid="uid://dgx2clkxdsth2" path="res://scene/player/characters/Silver.tscn" id="11_m1rxn"]
 [ext_resource type="Script" path="res://scripts/player/char_select/char_select_button.gd" id="11_om8lt"]
 [ext_resource type="PackedScene" uid="uid://cj7kkva2uk3m0" path="res://scene/player/characters/Impact.tscn" id="12_b3tjq"]
+[ext_resource type="PackedScene" uid="uid://bnxrhky3nbvov" path="res://scene/player/characters/remnant_fix.tscn" id="12_f22ne"]
 [ext_resource type="PackedScene" uid="uid://d5vt4gjy1jd2" path="res://scene/player/characters/Mirage.tscn" id="13_ojb4m"]
 [ext_resource type="VideoStream" path="res://sprites/UI/char select/gladiator_avatar0001-0070.ogv" id="16_nd1av"]
 [ext_resource type="VideoStream" path="res://sprites/UI/char select/remnant_avatar0001-0120.ogv" id="17_nl47w"]
@@ -327,7 +328,7 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("10_brlb2")
 room_manager = NodePath("../../room_manager")
-characters = Array[PackedScene]([ExtResource("10_0jsb7"), ExtResource("11_m1rxn"), ExtResource("12_b3tjq"), ExtResource("13_ojb4m")])
+characters = Array[PackedScene]([ExtResource("12_f22ne"), ExtResource("11_m1rxn"), ExtResource("12_b3tjq"), ExtResource("13_ojb4m")])
 name_text = NodePath("Panel/name text")
 desc_text = NodePath("Panel/desc text")
 abl_text = NodePath("Panel/ability text")
