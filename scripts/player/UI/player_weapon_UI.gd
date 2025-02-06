@@ -7,9 +7,11 @@ extends HBoxContainer
 @export_group("Colors")
 @export var active_color:Color
 @export var inactive_color:Color
-@export_group("Ammo Counters")
+@export_group("Weapon Infos")
 @export var ammo_c_1:Label
 @export var ammo_c_2:Label
+@export var icon_1:TextureRect
+@export var icon_2:TextureRect
 var w1_ammo:int
 var w2_ammo:int
 
@@ -22,13 +24,15 @@ func _process(delta):
 	ammo_check()
 
 func ammo_check():
+	if weapon_holder.weapons[weapon_holder.current_1_id].icon!=null: icon_1.texture=weapon_holder.weapons[weapon_holder.current_1_id].icon
+	if weapon_holder.weapons[weapon_holder.current_2_id].icon!=null: icon_2.texture=weapon_holder.weapons[weapon_holder.current_2_id].icon
 	if weapon_holder.weapons[weapon_holder.current_1_id] is Projectile_Gun: 
 		ammo_c_1.visible=true
 		w1_ammo=weapon_holder.weapons[weapon_holder.current_1_id].current_ammo
 		ammo_c_1.text=str(w1_ammo)+"/"+str(weapon_holder.weapons[weapon_holder.current_1_id].max_ammo)
 	elif weapon_holder.weapons[weapon_holder.current_1_id] is melee_weapon: ammo_c_1.visible=false
 	if weapon_holder.weapons[weapon_holder.current_2_id] is Projectile_Gun: 
-		ammo_c_1.visible=true
+		ammo_c_2.visible=true
 		w2_ammo=weapon_holder.weapons[weapon_holder.current_2_id].current_ammo
 		ammo_c_2.text=str(w2_ammo)+"/"+str(weapon_holder.weapons[weapon_holder.current_2_id].max_ammo)
 	elif weapon_holder.weapons[weapon_holder.current_2_id] is melee_weapon: ammo_c_2.visible=false

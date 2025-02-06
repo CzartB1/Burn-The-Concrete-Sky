@@ -1,6 +1,7 @@
 class_name Projectile_Gun
 extends Node3D
 
+@export var icon:AtlasTexture
 @export var manager: Weapon_Manager
 @export var muzzles: Array[Node3D]
 @export var bullet: PackedScene

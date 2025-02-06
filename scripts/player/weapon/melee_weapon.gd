@@ -1,6 +1,7 @@
 class_name melee_weapon
 extends Node3D
 
+@export var icon:AtlasTexture
 @export var manager: Weapon_Manager
 @export var hitbox: Area3D
 @export var visual_effects: Node3D

@@ -1,8 +1,9 @@
-[gd_scene load_steps=17 format=3 uid="uid://7elo11bnf3va"]
+[gd_scene load_steps=25 format=3 uid="uid://7elo11bnf3va"]
 
 [ext_resource type="Script" path="res://scripts/player/weapon/weapon_manager.gd" id="1_rku58"]
 [ext_resource type="Script" path="res://scripts/player/weapon/projectile_gun.gd" id="2_toky6"]
 [ext_resource type="PackedScene" uid="uid://8ysnnu4dntee" path="res://scene/player/player_bullet.tscn" id="3_0j408"]
+[ext_resource type="Texture2D" uid="uid://cmvyyualmkccw" path="res://sprites/UI/weapon-icons.png" id="3_4xwoe"]
 [ext_resource type="Texture2D" uid="uid://b4digkieaudvy" path="res://sprites/pow.png" id="3_v305p"]
 [ext_resource type="Script" path="res://scripts/player/weapon/melee_weapon.gd" id="4_lfc15"]
 [ext_resource type="Texture2D" uid="uid://cmoka0opia5yq" path="res://sprites/slash-placeholder.png" id="5_pwomt"]
@@ -16,8 +17,36 @@
 [ext_resource type="PackedScene" uid="uid://5ys7ompy1j6u" path="res://meshes/player/weapons/ar_common.blend" id="11_g3slb"]
 [ext_resource type="PackedScene" uid="uid://c2u4ckc0gt2cq" path="res://meshes/player/weapons/pistol_common.blend" id="15_mngps"]
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_b8guf"]
+atlas = ExtResource("3_4xwoe")
+region = Rect2(0, 0, 32, 32)
+
 [sub_resource type="BoxShape3D" id="BoxShape3D_nchdq"]
 size = Vector3(1.2627, 1, 0.804445)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3neot"]
+atlas = ExtResource("3_4xwoe")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_46epw"]
+atlas = ExtResource("3_4xwoe")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k0miw"]
+atlas = ExtResource("3_4xwoe")
+region = Rect2(192, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mfitw"]
+atlas = ExtResource("3_4xwoe")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7uicm"]
+atlas = ExtResource("3_4xwoe")
+region = Rect2(128, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rvbas"]
+atlas = ExtResource("3_4xwoe")
+region = Rect2(160, 0, 32, 32)
 
 [node name="weapon_holder" type="Node3D" node_paths=PackedStringArray("weapons")]
 script = ExtResource("1_rku58")
@@ -26,6 +55,7 @@ weapons = [NodePath("fist"), NodePath("shotgun"), NodePath("machine_gun"), NodeP
 
 [node name="fist" type="Node3D" parent="." node_paths=PackedStringArray("manager", "hitbox", "visual_effects", "cooldown_timer")]
 script = ExtResource("4_lfc15")
+icon = SubResource("AtlasTexture_b8guf")
 manager = NodePath("..")
 hitbox = NodePath("Area3D")
 visual_effects = NodePath("Area3D/CollisionShape3D/Sprite3D")
@@ -53,6 +83,7 @@ one_shot = true
 [node name="shotgun" type="Node3D" parent="." node_paths=PackedStringArray("manager", "muzzles", "muzzle_flash")]
 visible = false
 script = ExtResource("2_toky6")
+icon = SubResource("AtlasTexture_3neot")
 manager = NodePath("..")
 muzzles = [NodePath("muzzle")]
 bullet = ExtResource("3_0j408")
@@ -85,6 +116,7 @@ transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0.129903, 0.501052, -0.
 [node name="machine_gun" type="Node3D" parent="." node_paths=PackedStringArray("manager", "muzzles", "muzzle_flash")]
 visible = false
 script = ExtResource("2_toky6")
+icon = SubResource("AtlasTexture_46epw")
 manager = NodePath("..")
 muzzles = [NodePath("muzzle")]
 bullet = ExtResource("3_0j408")
@@ -114,6 +146,7 @@ transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0.141042, 0.479726, -0.
 [node name="assault_rifle" type="Node3D" parent="." node_paths=PackedStringArray("manager", "muzzles", "muzzle_flash")]
 visible = false
 script = ExtResource("2_toky6")
+icon = SubResource("AtlasTexture_k0miw")
 manager = NodePath("..")
 muzzles = [NodePath("muzzle")]
 bullet = ExtResource("3_0j408")
@@ -143,6 +176,7 @@ omni_range = 2.0
 
 [node name="sword" type="Node3D" parent="." node_paths=PackedStringArray("manager", "hitbox", "visual_effects", "cooldown_timer")]
 script = ExtResource("4_lfc15")
+icon = SubResource("AtlasTexture_mfitw")
 manager = NodePath("..")
 hitbox = NodePath("Area3D")
 visual_effects = NodePath("Area3D/CollisionShape3D/Sprite3D")
@@ -169,6 +203,7 @@ one_shot = true
 [node name="Revolver" type="Node3D" parent="." node_paths=PackedStringArray("manager", "muzzles", "muzzle_flash")]
 visible = false
 script = ExtResource("2_toky6")
+icon = SubResource("AtlasTexture_7uicm")
 manager = NodePath("..")
 muzzles = [NodePath("../machine_gun/muzzle")]
 bullet = ExtResource("3_0j408")
@@ -198,6 +233,7 @@ transform = Transform3D(0.0697967, -0.00214996, -0.00487779, 0.00198906, 0.06993
 
 [node name="Pistol" type="Node3D" parent="." node_paths=PackedStringArray("manager", "muzzles", "muzzle_flash")]
 script = ExtResource("2_toky6")
+icon = SubResource("AtlasTexture_rvbas")
 manager = NodePath("..")
 muzzles = [NodePath("muzzle")]
 bullet = ExtResource("3_0j408")

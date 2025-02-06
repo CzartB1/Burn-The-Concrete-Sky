@@ -148,7 +148,7 @@ value = 75.0
 rounded = true
 show_percentage = false
 
-[node name="HBoxContainer" type="HBoxContainer" parent="HUD/VBoxContainer" node_paths=PackedStringArray("box_1", "box_2", "ammo_c_1", "ammo_c_2")]
+[node name="HBoxContainer" type="HBoxContainer" parent="HUD/VBoxContainer" node_paths=PackedStringArray("box_1", "box_2", "ammo_c_1", "ammo_c_2", "icon_1", "icon_2")]
 layout_mode = 2
 theme_override_constants/separation = 0
 script = ExtResource("5_slv7q")
@@ -158,6 +158,8 @@ active_color = Color(1, 1, 1, 0.278431)
 inactive_color = Color(0.27, 0.27, 0.27, 0.376471)
 ammo_c_1 = NodePath("wbox_1/ammo_counter")
 ammo_c_2 = NodePath("wbox_2/ammo_counter2")
+icon_1 = NodePath("wbox_1/icon")
+icon_2 = NodePath("wbox_2/icon")
 
 [node name="wbox_1" type="ColorRect" parent="HUD/VBoxContainer/HBoxContainer"]
 custom_minimum_size = Vector2(167, 50)
@@ -181,6 +183,14 @@ text = "10/10"
 horizontal_alignment = 1
 vertical_alignment = 1
 
+[node name="icon" type="TextureRect" parent="HUD/VBoxContainer/HBoxContainer/wbox_1"]
+layout_mode = 0
+offset_top = -15.0
+offset_right = 167.0
+offset_bottom = 65.0
+expand_mode = 3
+stretch_mode = 5
+
 [node name="wbox_2" type="ColorRect" parent="HUD/VBoxContainer/HBoxContainer"]
 custom_minimum_size = Vector2(167, 50)
 layout_mode = 2
@@ -202,6 +212,13 @@ grow_vertical = 0
 text = "10/10"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="icon" type="TextureRect" parent="HUD/VBoxContainer/HBoxContainer/wbox_2"]
+offset_top = -15.0
+offset_right = 167.0
+offset_bottom = 65.0
+expand_mode = 3
+stretch_mode = 5
 
 [node name="cleared_screen" type="Control" parent="." groups=["Clear_Screen"]]
 layout_mode = 1
@@ -373,11 +390,13 @@ layout_mode = 2
 text = "Exit"
 
 [node name="pause_menu" parent="." node_paths=PackedStringArray("HUD", "settingsMenu") instance=ExtResource("9_1yxso")]
+visible = false
 HUD = NodePath("../HUD/VBoxContainer")
 settingsMenu = NodePath("../settingsMenu/Panel")
 
 [node name="settingsMenu" parent="." instance=ExtResource("10_3t1xs")]
 layer = 7
+visible = false
 
 [connection signal="timeout" from="cleared_screen/Timer" to="cleared_screen" method="_on_timer_timeout"]
 [connection signal="timeout" from="death_screen/Timer" to="death_screen" method="_on_timer_timeout"]
