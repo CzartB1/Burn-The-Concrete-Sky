@@ -15,6 +15,7 @@ func _ready():
 	if navmesh!=null:
 		navmesh.enabled = false
 		print("nav disabled")
+	
 
 func _process(_delta):
 	if manager == null:
@@ -77,4 +78,4 @@ func reset():
 	for t in get_tree().get_nodes_in_group("temps"): #kill all temporary objects
 		t.queue_free()
 	
-	#for i in shopkeepers: i.rand_upgrades()aaaasssssssssssss
+	#if shopkeepers.size()>0: for i in shopkeepers: i.rand_upgrades()

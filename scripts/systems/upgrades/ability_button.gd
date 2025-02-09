@@ -5,7 +5,11 @@ var plr:Player
 var up_object:Upgrade
 var price:int=100
 @export var upgrade_id:int
-@export var menu:Upgrade_Menu
+@export var menu:Shop_Screen
+@export var button_enable:Control
+@export var button_disable:Control
+
+
 
 func _process(_delta):
 	if plr == null:
@@ -13,10 +17,12 @@ func _process(_delta):
 	
 	if up_object!=null:
 		price=up_object.price
-		text=up_object.name
+		text=up_object.name+" - "+str(price)
 
 func _on_pressed():
 	var econom=get_tree().get_first_node_in_group("Economy")
+	button_disable.visible=false
+	button_enable.visible=true
 	if plr!=null and econom is Player_Economy_Manager:
 		if econom.money-price>=0: #if can buy
 			menu.selected_weapon_id=upgrade_id

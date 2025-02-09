@@ -2,12 +2,18 @@ class_name Weapon_Button
 extends Button
 
 var plr:Player
-var weapon_screen:Weapon_Screen
+@export var weapon_screen:Shop_Screen
 @export var weapon_id:int
-var weapon
+@export var button_enable:Control
+@export var button_disable:Control
+var w_object
+var weapon:Node3D
+
 
 func _process(delta): 
 	if plr==null: plr=get_tree().get_first_node_in_group("Player")
+	if w_object!=null:
+		text=w_object.name + " - " + str(w_object.price)
 	# FIXME_ disable disable when not choosing this weapon
 	#if weapon_screen.selected_weapon_id!=null:
 		#if weapon_screen.selected_weapon_id!=plr.upgrade_manager.weapon_manager.available_weapons.find(weapon):
@@ -19,4 +25,6 @@ func _on_pressed():
 	weapon_screen.selected=true
 	print(str(plr.upgrade_manager.equipped_upgrade))
 	weapon_screen.selected_button=self
+	button_disable.visible=false
+	button_enable.visible=true
 	#disabled=true

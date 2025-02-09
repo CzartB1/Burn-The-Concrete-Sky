@@ -1,0 +1,218 @@
+[gd_scene load_steps=8 format=3 uid="uid://dqrjqsnh1f28f"]
+
+[ext_resource type="Script" path="res://scripts/systems/upgrades/shopkeeper.gd" id="1_jly2y"]
+[ext_resource type="PackedScene" uid="uid://ovjo3gp6humn" path="res://meshes/npc/Justicar/justicar.blend" id="2_t0l8n"]
+[ext_resource type="Script" path="res://scripts/systems/upgrades/shop_screen.gd" id="3_u0fyw"]
+[ext_resource type="Script" path="res://scripts/systems/upgrades/weapon_button.gd" id="4_rpvdl"]
+[ext_resource type="Script" path="res://scripts/systems/upgrades/ability_button.gd" id="5_0d0sk"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_51dt0"]
+size = Vector3(3, 2.45703, 3)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gdblg"]
+bg_color = Color(0, 0, 0, 1)
+
+[node name="shopkeeper" type="Area3D" node_paths=PackedStringArray("shop_screen", "screen_canvas")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 9.13325)
+script = ExtResource("1_jly2y")
+shop_screen = NodePath("CanvasLayer/shop_screen")
+screen_canvas = NodePath("CanvasLayer")
+
+[node name="justicar" parent="." instance=ExtResource("2_t0l8n")]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.27148, 0)
+shape = SubResource("BoxShape3D_51dt0")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = 6
+
+[node name="shop_screen" type="Control" parent="CanvasLayer" node_paths=PackedStringArray("menu", "w_button1", "w_button2", "w_button3", "up_button1", "up_button2", "up_button3", "money_label")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("3_u0fyw")
+menu = NodePath("Panel")
+w_button1 = NodePath("Panel/MarginContainer/HBoxContainer/browse list/weapon1_button")
+w_button2 = NodePath("Panel/MarginContainer/HBoxContainer/browse list/weapon1_button2")
+w_button3 = NodePath("Panel/MarginContainer/HBoxContainer/browse list/weapon1_button3")
+up_button1 = NodePath("Panel/MarginContainer/HBoxContainer/browse list/ability1_button")
+up_button2 = NodePath("Panel/MarginContainer/HBoxContainer/browse list/ability2_button")
+up_button3 = NodePath("Panel/MarginContainer/HBoxContainer/browse list/ability3_button")
+money_label = NodePath("Panel/money_label")
+
+[node name="Panel" type="Panel" parent="CanvasLayer/shop_screen"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_gdblg")
+metadata/_edit_lock_ = true
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/shop_screen/Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 67.0
+offset_top = 67.0
+offset_right = -67.0
+offset_bottom = -98.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/shop_screen/Panel/MarginContainer"]
+layout_mode = 2
+
+[node name="browse list" type="VBoxContainer" parent="CanvasLayer/shop_screen/Panel/MarginContainer/HBoxContainer"]
+custom_minimum_size = Vector2(500, 0)
+layout_mode = 2
+
+[node name="weapon1_button" type="Button" parent="CanvasLayer/shop_screen/Panel/MarginContainer/HBoxContainer/browse list" node_paths=PackedStringArray("weapon_screen", "button_enable", "button_disable")]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "weapon
+"
+alignment = 0
+script = ExtResource("4_rpvdl")
+weapon_screen = NodePath("../../../../..")
+button_enable = NodePath("../../descriptions/HBoxContainer")
+button_disable = NodePath("../../descriptions/buy_button")
+
+[node name="weapon1_button2" type="Button" parent="CanvasLayer/shop_screen/Panel/MarginContainer/HBoxContainer/browse list" node_paths=PackedStringArray("weapon_screen", "button_enable", "button_disable")]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "weapon
+"
+alignment = 0
+script = ExtResource("4_rpvdl")
+weapon_screen = NodePath("../../../../..")
+button_enable = NodePath("../../descriptions/HBoxContainer")
+button_disable = NodePath("../../descriptions/buy_button")
+
+[node name="weapon1_button3" type="Button" parent="CanvasLayer/shop_screen/Panel/MarginContainer/HBoxContainer/browse list" node_paths=PackedStringArray("weapon_screen", "button_enable", "button_disable")]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "weapon
+"
+alignment = 0
+script = ExtResource("4_rpvdl")
+weapon_screen = NodePath("../../../../..")
+button_enable = NodePath("../../descriptions/HBoxContainer")
+button_disable = NodePath("../../descriptions/buy_button")
+
+[node name="ability1_button" type="Button" parent="CanvasLayer/shop_screen/Panel/MarginContainer/HBoxContainer/browse list" node_paths=PackedStringArray("menu", "button_enable", "button_disable")]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "ability "
+alignment = 0
+script = ExtResource("5_0d0sk")
+menu = NodePath("../../../../..")
+button_enable = NodePath("../../descriptions/buy_button")
+button_disable = NodePath("../../descriptions/HBoxContainer")
+
+[node name="ability2_button" type="Button" parent="CanvasLayer/shop_screen/Panel/MarginContainer/HBoxContainer/browse list" node_paths=PackedStringArray("menu", "button_enable", "button_disable")]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "ability "
+alignment = 0
+script = ExtResource("5_0d0sk")
+upgrade_id = 1
+menu = NodePath("../../../../..")
+button_enable = NodePath("../../descriptions/buy_button")
+button_disable = NodePath("../../descriptions/HBoxContainer")
+
+[node name="ability3_button" type="Button" parent="CanvasLayer/shop_screen/Panel/MarginContainer/HBoxContainer/browse list" node_paths=PackedStringArray("menu", "button_enable", "button_disable")]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "ability "
+alignment = 0
+script = ExtResource("5_0d0sk")
+upgrade_id = 2
+menu = NodePath("../../../../..")
+button_enable = NodePath("../../descriptions/buy_button")
+button_disable = NodePath("../../descriptions/HBoxContainer")
+
+[node name="descriptions" type="VBoxContainer" parent="CanvasLayer/shop_screen/Panel/MarginContainer/HBoxContainer"]
+custom_minimum_size = Vector2(500, 0)
+layout_mode = 2
+theme_override_constants/separation = 15
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/shop_screen/Panel/MarginContainer/HBoxContainer/descriptions"]
+custom_minimum_size = Vector2(0, 200)
+layout_mode = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="CanvasLayer/shop_screen/Panel/MarginContainer/HBoxContainer/descriptions"]
+custom_minimum_size = Vector2(0, 210)
+layout_mode = 2
+theme_override_font_sizes/normal_font_size = 12
+bbcode_enabled = true
+text = "	Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum "
+fit_content = true
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/shop_screen/Panel/MarginContainer/HBoxContainer/descriptions"]
+visible = false
+layout_mode = 2
+theme_override_constants/separation = 15
+alignment = 1
+
+[node name="weapon1select_button" type="Button" parent="CanvasLayer/shop_screen/Panel/MarginContainer/HBoxContainer/descriptions/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Weapon 1"
+
+[node name="weapon2select_button" type="Button" parent="CanvasLayer/shop_screen/Panel/MarginContainer/HBoxContainer/descriptions/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Weapon 2"
+
+[node name="buy_button" type="Button" parent="CanvasLayer/shop_screen/Panel/MarginContainer/HBoxContainer/descriptions"]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Buy"
+
+[node name="exit_button" type="Button" parent="CanvasLayer/shop_screen/Panel"]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 502.0
+offset_top = -98.0
+offset_right = -502.0
+offset_bottom = -67.0
+grow_horizontal = 2
+grow_vertical = 0
+size_flags_horizontal = 3
+text = "back"
+
+[node name="money_label" type="RichTextLabel" parent="CanvasLayer/shop_screen/Panel"]
+layout_mode = 0
+offset_left = 22.0
+offset_top = 27.0
+offset_right = 257.0
+offset_bottom = 67.0
+size_flags_horizontal = 8
+theme_override_font_sizes/normal_font_size = 26
+text = "100"
+autowrap_mode = 0
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]
+[connection signal="pressed" from="CanvasLayer/shop_screen/Panel/MarginContainer/HBoxContainer/browse list/weapon1_button" to="CanvasLayer/shop_screen/Panel/MarginContainer/HBoxContainer/browse list/weapon1_button" method="_on_pressed"]
+[connection signal="pressed" from="CanvasLayer/shop_screen/Panel/MarginContainer/HBoxContainer/browse list/weapon1_button2" to="CanvasLayer/shop_screen/Panel/MarginContainer/HBoxContainer/browse list/weapon1_button2" method="_on_pressed"]
+[connection signal="pressed" from="CanvasLayer/shop_screen/Panel/MarginContainer/HBoxContainer/browse list/weapon1_button3" to="CanvasLayer/shop_screen/Panel/MarginContainer/HBoxContainer/browse list/weapon1_button3" method="_on_pressed"]
+[connection signal="pressed" from="CanvasLayer/shop_screen/Panel/MarginContainer/HBoxContainer/browse list/ability1_button" to="CanvasLayer/shop_screen/Panel/MarginContainer/HBoxContainer/browse list/ability1_button" method="_on_pressed"]
+[connection signal="pressed" from="CanvasLayer/shop_screen/Panel/MarginContainer/HBoxContainer/browse list/ability2_button" to="CanvasLayer/shop_screen/Panel/MarginContainer/HBoxContainer/browse list/ability2_button" method="_on_pressed"]
+[connection signal="pressed" from="CanvasLayer/shop_screen/Panel/MarginContainer/HBoxContainer/browse list/ability3_button" to="CanvasLayer/shop_screen/Panel/MarginContainer/HBoxContainer/browse list/ability3_button" method="_on_pressed"]
+[connection signal="pressed" from="CanvasLayer/shop_screen/Panel/MarginContainer/HBoxContainer/descriptions/HBoxContainer/weapon1select_button" to="CanvasLayer/shop_screen" method="_on_weapon_1_select_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/shop_screen/Panel/MarginContainer/HBoxContainer/descriptions/HBoxContainer/weapon2select_button" to="CanvasLayer/shop_screen" method="_on_weapon_2_select_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/shop_screen/Panel/MarginContainer/HBoxContainer/descriptions/buy_button" to="CanvasLayer/shop_screen" method="_on_buy_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/shop_screen/Panel/exit_button" to="CanvasLayer/shop_screen" method="_on_exit_button_pressed"]

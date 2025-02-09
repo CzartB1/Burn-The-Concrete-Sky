@@ -11,10 +11,9 @@ size = Vector3(3.91986, 2.56885, 3.84277)
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gdblg"]
 bg_color = Color(0, 0, 0, 1)
 
-[node name="weapon_shopkeeper" type="Area3D" node_paths=PackedStringArray("weapon_screen", "screen_canvas") groups=["shops"]]
+[node name="weapon_shopkeeper" type="Area3D" node_paths=PackedStringArray("screen_canvas") groups=["shops"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15, -1.4747, 8)
 script = ExtResource("1_844um")
-weapon_screen = NodePath("CanvasLayer/weapon_screen")
 screen_canvas = NodePath("CanvasLayer")
 
 [node name="human_male_base" parent="." instance=ExtResource("2_d6oxk")]

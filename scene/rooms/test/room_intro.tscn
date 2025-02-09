@@ -1,6 +1,7 @@
-[gd_scene load_steps=95 format=4 uid="uid://c7augcs4p0odc"]
+[gd_scene load_steps=96 format=4 uid="uid://c7augcs4p0odc"]
 
 [ext_resource type="Script" path="res://scripts/systems/rooms/room.gd" id="1_dgndr"]
+[ext_resource type="PackedScene" uid="uid://dqrjqsnh1f28f" path="res://scene/player/upgrades/shopkeeper.tscn" id="2_3qxvq"]
 [ext_resource type="PackedScene" uid="uid://ovjo3gp6humn" path="res://meshes/npc/Justicar/justicar.blend" id="4_n4bbk"]
 [ext_resource type="Script" path="res://scripts/systems/rooms/room_end.gd" id="6_27ovw"]
 [ext_resource type="Script" path="res://scripts/systems/upgrades/starting_weapon_figure.gd" id="7_ko0r8"]
@@ -306,10 +307,14 @@ points = PackedVector3Array(38.75, 0.5, -4.125, 39.25, 0.5, -4.125, 39.25, 1.125
 [sub_resource type="BoxShape3D" id="BoxShape3D_7gyhs"]
 size = Vector3(23, 1.43884, 71)
 
-[node name="room_intro" type="Node3D" node_paths=PackedStringArray("start_pos")]
+[node name="room_intro" type="Node3D" node_paths=PackedStringArray("start_pos", "shopkeepers")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 0)
 script = ExtResource("1_dgndr")
 start_pos = NodePath("spawn")
+shopkeepers = [NodePath("shopkeeper")]
+
+[node name="shopkeeper" parent="." instance=ExtResource("2_3qxvq")]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, -4.65296e-05, -1.12465, 15.6049)
 
 [node name="spawn" type="Node3D" parent="." groups=["spawn_pos"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.148299, 0, 0.871401)

@@ -2,15 +2,13 @@ class_name Shopkeeper
 extends Area3D
 
 var interactible = false
-@export var upgrade_screen: Upgrade_Menu
-@export var weapon_screen: Weapon_Screen
+@export var shop_screen:Shop_Screen
 @export var screen_canvas: CanvasLayer
 var econom:Player_Economy_Manager
 var plr:Player
 
 func _ready():
-	if upgrade_screen!=null: upgrade_screen.toggle_menu(false)
-	if weapon_screen!=null:weapon_screen.toggle_menu(false)
+	if shop_screen: shop_screen.toggle_menu(false)
 
 func _process(_delta):
 	if econom==null:
@@ -23,8 +21,7 @@ func _process(_delta):
 		print("interact")
 		econom.hide_money()
 		econom.hide_mult()
-		if upgrade_screen!=null: upgrade_screen.toggle_menu(true)
-		if weapon_screen!=null:weapon_screen.toggle_menu(true)
+		shop_screen.toggle_menu(true)
 		plr.show_cursor = true
 		plr.disabled=true
 
@@ -40,13 +37,10 @@ func _on_body_exited(body):
 		screen_canvas.layer=1
 
 func rand_upgrades():
-	if upgrade_screen!=null: upgrade_screen.rand_upgrades()
-	if weapon_screen!=null:weapon_screen.rand_weapons()
+	shop_screen.rand_upgrades()
+	shop_screen.rand_weapons()
 
 func disable_shop():
-	if weapon_screen!=null:
-		weapon_screen.toggle_menu(false)
-		if weapon_screen.plr!=null:weapon_screen.plr.disabled=false
-	if upgrade_screen!=null:
-		upgrade_screen.toggle_menu(false)
-		if upgrade_screen.plr!=null:upgrade_screen.plr.disabled=false
+	if shop_screen: 
+		shop_screen.toggle_menu(false)
+		if shop_screen.plr!=null:shop_screen.plr.disabled=false

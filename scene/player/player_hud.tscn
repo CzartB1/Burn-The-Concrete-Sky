@@ -391,13 +391,11 @@ layout_mode = 2
 text = "Exit"
 
 [node name="pause_menu" parent="." node_paths=PackedStringArray("HUD", "settingsMenu") instance=ExtResource("9_1yxso")]
-visible = false
 HUD = NodePath("../HUD/VBoxContainer")
 settingsMenu = NodePath("../settingsMenu/Panel")
 
 [node name="settingsMenu" parent="." instance=ExtResource("10_3t1xs")]
 layer = 7
-visible = false
 
 [connection signal="timeout" from="cleared_screen/Timer" to="cleared_screen" method="_on_timer_timeout"]
 [connection signal="timeout" from="death_screen/Timer" to="death_screen" method="_on_timer_timeout"]

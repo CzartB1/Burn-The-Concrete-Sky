@@ -11,7 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://6u7p3n73gi11" path="res://scene/weapon_shopkeeper.tscn" id="10_2gjlf"]
 [ext_resource type="Texture2D" uid="uid://2k56g3xspa3a" path="res://textures/buildings/concrete_05.png" id="10_o2fvu"]
 [ext_resource type="Texture2D" uid="uid://2352nj3veyg2" path="res://textures/buildings/wood_1.png" id="11_o8pob"]
-[ext_resource type="PackedScene" uid="uid://ovjo3gp6humn" path="res://meshes/npc/Justicar/justicar.blend" id="12_37dn2"]
+[ext_resource type="PackedScene" uid="uid://dqrjqsnh1f28f" path="res://scene/player/upgrades/shopkeeper.tscn" id="12_jqkpg"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_qe6j2"]
 size = Vector3(21.158, 3, 4.74561)
@@ -301,11 +301,10 @@ shape = SubResource("ConvexPolygonShape3D_tbax3")
 [node name="entity_0_brush_27_collision_shape" type="CollisionShape3D" parent="FuncGodotMap/entity_0_worldspawn"]
 shape = SubResource("ConvexPolygonShape3D_s0n8u")
 
-[node name="shopkeeper" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 9.13325)
-
-[node name="justicar" parent="shopkeeper" instance=ExtResource("12_37dn2")]
+[node name="shopkeeper" parent="." instance=ExtResource("12_jqkpg")]
 
 [connection signal="body_entered" from="rooms_end" to="rooms_end" method="_on_body_entered"]
 
+[editable path="upgrade_shopkeeper"]
+[editable path="upgrade_shopkeeper/CanvasLayer/upgrade_screen"]
 [editable path="weapon_shopkeeper"]
