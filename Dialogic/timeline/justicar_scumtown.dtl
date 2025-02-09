@@ -1,0 +1,7 @@
+Justicar: The blood-soaked tunnel opens up to a large chamber where mountains of trash fills the horizon. In the distance, a shanty-town stands in the middle of it all, its architecture is hastily recycled from its surroundings.\
+\
+"Welcome to Scum Town! A cesspit where rules are just suggestions, and the weak eats the even weaker." Their voice unnnervingly cheerful, but then returns to its normal, serious tone, "Mayor Alessandra's put a price on your head. Now all the thugs and mercs sees a walking payday in front of them. Lucky for you, I have what you need to survive here. Name your poison."
+- Buy from them
+	[end_timeline]
+- Walk away
+	[end_timeline]

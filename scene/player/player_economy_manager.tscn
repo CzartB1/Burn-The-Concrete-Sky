@@ -2,13 +2,10 @@
 
 [ext_resource type="Script" path="res://scripts/player/economy_manager.gd" id="1_al3fy"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_y1gv5"]
-bg_color = Color(0.6, 0.6, 0.6, 0)
-expand_margin_top = 1.0
-expand_margin_bottom = 1.0
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_6rap4"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_k7xds"]
-bg_color = Color(0.92549, 0.647059, 0, 1)
+bg_color = Color(1, 0, 0.0166664, 1)
 expand_margin_top = 1.0
 expand_margin_bottom = 1.0
 
@@ -39,9 +36,9 @@ autowrap_mode = 0
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
-offset_left = -157.0
+offset_left = -213.0
 offset_top = 40.0
-offset_right = -90.0
+offset_right = -34.0
 offset_bottom = 119.0
 grow_horizontal = 0
 alignment = 1
@@ -54,8 +51,9 @@ text = "[center]8.5"
 fit_content = true
 
 [node name="ProgressBar" type="ProgressBar" parent="CanvasLayer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 5)
 layout_mode = 2
-theme_override_styles/background = SubResource("StyleBoxFlat_y1gv5")
+theme_override_styles/background = SubResource("StyleBoxEmpty_6rap4")
 theme_override_styles/fill = SubResource("StyleBoxFlat_k7xds")
 show_percentage = false
 
