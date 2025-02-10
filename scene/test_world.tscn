@@ -1,4 +1,4 @@
-[gd_scene load_steps=41 format=3 uid="uid://dwx34svdy6oqn"]
+[gd_scene load_steps=29 format=3 uid="uid://dwx34svdy6oqn"]
 
 [ext_resource type="Script" path="res://scripts/systems/rooms/room_manager.gd" id="2_eglug"]
 [ext_resource type="PackedScene" uid="uid://cebc076cxalyg" path="res://scene/rooms/combat_group/test_cg_1.tscn" id="3_8qmyu"]
@@ -10,17 +10,10 @@
 [ext_resource type="PackedScene" uid="uid://chi0yi6krxebk" path="res://scene/rooms/test/test_cg1/room_rest.tscn" id="7_mf3ok"]
 [ext_resource type="PackedScene" uid="uid://bokolxfdwrhar" path="res://scene/rooms/test/room_boss.tscn" id="9_eqyys"]
 [ext_resource type="PackedScene" uid="uid://dks7eg8o5s7al" path="res://scene/player/characters/Remnant.tscn" id="10_0jsb7"]
-[ext_resource type="Script" path="res://scripts/player/char_select/char_select_screen.gd" id="10_brlb2"]
 [ext_resource type="PackedScene" uid="uid://dgx2clkxdsth2" path="res://scene/player/characters/Silver.tscn" id="11_m1rxn"]
-[ext_resource type="Script" path="res://scripts/player/char_select/char_select_button.gd" id="11_om8lt"]
+[ext_resource type="PackedScene" uid="uid://b1au5gcyhryfm" path="res://scene/menus/character_select_screen.tscn" id="11_xgfu7"]
 [ext_resource type="PackedScene" uid="uid://cj7kkva2uk3m0" path="res://scene/player/characters/Impact.tscn" id="12_b3tjq"]
-[ext_resource type="PackedScene" uid="uid://bnxrhky3nbvov" path="res://scene/player/characters/remnant_fix.tscn" id="12_f22ne"]
 [ext_resource type="PackedScene" uid="uid://d5vt4gjy1jd2" path="res://scene/player/characters/Mirage.tscn" id="13_ojb4m"]
-[ext_resource type="VideoStream" path="res://sprites/UI/char select/gladiator_avatar0001-0070.ogv" id="16_nd1av"]
-[ext_resource type="VideoStream" path="res://sprites/UI/char select/remnant_avatar0001-0120.ogv" id="17_nl47w"]
-[ext_resource type="Texture2D" uid="uid://8iaj88bwu0w" path="res://sprites/UI/char select/char_select_portrait.png" id="17_qa77x"]
-[ext_resource type="VideoStream" path="res://sprites/UI/char select/silver_avatar0001-0050.ogv" id="18_mugvg"]
-[ext_resource type="VideoStream" path="res://sprites/UI/char select/mirage_avatar0001-0120.ogv" id="19_2vrga"]
 [ext_resource type="Script" path="res://scripts/systems/char_manager.gd" id="20_0ogmo"]
 [ext_resource type="Script" path="res://scripts/player/UI/player_stat_screen.gd" id="20_wjgrw"]
 [ext_resource type="Script" path="res://scripts/systems/music_manager.gd" id="21_ss30e"]
@@ -29,25 +22,6 @@
 [ext_resource type="AudioStream" uid="uid://cfpjrddawhlh3" path="res://audios/music/placeholders/epic-battle-song-loop-182700.mp3" id="23_wm11b"]
 [ext_resource type="AudioStream" uid="uid://wr18kx8p1l8l" path="res://audios/music/placeholders/the-final-boss-battle-158700.mp3" id="24_7t3sc"]
 [ext_resource type="AudioStream" uid="uid://d05pde8k01dgy" path="res://audios/music/placeholders/chicago-shuffle-blues-3912.mp3" id="25_uv8ym"]
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gdblg"]
-bg_color = Color(0, 0, 0, 1)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_7j5q7"]
-atlas = ExtResource("17_qa77x")
-region = Rect2(0, 32, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_sade2"]
-atlas = ExtResource("17_qa77x")
-region = Rect2(0, 96, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_kdaxs"]
-atlas = ExtResource("17_qa77x")
-region = Rect2(0, 64, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_8a5c7"]
-atlas = ExtResource("17_qa77x")
-region = Rect2(0, 128, 32, 32)
 
 [sub_resource type="AudioStreamInteractive" id="AudioStreamInteractive_f3hkl"]
 clip_count = 2
@@ -319,240 +293,8 @@ text = "Exit"
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 layer = 5
 
-[node name="character_select_screen" type="Control" parent="CanvasLayer" node_paths=PackedStringArray("room_manager", "name_text", "desc_text", "abl_text") groups=["char_select"]]
-layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-script = ExtResource("10_brlb2")
+[node name="character_select_screen" parent="CanvasLayer" node_paths=PackedStringArray("room_manager") instance=ExtResource("11_xgfu7")]
 room_manager = NodePath("../../room_manager")
-characters = Array[PackedScene]([ExtResource("12_f22ne"), ExtResource("11_m1rxn"), ExtResource("12_b3tjq"), ExtResource("13_ojb4m")])
-name_text = NodePath("Panel/name text")
-desc_text = NodePath("Panel/desc text")
-abl_text = NodePath("Panel/ability text")
-
-[node name="Panel" type="Panel" parent="CanvasLayer/character_select_screen"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_gdblg")
-
-[node name="Busts" type="Control" parent="CanvasLayer/character_select_screen/Panel"]
-layout_mode = 1
-anchors_preset = 11
-anchor_left = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -543.0
-grow_horizontal = 0
-grow_vertical = 2
-
-[node name="Impact" type="VideoStreamPlayer" parent="CanvasLayer/character_select_screen/Panel/Busts"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 119.0
-offset_top = 113.0
-offset_right = 584.0
-offset_bottom = 1369.0
-grow_horizontal = 2
-grow_vertical = 2
-scale = Vector2(0.35, 0.35)
-stream = ExtResource("16_nd1av")
-autoplay = true
-loop = true
-
-[node name="Remnant" type="VideoStreamPlayer" parent="CanvasLayer/character_select_screen/Panel/Busts"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 152.0
-offset_top = 141.0
-offset_right = 217.0
-offset_bottom = 933.0
-grow_horizontal = 2
-grow_vertical = 2
-scale = Vector2(0.5, 0.5)
-stream = ExtResource("17_nl47w")
-autoplay = true
-loop = true
-
-[node name="Silver" type="VideoStreamPlayer" parent="CanvasLayer/character_select_screen/Panel/Busts"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 152.0
-offset_top = 141.0
-offset_right = 217.0
-offset_bottom = 933.0
-grow_horizontal = 2
-grow_vertical = 2
-scale = Vector2(0.5, 0.5)
-stream = ExtResource("18_mugvg")
-autoplay = true
-loop = true
-
-[node name="Mirage" type="VideoStreamPlayer" parent="CanvasLayer/character_select_screen/Panel/Busts"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 152.0
-offset_top = 141.0
-offset_right = 217.0
-offset_bottom = 933.0
-grow_horizontal = 2
-grow_vertical = 2
-scale = Vector2(0.5, 0.5)
-stream = ExtResource("19_2vrga")
-autoplay = true
-loop = true
-
-[node name="done_button" type="Button" parent="CanvasLayer/character_select_screen/Panel" node_paths=PackedStringArray("room_manager", "name_text", "desc_text", "abl_text")]
-layout_mode = 1
-anchors_preset = 3
-anchor_left = 1.0
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -391.0
-offset_top = -77.0
-offset_right = -93.0
-offset_bottom = -25.0
-grow_horizontal = 0
-grow_vertical = 0
-focus_neighbor_left = NodePath("../GridContainer/remnant_button")
-focus_neighbor_top = NodePath("../GridContainer/remnant_button")
-focus_neighbor_right = NodePath("../GridContainer/mirage_button")
-text = "Choose Character"
-script = ExtResource("10_brlb2")
-room_manager = NodePath("../../../../room_manager")
-characters = Array[PackedScene]([ExtResource("10_0jsb7"), ExtResource("11_m1rxn"), ExtResource("12_b3tjq"), ExtResource("13_ojb4m")])
-name_text = NodePath("../name text")
-desc_text = NodePath("../desc text")
-abl_text = NodePath("../ability text")
-
-[node name="name text" type="RichTextLabel" parent="CanvasLayer/character_select_screen/Panel"]
-layout_mode = 1
-anchors_preset = 2
-anchor_top = 1.0
-anchor_bottom = 1.0
-offset_left = 75.0
-offset_top = -333.0
-offset_right = 486.0
-offset_bottom = -284.0
-grow_vertical = 0
-theme_override_font_sizes/bold_font_size = 36
-bbcode_enabled = true
-
-[node name="desc text" type="RichTextLabel" parent="CanvasLayer/character_select_screen/Panel"]
-layout_mode = 1
-anchors_preset = 2
-anchor_top = 1.0
-anchor_bottom = 1.0
-offset_left = 75.0
-offset_top = -280.0
-offset_right = 486.0
-offset_bottom = -157.0
-grow_vertical = 0
-text = "Choose a character!"
-
-[node name="ability text" type="RichTextLabel" parent="CanvasLayer/character_select_screen/Panel"]
-layout_mode = 1
-anchors_preset = 2
-anchor_top = 1.0
-anchor_bottom = 1.0
-offset_left = 75.0
-offset_top = -154.0
-offset_right = 486.0
-offset_bottom = -39.0
-grow_vertical = 0
-theme_override_font_sizes/normal_font_size = 16
-theme_override_font_sizes/bold_font_size = 18
-bbcode_enabled = true
-
-[node name="GridContainer" type="GridContainer" parent="CanvasLayer/character_select_screen/Panel"]
-layout_mode = 1
-anchors_preset = 9
-anchor_bottom = 1.0
-offset_left = 75.0
-offset_top = 85.0
-offset_right = 215.0
-offset_bottom = -531.0
-grow_vertical = 2
-scale = Vector2(3, 3)
-columns = 5
-
-[node name="remnant_button" type="TextureButton" parent="CanvasLayer/character_select_screen/Panel/GridContainer" node_paths=PackedStringArray("selector", "bust")]
-layout_mode = 2
-focus_neighbor_left = NodePath("../mirage_button")
-focus_neighbor_right = NodePath("../silver_button")
-focus_neighbor_bottom = NodePath("../../done_button")
-texture_normal = SubResource("AtlasTexture_7j5q7")
-stretch_mode = 4
-script = ExtResource("11_om8lt")
-selector = NodePath("../../..")
-char_name = "REMNANT"
-char_desc = "An armored soldier hailing from a long gone nation."
-ablt_name = "Mobile Shield"
-ablt_desc = "Block incoming projectiles with a shield in front of him."
-bust = NodePath("../../Busts/Remnant")
-
-[node name="silver_button" type="TextureButton" parent="CanvasLayer/character_select_screen/Panel/GridContainer" node_paths=PackedStringArray("selector", "bust")]
-layout_mode = 2
-focus_neighbor_left = NodePath("../remnant_button")
-focus_neighbor_right = NodePath("../impact_button")
-focus_neighbor_bottom = NodePath("../../done_button")
-texture_normal = SubResource("AtlasTexture_sade2")
-stretch_mode = 4
-script = ExtResource("11_om8lt")
-selector = NodePath("../../..")
-char_id = 1
-char_name = "SILVER"
-char_desc = "An enigmatic gentleman-thief."
-ablt_name = "Anchor Card"
-ablt_desc = "Place a card which acts as an anchor where you can teleport back to."
-bust = NodePath("../../Busts/Silver")
-
-[node name="impact_button" type="TextureButton" parent="CanvasLayer/character_select_screen/Panel/GridContainer" node_paths=PackedStringArray("selector", "bust")]
-layout_mode = 2
-focus_neighbor_left = NodePath("../silver_button")
-focus_neighbor_right = NodePath("../mirage_button")
-focus_neighbor_bottom = NodePath("../../done_button")
-texture_normal = SubResource("AtlasTexture_kdaxs")
-stretch_mode = 4
-script = ExtResource("11_om8lt")
-selector = NodePath("../../..")
-char_id = 2
-char_name = "IMPACT"
-char_desc = "A slave-gladiator fighting for freedom."
-ablt_name = "Grapple"
-ablt_desc = "Get close to enemies with her grappling hook."
-bust = NodePath("../../Busts/Impact")
-
-[node name="mirage_button" type="TextureButton" parent="CanvasLayer/character_select_screen/Panel/GridContainer" node_paths=PackedStringArray("selector", "bust")]
-layout_mode = 2
-focus_neighbor_left = NodePath("../impact_button")
-focus_neighbor_right = NodePath("../remnant_button")
-focus_neighbor_bottom = NodePath("../../done_button")
-texture_normal = SubResource("AtlasTexture_8a5c7")
-stretch_mode = 4
-script = ExtResource("11_om8lt")
-selector = NodePath("../../..")
-char_id = 3
-char_name = "MIRAGE"
-char_desc = "An assassin on a quest for vengeance."
-ablt_name = "Decoy"
-ablt_desc = "Place a decoy to trick the enemies."
-bust = NodePath("../../Busts/Mirage")
 
 [node name="char_manager" type="Control" parent="CanvasLayer" node_paths=PackedStringArray("room_manager") groups=["char_manager"]]
 layout_mode = 3
@@ -591,8 +333,3 @@ environment = SubResource("Environment_5440b")
 
 [connection signal="pressed" from="stats/demo_lock/HBoxContainer/choose char" to="stats/demo_lock" method="_on_choose_char_pressed"]
 [connection signal="pressed" from="stats/demo_lock/HBoxContainer/exit" to="stats/demo_lock" method="_on_exit_pressed"]
-[connection signal="pressed" from="CanvasLayer/character_select_screen/Panel/done_button" to="CanvasLayer/character_select_screen" method="_on_done_button_pressed"]
-[connection signal="pressed" from="CanvasLayer/character_select_screen/Panel/GridContainer/remnant_button" to="CanvasLayer/character_select_screen/Panel/GridContainer/remnant_button" method="_on_pressed"]
-[connection signal="pressed" from="CanvasLayer/character_select_screen/Panel/GridContainer/silver_button" to="CanvasLayer/character_select_screen/Panel/GridContainer/silver_button" method="_on_pressed"]
-[connection signal="pressed" from="CanvasLayer/character_select_screen/Panel/GridContainer/impact_button" to="CanvasLayer/character_select_screen/Panel/GridContainer/impact_button" method="_on_pressed"]
-[connection signal="pressed" from="CanvasLayer/character_select_screen/Panel/GridContainer/mirage_button" to="CanvasLayer/character_select_screen/Panel/GridContainer/mirage_button" method="_on_pressed"]

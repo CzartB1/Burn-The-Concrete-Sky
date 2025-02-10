@@ -1,7 +1,6 @@
 class_name melee_weapon
 extends Node3D
 
-@export var icon:AtlasTexture
 @export var manager: Weapon_Manager
 @export var hitbox: Area3D
 @export var visual_effects: Node3D
@@ -21,6 +20,9 @@ var damage: int
 @export_group("animation")
 @export_range(2,3) var stance:int=3
 @export_range(0,1) var strike_type:int=1
+@export_group("lore")
+@export var icon:AtlasTexture
+@export_multiline var Description:String
 var charging=false
 var attacking: bool = false
 var can_attack=true

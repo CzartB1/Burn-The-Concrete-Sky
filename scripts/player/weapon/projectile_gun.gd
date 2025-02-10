@@ -1,7 +1,6 @@
 class_name Projectile_Gun
 extends Node3D
 
-@export var icon:AtlasTexture
 @export var manager: Weapon_Manager
 @export var muzzles: Array[Node3D]
 @export var bullet: PackedScene
@@ -29,7 +28,9 @@ var audio_direct=preload("res://scene/utilities/audio_direct.tscn")
 @export var gunshot_sound:AudioStream
 @export_group("shop")
 @export var price:int=100
-
+@export_group("lore")
+@export var icon:AtlasTexture
+@export_multiline var Description:String
 func _ready():
 	current_ammo=max_ammo
 	if muzzle_flash!=null:

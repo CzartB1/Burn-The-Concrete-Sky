@@ -6,6 +6,7 @@ var plr:Player
 @export var weapon_id:int
 @export var button_enable:Control
 @export var button_disable:Control
+@export var description_box:RichTextLabel
 var w_object
 var weapon:Node3D
 
@@ -21,6 +22,8 @@ func _process(delta):
 
 func _on_pressed():
 	#if plr!=null:
+	if w_object!=null:
+		description_box.text=w_object.Description
 	weapon_screen.selected_weapon_id=plr.upgrade_manager.weapon_manager.available_weapons.find(weapon)
 	weapon_screen.selected=true
 	print(str(plr.upgrade_manager.equipped_upgrade))

@@ -16,19 +16,23 @@ upgrade_list = [NodePath("wind_blade"), NodePath("quick_as_the_wind"), NodePath(
 
 [node name="upgrade" type="Node" parent="."]
 script = ExtResource("2_jt6tb")
+Description = "Template"
 
 [node name="focus" type="Node" parent="."]
 script = ExtResource("3_p0mjj")
 price = 200
+Description = "Lowers spread when slowing time. Just because your enemies move slower than you, doesn't mean you can just magdump all over the place."
 
 [node name="tachypsychia" type="Node" parent="."]
 script = ExtResource("4_ff6n0")
 price = 300
+Description = "Move faster when slowing time. Remember, move wisely. If you hit a wall or trip yourself when using this, I will not stop laughing."
 
 [node name="last_stand" type="Node" parent="." node_paths=PackedStringArray("i_timer")]
 script = ExtResource("5_0qw0a")
 i_timer = NodePath("Timer")
 price = 500
+Description = "If you fall, you will rise. Once. If you go down again, well… that is what we call a ‘you’ problem."
 
 [node name="Timer" type="Timer" parent="last_stand"]
 wait_time = 2.0
@@ -37,14 +41,17 @@ one_shot = true
 [node name="heavy" type="Node" parent="."]
 script = ExtResource("6_t4tkq")
 price = 300
+Description = "You will move like a tank. You will also hit like one. Do not complain about being slow—your enemies will be too busy dying to notice."
 
 [node name="quick_as_the_wind" type="Node" parent="."]
 script = ExtResource("7_tehaf")
 price = 450
+Description = "Increases your movement speed. You will be swift. You will be agile. You will have no excuse for getting shot. If you still manage to, that is a skill issue."
 
 [node name="wind_blade" type="Node" parent="."]
 script = ExtResource("8_ygamq")
 blade = ExtResource("9_4w774")
 price = 300
+Description = "Leave behind wind blades that will cut up any enemies that touches it when dashing. If you trip over your own wind blade, I will not stop laughing."
 
 [connection signal="timeout" from="last_stand/Timer" to="last_stand" method="_on_timer_timeout"]

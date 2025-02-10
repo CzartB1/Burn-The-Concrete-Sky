@@ -74,7 +74,7 @@ layout_mode = 2
 custom_minimum_size = Vector2(500, 0)
 layout_mode = 2
 
-[node name="weapon1_button" type="Button" parent="CanvasLayer/shop_screen/Panel/MarginContainer/HBoxContainer/browse list" node_paths=PackedStringArray("weapon_screen", "button_enable", "button_disable")]
+[node name="weapon1_button" type="Button" parent="CanvasLayer/shop_screen/Panel/MarginContainer/HBoxContainer/browse list" node_paths=PackedStringArray("weapon_screen", "button_enable", "button_disable", "description_box")]
 layout_mode = 2
 size_flags_horizontal = 3
 text = "weapon
@@ -84,8 +84,9 @@ script = ExtResource("4_rpvdl")
 weapon_screen = NodePath("../../../../..")
 button_enable = NodePath("../../descriptions/HBoxContainer")
 button_disable = NodePath("../../descriptions/buy_button")
+description_box = NodePath("../../descriptions/RichTextLabel")
 
-[node name="weapon1_button2" type="Button" parent="CanvasLayer/shop_screen/Panel/MarginContainer/HBoxContainer/browse list" node_paths=PackedStringArray("weapon_screen", "button_enable", "button_disable")]
+[node name="weapon1_button2" type="Button" parent="CanvasLayer/shop_screen/Panel/MarginContainer/HBoxContainer/browse list" node_paths=PackedStringArray("weapon_screen", "button_enable", "button_disable", "description_box")]
 layout_mode = 2
 size_flags_horizontal = 3
 text = "weapon
@@ -95,8 +96,9 @@ script = ExtResource("4_rpvdl")
 weapon_screen = NodePath("../../../../..")
 button_enable = NodePath("../../descriptions/HBoxContainer")
 button_disable = NodePath("../../descriptions/buy_button")
+description_box = NodePath("../../descriptions/RichTextLabel")
 
-[node name="weapon1_button3" type="Button" parent="CanvasLayer/shop_screen/Panel/MarginContainer/HBoxContainer/browse list" node_paths=PackedStringArray("weapon_screen", "button_enable", "button_disable")]
+[node name="weapon1_button3" type="Button" parent="CanvasLayer/shop_screen/Panel/MarginContainer/HBoxContainer/browse list" node_paths=PackedStringArray("weapon_screen", "button_enable", "button_disable", "description_box")]
 layout_mode = 2
 size_flags_horizontal = 3
 text = "weapon
@@ -106,8 +108,9 @@ script = ExtResource("4_rpvdl")
 weapon_screen = NodePath("../../../../..")
 button_enable = NodePath("../../descriptions/HBoxContainer")
 button_disable = NodePath("../../descriptions/buy_button")
+description_box = NodePath("../../descriptions/RichTextLabel")
 
-[node name="ability1_button" type="Button" parent="CanvasLayer/shop_screen/Panel/MarginContainer/HBoxContainer/browse list" node_paths=PackedStringArray("menu", "button_enable", "button_disable")]
+[node name="ability1_button" type="Button" parent="CanvasLayer/shop_screen/Panel/MarginContainer/HBoxContainer/browse list" node_paths=PackedStringArray("menu", "button_enable", "button_disable", "description_box")]
 layout_mode = 2
 size_flags_horizontal = 3
 text = "ability "
@@ -116,8 +119,9 @@ script = ExtResource("5_0d0sk")
 menu = NodePath("../../../../..")
 button_enable = NodePath("../../descriptions/buy_button")
 button_disable = NodePath("../../descriptions/HBoxContainer")
+description_box = NodePath("../../descriptions/RichTextLabel")
 
-[node name="ability2_button" type="Button" parent="CanvasLayer/shop_screen/Panel/MarginContainer/HBoxContainer/browse list" node_paths=PackedStringArray("menu", "button_enable", "button_disable")]
+[node name="ability2_button" type="Button" parent="CanvasLayer/shop_screen/Panel/MarginContainer/HBoxContainer/browse list" node_paths=PackedStringArray("menu", "button_enable", "button_disable", "description_box")]
 layout_mode = 2
 size_flags_horizontal = 3
 text = "ability "
@@ -127,8 +131,9 @@ upgrade_id = 1
 menu = NodePath("../../../../..")
 button_enable = NodePath("../../descriptions/buy_button")
 button_disable = NodePath("../../descriptions/HBoxContainer")
+description_box = NodePath("../../descriptions/RichTextLabel")
 
-[node name="ability3_button" type="Button" parent="CanvasLayer/shop_screen/Panel/MarginContainer/HBoxContainer/browse list" node_paths=PackedStringArray("menu", "button_enable", "button_disable")]
+[node name="ability3_button" type="Button" parent="CanvasLayer/shop_screen/Panel/MarginContainer/HBoxContainer/browse list" node_paths=PackedStringArray("menu", "button_enable", "button_disable", "description_box")]
 layout_mode = 2
 size_flags_horizontal = 3
 text = "ability "
@@ -138,6 +143,7 @@ upgrade_id = 2
 menu = NodePath("../../../../..")
 button_enable = NodePath("../../descriptions/buy_button")
 button_disable = NodePath("../../descriptions/HBoxContainer")
+description_box = NodePath("../../descriptions/RichTextLabel")
 
 [node name="descriptions" type="VBoxContainer" parent="CanvasLayer/shop_screen/Panel/MarginContainer/HBoxContainer"]
 custom_minimum_size = Vector2(500, 0)
