@@ -15,7 +15,7 @@ var start_wait
 var fade_in_screen=false
 
 func _ready():
-	stat_screen.modulate.a=0
+	#stat_screen.modulate.a=0
 	stat_canvas.process_mode=Node.PROCESS_MODE_DISABLED
 	stat_canvas.visible=false
 	stat_canvas.layer=0
@@ -31,8 +31,10 @@ func _process(delta):
 		clamp(cam.cam.size,0,origin_fov)
 		if cam.cam.size > zoom and death_zoom:
 			cam.cam.size=zoom
-	if fade_in_screen and stat_screen.modulate.a<1:
-		stat_screen.modulate.a+=(delta*stat_screen_fade_speed)/Engine.time_scale
+	if fade_in_screen:
+		#stat_screen.modulate.a+=(delta*stat_screen_fade_speed)/Engine.time_scale
+		stat_screen.show_anim()
+		fade_in_screen=false
 
 func activate():
 	visible=true

@@ -5,6 +5,7 @@ extends Control
 @export var playtime_label:RichTextLabel
 @export var money_label:RichTextLabel
 @export var mult_label:RichTextLabel
+@export var anim:AnimationPlayer
 
 func _ready():
 	visible=true
@@ -25,4 +26,7 @@ func _on_choose_char_pressed():
 	game_manager.restart(true)
 
 func _on_exit_pressed(): #FIXME main menu button
-	pass # Replace with function body.
+	get_tree().change_scene_to_file("res://scene/menus/main_menu.tscn")
+
+func show_anim():
+	anim.play("show")

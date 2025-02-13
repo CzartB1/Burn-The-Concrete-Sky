@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://b1au5gcyhryfm"]
+[gd_scene load_steps=23 format=3 uid="uid://b1au5gcyhryfm"]
 
 [ext_resource type="Script" path="res://scripts/player/char_select/char_select_screen.gd" id="1_hc0jr"]
 [ext_resource type="PackedScene" uid="uid://bnxrhky3nbvov" path="res://scene/player/characters/remnant_fix.tscn" id="2_7n8wp"]
@@ -15,6 +15,20 @@
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gdblg"]
 bg_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qxjrf"]
+bg_color = Color(0.69, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jtbaf"]
+bg_color = Color(0.69, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gpo5v"]
+bg_color = Color(1, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fhe27"]
+bg_color = Color(0.69, 0, 0, 1)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_6fneh"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_7j5q7"]
 atlas = ExtResource("11_suile")
@@ -135,15 +149,20 @@ anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -391.0
+offset_left = -1077.0
 offset_top = -77.0
-offset_right = -93.0
+offset_right = -657.0
 offset_bottom = -25.0
 grow_horizontal = 0
 grow_vertical = 0
 focus_neighbor_left = NodePath("../GridContainer/remnant_button")
 focus_neighbor_top = NodePath("../GridContainer/remnant_button")
 focus_neighbor_right = NodePath("../GridContainer/mirage_button")
+theme_override_styles/focus = SubResource("StyleBoxFlat_qxjrf")
+theme_override_styles/hover_pressed = SubResource("StyleBoxFlat_jtbaf")
+theme_override_styles/hover = SubResource("StyleBoxFlat_gpo5v")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_fhe27")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_6fneh")
 text = "Choose Character"
 script = ExtResource("1_hc0jr")
 characters = Array[PackedScene]([ExtResource("10_ijt4p"), ExtResource("3_omfb8"), ExtResource("4_ftefj"), ExtResource("5_3rfgy")])
@@ -157,9 +176,9 @@ anchors_preset = 2
 anchor_top = 1.0
 anchor_bottom = 1.0
 offset_left = 75.0
-offset_top = -333.0
+offset_top = -434.0
 offset_right = 486.0
-offset_bottom = -284.0
+offset_bottom = -385.0
 grow_vertical = 0
 theme_override_font_sizes/bold_font_size = 36
 bbcode_enabled = true
@@ -170,9 +189,9 @@ anchors_preset = 2
 anchor_top = 1.0
 anchor_bottom = 1.0
 offset_left = 75.0
-offset_top = -280.0
+offset_top = -381.0
 offset_right = 486.0
-offset_bottom = -157.0
+offset_bottom = -258.0
 grow_vertical = 0
 text = "Choose a character!"
 
@@ -182,9 +201,9 @@ anchors_preset = 2
 anchor_top = 1.0
 anchor_bottom = 1.0
 offset_left = 75.0
-offset_top = -154.0
+offset_top = -255.0
 offset_right = 486.0
-offset_bottom = -39.0
+offset_bottom = -140.0
 grow_vertical = 0
 theme_override_font_sizes/normal_font_size = 16
 theme_override_font_sizes/bold_font_size = 18

@@ -1,0 +1,173 @@
+[gd_scene load_steps=6 format=3 uid="uid://t53uv01pfjjr"]
+
+[ext_resource type="Script" path="res://scripts/player/UI/player_stat_screen.gd" id="1_fo4pg"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dusv0"]
+bg_color = Color(0, 0, 0, 1)
+border_width_top = 2
+border_width_bottom = 2
+border_color = Color(1, 1, 1, 1)
+
+[sub_resource type="Animation" id="Animation_aperj"]
+resource_name = "show"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Panel:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(0.223812, 0.267943),
+"update": 0,
+"values": [Vector2(-1160, 161), Vector2(0, 161)]
+}
+
+[sub_resource type="Animation" id="Animation_gu5xt"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Panel:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-1160, 161)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_kduqj"]
+_data = {
+"RESET": SubResource("Animation_gu5xt"),
+"show": SubResource("Animation_aperj")
+}
+
+[node name="death_stat_screen" type="CanvasLayer"]
+layer = 5
+
+[node name="stat_screen" type="Control" parent="." node_paths=PackedStringArray("kill_label", "rooms_cleared_label", "playtime_label", "money_label", "mult_label", "anim")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_fo4pg")
+kill_label = NodePath("Panel/HBoxContainer2/VBoxContainer/kills")
+rooms_cleared_label = NodePath("Panel/HBoxContainer2/VBoxContainer/roomcleared")
+playtime_label = NodePath("Panel/HBoxContainer2/VBoxContainer/playtime")
+money_label = NodePath("Panel/HBoxContainer2/VBoxContainer2/moneyearnd")
+mult_label = NodePath("Panel/HBoxContainer2/VBoxContainer2/highstmult")
+anim = NodePath("AnimationPlayer")
+
+[node name="Panel" type="Panel" parent="stat_screen"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 161.0
+offset_bottom = -178.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_dusv0")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="stat_screen/Panel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -227.0
+offset_top = 96.5
+offset_right = 227.0
+offset_bottom = 128.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 25
+alignment = 1
+
+[node name="restart" type="Button" parent="stat_screen/Panel/HBoxContainer"]
+layout_mode = 2
+text = "Restart"
+
+[node name="choose char" type="Button" parent="stat_screen/Panel/HBoxContainer"]
+layout_mode = 2
+text = "Choose Another Character"
+
+[node name="exit" type="Button" parent="stat_screen/Panel/HBoxContainer"]
+layout_mode = 2
+text = "Exit"
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="stat_screen/Panel"]
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = 175.0
+offset_top = -133.5
+offset_right = -175.0
+offset_bottom = 69.5
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="stat_screen/Panel/HBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="kills" type="RichTextLabel" parent="stat_screen/Panel/HBoxContainer2/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_font_sizes/normal_font_size = 20
+bbcode_enabled = true
+text = "Enemies Killed: 0"
+fit_content = true
+
+[node name="roomcleared" type="RichTextLabel" parent="stat_screen/Panel/HBoxContainer2/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_font_sizes/normal_font_size = 20
+bbcode_enabled = true
+text = "Rooms Cleared: 0"
+fit_content = true
+
+[node name="playtime" type="RichTextLabel" parent="stat_screen/Panel/HBoxContainer2/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_font_sizes/normal_font_size = 20
+bbcode_enabled = true
+text = "Playtime: 0"
+fit_content = true
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="stat_screen/Panel/HBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="moneyearnd" type="RichTextLabel" parent="stat_screen/Panel/HBoxContainer2/VBoxContainer2"]
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_font_sizes/normal_font_size = 20
+bbcode_enabled = true
+text = "Money Earned: 0"
+fit_content = true
+
+[node name="highstmult" type="RichTextLabel" parent="stat_screen/Panel/HBoxContainer2/VBoxContainer2"]
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_font_sizes/normal_font_size = 20
+bbcode_enabled = true
+text = "Highest Multiplier: 0"
+fit_content = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="stat_screen"]
+libraries = {
+"": SubResource("AnimationLibrary_kduqj")
+}
+
+[connection signal="pressed" from="stat_screen/Panel/HBoxContainer/restart" to="stat_screen" method="_on_restart_pressed"]
+[connection signal="pressed" from="stat_screen/Panel/HBoxContainer/choose char" to="stat_screen" method="_on_choose_char_pressed"]
+[connection signal="pressed" from="stat_screen/Panel/HBoxContainer/exit" to="stat_screen" method="_on_exit_pressed"]
