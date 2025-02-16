@@ -4,6 +4,7 @@ extends CanvasLayer
 @export var anim:AnimationPlayer
 @export var settingsMenu:Control
 @export var background_scene:MainMenuBackground
+@export var intro:PoemIntro
 var pressed=false
 
 func _ready():
@@ -11,7 +12,7 @@ func _ready():
 	settingsMenu.z_index=0
 
 func _process(_delta):
-	if !pressed and Input.is_anything_pressed():
+	if !pressed and Input.is_anything_pressed() and intro.intro_finished:
 		background_scene.flicker_enabled=true
 		anim.play("title_screen_press")
 		pressed=true

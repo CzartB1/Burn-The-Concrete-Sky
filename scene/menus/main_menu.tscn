@@ -1,4 +1,4 @@
-[gd_scene load_steps=39 format=3 uid="uid://dwsbb66nlsgy1"]
+[gd_scene load_steps=40 format=3 uid="uid://dwsbb66nlsgy1"]
 
 [ext_resource type="Script" path="res://scripts/menus/main_menu.gd" id="1_psoe4"]
 [ext_resource type="PackedScene" uid="uid://dwx34svdy6oqn" path="res://scene/test_world.tscn" id="2_cowbv"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://beurm5o4g7kuq" path="res://scene/menus/settings_menu.tscn" id="4_7cyxg"]
 [ext_resource type="Script" path="res://scripts/menus/main_menu_background.gd" id="5_al40l"]
 [ext_resource type="PackedScene" uid="uid://xfkyjhqxxcl6" path="res://meshes/environment/Arktol.blend" id="5_aso8j"]
+[ext_resource type="Script" path="res://scripts/menus/poem_intro.gd" id="7_1jlfq"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_eeqin"]
 bg_color = Color(0, 0, 0, 1)
@@ -236,13 +237,14 @@ background_color = Color(0.3698, 0.404917, 0.43, 1)
 tonemap_mode = 2
 volumetric_fog_length = 10.0
 
-[node name="MainMenu" type="CanvasLayer" node_paths=PackedStringArray("anim", "settingsMenu", "background_scene")]
+[node name="MainMenu" type="CanvasLayer" node_paths=PackedStringArray("anim", "settingsMenu", "background_scene", "intro")]
 layer = 5
 script = ExtResource("1_psoe4")
 game_scene = ExtResource("2_cowbv")
 anim = NodePath("AnimationPlayer")
 settingsMenu = NodePath("settingsMenu/Panel")
 background_scene = NodePath("scene")
+intro = NodePath("poemIntro")
 
 [node name="Panel" type="Panel" parent="."]
 visible = false
@@ -456,6 +458,78 @@ directional_shadow_blend_splits = true
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="scene"]
 environment = SubResource("Environment_x55ll")
+
+[node name="poemIntro" type="CanvasLayer" parent="." node_paths=PackedStringArray("labels", "control_to_fade_out")]
+layer = 10
+script = ExtResource("7_1jlfq")
+fade_duration = 2.0
+delay_between_labels = 1.2
+labels = [NodePath("Panel/VBoxContainer/RichTextLabel"), NodePath("Panel/VBoxContainer/RichTextLabel2"), NodePath("Panel/VBoxContainer/RichTextLabel3"), NodePath("Panel/VBoxContainer/RichTextLabel5"), NodePath("Panel/VBoxContainer/RichTextLabel4")]
+delay_before_fade_out = 1.5
+fade_out_duration = 2.0
+control_to_fade_out = NodePath("Panel")
+
+[node name="Panel" type="Panel" parent="poemIntro"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_eeqin")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="poemIntro/Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 104.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 25
+
+[node name="RichTextLabel" type="RichTextLabel" parent="poemIntro/Panel/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/normal_font_size = 24
+theme_override_font_sizes/bold_font_size = 28
+bbcode_enabled = true
+text = "[center]After humanity destroyed itself, they built Arktol."
+fit_content = true
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="poemIntro/Panel/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/normal_font_size = 24
+theme_override_font_sizes/bold_font_size = 28
+bbcode_enabled = true
+text = "[center]They built Arktol to survive.
+They built Arktol to thrive.
+They built Arktol to rebuild what was lost."
+fit_content = true
+
+[node name="RichTextLabel3" type="RichTextLabel" parent="poemIntro/Panel/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/normal_font_size = 24
+theme_override_font_sizes/bold_font_size = 28
+bbcode_enabled = true
+text = "[center]Then they built walls to keep them in.
+Then they built laws to control them.
+Then they built gods to keep them blind."
+fit_content = true
+
+[node name="RichTextLabel5" type="RichTextLabel" parent="poemIntro/Panel/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/normal_font_size = 24
+theme_override_font_sizes/bold_font_size = 28
+bbcode_enabled = true
+text = "[center]They built Arktol, now they kneel to it."
+fit_content = true
+
+[node name="RichTextLabel4" type="RichTextLabel" parent="poemIntro/Panel/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/normal_font_size = 24
+theme_override_font_sizes/bold_font_size = 28
+bbcode_enabled = true
+text = "[center][color=red][b]Your mission is to burn it all down.[/b][/color]"
+fit_content = true
 
 [connection signal="pressed" from="MarginContainer/VBoxContainer/play" to="." method="_on_play_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/settings" to="." method="_on_settings_pressed"]
