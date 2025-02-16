@@ -1,9 +1,10 @@
-[gd_scene load_steps=22 format=3 uid="uid://dwsbb66nlsgy1"]
+[gd_scene load_steps=39 format=3 uid="uid://dwsbb66nlsgy1"]
 
 [ext_resource type="Script" path="res://scripts/menus/main_menu.gd" id="1_psoe4"]
 [ext_resource type="PackedScene" uid="uid://dwx34svdy6oqn" path="res://scene/test_world.tscn" id="2_cowbv"]
 [ext_resource type="Texture2D" uid="uid://bewcyc8yfjlxo" path="res://sprites/Title.png" id="3_7wtxt"]
 [ext_resource type="PackedScene" uid="uid://beurm5o4g7kuq" path="res://scene/menus/settings_menu.tscn" id="4_7cyxg"]
+[ext_resource type="Script" path="res://scripts/menus/main_menu_background.gd" id="5_al40l"]
 [ext_resource type="PackedScene" uid="uid://xfkyjhqxxcl6" path="res://meshes/environment/Arktol.blend" id="5_aso8j"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_eeqin"]
@@ -126,6 +127,102 @@ _data = {
 "title_screen_press": SubResource("Animation_lc715")
 }
 
+[sub_resource type="Gradient" id="Gradient_5o7nh"]
+offsets = PackedFloat32Array(0, 0.479381)
+colors = PackedColorArray(0.49, 0.49, 0.49, 0.815686, 1, 1, 1, 0.921569)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_wjlgt"]
+gradient = SubResource("Gradient_5o7nh")
+
+[sub_resource type="Gradient" id="Gradient_7blxb"]
+offsets = PackedFloat32Array(0, 0.659794, 1)
+colors = PackedColorArray(0.17, 0.17, 0.17, 1, 1, 1, 1, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_74524"]
+gradient = SubResource("Gradient_7blxb")
+
+[sub_resource type="Curve" id="Curve_vrghd"]
+_data = [Vector2(0, 0.0309278), 0.0, 2.27469, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_cq2wf"]
+curve = SubResource("Curve_vrghd")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_6q72a"]
+emission_shape_scale = Vector3(2, 2, 2)
+emission_shape = 3
+emission_box_extents = Vector3(15, 0, 15)
+angle_min = -40.0
+angle_max = 40.0
+direction = Vector3(0.1, 0, 0)
+gravity = Vector3(0, 0.5, 0)
+scale_min = 4.0
+scale_max = 6.0
+scale_curve = SubResource("CurveTexture_cq2wf")
+color_ramp = SubResource("GradientTexture1D_74524")
+color_initial_ramp = SubResource("GradientTexture1D_wjlgt")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2omwh"]
+transparency = 1
+vertex_color_use_as_albedo = true
+billboard_mode = 3
+billboard_keep_scale = true
+particles_anim_h_frames = 1
+particles_anim_v_frames = 1
+particles_anim_loop = false
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_48dng"]
+material = SubResource("StandardMaterial3D_2omwh")
+orientation = 2
+
+[sub_resource type="Gradient" id="Gradient_krrch"]
+offsets = PackedFloat32Array(0, 0.587629, 0.984536)
+colors = PackedColorArray(1, 0.6, 0, 1, 0.76, 0.329333, 0, 1, 0.61, 0.162667, 0, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_18uet"]
+gradient = SubResource("Gradient_krrch")
+
+[sub_resource type="Gradient" id="Gradient_0uq0x"]
+offsets = PackedFloat32Array(0.670103, 0.793814, 0.886598, 1)
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0.690196, 1, 1, 1, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_p2dms"]
+gradient = SubResource("Gradient_0uq0x")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_eiaa7"]
+lifetime_randomness = 1.0
+emission_shape_scale = Vector3(2, 2, 2)
+emission_shape = 3
+emission_box_extents = Vector3(15, 0, 15)
+angle_min = -40.0
+angle_max = 40.0
+direction = Vector3(2, 0, 0)
+flatness = 0.4
+angular_velocity_min = -122.79
+angular_velocity_max = 33.49
+gravity = Vector3(0, 2, 0)
+linear_accel_min = -2.23517e-06
+linear_accel_max = 1.55
+scale_min = 0.1
+scale_max = 0.75
+scale_curve = SubResource("CurveTexture_cq2wf")
+color_ramp = SubResource("GradientTexture1D_p2dms")
+color_initial_ramp = SubResource("GradientTexture1D_18uet")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_evgjd"]
+transparency = 1
+shading_mode = 0
+diffuse_mode = 3
+specular_mode = 1
+vertex_color_use_as_albedo = true
+billboard_mode = 1
+billboard_keep_scale = true
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_sym6u"]
+material = SubResource("StandardMaterial3D_evgjd")
+size = Vector2(1, 1)
+orientation = 2
+
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_s7sh3"]
 albedo_color = Color(0.54099, 0.54099, 0.54099, 1)
 
@@ -135,17 +232,17 @@ size = Vector2(200, 200)
 
 [sub_resource type="Environment" id="Environment_x55ll"]
 background_mode = 1
-background_color = Color(0.27, 0.090225, 0.0405, 1)
+background_color = Color(0.3698, 0.404917, 0.43, 1)
 tonemap_mode = 2
-volumetric_fog_enabled = true
 volumetric_fog_length = 10.0
 
-[node name="MainMenu" type="CanvasLayer" node_paths=PackedStringArray("anim", "settingsMenu")]
+[node name="MainMenu" type="CanvasLayer" node_paths=PackedStringArray("anim", "settingsMenu", "background_scene")]
 layer = 5
 script = ExtResource("1_psoe4")
 game_scene = ExtResource("2_cowbv")
 anim = NodePath("AnimationPlayer")
 settingsMenu = NodePath("settingsMenu/Panel")
+background_scene = NodePath("scene")
 
 [node name="Panel" type="Panel" parent="."]
 visible = false
@@ -261,12 +358,92 @@ libraries = {
 [node name="settingsMenu" parent="." instance=ExtResource("4_7cyxg")]
 layer = 10
 
-[node name="scene" type="Node3D" parent="."]
+[node name="scene" type="Node3D" parent="." node_paths=PackedStringArray("lights", "particles", "world_environment")]
+script = ExtResource("5_al40l")
+lights = [NodePath("Arktol/OmniLight3D"), NodePath("Arktol/OmniLight3D5"), NodePath("Arktol/OmniLight3D2"), NodePath("Arktol/OmniLight3D4"), NodePath("Arktol/OmniLight3D3"), NodePath("Arktol/OmniLight3D6")]
+light_transition_speed = 1.0
+particles = [NodePath("Arktol/GPUParticles3D"), NodePath("Arktol/GPUParticles3D2")]
+particle_transition_speed = 1.0
+world_environment = NodePath("WorldEnvironment")
+fixed_bg_color = Color(0.3698, 0.404917, 0.43, 1)
+flicker_bg_color1 = Color(0.35, 0.116958, 0.0525, 1)
+flicker_bg_color2 = Color(0.19, 0.0634917, 0.0285, 1)
 
 [node name="Camera3D" type="Camera3D" parent="scene"]
 transform = Transform3D(0.446198, 0.231626, 0.86444, 0, 0.965926, -0.258819, -0.894934, 0.115484, 0.430994, 25.808, 3.576, 79.004)
 
 [node name="Arktol" parent="scene" instance=ExtResource("5_aso8j")]
+
+[node name="GPUParticles3D" type="GPUParticles3D" parent="scene/Arktol"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 26.6267)
+amount = 7
+lifetime = 8.0
+fixed_fps = 12
+collision_base_size = 0.1
+process_material = SubResource("ParticleProcessMaterial_6q72a")
+draw_pass_1 = SubResource("PlaneMesh_48dng")
+
+[node name="GPUParticles3D2" type="GPUParticles3D" parent="scene/Arktol"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 26.6267)
+amount = 15
+lifetime = 4.0
+collision_base_size = 0.1
+process_material = SubResource("ParticleProcessMaterial_eiaa7")
+draw_pass_1 = SubResource("PlaneMesh_sym6u")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="scene/Arktol"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.51657, -23.9385)
+light_color = Color(1, 0.433333, 0, 1)
+light_energy = 2.401
+light_indirect_energy = 1.285
+omni_range = 63.2231
+omni_attenuation = 0.416
+omni_shadow_mode = 0
+
+[node name="OmniLight3D5" type="OmniLight3D" parent="scene/Arktol"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.43363, 1.35476, 14.0749)
+light_color = Color(1, 0.433333, 0, 1)
+light_energy = 2.401
+light_indirect_energy = 1.285
+omni_range = 63.2231
+omni_attenuation = 0.416
+omni_shadow_mode = 0
+
+[node name="OmniLight3D2" type="OmniLight3D" parent="scene/Arktol"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20.258, 3.70351, 41.2862)
+light_color = Color(1, 0.433333, 0, 1)
+light_energy = 2.401
+light_indirect_energy = 1.285
+omni_range = 29.8882
+omni_attenuation = 0.416
+omni_shadow_mode = 0
+
+[node name="OmniLight3D4" type="OmniLight3D" parent="scene/Arktol"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 43.1126, 3.70351, 3.01609)
+light_color = Color(1, 0.433333, 0, 1)
+light_energy = 2.401
+light_indirect_energy = 1.285
+omni_range = 29.8882
+omni_attenuation = 0.416
+omni_shadow_mode = 0
+
+[node name="OmniLight3D3" type="OmniLight3D" parent="scene/Arktol"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -21.2604, 3.70351, 33.3511)
+light_color = Color(1, 0.433333, 0, 1)
+light_energy = 2.401
+light_indirect_energy = 1.285
+omni_range = 29.8882
+omni_attenuation = 0.416
+omni_shadow_mode = 0
+
+[node name="OmniLight3D6" type="OmniLight3D" parent="scene/Arktol"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -44.8219, 3.70351, 4.26786)
+light_color = Color(1, 0.433333, 0, 1)
+light_energy = 2.401
+light_indirect_energy = 1.285
+omni_range = 29.8882
+omni_attenuation = 0.416
+omni_shadow_mode = 0
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="scene"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -27.0186, -4.5872, 105.448)

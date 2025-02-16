@@ -3,6 +3,7 @@ extends CanvasLayer
 @export var game_scene:PackedScene
 @export var anim:AnimationPlayer
 @export var settingsMenu:Control
+@export var background_scene:MainMenuBackground
 var pressed=false
 
 func _ready():
@@ -11,6 +12,7 @@ func _ready():
 
 func _process(_delta):
 	if !pressed and Input.is_anything_pressed():
+		background_scene.flicker_enabled=true
 		anim.play("title_screen_press")
 		pressed=true
 
