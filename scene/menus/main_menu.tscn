@@ -1,4 +1,4 @@
-[gd_scene load_steps=40 format=3 uid="uid://dwsbb66nlsgy1"]
+[gd_scene load_steps=36 format=3 uid="uid://dwsbb66nlsgy1"]
 
 [ext_resource type="Script" path="res://scripts/menus/main_menu.gd" id="1_psoe4"]
 [ext_resource type="PackedScene" uid="uid://dwx34svdy6oqn" path="res://scene/test_world.tscn" id="2_cowbv"]
@@ -14,31 +14,11 @@ bg_color = Color(0, 0, 0, 1)
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_w6ka8"]
 bg_color = Color(0.6, 0, 0, 1)
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_m7diw"]
-bg_color = Color(1, 0, 0, 1)
-border_width_top = 2
-border_width_bottom = 2
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kkn0v"]
+bg_color = Color(0.69, 0, 0, 1)
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_sgbuf"]
-bg_color = Color(1, 0, 0, 1)
-border_width_top = 2
-border_width_bottom = 2
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bqf7e"]
-draw_center = false
-border_width_top = 2
-border_width_bottom = 2
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ji7hi"]
-draw_center = false
-border_width_top = 2
-border_width_bottom = 2
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dfqew"]
-bg_color = Color(1, 0, 0, 1)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_eyxtn"]
-bg_color = Color(1, 0, 0, 1)
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5bcsr"]
+bg_color = Color(0.69, 0, 0, 1)
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ed6kd"]
 
@@ -237,7 +217,7 @@ background_color = Color(0.3698, 0.404917, 0.43, 1)
 tonemap_mode = 2
 volumetric_fog_length = 10.0
 
-[node name="MainMenu" type="CanvasLayer" node_paths=PackedStringArray("anim", "settingsMenu", "background_scene", "intro")]
+[node name="MainMenu" type="CanvasLayer" node_paths=PackedStringArray("anim", "settingsMenu", "background_scene", "intro", "focus_button")]
 layer = 5
 script = ExtResource("1_psoe4")
 game_scene = ExtResource("2_cowbv")
@@ -245,6 +225,7 @@ anim = NodePath("AnimationPlayer")
 settingsMenu = NodePath("settingsMenu/Panel")
 background_scene = NodePath("scene")
 intro = NodePath("poemIntro")
+focus_button = NodePath("MarginContainer/VBoxContainer/play")
 
 [node name="Panel" type="Panel" parent="."]
 visible = false
@@ -297,12 +278,12 @@ alignment = 1
 layout_mode = 2
 theme_override_font_sizes/font_size = 18
 theme_override_styles/focus = SubResource("StyleBoxFlat_w6ka8")
-theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxFlat_m7diw")
-theme_override_styles/hover_pressed = SubResource("StyleBoxFlat_sgbuf")
-theme_override_styles/hover_mirrored = SubResource("StyleBoxFlat_bqf7e")
-theme_override_styles/hover = SubResource("StyleBoxFlat_ji7hi")
-theme_override_styles/pressed_mirrored = SubResource("StyleBoxFlat_dfqew")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_eyxtn")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxFlat_w6ka8")
+theme_override_styles/hover_pressed = SubResource("StyleBoxFlat_w6ka8")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxFlat_w6ka8")
+theme_override_styles/hover = SubResource("StyleBoxFlat_w6ka8")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxFlat_kkn0v")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_5bcsr")
 theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_ed6kd")
 theme_override_styles/normal = SubResource("StyleBoxEmpty_he1wl")
 text = "Play"
@@ -312,12 +293,12 @@ alignment = 0
 layout_mode = 2
 theme_override_font_sizes/font_size = 18
 theme_override_styles/focus = SubResource("StyleBoxFlat_w6ka8")
-theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxFlat_m7diw")
-theme_override_styles/hover_pressed = SubResource("StyleBoxFlat_sgbuf")
-theme_override_styles/hover_mirrored = SubResource("StyleBoxFlat_bqf7e")
-theme_override_styles/hover = SubResource("StyleBoxFlat_ji7hi")
-theme_override_styles/pressed_mirrored = SubResource("StyleBoxFlat_dfqew")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_eyxtn")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxFlat_w6ka8")
+theme_override_styles/hover_pressed = SubResource("StyleBoxFlat_w6ka8")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxFlat_w6ka8")
+theme_override_styles/hover = SubResource("StyleBoxFlat_w6ka8")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxFlat_kkn0v")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_5bcsr")
 theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_ed6kd")
 theme_override_styles/normal = SubResource("StyleBoxEmpty_he1wl")
 text = "Settings"
@@ -327,12 +308,12 @@ alignment = 0
 layout_mode = 2
 theme_override_font_sizes/font_size = 18
 theme_override_styles/focus = SubResource("StyleBoxFlat_w6ka8")
-theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxFlat_m7diw")
-theme_override_styles/hover_pressed = SubResource("StyleBoxFlat_sgbuf")
-theme_override_styles/hover_mirrored = SubResource("StyleBoxFlat_bqf7e")
-theme_override_styles/hover = SubResource("StyleBoxFlat_ji7hi")
-theme_override_styles/pressed_mirrored = SubResource("StyleBoxFlat_dfqew")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_eyxtn")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxFlat_w6ka8")
+theme_override_styles/hover_pressed = SubResource("StyleBoxFlat_w6ka8")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxFlat_w6ka8")
+theme_override_styles/hover = SubResource("StyleBoxFlat_w6ka8")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxFlat_kkn0v")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_5bcsr")
 theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_ed6kd")
 theme_override_styles/normal = SubResource("StyleBoxEmpty_he1wl")
 text = "Quit to Desktop"

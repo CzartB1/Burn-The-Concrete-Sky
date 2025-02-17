@@ -2,7 +2,10 @@ class_name Char_Selector
 extends Control
 
 @export var room_manager: Room_manager
+@export var focus_button:Button
+@export var play_button:Button
 @export var characters: Array[PackedScene]
+@export var character_buttons: Array[Button]
 @export var name_text:RichTextLabel
 @export var desc_text:RichTextLabel
 @export var abl_text:RichTextLabel
@@ -14,6 +17,7 @@ var char_abl_name:String
 var char_abl_desc:String
 var selected_btn:Char_Select_Button
 var spawned=false
+var foc=false
 
 func ready():
 	if !game_manager.show_char_select:
@@ -25,7 +29,10 @@ func ready():
 
 func _process(_delta):
 	if game_manager.show_char_select:
-		return
+		if focus_button!=null and !foc:
+			focus_button.grab_focus() #TODO make it so that the game remembers which icon was last focused, and make the play button's top focus the last focused icon
+			foc=true
+		update_top_neighbor()
 		#if has_chosen:
 			#print(str(char_name) + " " + str(char_desc))
 			#fill_name_texts()
@@ -39,8 +46,6 @@ func _process(_delta):
 		var tr=get_tree().get_first_node_in_group("Transition")
 		if tr is AnimationPlayer: tr.play("fade_in")
 		queue_free()
-	
-	if selected_btn: selected_btn.modulate=selected_btn.press_color
 
 func fill_name_texts():
 	name_text.text = "[b]"+str(char_name)+"[/b]"
@@ -77,3 +82,10 @@ func spawn_character(id:int): #FIXME still sometimes spawn 2 characters. Maybe a
 	get_tree().get_root().add_child(instance)
 	instance.global_position = Vector3.ZERO
 	room_manager.start()
+
+func update_top_neighbor():
+	var last_focused: Button = null
+	for btn in character_buttons:
+		if btn.has_focus() and play_button!=null:
+			play_button.focus_neighbor_top = btn.get_path()
+			break

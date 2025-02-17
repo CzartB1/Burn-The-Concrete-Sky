@@ -1,5 +1,5 @@
 class_name Char_Select_Button
-extends TextureButton
+extends Button
 
 @export var selector:Char_Selector
 @export var char_id:int = 0
@@ -8,18 +8,14 @@ extends TextureButton
 @export var ablt_name:String = "ability"
 @export_multiline var ablt_desc:String = "ability"
 @export var bust: VideoStreamPlayer 
-@export_group("Colors")
-@export_color_no_alpha var normal_color:Color = Color.WHITE
-@export_color_no_alpha var hover_color:Color = Color.DARK_GRAY
-@export_color_no_alpha var press_color:Color = Color.RED
 
 func _ready():
 	bust.visible=false
 #
 func _process(_delta):
-	if is_hovered() and !selector.has_chosen:
+	if is_hovered() and !selector.has_chosen or has_focus() and !selector.has_chosen :
+		if !has_focus():grab_focus()
 		bust.visible=true
-		modulate=hover_color
 		selector.chosen_char_id=char_id
 		selector.char_name=char_name
 		selector.char_desc=char_desc
@@ -27,10 +23,8 @@ func _process(_delta):
 		selector.char_abl_desc=ablt_desc
 		selector.fill_name_texts()
 	elif selector.has_chosen and selector.selected_btn==self:
-		modulate=press_color
 		bust.visible=true
 	else:
-		modulate=normal_color
 		bust.visible=false
 
 func _on_pressed():

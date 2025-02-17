@@ -19,7 +19,7 @@ func _process(delta):
 
 	# Check distance to the player
 	var distance = global_transform.origin.distance_to(plr.global_transform.origin)
-	if distance <= attract_radius and can_fly:
+	if can_fly:
 		# Disable physics and manually move toward the player
 		if not is_physics_disabled:
 			sleeping = true

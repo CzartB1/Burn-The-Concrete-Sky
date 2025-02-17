@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://b1au5gcyhryfm"]
+[gd_scene load_steps=42 format=3 uid="uid://b1au5gcyhryfm"]
 
 [ext_resource type="Script" path="res://scripts/player/char_select/char_select_screen.gd" id="1_hc0jr"]
 [ext_resource type="PackedScene" uid="uid://bnxrhky3nbvov" path="res://scene/player/characters/remnant_fix.tscn" id="2_7n8wp"]
@@ -30,23 +30,120 @@ bg_color = Color(0.69, 0, 0, 1)
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_6fneh"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_7j5q7"]
-atlas = ExtResource("11_suile")
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_jnt1c"]
+load_path = "res://.godot/imported/char_select_portrait.png-616b8b54b41b4ce5d2f84db6e4783ad3.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7to0f"]
+atlas = SubResource("CompressedTexture2D_jnt1c")
 region = Rect2(0, 32, 32, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_sade2"]
-atlas = ExtResource("11_suile")
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_o7li4"]
+texture = SubResource("AtlasTexture_7to0f")
+texture_margin_left = 32.0
+axis_stretch_horizontal = 2
+axis_stretch_vertical = 2
+modulate_color = Color(1, 0, 0, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_np5in"]
+texture = SubResource("AtlasTexture_7to0f")
+texture_margin_left = 32.0
+axis_stretch_horizontal = 2
+axis_stretch_vertical = 2
+modulate_color = Color(1, 0, 0, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ptmtb"]
+texture = SubResource("AtlasTexture_7to0f")
+texture_margin_left = 32.0
+axis_stretch_horizontal = 2
+axis_stretch_vertical = 2
+modulate_color = Color(1, 0, 0, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_n6hgw"]
+texture = SubResource("AtlasTexture_7to0f")
+texture_margin_left = 32.0
+axis_stretch_horizontal = 2
+axis_stretch_vertical = 2
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_il48r"]
+load_path = "res://.godot/imported/char_select_portrait.png-616b8b54b41b4ce5d2f84db6e4783ad3.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vmv75"]
+atlas = SubResource("CompressedTexture2D_il48r")
 region = Rect2(0, 96, 32, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_kdaxs"]
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_6ifb8"]
+texture = SubResource("AtlasTexture_vmv75")
+texture_margin_left = 32.0
+modulate_color = Color(1, 0, 0, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_hrati"]
+texture = SubResource("AtlasTexture_vmv75")
+texture_margin_left = 32.0
+modulate_color = Color(1, 0, 0, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ma6o2"]
+texture = SubResource("AtlasTexture_vmv75")
+texture_margin_left = 32.0
+modulate_color = Color(1, 0, 0, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_nu57s"]
+texture = SubResource("AtlasTexture_vmv75")
+texture_margin_left = 32.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_twqvh"]
 atlas = ExtResource("11_suile")
 region = Rect2(0, 64, 32, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_8a5c7"]
-atlas = ExtResource("11_suile")
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_47no8"]
+texture = SubResource("AtlasTexture_twqvh")
+texture_margin_left = 32.0
+texture_margin_top = 32.0
+modulate_color = Color(1, 0, 0, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_xamcp"]
+texture = SubResource("AtlasTexture_twqvh")
+texture_margin_left = 32.0
+texture_margin_top = 32.0
+modulate_color = Color(1, 0, 0, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_2rnq6"]
+texture = SubResource("AtlasTexture_twqvh")
+texture_margin_left = 32.0
+texture_margin_top = 32.0
+modulate_color = Color(1, 0, 0, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_onn7q"]
+texture = SubResource("AtlasTexture_twqvh")
+texture_margin_left = 32.0
+texture_margin_top = 32.0
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_tb5in"]
+load_path = "res://.godot/imported/char_select_portrait.png-616b8b54b41b4ce5d2f84db6e4783ad3.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xguls"]
+atlas = SubResource("CompressedTexture2D_tb5in")
 region = Rect2(0, 128, 32, 32)
 
-[node name="character_select_screen" type="Control" node_paths=PackedStringArray("name_text", "desc_text", "abl_text") groups=["char_select"]]
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_cshci"]
+texture = SubResource("AtlasTexture_xguls")
+texture_margin_left = 32.0
+modulate_color = Color(1, 0, 0, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_gy00o"]
+texture = SubResource("AtlasTexture_xguls")
+texture_margin_left = 32.0
+modulate_color = Color(1, 0, 0, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_yxtll"]
+texture = SubResource("AtlasTexture_xguls")
+texture_margin_left = 32.0
+modulate_color = Color(1, 0, 0, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_1k1i0"]
+texture = SubResource("AtlasTexture_xguls")
+texture_margin_left = 32.0
+
+[node name="character_select_screen" type="Control" node_paths=PackedStringArray("focus_button", "play_button", "character_buttons", "name_text", "desc_text", "abl_text") groups=["char_select"]]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -54,7 +151,10 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_hc0jr")
+focus_button = NodePath("Panel/GridContainer/remnant_button")
+play_button = NodePath("Panel/done_button")
 characters = Array[PackedScene]([ExtResource("2_7n8wp"), ExtResource("3_omfb8"), ExtResource("4_ftefj"), ExtResource("5_3rfgy")])
+character_buttons = [NodePath("Panel/GridContainer/remnant_button"), NodePath("Panel/GridContainer/silver_button"), NodePath("Panel/GridContainer/impact_button"), NodePath("Panel/GridContainer/mirage_button")]
 name_text = NodePath("Panel/name text")
 desc_text = NodePath("Panel/desc text")
 abl_text = NodePath("Panel/ability text")
@@ -221,13 +321,15 @@ grow_vertical = 2
 scale = Vector2(3, 3)
 columns = 5
 
-[node name="remnant_button" type="TextureButton" parent="Panel/GridContainer" node_paths=PackedStringArray("selector", "bust")]
+[node name="remnant_button" type="Button" parent="Panel/GridContainer" node_paths=PackedStringArray("selector", "bust")]
 layout_mode = 2
 focus_neighbor_left = NodePath("../mirage_button")
 focus_neighbor_right = NodePath("../silver_button")
 focus_neighbor_bottom = NodePath("../../done_button")
-texture_normal = SubResource("AtlasTexture_7j5q7")
-stretch_mode = 4
+theme_override_styles/focus = SubResource("StyleBoxTexture_o7li4")
+theme_override_styles/hover = SubResource("StyleBoxTexture_np5in")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_ptmtb")
+theme_override_styles/normal = SubResource("StyleBoxTexture_n6hgw")
 script = ExtResource("12_81350")
 selector = NodePath("../../..")
 char_name = "REMNANT"
@@ -236,13 +338,15 @@ ablt_name = "Mobile Shield"
 ablt_desc = "Block incoming projectiles with a shield in front of him."
 bust = NodePath("../../Busts/Remnant")
 
-[node name="silver_button" type="TextureButton" parent="Panel/GridContainer" node_paths=PackedStringArray("selector", "bust")]
+[node name="silver_button" type="Button" parent="Panel/GridContainer" node_paths=PackedStringArray("selector", "bust")]
 layout_mode = 2
 focus_neighbor_left = NodePath("../remnant_button")
 focus_neighbor_right = NodePath("../impact_button")
 focus_neighbor_bottom = NodePath("../../done_button")
-texture_normal = SubResource("AtlasTexture_sade2")
-stretch_mode = 4
+theme_override_styles/focus = SubResource("StyleBoxTexture_6ifb8")
+theme_override_styles/hover = SubResource("StyleBoxTexture_hrati")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_ma6o2")
+theme_override_styles/normal = SubResource("StyleBoxTexture_nu57s")
 script = ExtResource("12_81350")
 selector = NodePath("../../..")
 char_id = 1
@@ -252,13 +356,15 @@ ablt_name = "Anchor Card"
 ablt_desc = "Place a card which acts as an anchor where you can teleport back to."
 bust = NodePath("../../Busts/Silver")
 
-[node name="impact_button" type="TextureButton" parent="Panel/GridContainer" node_paths=PackedStringArray("selector", "bust")]
+[node name="impact_button" type="Button" parent="Panel/GridContainer" node_paths=PackedStringArray("selector", "bust")]
 layout_mode = 2
 focus_neighbor_left = NodePath("../silver_button")
 focus_neighbor_right = NodePath("../mirage_button")
 focus_neighbor_bottom = NodePath("../../done_button")
-texture_normal = SubResource("AtlasTexture_kdaxs")
-stretch_mode = 4
+theme_override_styles/focus = SubResource("StyleBoxTexture_47no8")
+theme_override_styles/hover = SubResource("StyleBoxTexture_xamcp")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_2rnq6")
+theme_override_styles/normal = SubResource("StyleBoxTexture_onn7q")
 script = ExtResource("12_81350")
 selector = NodePath("../../..")
 char_id = 2
@@ -268,13 +374,15 @@ ablt_name = "Grapple"
 ablt_desc = "Get close to enemies with her grappling hook."
 bust = NodePath("../../Busts/Impact")
 
-[node name="mirage_button" type="TextureButton" parent="Panel/GridContainer" node_paths=PackedStringArray("selector", "bust")]
+[node name="mirage_button" type="Button" parent="Panel/GridContainer" node_paths=PackedStringArray("selector", "bust")]
 layout_mode = 2
 focus_neighbor_left = NodePath("../impact_button")
 focus_neighbor_right = NodePath("../remnant_button")
 focus_neighbor_bottom = NodePath("../../done_button")
-texture_normal = SubResource("AtlasTexture_8a5c7")
-stretch_mode = 4
+theme_override_styles/focus = SubResource("StyleBoxTexture_cshci")
+theme_override_styles/hover = SubResource("StyleBoxTexture_gy00o")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_yxtll")
+theme_override_styles/normal = SubResource("StyleBoxTexture_1k1i0")
 script = ExtResource("12_81350")
 selector = NodePath("../../..")
 char_id = 3
@@ -285,7 +393,11 @@ ablt_desc = "Place a decoy to trick the enemies."
 bust = NodePath("../../Busts/Mirage")
 
 [connection signal="pressed" from="Panel/done_button" to="." method="_on_done_button_pressed"]
+[connection signal="focus_entered" from="Panel/GridContainer/remnant_button" to="Panel/GridContainer/remnant_button" method="_on_focus_entered"]
 [connection signal="pressed" from="Panel/GridContainer/remnant_button" to="Panel/GridContainer/remnant_button" method="_on_pressed"]
+[connection signal="focus_entered" from="Panel/GridContainer/silver_button" to="Panel/GridContainer/silver_button" method="_on_focus_entered"]
 [connection signal="pressed" from="Panel/GridContainer/silver_button" to="Panel/GridContainer/silver_button" method="_on_pressed"]
+[connection signal="focus_entered" from="Panel/GridContainer/impact_button" to="Panel/GridContainer/impact_button" method="_on_focus_entered"]
 [connection signal="pressed" from="Panel/GridContainer/impact_button" to="Panel/GridContainer/impact_button" method="_on_pressed"]
+[connection signal="focus_entered" from="Panel/GridContainer/mirage_button" to="Panel/GridContainer/mirage_button" method="_on_focus_entered"]
 [connection signal="pressed" from="Panel/GridContainer/mirage_button" to="Panel/GridContainer/mirage_button" method="_on_pressed"]

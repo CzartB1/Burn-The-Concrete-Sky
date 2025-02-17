@@ -20,12 +20,13 @@ func _ready() -> void:
 	if control_to_fade_out:
 		control_to_fade_out.modulate.a = 1.0
 	fade_labels_in_sequence()
+	layer=10
 
 func _input(event: InputEvent) -> void:
 	# Ignore input if fade-out is already in progress.
 	if fade_out_started:
 		return
-	if (event is InputEventKey and event.pressed) or (event is InputEventMouseButton and event.pressed):
+	if Input.is_anything_pressed():
 		skipFade()
 
 func fade_labels_in_sequence() -> void:
@@ -62,6 +63,8 @@ func startFadeOut(custom_duration: float = -1.0) -> void:
 	current_tween.tween_property(control_to_fade_out, "modulate:a", 0.0, duration)
 	await current_tween.finished
 	intro_finished=true
+	control_to_fade_out.process_mode=Node.PROCESS_MODE_DISABLED
+	layer=0
 
 func skipFade() -> void:
 	if skip_fade or fade_out_started:

@@ -5,6 +5,7 @@ extends CanvasLayer
 @export var settingsMenu:Control
 @export var background_scene:MainMenuBackground
 @export var intro:PoemIntro
+@export var focus_button:Button
 var pressed=false
 
 func _ready():
@@ -16,6 +17,7 @@ func _process(_delta):
 		background_scene.flicker_enabled=true
 		anim.play("title_screen_press")
 		pressed=true
+		focus_button.grab_focus()
 
 func _on_play_pressed():
 	get_tree().change_scene_to_file("res://scene/test_world.tscn")

@@ -4,6 +4,7 @@ extends CanvasLayer
 @export var HUD:Control
 @export var settingsMenu:Control
 @export var anim:AnimationPlayer
+@export var focus_button:Button
 var plr
 var last_frame_time: int = 0  # Track time for manual animation updates
 
@@ -40,6 +41,7 @@ func _process(delta):
 			game_manager.pause()
 			layer=5
 			var shp=get_tree().get_nodes_in_group("shops")
+			focus_button.grab_focus()
 			for i in shp:
 				if i is Shopkeeper: i.disable_shop()
 
