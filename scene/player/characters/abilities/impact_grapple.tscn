@@ -19,7 +19,7 @@ transparency = 1
 shading_mode = 0
 albedo_texture = ExtResource("3_5ubtb")
 
-[sub_resource type="ImmediateMesh" id="ImmediateMesh_hq75f"]
+[sub_resource type="ImmediateMesh" id="ImmediateMesh_t843g"]
 
 [node name="grapple_point" type="CharacterBody3D" node_paths=PackedStringArray("line") groups=["Abilities"]]
 script = ExtResource("1_m5u8c")
@@ -41,7 +41,7 @@ shape = SubResource("SphereShape3D_sisht")
 
 [node name="LineRenderer3D" type="MeshInstance3D" parent="."]
 material_override = SubResource("StandardMaterial3D_xtgjp")
-mesh = SubResource("ImmediateMesh_hq75f")
+mesh = SubResource("ImmediateMesh_t843g")
 script = ExtResource("3_w66jv")
 points = Array[Vector3]([Vector3(5, 0, 0), Vector3(-5, 0, 0)])
 start_thickness = 1.0

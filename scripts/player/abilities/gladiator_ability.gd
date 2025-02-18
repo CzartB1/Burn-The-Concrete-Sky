@@ -20,14 +20,14 @@ func _process(delta):
 	if locked_in:
 		if plr.global_position.distance_to(target)>dist_to_disengage and Time.get_unix_time_from_system()*Engine.time_scale-grapple_start<grapple_max_time:
 			#target.stunned=true
-			plr.global_transform.origin = lerp(plr.global_transform.origin, target, 0.075)
+			#plr.global_transform.origin = lerp(plr.global_transform.origin, target, 0.075)
 			if Input.is_action_just_pressed("attack"):
 				#FIXME stun target if target is enemy
 				#FIXME sometimes, grapple doesnt register. Prob because of occlussion culling
 				locked_in=false
 		else:
 			locked_in=false
-	plr.can_move=!locked_in
+	#plr.can_move=!locked_in
 
 func Ability():
 	if!cooldown and !locked_in:
@@ -55,3 +55,13 @@ func cooldownBarVisibility(delta):
 	elif !cooldown:
 		cooldown_bar.visible=true
 		cooldown_bar.value=cooldown_bar.max_value
+
+func pull_enemy(enemy: Node3D, pull_speed: float = 500.0, stop_distance: float = 2.0) -> void:
+	if enemy == null: return
+	var direction = (global_position - enemy.global_position).normalized()
+	var target_position = global_position - (direction * stop_distance)
+	if enemy.global_position.distance_to(global_position) <= stop_distance: return  
+	var distance = enemy.global_position.distance_to(target_position)
+	var duration = distance / pull_speed if pull_speed > 0.0 else 0.0
+	var tween = get_tree().create_tween()
+	tween.tween_property(enemy, "global_position", target_position, duration)

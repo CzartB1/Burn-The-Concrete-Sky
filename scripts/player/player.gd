@@ -5,7 +5,6 @@ extends CharacterBody3D
 @export var upgrade_manager: Player_Upgrade_Manager
 @export var hp = 20
 @export var damage_taken_multiplier = 1
-
 @export  var HP_bar: ProgressBar
 @export  var time_slow_bar: TextureProgressBar
 @onready var cursor_icon: Control=$player_HUD/HUD/mouse_icon
