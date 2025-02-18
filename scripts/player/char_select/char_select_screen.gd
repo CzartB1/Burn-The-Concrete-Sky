@@ -9,6 +9,7 @@ extends Control
 @export var name_text:RichTextLabel
 @export var desc_text:RichTextLabel
 @export var abl_text:RichTextLabel
+@export var av_gradient_bg:TextureRect
 var has_chosen = false
 var chosen_char_id:int
 var char_name:String
@@ -25,6 +26,7 @@ func ready():
 	elif game_manager.show_char_select:
 		show()
 	
+	av_gradient_bg.modulate.a=0
 	game_manager.char_selection=characters
 
 func _process(_delta):

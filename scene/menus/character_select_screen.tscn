@@ -5,16 +5,19 @@
 [ext_resource type="PackedScene" uid="uid://dgx2clkxdsth2" path="res://scene/player/characters/Silver.tscn" id="3_omfb8"]
 [ext_resource type="PackedScene" uid="uid://cj7kkva2uk3m0" path="res://scene/player/characters/Impact.tscn" id="4_ftefj"]
 [ext_resource type="PackedScene" uid="uid://d5vt4gjy1jd2" path="res://scene/player/characters/Mirage.tscn" id="5_3rfgy"]
-[ext_resource type="VideoStream" path="res://sprites/UI/char select/gladiator_avatar0001-0070.ogv" id="6_yan1l"]
-[ext_resource type="VideoStream" path="res://sprites/UI/char select/remnant_avatar0001-0120.ogv" id="7_qemxc"]
-[ext_resource type="VideoStream" path="res://sprites/UI/char select/silver_avatar0001-0050.ogv" id="8_32bxo"]
-[ext_resource type="VideoStream" path="res://sprites/UI/char select/mirage_avatar0001-0120.ogv" id="9_s0qsy"]
+[ext_resource type="Texture2D" uid="uid://s1puncjr3djm" path="res://sprites/UI/char select/avatar_background_gradient.png" id="6_w6143"]
+[ext_resource type="SpriteFrames" uid="uid://bwsx1tjyo3n71" path="res://sprites/UI/char select/mirage_avatar.gif" id="7_080pc"]
+[ext_resource type="SpriteFrames" uid="uid://6vi5hkbmvskf" path="res://sprites/UI/char select/remnant_avatar.gif" id="7_714hq"]
 [ext_resource type="PackedScene" uid="uid://dks7eg8o5s7al" path="res://scene/player/characters/Remnant.tscn" id="10_ijt4p"]
 [ext_resource type="Texture2D" uid="uid://8iaj88bwu0w" path="res://sprites/UI/char select/char_select_portrait.png" id="11_suile"]
 [ext_resource type="Script" path="res://scripts/player/char_select/char_select_button.gd" id="12_81350"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gdblg"]
 bg_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mueqq"]
+bg_color = Color(0, 0, 0, 1)
+border_width_right = 4
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qxjrf"]
 bg_color = Color(0.69, 0, 0, 1)
@@ -143,7 +146,7 @@ modulate_color = Color(1, 0, 0, 1)
 texture = SubResource("AtlasTexture_xguls")
 texture_margin_left = 32.0
 
-[node name="character_select_screen" type="Control" node_paths=PackedStringArray("focus_button", "play_button", "character_buttons", "name_text", "desc_text", "abl_text") groups=["char_select"]]
+[node name="character_select_screen" type="Control" node_paths=PackedStringArray("focus_button", "play_button", "character_buttons", "name_text", "desc_text", "abl_text", "av_gradient_bg") groups=["char_select"]]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -151,13 +154,14 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_hc0jr")
-focus_button = NodePath("Panel/GridContainer/remnant_button")
-play_button = NodePath("Panel/done_button")
+focus_button = NodePath("char_select_panel/GridContainer/remnant_button")
+play_button = NodePath("char_select_panel/done_button")
 characters = Array[PackedScene]([ExtResource("2_7n8wp"), ExtResource("3_omfb8"), ExtResource("4_ftefj"), ExtResource("5_3rfgy")])
-character_buttons = [NodePath("Panel/GridContainer/remnant_button"), NodePath("Panel/GridContainer/silver_button"), NodePath("Panel/GridContainer/impact_button"), NodePath("Panel/GridContainer/mirage_button")]
-name_text = NodePath("Panel/name text")
-desc_text = NodePath("Panel/desc text")
-abl_text = NodePath("Panel/ability text")
+character_buttons = [NodePath("char_select_panel/GridContainer/remnant_button"), NodePath("char_select_panel/GridContainer/silver_button"), NodePath("char_select_panel/GridContainer/impact_button"), NodePath("char_select_panel/GridContainer/mirage_button")]
+name_text = NodePath("char_select_panel/name text")
+desc_text = NodePath("char_select_panel/desc text")
+abl_text = NodePath("char_select_panel/ability text")
+av_gradient_bg = NodePath("Panel/gradient")
 
 [node name="Panel" type="Panel" parent="."]
 layout_mode = 1
@@ -167,6 +171,30 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_gdblg")
+
+[node name="gradient" type="TextureRect" parent="Panel"]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 576.0
+offset_bottom = -194.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("6_w6143")
+
+[node name="gradient2" type="TextureRect" parent="Panel"]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 576.0
+offset_bottom = -194.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("6_w6143")
 
 [node name="Busts" type="Control" parent="Panel"]
 layout_mode = 1
@@ -178,80 +206,46 @@ offset_left = -543.0
 grow_horizontal = 0
 grow_vertical = 2
 
-[node name="Impact" type="VideoStreamPlayer" parent="Panel/Busts"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 119.0
-offset_top = 113.0
-offset_right = 584.0
-offset_bottom = 1369.0
-grow_horizontal = 2
-grow_vertical = 2
+[node name="Impact" type="AnimatedSprite2D" parent="Panel/Busts"]
 scale = Vector2(0.35, 0.35)
-stream = ExtResource("6_yan1l")
-autoplay = true
-loop = true
+autoplay = "true"
 
-[node name="Remnant" type="VideoStreamPlayer" parent="Panel/Busts"]
+[node name="Remnant" type="AnimatedSprite2D" parent="Panel/Busts"]
+position = Vector2(234, 390)
+scale = Vector2(0.5, 0.5)
+sprite_frames = ExtResource("7_714hq")
+animation = &"gif"
+
+[node name="Silver" type="AnimatedSprite2D" parent="Panel/Busts"]
+scale = Vector2(0.5, 0.5)
+autoplay = "true"
+
+[node name="Mirage" type="AnimatedSprite2D" parent="Panel/Busts"]
+position = Vector2(235, 454)
+scale = Vector2(0.5, 0.5)
+sprite_frames = ExtResource("7_080pc")
+animation = &"gif"
+
+[node name="char_select_panel" type="Panel" parent="."]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 125.0
-offset_top = 113.0
-offset_right = 322.0
-offset_bottom = 961.0
+offset_right = -576.0
 grow_horizontal = 2
 grow_vertical = 2
-scale = Vector2(0.5, 0.5)
-stream = ExtResource("7_qemxc")
-autoplay = true
-loop = true
+theme_override_styles/panel = SubResource("StyleBoxFlat_mueqq")
 
-[node name="Silver" type="VideoStreamPlayer" parent="Panel/Busts"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 152.0
-offset_top = 141.0
-offset_right = 217.0
-offset_bottom = 933.0
-grow_horizontal = 2
-grow_vertical = 2
-scale = Vector2(0.5, 0.5)
-stream = ExtResource("8_32bxo")
-autoplay = true
-loop = true
-
-[node name="Mirage" type="VideoStreamPlayer" parent="Panel/Busts"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 152.0
-offset_top = 141.0
-offset_right = 217.0
-offset_bottom = 933.0
-grow_horizontal = 2
-grow_vertical = 2
-scale = Vector2(0.5, 0.5)
-stream = ExtResource("9_s0qsy")
-autoplay = true
-loop = true
-
-[node name="done_button" type="Button" parent="Panel" node_paths=PackedStringArray("name_text", "desc_text", "abl_text")]
+[node name="done_button" type="Button" parent="char_select_panel" node_paths=PackedStringArray("name_text", "desc_text", "abl_text")]
 layout_mode = 1
 anchors_preset = 3
 anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -1077.0
+offset_left = -501.0
 offset_top = -77.0
-offset_right = -657.0
+offset_right = -81.0
 offset_bottom = -25.0
 grow_horizontal = 0
 grow_vertical = 0
@@ -270,7 +264,7 @@ name_text = NodePath("../name text")
 desc_text = NodePath("../desc text")
 abl_text = NodePath("../ability text")
 
-[node name="name text" type="RichTextLabel" parent="Panel"]
+[node name="name text" type="RichTextLabel" parent="char_select_panel"]
 layout_mode = 1
 anchors_preset = 2
 anchor_top = 1.0
@@ -283,7 +277,7 @@ grow_vertical = 0
 theme_override_font_sizes/bold_font_size = 36
 bbcode_enabled = true
 
-[node name="desc text" type="RichTextLabel" parent="Panel"]
+[node name="desc text" type="RichTextLabel" parent="char_select_panel"]
 layout_mode = 1
 anchors_preset = 2
 anchor_top = 1.0
@@ -295,7 +289,7 @@ offset_bottom = -258.0
 grow_vertical = 0
 text = "Choose a character!"
 
-[node name="ability text" type="RichTextLabel" parent="Panel"]
+[node name="ability text" type="RichTextLabel" parent="char_select_panel"]
 layout_mode = 1
 anchors_preset = 2
 anchor_top = 1.0
@@ -309,7 +303,7 @@ theme_override_font_sizes/normal_font_size = 16
 theme_override_font_sizes/bold_font_size = 18
 bbcode_enabled = true
 
-[node name="GridContainer" type="GridContainer" parent="Panel"]
+[node name="GridContainer" type="GridContainer" parent="char_select_panel"]
 layout_mode = 1
 anchors_preset = 9
 anchor_bottom = 1.0
@@ -321,7 +315,7 @@ grow_vertical = 2
 scale = Vector2(3, 3)
 columns = 5
 
-[node name="remnant_button" type="Button" parent="Panel/GridContainer" node_paths=PackedStringArray("selector", "bust")]
+[node name="remnant_button" type="Button" parent="char_select_panel/GridContainer" node_paths=PackedStringArray("selector", "bust")]
 layout_mode = 2
 focus_neighbor_left = NodePath("../mirage_button")
 focus_neighbor_right = NodePath("../silver_button")
@@ -336,9 +330,10 @@ char_name = "REMNANT"
 char_desc = "An armored soldier hailing from a long gone nation."
 ablt_name = "Mobile Shield"
 ablt_desc = "Block incoming projectiles with a shield in front of him."
-bust = NodePath("../../Busts/Remnant")
+bust = NodePath("../../../Panel/Busts/Remnant")
+bg_color = Color(0.3888, 0.47952, 0.54, 1)
 
-[node name="silver_button" type="Button" parent="Panel/GridContainer" node_paths=PackedStringArray("selector", "bust")]
+[node name="silver_button" type="Button" parent="char_select_panel/GridContainer" node_paths=PackedStringArray("selector", "bust")]
 layout_mode = 2
 focus_neighbor_left = NodePath("../remnant_button")
 focus_neighbor_right = NodePath("../impact_button")
@@ -354,9 +349,10 @@ char_name = "SILVER"
 char_desc = "An enigmatic gentleman-thief."
 ablt_name = "Anchor Card"
 ablt_desc = "Place a card which acts as an anchor where you can teleport back to."
-bust = NodePath("../../Busts/Silver")
+bust = NodePath("../../../Panel/Busts/Silver")
+bg_color = Color(0.86, 0.834773, 0.7654, 1)
 
-[node name="impact_button" type="Button" parent="Panel/GridContainer" node_paths=PackedStringArray("selector", "bust")]
+[node name="impact_button" type="Button" parent="char_select_panel/GridContainer" node_paths=PackedStringArray("selector", "bust")]
 layout_mode = 2
 focus_neighbor_left = NodePath("../silver_button")
 focus_neighbor_right = NodePath("../mirage_button")
@@ -371,10 +367,11 @@ char_id = 2
 char_name = "IMPACT"
 char_desc = "A slave-gladiator fighting for freedom."
 ablt_name = "Grapple"
-ablt_desc = "Get close to enemies with her grappling hook."
-bust = NodePath("../../Busts/Impact")
+ablt_desc = "Pull an enemy towards her with her grappling hook."
+bust = NodePath("../../../Panel/Busts/Impact")
+bg_color = Color(0.87, 0, 0, 1)
 
-[node name="mirage_button" type="Button" parent="Panel/GridContainer" node_paths=PackedStringArray("selector", "bust")]
+[node name="mirage_button" type="Button" parent="char_select_panel/GridContainer" node_paths=PackedStringArray("selector", "bust")]
 layout_mode = 2
 focus_neighbor_left = NodePath("../impact_button")
 focus_neighbor_right = NodePath("../remnant_button")
@@ -390,14 +387,15 @@ char_name = "MIRAGE"
 char_desc = "An assassin on a quest for vengeance."
 ablt_name = "Decoy"
 ablt_desc = "Place a decoy to trick the enemies."
-bust = NodePath("../../Busts/Mirage")
+bust = NodePath("../../../Panel/Busts/Mirage")
+bg_color = Color(0.36211, 0.2058, 0.49, 1)
 
-[connection signal="pressed" from="Panel/done_button" to="." method="_on_done_button_pressed"]
-[connection signal="focus_entered" from="Panel/GridContainer/remnant_button" to="Panel/GridContainer/remnant_button" method="_on_focus_entered"]
-[connection signal="pressed" from="Panel/GridContainer/remnant_button" to="Panel/GridContainer/remnant_button" method="_on_pressed"]
-[connection signal="focus_entered" from="Panel/GridContainer/silver_button" to="Panel/GridContainer/silver_button" method="_on_focus_entered"]
-[connection signal="pressed" from="Panel/GridContainer/silver_button" to="Panel/GridContainer/silver_button" method="_on_pressed"]
-[connection signal="focus_entered" from="Panel/GridContainer/impact_button" to="Panel/GridContainer/impact_button" method="_on_focus_entered"]
-[connection signal="pressed" from="Panel/GridContainer/impact_button" to="Panel/GridContainer/impact_button" method="_on_pressed"]
-[connection signal="focus_entered" from="Panel/GridContainer/mirage_button" to="Panel/GridContainer/mirage_button" method="_on_focus_entered"]
-[connection signal="pressed" from="Panel/GridContainer/mirage_button" to="Panel/GridContainer/mirage_button" method="_on_pressed"]
+[connection signal="pressed" from="char_select_panel/done_button" to="." method="_on_done_button_pressed"]
+[connection signal="focus_entered" from="char_select_panel/GridContainer/remnant_button" to="char_select_panel/GridContainer/remnant_button" method="_on_focus_entered"]
+[connection signal="pressed" from="char_select_panel/GridContainer/remnant_button" to="char_select_panel/GridContainer/remnant_button" method="_on_pressed"]
+[connection signal="focus_entered" from="char_select_panel/GridContainer/silver_button" to="char_select_panel/GridContainer/silver_button" method="_on_focus_entered"]
+[connection signal="pressed" from="char_select_panel/GridContainer/silver_button" to="char_select_panel/GridContainer/silver_button" method="_on_pressed"]
+[connection signal="focus_entered" from="char_select_panel/GridContainer/impact_button" to="char_select_panel/GridContainer/impact_button" method="_on_focus_entered"]
+[connection signal="pressed" from="char_select_panel/GridContainer/impact_button" to="char_select_panel/GridContainer/impact_button" method="_on_pressed"]
+[connection signal="focus_entered" from="char_select_panel/GridContainer/mirage_button" to="char_select_panel/GridContainer/mirage_button" method="_on_focus_entered"]
+[connection signal="pressed" from="char_select_panel/GridContainer/mirage_button" to="char_select_panel/GridContainer/mirage_button" method="_on_pressed"]
