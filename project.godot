@@ -66,7 +66,6 @@ animations/leave_default="Slide Out Down"
 window/size/mode=2
 window/stretch/mode="canvas_items"
 window/stretch/aspect="ignore"
-window/per_pixel_transparency/allowed=true
 
 [dotnet]
 
@@ -240,4 +239,3 @@ jolt_3d/collisions/areas_detect_static_bodies=true
 occlusion_culling/bvh_build_quality=0
 textures/canvas_textures/default_texture_filter=0
 environment/screen_space_reflection/roughness_quality=0
-viewport/transparent_background=true
