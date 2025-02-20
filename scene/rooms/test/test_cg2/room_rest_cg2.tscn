@@ -183,10 +183,10 @@ start_pos = NodePath("spawn")
 shopkeepers = [NodePath("upgrade_shopkeeper"), NodePath("weapon_shopkeeper")]
 
 [node name="spawn" type="Node3D" parent="." groups=["spawn_pos"]]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 35.7911)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -2.2089)
 
 [node name="rooms_end" type="Area3D" parent="." node_paths=PackedStringArray("room")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0392475, 0.0700168, -18.5628)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0392475, 0.0700168, -56.5628)
 script = ExtResource("7_2jdjn")
 room = NodePath("..")
 
@@ -195,15 +195,15 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, -2.1272)
 shape = SubResource("BoxShape3D_qe6j2")
 
 [node name="upgrade_shopkeeper" parent="." instance=ExtResource("8_5l1u5")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.2331, -1.4747, 4)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.2331, -1.4747, -34)
 visible = false
 
 [node name="weapon_shopkeeper" parent="." instance=ExtResource("10_2gjlf")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.034, -1.5, 7.87365)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.034, -1.5, -30.1264)
 visible = false
 
 [node name="FuncGodotMap" type="Node3D" parent="."]
-transform = Transform3D(-8.74228e-08, 0, 2, 0, 2, 0, -2, 0, -8.74228e-08, 0, -2, 0)
+transform = Transform3D(-8.74228e-08, 0, 2, 0, 2, 0, -2, 0, -8.74228e-08, 0, -2, -38)
 script = ExtResource("5_k2hg5")
 global_map_file = "/home/czartb/Syncthing_shared/Projects/project_topdown/maps/scum_town/scum_town_intro.map"
 map_settings = ExtResource("6_kolce")
@@ -302,6 +302,7 @@ shape = SubResource("ConvexPolygonShape3D_tbax3")
 shape = SubResource("ConvexPolygonShape3D_s0n8u")
 
 [node name="shopkeeper" parent="." instance=ExtResource("12_jqkpg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, -28.8667)
 
 [connection signal="body_entered" from="rooms_end" to="rooms_end" method="_on_body_entered"]
 

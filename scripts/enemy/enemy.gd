@@ -10,6 +10,7 @@ var speed:float
 var stunned=false
 var distraction: Node3D
 @export var navigation_agent: NavigationAgent3D
+@export var anim: AnimationPlayer
 @export_group("loot")
 @onready var money_scene: PackedScene=preload("res://scene/money.tscn")
 @export var money_amount: int = 10
@@ -28,6 +29,9 @@ func _process(_delta):
 	if hp <= 0:
 		alive = false
 		stop_nav=true
+		if anim!=null and anim.has_animation("metarig | death"):
+			 
+			anim.play("metarig | death")
 		if death_delay>0: await get_tree().create_timer(death_delay).timeout
 		game_manager.stat_kills+=1
 		if spawner!=null:

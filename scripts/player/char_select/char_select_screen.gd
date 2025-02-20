@@ -22,12 +22,13 @@ var foc=false
 
 func ready():
 	if !game_manager.show_char_select:
-		hide()
+		visible=false
 	elif game_manager.show_char_select:
-		show()
+		visible=true
 	
 	av_gradient_bg.modulate.a=0
 	game_manager.char_selection=characters
+
 
 func _process(_delta):
 	if game_manager.show_char_select:
@@ -43,8 +44,10 @@ func _process(_delta):
 		var instance = characters[game_manager.current_char_id].instantiate()
 		get_tree().get_root().add_child(instance)
 		instance.global_position = Vector3.ZERO
-		room_manager.start()
+		await get_tree().create_timer(0.1).timeout
 		game_manager.start_count_time()
+		if !room_manager: room_manager=get_tree().get_first_node_in_group("room_manager")
+		room_manager.start()
 		var tr=get_tree().get_first_node_in_group("Transition")
 		if tr is AnimationPlayer: tr.play("fade_in")
 		queue_free()

@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=3 uid="uid://dwx34svdy6oqn"]
+[gd_scene load_steps=31 format=3 uid="uid://dwx34svdy6oqn"]
 
 [ext_resource type="Script" path="res://scripts/systems/rooms/room_manager.gd" id="2_eglug"]
 [ext_resource type="PackedScene" uid="uid://cebc076cxalyg" path="res://scene/rooms/combat_group/test_cg_1.tscn" id="3_8qmyu"]
@@ -17,6 +17,7 @@
 [ext_resource type="Script" path="res://scripts/systems/char_manager.gd" id="20_0ogmo"]
 [ext_resource type="Script" path="res://scripts/player/UI/player_stat_screen.gd" id="20_wjgrw"]
 [ext_resource type="Script" path="res://scripts/systems/music_manager.gd" id="21_ss30e"]
+[ext_resource type="Script" path="res://scripts/systems/dedzone.gd" id="23_jahdx"]
 [ext_resource type="AudioStream" uid="uid://ww5tyx75bmgb" path="res://audios/music/char_themes/remnant_song.wav" id="23_nbrpy"]
 [ext_resource type="AudioStream" uid="uid://dq603slg7hjl0" path="res://audios/music/placeholders/sci-fi-ambient-music-183269.mp3" id="23_tcdhp"]
 [ext_resource type="AudioStream" uid="uid://cfpjrddawhlh3" path="res://audios/music/placeholders/epic-battle-song-loop-182700.mp3" id="23_wm11b"]
@@ -135,6 +136,9 @@ volumetric_fog_albedo = Color(0, 0, 0, 1)
 adjustment_enabled = true
 adjustment_brightness = 0.83
 adjustment_contrast = 1.22
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_0x23y"]
+size = Vector3(1000, 1, 1000)
 
 [node name="Node3D" type="Node3D"]
 
@@ -331,5 +335,13 @@ color = Color(0, 0, 0, 1)
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_5440b")
 
+[node name="dedzone" type="Area3D" parent="."]
+script = ExtResource("23_jahdx")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="dedzone"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -37.5853, 0)
+shape = SubResource("BoxShape3D_0x23y")
+
 [connection signal="pressed" from="stats/demo_lock/HBoxContainer/choose char" to="stats/demo_lock" method="_on_choose_char_pressed"]
 [connection signal="pressed" from="stats/demo_lock/HBoxContainer/exit" to="stats/demo_lock" method="_on_exit_pressed"]
+[connection signal="body_entered" from="dedzone" to="dedzone" method="_on_body_entered"]

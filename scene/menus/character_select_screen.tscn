@@ -1,4 +1,4 @@
-[gd_scene load_steps=133 format=3 uid="uid://b1au5gcyhryfm"]
+[gd_scene load_steps=137 format=3 uid="uid://b1au5gcyhryfm"]
 
 [ext_resource type="Script" path="res://scripts/player/char_select/char_select_screen.gd" id="1_hc0jr"]
 [ext_resource type="PackedScene" uid="uid://bnxrhky3nbvov" path="res://scene/player/characters/remnant_fix.tscn" id="2_7n8wp"]
@@ -433,6 +433,13 @@ axis_stretch_horizontal = 2
 axis_stretch_vertical = 2
 modulate_color = Color(1, 0, 0, 1)
 
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ptmtb"]
+texture = SubResource("AtlasTexture_7to0f")
+texture_margin_left = 32.0
+axis_stretch_horizontal = 2
+axis_stretch_vertical = 2
+modulate_color = Color(0.75, 0, 0, 1)
+
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_np5in"]
 texture = SubResource("AtlasTexture_7to0f")
 texture_margin_left = 32.0
@@ -440,12 +447,12 @@ axis_stretch_horizontal = 2
 axis_stretch_vertical = 2
 modulate_color = Color(1, 0, 0, 1)
 
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ptmtb"]
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_1sixx"]
 texture = SubResource("AtlasTexture_7to0f")
 texture_margin_left = 32.0
 axis_stretch_horizontal = 2
 axis_stretch_vertical = 2
-modulate_color = Color(1, 0, 0, 1)
+modulate_color = Color(0.5, 0, 0, 1)
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_n6hgw"]
 texture = SubResource("AtlasTexture_7to0f")
@@ -465,15 +472,20 @@ texture = SubResource("AtlasTexture_vmv75")
 texture_margin_left = 32.0
 modulate_color = Color(1, 0, 0, 1)
 
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ma6o2"]
+texture = SubResource("AtlasTexture_vmv75")
+texture_margin_left = 32.0
+modulate_color = Color(0.75, 0, 0, 1)
+
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_hrati"]
 texture = SubResource("AtlasTexture_vmv75")
 texture_margin_left = 32.0
 modulate_color = Color(1, 0, 0, 1)
 
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ma6o2"]
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_xslow"]
 texture = SubResource("AtlasTexture_vmv75")
 texture_margin_left = 32.0
-modulate_color = Color(1, 0, 0, 1)
+modulate_color = Color(0.5, 0, 0, 1)
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_nu57s"]
 texture = SubResource("AtlasTexture_vmv75")
@@ -489,17 +501,23 @@ texture_margin_left = 32.0
 texture_margin_top = 32.0
 modulate_color = Color(1, 0, 0, 1)
 
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_2rnq6"]
+texture = SubResource("AtlasTexture_twqvh")
+texture_margin_left = 32.0
+texture_margin_top = 32.0
+modulate_color = Color(0.75, 0, 0, 1)
+
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_xamcp"]
 texture = SubResource("AtlasTexture_twqvh")
 texture_margin_left = 32.0
 texture_margin_top = 32.0
 modulate_color = Color(1, 0, 0, 1)
 
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_2rnq6"]
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_pk17u"]
 texture = SubResource("AtlasTexture_twqvh")
 texture_margin_left = 32.0
 texture_margin_top = 32.0
-modulate_color = Color(1, 0, 0, 1)
+modulate_color = Color(0.5, 0, 0, 1)
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_onn7q"]
 texture = SubResource("AtlasTexture_twqvh")
@@ -518,15 +536,20 @@ texture = SubResource("AtlasTexture_xguls")
 texture_margin_left = 32.0
 modulate_color = Color(1, 0, 0, 1)
 
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_yxtll"]
+texture = SubResource("AtlasTexture_xguls")
+texture_margin_left = 32.0
+modulate_color = Color(0.75, 0, 0, 1)
+
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_gy00o"]
 texture = SubResource("AtlasTexture_xguls")
 texture_margin_left = 32.0
 modulate_color = Color(1, 0, 0, 1)
 
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_yxtll"]
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_2fmjk"]
 texture = SubResource("AtlasTexture_xguls")
 texture_margin_left = 32.0
-modulate_color = Color(1, 0, 0, 1)
+modulate_color = Color(0.5, 0, 0, 1)
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_1k1i0"]
 texture = SubResource("AtlasTexture_xguls")
@@ -580,21 +603,25 @@ grow_horizontal = 0
 grow_vertical = 2
 
 [node name="Remnant" type="AnimatedSprite2D" parent="Panel/Busts"]
+modulate = Color(0.7055, 0.794608, 0.85, 1)
 position = Vector2(285.5, 473.25)
 scale = Vector2(0.7, 0.7)
 sprite_frames = SubResource("SpriteFrames_tqf1f")
 
 [node name="Silver" type="AnimatedSprite2D" parent="Panel/Busts"]
+modulate = Color(1, 0.972, 0.94, 1)
 position = Vector2(287.5, 534.25)
 scale = Vector2(0.7, 0.7)
 sprite_frames = SubResource("SpriteFrames_ojyk4")
 
 [node name="Mirage" type="AnimatedSprite2D" parent="Panel/Busts"]
+modulate = Color(0.808833, 0.69, 1, 1)
 position = Vector2(286.5, 537.25)
 scale = Vector2(0.7, 0.7)
 sprite_frames = SubResource("SpriteFrames_g2i34")
 
 [node name="Impact" type="AnimatedSprite2D" parent="Panel/Busts"]
+modulate = Color(1, 0.83, 0.83, 1)
 position = Vector2(289.5, 521.25)
 scale = Vector2(0.9, 0.9)
 sprite_frames = SubResource("SpriteFrames_3i4sp")
@@ -694,9 +721,11 @@ focus_neighbor_left = NodePath("../mirage_button")
 focus_neighbor_right = NodePath("../silver_button")
 focus_neighbor_bottom = NodePath("../../done_button")
 theme_override_styles/focus = SubResource("StyleBoxTexture_o7li4")
+theme_override_styles/hover_pressed = SubResource("StyleBoxTexture_ptmtb")
 theme_override_styles/hover = SubResource("StyleBoxTexture_np5in")
-theme_override_styles/pressed = SubResource("StyleBoxTexture_ptmtb")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_1sixx")
 theme_override_styles/normal = SubResource("StyleBoxTexture_n6hgw")
+toggle_mode = true
 script = ExtResource("12_81350")
 selector = NodePath("../../..")
 char_name = "REMNANT"
@@ -712,9 +741,11 @@ focus_neighbor_left = NodePath("../remnant_button")
 focus_neighbor_right = NodePath("../impact_button")
 focus_neighbor_bottom = NodePath("../../done_button")
 theme_override_styles/focus = SubResource("StyleBoxTexture_6ifb8")
+theme_override_styles/hover_pressed = SubResource("StyleBoxTexture_ma6o2")
 theme_override_styles/hover = SubResource("StyleBoxTexture_hrati")
-theme_override_styles/pressed = SubResource("StyleBoxTexture_ma6o2")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_xslow")
 theme_override_styles/normal = SubResource("StyleBoxTexture_nu57s")
+toggle_mode = true
 script = ExtResource("12_81350")
 selector = NodePath("../../..")
 char_id = 1
@@ -731,9 +762,11 @@ focus_neighbor_left = NodePath("../silver_button")
 focus_neighbor_right = NodePath("../mirage_button")
 focus_neighbor_bottom = NodePath("../../done_button")
 theme_override_styles/focus = SubResource("StyleBoxTexture_47no8")
+theme_override_styles/hover_pressed = SubResource("StyleBoxTexture_2rnq6")
 theme_override_styles/hover = SubResource("StyleBoxTexture_xamcp")
-theme_override_styles/pressed = SubResource("StyleBoxTexture_2rnq6")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_pk17u")
 theme_override_styles/normal = SubResource("StyleBoxTexture_onn7q")
+toggle_mode = true
 script = ExtResource("12_81350")
 selector = NodePath("../../..")
 char_id = 2
@@ -750,9 +783,11 @@ focus_neighbor_left = NodePath("../impact_button")
 focus_neighbor_right = NodePath("../remnant_button")
 focus_neighbor_bottom = NodePath("../../done_button")
 theme_override_styles/focus = SubResource("StyleBoxTexture_cshci")
+theme_override_styles/hover_pressed = SubResource("StyleBoxTexture_yxtll")
 theme_override_styles/hover = SubResource("StyleBoxTexture_gy00o")
-theme_override_styles/pressed = SubResource("StyleBoxTexture_yxtll")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_2fmjk")
 theme_override_styles/normal = SubResource("StyleBoxTexture_1k1i0")
+toggle_mode = true
 script = ExtResource("12_81350")
 selector = NodePath("../../..")
 char_id = 3

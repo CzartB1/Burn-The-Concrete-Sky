@@ -105,6 +105,7 @@ func check_room():
 	if manager.room_count==room_amount: 
 		if boss_room==null:
 			manager.next_room_category=2 #change to intro
+			#rest_room.move_player_to_spawn()
 			#manager.room_count=0
 			#rest becomes intro
 		elif boss_room!=null:
@@ -123,6 +124,7 @@ func disable_group():
 func enable_rest_room():
 	rest_room.visible = true
 	rest_room.process_mode = Node.PROCESS_MODE_INHERIT
+	await get_tree().create_timer(0.05).timeout
 	rest_room.move_player_to_spawn()
 	print("here=========")
 	if rest_room.shopkeeper!=null:

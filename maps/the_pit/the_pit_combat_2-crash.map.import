@@ -1,0 +1,14 @@
+[remap]
+
+importer="qodot.map"
+type="Resource"
+uid="uid://cgpqccpcgcmj"
+path="res://.godot/imported/the_pit_combat_2-crash.map-34c397eea85b1b037bf51ad5bc94a0ea.tres"
+
+[deps]
+
+source_file="res://maps/the_pit/the_pit_combat_2-crash.map"
+dest_files=["res://.godot/imported/the_pit_combat_2-crash.map-34c397eea85b1b037bf51ad5bc94a0ea.tres"]
+
+[params]
+

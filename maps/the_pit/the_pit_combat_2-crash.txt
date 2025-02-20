@@ -1,0 +1,243 @@
+OS:	Windows 7 Version 6.1 (Build 7601: SP 1)
+Qt:	5.15.2
+GL_VENDOR:	NVIDIA Corporation
+GL_RENDERER:	NVIDIA GeForce RTX 3060/PCIe/SSE2
+GL_VERSION:	4.6.0 NVIDIA 535.98
+TrenchBroom Version:	2023.1
+TrenchBroom Build:	v2023.1 Release Win64
+Reason:	3221225477
+Stack trace:
+SymInit: Symbol-SearchPath: '.;Z:\home\czartb\Documents\Gamedev\TrenchBroom-Win64-v2023.1-Release;Z:\home\czartb\Documents\Gamedev\TrenchBroom-Win64-v2023.1-Release;C:\windows;C:\windows\system32;SRV*C:\websymbols*http://msdl.microsoft.com/download/symbols;', symOptions: 530, UserName: 'czartb'
+OS-Version: 6.1.7601 (Service Pack 1) 0x0-0x1
+Z:\home\czartb\Documents\Gamedev\TrenchBroom-Win64-v2023.1-Release\TrenchBroom.exe:TrenchBroom.exe (0000000140000000), size: 7655424 (result: 0), SymType: 'PDB', PDB: 'TrenchBroom-stripped.pdb', fileVersion: 2023.1.0.0
+C:\windows\system32\ntdll.dll:ntdll.dll (0000000170000000), size: 3821568 (result: 0), SymType: 'DIA', PDB: 'C:\windows\system32\ntdll.dll', fileVersion: 6.1.7601.24059
+C:\windows\system32\kernel32.dll:kernel32.dll (0000000178000000), size: 1728512 (result: 0), SymType: 'DIA', PDB: 'C:\windows\system32\kernel32.dll', fileVersion: 10.0.18362.1350
+C:\windows\system32\kernelbase.dll:kernelbase.dll (0000000174000000), size: 6369280 (result: 0), SymType: 'DIA', PDB: 'C:\windows\system32\kernelbase.dll'
+Z:\home\czartb\Documents\Gamedev\TrenchBroom-Win64-v2023.1-Release\tinyxml2.dll:tinyxml2.dll (0000000180000000), size: 110592 (result: 0), SymType: '-exported-', PDB: 'Z:\home\czartb\Documents\Gamedev\TrenchBroom-Win64-v2023.1-Release\tinyxml2.dll'
+C:\windows\system32\VCRUNTIME140.dll:VCRUNTIME140.dll (00007FFFFE100000), size: 122880 (result: 0), SymType: '-exported-', PDB: 'C:\windows\system32\VCRUNTIME140.dll', fileVersion: 14.40.33810.0
+C:\windows\system32\ucrtbase.dll:ucrtbase.dll (00000002C7470000), size: 4100096 (result: 0), SymType: 'DIA', PDB: 'C:\windows\system32\ucrtbase.dll', fileVersion: 10.0.14393.2247
+C:\windows\system32\VCRUNTIME140_1.dll:VCRUNTIME140_1.dll (00000002AC810000), size: 208896 (result: 0), SymType: '-exported-', PDB: 'C:\windows\system32\VCRUNTIME140_1.dll'
+Z:\home\czartb\Documents\Gamedev\TrenchBroom-Win64-v2023.1-Release\glew32.dll:glew32.dll (0000000062AA0000), size: 540672 (result: 0), SymType: '-exported-', PDB: 'Z:\home\czartb\Documents\Gamedev\TrenchBroom-Win64-v2023.1-Release\glew32.dll', fileVersion: 2.2.0.0
+C:\windows\system32\OPENGL32.dll:OPENGL32.dll (000000007A800000), size: 5824512 (result: 0), SymType: 'DIA', PDB: 'C:\windows\system32\OPENGL32.dll', fileVersion: 5.1.2600.2082
+C:\windows\system32\gdi32.dll:gdi32.dll (00000002BB0A0000), size: 2854912 (result: 0), SymType: 'DIA', PDB: 'C:\windows\system32\gdi32.dll', fileVersion: 10.0.0.0
+C:\windows\system32\advapi32.dll:advapi32.dll (00000001D8C90000), size: 1290240 (result: 0), SymType: 'DIA', PDB: 'C:\windows\system32\advapi32.dll', fileVersion: 10.0.10240.16384
+C:\windows\system32\msvcrt.dll:msvcrt.dll (0000000228280000), size: 3477504 (result: 0), SymType: 'DIA', PDB: 'C:\windows\system32\msvcrt.dll', fileVersion: 7.0.2600.2180
+C:\windows\system32\sechost.dll:sechost.dll (00000001EAF60000), size: 815104 (result: 0), SymType: 'DIA', PDB: 'C:\windows\system32\sechost.dll'
+C:\windows\system32\user32.dll:user32.dll (00000002169D0000), size: 6131712 (result: 0), SymType: 'DIA', PDB: 'C:\windows\system32\user32.dll', fileVersion: 5.1.2600.2180
+C:\windows\system32\version.dll:version.dll (000000025DC30000), size: 131072 (result: 0), SymType: 'DIA', PDB: 'C:\windows\system32\version.dll', fileVersion: 5.1.2600.2180
+C:\windows\system32\win32u.dll:win32u.dll (00000002C73A0000), size: 258048 (result: 0), SymType: 'DIA', PDB: 'C:\windows\system32\win32u.dll'
+Z:\home\czartb\Documents\Gamedev\TrenchBroom-Win64-v2023.1-Release\miniz.dll:miniz.dll (00007FFFFE120000), size: 102400 (result: 0), SymType: '-exported-', PDB: 'Z:\home\czartb\Documents\Gamedev\TrenchBroom-Win64-v2023.1-Release\miniz.dll'
+Z:\home\czartb\Documents\Gamedev\TrenchBroom-Win64-v2023.1-Release\FreeImage.dll:FreeImage.dll (00007FFFFE140000), size: 954368 (result: 0), SymType: '-exported-', PDB: 'Z:\home\czartb\Documents\Gamedev\TrenchBroom-Win64-v2023.1-Release\FreeImage.dll', fileVersion: 3.18.0.0
+Z:\home\czartb\Documents\Gamedev\TrenchBroom-Win64-v2023.1-Release\zlib1.dll:zlib1.dll (00007FFFFE230000), size: 106496 (result: 0), SymType: '-exported-', PDB: 'Z:\home\czartb\Documents\Gamedev\TrenchBroom-Win64-v2023.1-Release\zlib1.dll', fileVersion: 1.2.12.0
+Z:\home\czartb\Documents\Gamedev\TrenchBroom-Win64-v2023.1-Release\jpeg62.dll:jpeg62.dll (00007FFFFE250000), size: 634880 (result: 0), SymType: '-exported-', PDB: 'Z:\home\czartb\Documents\Gamedev\TrenchBroom-Win64-v2023.1-Release\jpeg62.dll', fileVersion: 62.3.0.0
+Z:\home\czartb\Documents\Gamedev\TrenchBroom-Win64-v2023.1-Release\tiff.dll:tiff.dll (00007FFFFE2F0000), size: 466944 (result: 0), SymType: '-exported-', PDB: 'Z:\home\czartb\Documents\Gamedev\TrenchBroom-Win64-v2023.1-Release\tiff.dll'
+Z:\home\czartb\Documents\Gamedev\TrenchBroom-Win64-v2023.1-Release\liblzma.dll:liblzma.dll (00007FFFFE370000), size: 172032 (result: 0), SymType: '-exported-', PDB: 'Z:\home\czartb\Documents\Gamedev\TrenchBroom-Win64-v2023.1-Release\liblzma.dll', fileVersion: 5.2.5.0
+Z:\home\czartb\Documents\Gamedev\TrenchBroom-Win64-v2023.1-Release\libpng16.dll:libpng16.dll (00007FFFFE3A0000), size: 217088 (result: 0), SymType: '-exported-', PDB: 'Z:\home\czartb\Documents\Gamedev\TrenchBroom-Win64-v2023.1-Release\libpng16.dll'
+Z:\home\czartb\Documents\Gamedev\TrenchBroom-Win64-v2023.1-Release\openjp2.dll:openjp2.dll (00007FFFFE3E0000), size: 372736 (result: 0), SymType: '-exported-', PDB: 'Z:\home\czartb\Documents\Gamedev\TrenchBroom-Win64-v2023.1-Release\openjp2.dll'
+Z:\home\czartb\Documents\Gamedev\TrenchBroom-Win64-v2023.1-Release\webpmux.dll:webpmux.dll (00007FFFFE440000), size: 57344 (result: 0), SymType: '-exported-', PDB: 'Z:\home\czartb\Documents\Gamedev\TrenchBroom-Win64-v2023.1-Release\webpmux.dll'
+Z:\home\czartb\Documents\Gamedev\TrenchBroom-Win64-v2023.1-Release\webp.dll:webp.dll (00007FFFFE450000), size: 397312 (result: 0), SymType: '-exported-', PDB: 'Z:\home\czartb\Documents\Gamedev\TrenchBroom-Win64-v2023.1-Release\webp.dll'
+Z:\home\czartb\Documents\Gamedev\TrenchBroom-Win64-v2023.1-Release\webpdecoder.dll:webpdecoder.dll (00007FFFFE4C0000), size: 176128 (result: 0), SymType: '-exported-', PDB: 'Z:\home\czartb\Documents\Gamedev\TrenchBroom-Win64-v2023.1-Release\webpdecoder.dll'
+Z:\home\czartb\Documents\Gamedev\TrenchBroom-Win64-v2023.1-Release\raw.dll:raw.dll (00007FFFFE4F0000), size: 978944 (result: 0), SymType: '-exported-', PDB: 'Z:\home\czartb\Documents\Gamedev\TrenchBroom-Win64-v2023.1-Release\raw.dll'
+Z:\home\czartb\Documents\Gamedev\TrenchBroom-Win64-v2023.1-Release\lcms2.dll:lcms2.dll (00007FFFFE5E0000), size: 368640 (result: 0), SymType: '-exported-', PDB: 'Z:\home\czartb\Documents\Gamedev\TrenchBroom-Win64-v2023.1-Release\lcms2.dll'
+Z:\home\czartb\Documents\Gamedev\TrenchBroom-Win64-v2023.1-Release\jasper.dll:jasper.dll (00007FFFFE640000), size: 290816 (result: 0), SymType: '-exported-', PDB: 'Z:\home\czartb\Documents\Gamedev\TrenchBroom-Win64-v2023.1-Release\jasper.dll'
+C:\windows\system32\MSVCP140.dll:MSVCP140.dll (00007FFFFE690000), size: 577536 (result: 0), SymType: '-exported-', PDB: 'C:\windows\system32\MSVCP140.dll', fileVersion: 14.40.33810.0
+C:\windows\system32\WS2_32.dll:WS2_32.dll (0000000370F70000), size: 704512 (result: 0), SymType: 'DIA', PDB: 'C:\windows\system32\WS2_32.dll', fileVersion: 5.1.2600.5512
+Z:\home\czartb\Documents\Gamedev\TrenchBroom-Win64-v2023.1-Release\IlmImf-2_5.dll:IlmImf-2_5.dll (00007FFFFE720000), size: 2744320 (result: 0), SymType: '-exported-', PDB: 'Z:\home\czartb\Documents\Gamedev\TrenchBroom-Win64-v2023.1-Release\IlmImf-2_5.dll'
+Z:\home\czartb\Documents\Gamedev\TrenchBroom-Win64-v2023.1-Release\Imath-2_5.dll:Imath-2_5.dll (00007FFFFE9C0000), size: 106496 (result: 0), SymType: '-exported-', PDB: 'Z:\home\czartb\Documents\Gamedev\TrenchBroom-Win64-v2023.1-Release\Imath-2_5.dll'
+Z:\home\czartb\Documents\Gamedev\TrenchBroom-Win64-v2023.1-Release\Iex-2_5.dll:Iex-2_5.dll (00007FFFFE9E0000), size: 245760 (result: 0), SymType: '-exported-', PDB: 'Z:\home\czartb\Documents\Gamedev\TrenchBroom-Win64-v2023.1-Release\Iex-2_5.dll'
+Z:\home\czartb\Documents\Gamedev\TrenchBroom-Win64-v2023.1-Release\IlmThread-2_5.dll:IlmThread-2_5.dll (00007FFFFEA20000), size: 57344 (result: 0), SymType: '-exported-', PDB: 'Z:\home\czartb\Documents\Gamedev\TrenchBroom-Win64-v2023.1-Release\IlmThread-2_5.dll'
+Z:\home\czartb\Documents\Gamedev\TrenchBroom-Win64-v2023.1-Release\Half-2_5.dll:Half-2_5.dll (00007FFFFEA30000), size: 299008 (result: 0), SymType: '-exported-', PDB: 'Z:\home\czartb\Documents\Gamedev\TrenchBroom-Win64-v2023.1-Release\Half-2_5.dll'
+Z:\home\czartb\Documents\Gamedev\TrenchBroom-Win64-v2023.1-Release\freetype.dll:freetype.dll (00007FFFFEA80000), size: 700416 (result: 0), SymType: '-exported-', PDB: 'Z:\home\czartb\Documents\Gamedev\TrenchBroom-Win64-v2023.1-Release\freetype.dll', fileVersion: 2.12.1.0
+Z:\home\czartb\Documents\Gamedev\TrenchBroom-Win64-v2023.1-Release\bz2.dll:bz2.dll (00007FFFFEB30000), size: 98304 (result: 0), SymType: '-exported-', PDB: 'Z:\home\czartb\Documents\Gamedev\TrenchBroom-Win64-v2023.1-Release\bz2.dll'
+Z:\home\czartb\Documents\Gamedev\TrenchBroom-Win64-v2023.1-Release\brotlidec.dll:brotlidec.dll (00007FFFFEB50000), size: 65536 (result: 0), SymType: '-exported-', PDB: 'Z:\home\czartb\Documents\Gamedev\TrenchBroom-Win64-v2023.1-Release\brotlidec.dll'
+Z:\home\czartb\Documents\Gamedev\TrenchBroom-Win64-v2023.1-Release\brotlicommon.dll:brotlicommon.dll (00007FFFFEB60000), size: 159744 (result: 0), SymType: '-exported-', PDB: 'Z:\home\czartb\Documents\Gamedev\TrenchBroom-Win64-v2023.1-Release\brotlicommon.dll'
+Z:\home\czartb\Documents\Gamedev\TrenchBroom-Win64-v2023.1-Release\Qt5Svg.dll:Qt5Svg.dll (00007FFFFEB90000), size: 344064 (result: 0), SymType: '-exported-', PDB: 'Z:\home\czartb\Documents\Gamedev\TrenchBroom-Win64-v2023.1-Release\Qt5Svg.dll', fileVersion: 5.15.2.0
+Z:\home\czartb\Documents\Gamedev\TrenchBroom-Win64-v2023.1-Release\Qt5Widgets.dll:Qt5Widgets.dll (00007FFFFEBF0000), size: 5509120 (result: 0), SymType: '-exported-', PDB: 'Z:\home\czartb\Documents\Gamedev\TrenchBroom-Win64-v2023.1-Release\Qt5Widgets.dll', fileVersion: 5.15.2.0
+Z:\home\czartb\Documents\Gamedev\TrenchBroom-Win64-v2023.1-Release\Qt5Gui.dll:Qt5Gui.dll (00007FFFFF140000), size: 7057408 (result: 0), SymType: '-exported-', PDB: 'Z:\home\czartb\Documents\Gamedev\TrenchBroom-Win64-v2023.1-Release\Qt5Gui.dll', fileVersion: 5.15.2.0
+C:\windows\system32\d3d11.dll:d3d11.dll (0000000359050000), size: 3780608 (result: 0), SymType: '-exported-', PDB: 'C:\windows\system32\d3d11.dll', fileVersion: 10.0.17763.1
+C:\windows\system32\dxgi.dll:dxgi.dll (00000002EDF00000), size: 2543616 (result: 0), SymType: '-exported-', PDB: 'C:\windows\system32\dxgi.dll', fileVersion: 10.0.17763.1
+Z:\home\czartb\Documents\Gamedev\TrenchBroom-Win64-v2023.1-Release\Qt5Core.dll:Qt5Core.dll (0000000100000000), size: 6053888 (result: 0), SymType: '-exported-', PDB: 'Z:\home\czartb\Documents\Gamedev\TrenchBroom-Win64-v2023.1-Release\Qt5Core.dll', fileVersion: 5.15.2.0
+C:\windows\system32\MPR.dll:MPR.dll (0000000250CD0000), size: 438272 (result: 0), SymType: 'DIA', PDB: 'C:\windows\system32\MPR.dll', fileVersion: 5.0.2195.6611
+C:\windows\system32\USERENV.dll:USERENV.dll (0000000244FC0000), size: 184320 (result: 0), SymType: 'DIA', PDB: 'C:\windows\system32\USERENV.dll'
+C:\windows\system32\NETAPI32.dll:NETAPI32.dll (00000001D4930000), size: 659456 (result: 0), SymType: 'DIA', PDB: 'C:\windows\system32\NETAPI32.dll'
+C:\windows\system32\dnsapi.dll:dnsapi.dll (0000000296590000), size: 323584 (result: 0), SymType: 'DIA', PDB: 'C:\windows\system32\dnsapi.dll', fileVersion: 5.2.3790.4318
+C:\windows\system32\iphlpapi.dll:iphlpapi.dll (00000003982D0000), size: 647168 (result: 0), SymType: 'DIA', PDB: 'C:\windows\system32\iphlpapi.dll', fileVersion: 5.1.2600.2180
+C:\windows\system32\nsi.dll:nsi.dll (000000026C190000), size: 131072 (result: 0), SymType: 'DIA', PDB: 'C:\windows\system32\nsi.dll'
+C:\windows\system32\rpcrt4.dll:rpcrt4.dll (0000000368420000), size: 2740224 (result: 0), SymType: 'DIA', PDB: 'C:\windows\system32\rpcrt4.dll', fileVersion: 5.1.2600.2180
+C:\windows\system32\ole32.dll:ole32.dll (000000020B860000), size: 6053888 (result: 0), SymType: 'DIA', PDB: 'C:\windows\system32\ole32.dll', fileVersion: 10.0.0.0
+C:\windows\system32\combase.dll:combase.dll (000000031C5D0000), size: 1724416 (result: 0), SymType: 'DIA', PDB: 'C:\windows\system32\combase.dll'
+C:\windows\system32\SHELL32.dll:SHELL32.dll (000000023BC00000), size: 14688256 (result: 0), SymType: 'DIA', PDB: 'C:\windows\system32\SHELL32.dll', fileVersion: 6.0.2900.6242
+C:\windows\system32\aclui.dll:aclui.dll (00000001CD620000), size: 151552 (result: 0), SymType: 'DIA', PDB: 'C:\windows\system32\aclui.dll'
+C:\windows\system32\comctl32.dll:comctl32.dll (00000002FB3C0000), size: 5709824 (result: 0), SymType: 'DIA', PDB: 'C:\windows\system32\comctl32.dll', fileVersion: 6.0.4704.1100
+C:\windows\system32\imm32.dll:imm32.dll (0000000393730000), size: 516096 (result: 0), SymType: 'DIA', PDB: 'C:\windows\system32\imm32.dll', fileVersion: 5.1.2600.2180
+C:\windows\system32\shlwapi.dll:shlwapi.dll (00000002A2380000), size: 1249280 (result: 0), SymType: 'DIA', PDB: 'C:\windows\system32\shlwapi.dll', fileVersion: 6.0.2800.1692
+C:\windows\system32\shcore.dll:shcore.dll (00000002BDE30000), size: 360448 (result: 0), SymType: 'DIA', PDB: 'C:\windows\system32\shcore.dll'
+C:\windows\system32\WINMM.dll:WINMM.dll (00000002945E0000), size: 1859584 (result: 0), SymType: 'DIA', PDB: 'C:\windows\system32\WINMM.dll'
+C:\windows\system32\msacm32.dll:msacm32.dll (0000000351A60000), size: 503808 (result: 0), SymType: 'DIA', PDB: 'C:\windows\system32\msacm32.dll'
+C:\windows\system32\MSVCP140_1.dll:MSVCP140_1.dll (00000001D3E90000), size: 114688 (result: 0), SymType: '-exported-', PDB: 'C:\windows\system32\MSVCP140_1.dll'
+C:\windows\system32\UxTheme.dll:UxTheme.dll (000000026C230000), size: 823296 (result: 0), SymType: 'DIA', PDB: 'C:\windows\system32\UxTheme.dll', fileVersion: 10.0.0.0
+C:\windows\system32\dwmapi.dll:dwmapi.dll (00000002EF230000), size: 131072 (result: 0), SymType: 'DIA', PDB: 'C:\windows\system32\dwmapi.dll', fileVersion: 6.0.6000.16386
+Z:\home\czartb\Documents\Gamedev\TrenchBroom-Win64-v2023.1-Release\fmt.dll:fmt.dll (00007FFFFF800000), size: 151552 (result: 0), SymType: '-exported-', PDB: 'Z:\home\czartb\Documents\Gamedev\TrenchBroom-Win64-v2023.1-Release\fmt.dll'
+Z:\home\czartb\Documents\Gamedev\TrenchBroom-Win64-v2023.1-Release\assimp-vc142-mt.dll:assimp-vc142-mt.dll (00007FFFFF830000), size: 5509120 (result: 0), SymType: '-exported-', PDB: 'Z:\home\czartb\Documents\Gamedev\TrenchBroom-Win64-v2023.1-Release\assimp-vc142-mt.dll', fileVersion: 5.2.4.0
+Z:\home\czartb\Documents\Gamedev\TrenchBroom-Win64-v2023.1-Release\pugixml.dll:pugixml.dll (00000001005D0000), size: 229376 (result: 0), SymType: '-exported-', PDB: 'Z:\home\czartb\Documents\Gamedev\TrenchBroom-Win64-v2023.1-Release\pugixml.dll', fileVersion: 1.12.0.0
+C:\windows\system32\CONCRT140.dll:CONCRT140.dll (0000000100610000), size: 315392 (result: 0), SymType: '-exported-', PDB: 'C:\windows\system32\CONCRT140.dll', fileVersion: 14.40.33810.0
+C:\windows\system32\winex11.drv:winex11.drv (0000000251D80000), size: 491520 (result: 0), SymType: 'DIA', PDB: 'C:\windows\system32\winex11.drv', fileVersion: 10.0.0.0
+Z:\home\czartb\Documents\Gamedev\TrenchBroom-Win64-v2023.1-Release\platforms\qwindows.dll:qwindows.dll (0000000100660000), size: 1495040 (result: 0), SymType: '-exported-', PDB: 'Z:\home\czartb\Documents\Gamedev\TrenchBroom-Win64-v2023.1-Release\platforms\qwindows.dll', fileVersion: 5.15.2.0
+C:\windows\system32\OLEAUT32.dll:OLEAUT32.dll (00000001D0E20000), size: 5402624 (result: 0), SymType: 'DIA', PDB: 'C:\windows\system32\OLEAUT32.dll', fileVersion: 6.0.6001.18000
+C:\windows\system32\WTSAPI32.dll:WTSAPI32.dll (0000000394BA0000), size: 200704 (result: 0), SymType: 'DIA', PDB: 'C:\windows\system32\WTSAPI32.dll'
+C:\windows\system32\wintab32.dll:wintab32.dll (000000032B540000), size: 266240 (result: 0), SymType: 'DIA', PDB: 'C:\windows\system32\wintab32.dll'
+C:\windows\system32\d3d9.dll:d3d9.dll (0000000270F60000), size: 3485696 (result: 0), SymType: '-exported-', PDB: 'C:\windows\system32\d3d9.dll', fileVersion: 10.0.17763.1
+Z:\home\czartb\Documents\Gamedev\TrenchBroom-Win64-v2023.1-Release\styles\qwindowsvistastyle.dll:qwindowsvistastyle.dll (00007FFFFFD80000), size: 155648 (result: 0), SymType: '-exported-', PDB: 'Z:\home\czartb\Documents\Gamedev\TrenchBroom-Win64-v2023.1-Release\styles\qwindowsvistastyle.dll', fileVersion: 5.15.2.0
+C:\windows\system32\dwrite.dll:dwrite.dll (00000001DBC50000), size: 3301376 (result: 0), SymType: 'DIA', PDB: 'C:\windows\system32\dwrite.dll'
+C:\windows\system32\comdlg32.dll:comdlg32.dll (0000000222ED0000), size: 2490368 (result: 0), SymType: 'DIA', PDB: 'C:\windows\system32\comdlg32.dll', fileVersion: 6.0.2900.5512
+C:\windows\system32\winspool.drv:winspool.drv (0000000223D50000), size: 811008 (result: 0), SymType: 'DIA', PDB: 'C:\windows\system32\winspool.drv', fileVersion: 5.1.2600.2180
+C:\windows\system32\compstui.dll:compstui.dll (0000000313390000), size: 204800 (result: 0), SymType: 'DIA', PDB: 'C:\windows\system32\compstui.dll'
+C:\windows\system32\explorerframe.dll:explorerframe.dll (0000000393E70000), size: 520192 (result: 0), SymType: 'DIA', PDB: 'C:\windows\system32\explorerframe.dll', fileVersion: 6.1.7601.16666
+C:\windows\system32\msimg32.dll:msimg32.dll (0000000302D10000), size: 98304 (result: 0), SymType: 'DIA', PDB: 'C:\windows\system32\msimg32.dll'
+C:\windows\system32\dbghelp.dll:dbghelp.dll (000000023ECB0000), size: 3031040 (result: 0), SymType: 'DIA', PDB: 'C:\windows\system32\dbghelp.dll', fileVersion: 6.1.7601.17514
+Z:\builddir\build\BUILD\wine-8.11\dlls\explorerframe\nstc.c (164): events_OnItemClick
+Z:\builddir\build\BUILD\wine-8.11\dlls\explorerframe\nstc.c (787): NSTC2_WndProc
+Z:\builddir\build\BUILD\wine-8.11\dlls\user32\winproc.c (125): call_window_proc
+Z:\builddir\build\BUILD\wine-8.11\dlls\user32\winproc.c (744): dispatch_win_proc_params
+Z:\builddir\build\BUILD\wine-8.11\dlls\user32\message.c (595): dispatch_send_message
+Z:\builddir\build\BUILD\wine-8.11\dlls\user32\message.c (613): SendMessageW
+Z:\builddir\build\BUILD\wine-8.11\dlls\comctl32\treeview.c (2332): TREEVIEW_WindowProc
+Z:\builddir\build\BUILD\wine-8.11\dlls\user32\winproc.c (125): call_window_proc
+Z:\builddir\build\BUILD\wine-8.11\dlls\user32\winproc.c (744): dispatch_win_proc_params
+Z:\builddir\build\BUILD\wine-8.11\dlls\user32\winproc.c (1283): CallWindowProcW
+Z:\builddir\build\BUILD\wine-8.11\dlls\explorerframe\nstc.c (772): tv_wndproc
+Z:\builddir\build\BUILD\wine-8.11\dlls\user32\winproc.c (125): call_window_proc
+Z:\builddir\build\BUILD\wine-8.11\dlls\user32\winproc.c (744): dispatch_win_proc_params
+Z:\builddir\build\BUILD\wine-8.11\dlls\user32\message.c (857): dispatch_message
+Z:\builddir\build\BUILD\wine-8.11\dlls\user32\message.c (945): DispatchMessageW
+Z:\builddir\build\BUILD\wine-8.11\dlls\user32\dialog.c (1294): IsDialogMessageW
+Z:\builddir\build\BUILD\wine-8.11\dlls\user32\dialog.c (813): DIALOG_DoDialogBox
+Z:\builddir\build\BUILD\wine-8.11\dlls\user32\dialog.c (868): DialogBoxParamW
+Z:\builddir\build\BUILD\wine-8.11\dlls\comdlg32\itemdlg.c (2383): IFileDialog2_fnShow
+ERROR: SymGetSymFromAddr64, GetLastError: 18 (Address: 000000010069B8A4)
+ERROR: SymGetLineFromAddr64, GetLastError: 18 (Address: 000000010069B8A4)
+000000010069B8A4 (qwindows): (filename not available): (function-name not available)
+ERROR: SymGetSymFromAddr64, GetLastError: 18 (Address: 000000010069C0AB)
+ERROR: SymGetLineFromAddr64, GetLastError: 18 (Address: 000000010069C0AB)
+000000010069C0AB (qwindows): (filename not available): (function-name not available)
+ERROR: SymGetSymFromAddr64, GetLastError: 18 (Address: 00007FFFFEDBCB8D)
+ERROR: SymGetLineFromAddr64, GetLastError: 18 (Address: 00007FFFFEDBCB8D)
+00007FFFFEDBCB8D (qt5widgets): (filename not available): (function-name not available)
+ERROR: SymGetSymFromAddr64, GetLastError: 18 (Address: 00007FFFFEDC9F54)
+ERROR: SymGetLineFromAddr64, GetLastError: 18 (Address: 00007FFFFEDC9F54)
+00007FFFFEDC9F54 (qt5widgets): (filename not available): (function-name not available)
+ERROR: SymGetSymFromAddr64, GetLastError: 18 (Address: 00007FFFFEDC9A84)
+ERROR: SymGetLineFromAddr64, GetLastError: 18 (Address: 00007FFFFEDC9A84)
+00007FFFFEDC9A84 (qt5widgets): (filename not available): (function-name not available)
+ERROR: SymGetSymFromAddr64, GetLastError: 18 (Address: 000000014044A9F7)
+ERROR: SymGetLineFromAddr64, GetLastError: 18 (Address: 000000014044A9F7)
+000000014044A9F7 (trenchbroom): (filename not available): (function-name not available)
+ERROR: SymGetLineFromAddr64, GetLastError: 18 (Address: 00000001403925D8)
+00000001403925D8 (trenchbroom): (filename not available): std::_Func_impl_no_alloc<<lambda_c72712a2931376a5df6f0075c8a0a658>,void,TrenchBroom::View::Action const &>::_Do_call
+ERROR: SymGetSymFromAddr64, GetLastError: 18 (Address: 00000001001F1D49)
+ERROR: SymGetLineFromAddr64, GetLastError: 18 (Address: 00000001001F1D49)
+00000001001F1D49 (qt5core): (filename not available): (function-name not available)
+ERROR: SymGetSymFromAddr64, GetLastError: 18 (Address: 00007FFFFEBF5DCF)
+ERROR: SymGetLineFromAddr64, GetLastError: 18 (Address: 00007FFFFEBF5DCF)
+00007FFFFEBF5DCF (qt5widgets): (filename not available): (function-name not available)
+ERROR: SymGetSymFromAddr64, GetLastError: 18 (Address: 00007FFFFED4B4D8)
+ERROR: SymGetLineFromAddr64, GetLastError: 18 (Address: 00007FFFFED4B4D8)
+00007FFFFED4B4D8 (qt5widgets): (filename not available): (function-name not available)
+ERROR: SymGetSymFromAddr64, GetLastError: 18 (Address: 00007FFFFED4B2B3)
+ERROR: SymGetLineFromAddr64, GetLastError: 18 (Address: 00007FFFFED4B2B3)
+00007FFFFED4B2B3 (qt5widgets): (filename not available): (function-name not available)
+ERROR: SymGetSymFromAddr64, GetLastError: 18 (Address: 00007FFFFED50A91)
+ERROR: SymGetLineFromAddr64, GetLastError: 18 (Address: 00007FFFFED50A91)
+00007FFFFED50A91 (qt5widgets): (filename not available): (function-name not available)
+ERROR: SymGetSymFromAddr64, GetLastError: 18 (Address: 00007FFFFEC279B2)
+ERROR: SymGetLineFromAddr64, GetLastError: 18 (Address: 00007FFFFEC279B2)
+00007FFFFEC279B2 (qt5widgets): (filename not available): (function-name not available)
+ERROR: SymGetSymFromAddr64, GetLastError: 18 (Address: 00007FFFFED4CA77)
+ERROR: SymGetLineFromAddr64, GetLastError: 18 (Address: 00007FFFFED4CA77)
+00007FFFFED4CA77 (qt5widgets): (filename not available): (function-name not available)
+ERROR: SymGetSymFromAddr64, GetLastError: 18 (Address: 00007FFFFEC04990)
+ERROR: SymGetLineFromAddr64, GetLastError: 18 (Address: 00007FFFFEC04990)
+00007FFFFEC04990 (qt5widgets): (filename not available): (function-name not available)
+ERROR: SymGetSymFromAddr64, GetLastError: 18 (Address: 00007FFFFEC028B0)
+ERROR: SymGetLineFromAddr64, GetLastError: 18 (Address: 00007FFFFEC028B0)
+00007FFFFEC028B0 (qt5widgets): (filename not available): (function-name not available)
+ERROR: SymGetSymFromAddr64, GetLastError: 18 (Address: 000000014044B09A)
+ERROR: SymGetLineFromAddr64, GetLastError: 18 (Address: 000000014044B09A)
+000000014044B09A (trenchbroom): (filename not available): (function-name not available)
+ERROR: SymGetSymFromAddr64, GetLastError: 18 (Address: 00000001001D2ACA)
+ERROR: SymGetLineFromAddr64, GetLastError: 18 (Address: 00000001001D2ACA)
+00000001001D2ACA (qt5core): (filename not available): (function-name not available)
+ERROR: SymGetSymFromAddr64, GetLastError: 18 (Address: 00007FFFFED50532)
+ERROR: SymGetLineFromAddr64, GetLastError: 18 (Address: 00007FFFFED50532)
+00007FFFFED50532 (qt5widgets): (filename not available): (function-name not available)
+ERROR: SymGetSymFromAddr64, GetLastError: 18 (Address: 00007FFFFED50A0E)
+ERROR: SymGetLineFromAddr64, GetLastError: 18 (Address: 00007FFFFED50A0E)
+00007FFFFED50A0E (qt5widgets): (filename not available): (function-name not available)
+ERROR: SymGetSymFromAddr64, GetLastError: 18 (Address: 00007FFFFEC279B2)
+ERROR: SymGetLineFromAddr64, GetLastError: 18 (Address: 00007FFFFEC279B2)
+00007FFFFEC279B2 (qt5widgets): (filename not available): (function-name not available)
+ERROR: SymGetSymFromAddr64, GetLastError: 18 (Address: 00007FFFFED4CA77)
+ERROR: SymGetLineFromAddr64, GetLastError: 18 (Address: 00007FFFFED4CA77)
+00007FFFFED4CA77 (qt5widgets): (filename not available): (function-name not available)
+ERROR: SymGetSymFromAddr64, GetLastError: 18 (Address: 00007FFFFEC04990)
+ERROR: SymGetLineFromAddr64, GetLastError: 18 (Address: 00007FFFFEC04990)
+00007FFFFEC04990 (qt5widgets): (filename not available): (function-name not available)
+ERROR: SymGetSymFromAddr64, GetLastError: 18 (Address: 00007FFFFEC028B0)
+ERROR: SymGetLineFromAddr64, GetLastError: 18 (Address: 00007FFFFEC028B0)
+00007FFFFEC028B0 (qt5widgets): (filename not available): (function-name not available)
+ERROR: SymGetSymFromAddr64, GetLastError: 18 (Address: 000000014044B09A)
+ERROR: SymGetLineFromAddr64, GetLastError: 18 (Address: 000000014044B09A)
+000000014044B09A (trenchbroom): (filename not available): (function-name not available)
+ERROR: SymGetSymFromAddr64, GetLastError: 18 (Address: 00000001001D2ACA)
+ERROR: SymGetLineFromAddr64, GetLastError: 18 (Address: 00000001001D2ACA)
+00000001001D2ACA (qt5core): (filename not available): (function-name not available)
+ERROR: SymGetSymFromAddr64, GetLastError: 18 (Address: 00007FFFFEC05B95)
+ERROR: SymGetLineFromAddr64, GetLastError: 18 (Address: 00007FFFFEC05B95)
+00007FFFFEC05B95 (qt5widgets): (filename not available): (function-name not available)
+ERROR: SymGetSymFromAddr64, GetLastError: 18 (Address: 00007FFFFEC4FDCA)
+ERROR: SymGetLineFromAddr64, GetLastError: 18 (Address: 00007FFFFEC4FDCA)
+00007FFFFEC4FDCA (qt5widgets): (filename not available): (function-name not available)
+ERROR: SymGetSymFromAddr64, GetLastError: 18 (Address: 00007FFFFEC4E38E)
+ERROR: SymGetLineFromAddr64, GetLastError: 18 (Address: 00007FFFFEC4E38E)
+00007FFFFEC4E38E (qt5widgets): (filename not available): (function-name not available)
+ERROR: SymGetSymFromAddr64, GetLastError: 18 (Address: 00007FFFFEC04990)
+ERROR: SymGetLineFromAddr64, GetLastError: 18 (Address: 00007FFFFEC04990)
+00007FFFFEC04990 (qt5widgets): (filename not available): (function-name not available)
+ERROR: SymGetSymFromAddr64, GetLastError: 18 (Address: 00007FFFFEC03A13)
+ERROR: SymGetLineFromAddr64, GetLastError: 18 (Address: 00007FFFFEC03A13)
+00007FFFFEC03A13 (qt5widgets): (filename not available): (function-name not available)
+ERROR: SymGetSymFromAddr64, GetLastError: 18 (Address: 000000014044B09A)
+ERROR: SymGetLineFromAddr64, GetLastError: 18 (Address: 000000014044B09A)
+000000014044B09A (trenchbroom): (filename not available): (function-name not available)
+ERROR: SymGetSymFromAddr64, GetLastError: 18 (Address: 00000001001D2ACA)
+ERROR: SymGetLineFromAddr64, GetLastError: 18 (Address: 00000001001D2ACA)
+00000001001D2ACA (qt5core): (filename not available): (function-name not available)
+ERROR: SymGetSymFromAddr64, GetLastError: 18 (Address: 00007FFFFF1832B6)
+ERROR: SymGetLineFromAddr64, GetLastError: 18 (Address: 00007FFFFF1832B6)
+00007FFFFF1832B6 (qt5gui): (filename not available): (function-name not available)
+ERROR: SymGetSymFromAddr64, GetLastError: 18 (Address: 00007FFFFF16ECB0)
+ERROR: SymGetLineFromAddr64, GetLastError: 18 (Address: 00007FFFFF16ECB0)
+00007FFFFF16ECB0 (qt5gui): (filename not available): (function-name not available)
+ERROR: SymGetSymFromAddr64, GetLastError: 18 (Address: 000000010021BA5A)
+ERROR: SymGetLineFromAddr64, GetLastError: 18 (Address: 000000010021BA5A)
+000000010021BA5A (qt5core): (filename not available): (function-name not available)
+ERROR: SymGetSymFromAddr64, GetLastError: 18 (Address: 00000001006C2DD9)
+ERROR: SymGetLineFromAddr64, GetLastError: 18 (Address: 00000001006C2DD9)
+00000001006C2DD9 (qwindows): (filename not available): (function-name not available)
+ERROR: SymGetSymFromAddr64, GetLastError: 18 (Address: 00000001001CEF2C)
+ERROR: SymGetLineFromAddr64, GetLastError: 18 (Address: 00000001001CEF2C)
+00000001001CEF2C (qt5core): (filename not available): (function-name not available)
+ERROR: SymGetSymFromAddr64, GetLastError: 18 (Address: 00000001001D1A94)
+ERROR: SymGetLineFromAddr64, GetLastError: 18 (Address: 00000001001D1A94)
+00000001001D1A94 (qt5core): (filename not available): (function-name not available)
+ERROR: SymGetSymFromAddr64, GetLastError: 18 (Address: 0000000140010203)
+ERROR: SymGetLineFromAddr64, GetLastError: 18 (Address: 0000000140010203)
+0000000140010203 (trenchbroom): (filename not available): (function-name not available)
+ERROR: SymGetSymFromAddr64, GetLastError: 18 (Address: 000000014045F317)
+ERROR: SymGetLineFromAddr64, GetLastError: 18 (Address: 000000014045F317)
+000000014045F317 (trenchbroom): (filename not available): (function-name not available)
+ERROR: SymGetLineFromAddr64, GetLastError: 18 (Address: 000000014045E6D6)
+000000014045E6D6 (trenchbroom): (filename not available): __scrt_common_main_seh
+Z:\builddir\build\BUILD\wine-8.11\dlls\kernel32\thread.c (61): BaseThreadInitThunk
+Z:\builddir\build\BUILD\wine-8.11\dlls\ntdll\thread.c (294): RtlUserThreadStart
+

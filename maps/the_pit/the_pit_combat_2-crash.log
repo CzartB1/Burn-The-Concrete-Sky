@@ -1,0 +1,31 @@
+Renderer info: NVIDIA GeForce RTX 3060/PCIe/SSE2 version 4.6.0 NVIDIA 535.98 from NVIDIA Corporation
+Depth buffer bits: 24
+Multisampling enabled
+Adding file system path Z:\home\czartb\Documents\Gamedev\TrenchBroom-Win64-v2023.1-Release\defaults\assets
+Adding file system path Z:\home\czartb\Documents\Gamedev\TrenchBroom-Win64-v2023.1-Release\defaults\assets
+Loading document from Z:\home\czartb\Documents\My Projects\Games\project_topdown\maps\the_pit\the_pit_combat_2.map
+Adding file system path Z:\home\czartb\Documents\Gamedev\TrenchBroom-Win64-v2023.1-Release\defaults\assets
+Adding file system path Z:\home\czartb\Documents\Gamedev\TrenchBroom-Win64-v2023.1-Release\defaults\assets
+Could not load builtin entity definition file 'project_topdown.fgd': Z:\home\czartb\Documents\Gamedev\TrenchBroom-Win64-v2023.1-Release\games\project_topdown\project_topdown.fgd
+Could not load texture collection 'textures\buildings': Directory not found: 'textures\buildings'
+Could not load texture collection 'textures\gore': Directory not found: 'textures\gore'
+Loaded Z:\home\czartb\Documents\My Projects\Games\project_topdown\maps\the_pit\the_pit_combat_2.map in 277ms
+Adding file system path Z:\home\czartb\Documents\Gamedev\TrenchBroom-Win64-v2023.1-Release\defaults\assets
+Adding file system path Z:\home\czartb\Documents\Gamedev\TrenchBroom-Win64-v2023.1-Release\defaults\assets
+Loaded texture collection 'textures' in 0ms
+Adding file system path Z:\home\czartb\Documents\Gamedev\TrenchBroom-Win64-v2023.1-Release\defaults\assets
+Adding file system path Z:\home\czartb\Documents\Gamedev\TrenchBroom-Win64-v2023.1-Release\defaults\assets
+Adding file system path C:\users\czartb\Documents\My Projects\Games\project_topdown\.
+Adding file system path C:\users\czartb\Documents\My Projects\Games\project_topdown\definitions
+Loaded texture collection 'textures\buildings' in 23ms
+Loaded texture collection 'textures\gore' in 1ms
+Saved Z:\home\czartb\Documents\My Projects\Games\project_topdown\maps\the_pit\the_pit_combat_2.map in 150ms
+Saved Z:\home\czartb\Documents\My Projects\Games\project_topdown\maps\the_pit\the_pit_combat_2.map in 120ms
+Saved Z:\home\czartb\Documents\My Projects\Games\project_topdown\maps\the_pit\the_pit_combat_2.map in 186ms
+Saved Z:\home\czartb\Documents\My Projects\Games\project_topdown\maps\the_pit\the_pit_combat_2.map in 110ms
+Saved Z:\home\czartb\Documents\My Projects\Games\project_topdown\maps\the_pit\the_pit_combat_2.map in 102ms
+Saved Z:\home\czartb\Documents\My Projects\Games\project_topdown\maps\the_pit\the_pit_combat_2.map in 83ms
+Saved Z:\home\czartb\Documents\My Projects\Games\project_topdown\maps\the_pit\the_pit_combat_2.map in 96ms
+Saved Z:\home\czartb\Documents\My Projects\Games\project_topdown\maps\the_pit\the_pit_combat_2.map in 96ms
+Saved Z:\home\czartb\Documents\My Projects\Games\project_topdown\maps\the_pit\the_pit_combat_2.map in 100ms
+Saved Z:\home\czartb\Documents\My Projects\Games\project_topdown\maps\the_pit\the_pit_combat_2.map in 98ms

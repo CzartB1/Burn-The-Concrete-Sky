@@ -63,5 +63,5 @@ func _on_charge_hitbox_body_entered(body):
 	if body is Player: body.take_damage(charge_damage)
 	elif body is Enemy and body!=master: body.take_damage(charge_damage)
 
-func _on_cooldow_timeout():
+func _on_cooldown_timer_timeout():
 	can_attack=true

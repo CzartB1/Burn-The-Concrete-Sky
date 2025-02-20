@@ -72,7 +72,7 @@ shape = SubResource("CapsuleShape3D_gjrny")
 transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 0, -1, 0)
 
 [node name="Skeleton3D" parent="wretch/metarig" index="0"]
-bones/0/position = Vector3(2.63418e-09, 0.99539, -0.00681275)
+bones/0/position = Vector3(2.63418e-09, 0.978314, -0.00681275)
 bones/0/rotation = Quaternion(0, 0.382684, 0, 0.92388)
 bones/1/rotation = Quaternion(0.115843, -0.638991, 0.0179574, 0.760229)
 bones/2/rotation = Quaternion(0.0288058, 0.148134, -0.057514, 0.986873)
@@ -90,12 +90,12 @@ bones/9/rotation = Quaternion(0.3029, -0.216907, 0.0127041, 0.927923)
 bones/10/rotation = Quaternion(-0.0225636, 0.00381004, 0.0141313, 0.999638)
 bones/11/rotation = Quaternion(0.0846114, 0.0882098, -0.00376434, 0.992495)
 bones/12/rotation = Quaternion(-0.239012, 0.00234276, 0.0149519, 0.970899)
-bones/13/rotation = Quaternion(0.91845, -0.0415795, 0.380323, 0.100373)
-bones/14/rotation = Quaternion(0.278536, -4.50702e-08, 6.47758e-08, 0.960426)
+bones/13/rotation = Quaternion(0.914485, -0.0543843, 0.378784, 0.131463)
+bones/14/rotation = Quaternion(0.0692523, -2.28661e-08, 1.1749e-08, 0.997599)
 bones/15/rotation = Quaternion(-0.650445, 8.20403e-07, -7.00872e-07, 0.759554)
-bones/16/rotation = Quaternion(0.908661, 0.0216517, 0.412833, -0.058608)
-bones/17/rotation = Quaternion(0.484608, -0.00105918, 0.038646, 0.873877)
-bones/18/rotation = Quaternion(-0.762859, 0.0122754, -0.019248, 0.646162)
+bones/16/rotation = Quaternion(0.910364, -0.00346902, 0.413708, 0.00837838)
+bones/17/rotation = Quaternion(0.717123, -0.00290132, 0.0538461, 0.694858)
+bones/18/rotation = Quaternion(-0.742186, 0.0109108, -0.0176839, 0.669872)
 bones/20/rotation = Quaternion(-0.0243409, 0.751105, 0.655919, -0.0708453)
 
 [node name="AnimationTree" type="AnimationTree" parent="."]
@@ -157,6 +157,7 @@ behavior = NodePath("../..")
 navigation_layers = 255
 avoidance_enabled = true
 radius = 1.0
+debug_enabled = true
 
 [node name="attack_timer" type="Timer" parent="behavior_master"]
 
@@ -178,5 +179,6 @@ one_shot = true
 [connection signal="velocity_computed" from="behavior_master/NavigationAgent3D" to="behavior_master" method="_on_navigation_agent_3d_velocity_computed"]
 [connection signal="timeout" from="behavior_master/attack_timer" to="behavior_master" method="_on_attack_timer_timeout"]
 [connection signal="body_entered" from="behavior_master/charge_hitbox" to="behavior_master" method="_on_charge_hitbox_body_entered"]
+[connection signal="timeout" from="behavior_master/cooldown_timer" to="behavior_master" method="_on_cooldown_timer_timeout"]
 
 [editable path="wretch"]

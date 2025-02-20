@@ -73,7 +73,11 @@ func _process(delta): # HACK spread the pathfinding update so each enemies updat
 	var target_value = 1.0 if is_moving else 0.0
 	anim_move_state = lerp(anim_move_state, target_value, anim_move_smooth * delta)
 	
-	if anim!=null: anim.set("parameters/moveBlend/blend_position", anim_move_state) # don't abs or ceil this. It'll stutter. And it's broken as it is
+	if anim!=null: 
+		if master.alive: 
+			anim.active=true
+			anim.set("parameters/moveBlend/blend_position", anim_move_state) # don't abs or ceil this. It'll stutter. And it's broken as it is
+		elif !master.alive: anim.active=false
 	print("Current Speed: ", current_speed)
 
 func aim(delta):
