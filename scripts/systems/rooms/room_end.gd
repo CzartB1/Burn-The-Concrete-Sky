@@ -15,7 +15,7 @@ func _process(delta):
 		room.end=self
 		if room.manager!=null and room.manager.current_room_category!=1:can_go=true
 		elif room.manager!=null and room.manager.current_room_category==1:
-			can_go=room.spawner.finished
+			can_go=true
 
 func _on_body_entered(body):
 	if body is Player and room.process_mode == Node.PROCESS_MODE_INHERIT and can_go:

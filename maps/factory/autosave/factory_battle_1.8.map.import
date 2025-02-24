@@ -1,0 +1,14 @@
+[remap]
+
+importer="qodot.map"
+type="Resource"
+uid="uid://b0ctyyue53n16"
+path="res://.godot/imported/factory_battle_1.8.map-f63edf3ec323180acecd744a942c9d24.tres"
+
+[deps]
+
+source_file="res://maps/factory/autosave/factory_battle_1.8.map"
+dest_files=["res://.godot/imported/factory_battle_1.8.map-f63edf3ec323180acecd744a942c9d24.tres"]
+
+[params]
+

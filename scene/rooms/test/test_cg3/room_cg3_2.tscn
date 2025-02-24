@@ -472,7 +472,7 @@ shape = SubResource("BoxShape3D_qe6j2")
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, -1, 0)
 entrance = NodePath("entrance2")
 exits = [NodePath("exit2")]
-spawners = [NodePath("Node3D"), NodePath("Node3D2"), NodePath("Node3D3"), NodePath("Node3D4"), NodePath("Node3D5"), NodePath("Node3D6"), NodePath("Node3D7"), NodePath("Node3D8")]
+spawners = [NodePath("Node3D"), NodePath("Node3D2"), NodePath("Node3D3"), NodePath("Node3D4"), NodePath("Node3D5"), NodePath("Node3D6")]
 
 [node name="entrance2" type="StaticBody3D" parent="spawner"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 2.07218, -41.0721, -0.113194, -0.120487)
@@ -513,12 +513,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 24, 0, -16)
 
 [node name="Node3D6" type="Node3D" parent="spawner"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 24, 0, 17)
-
-[node name="Node3D7" type="Node3D" parent="spawner"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 46.3747, 0, -16)
-
-[node name="Node3D8" type="Node3D" parent="spawner"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 46.3747, 0, 17)
 
 [node name="Trigger" type="Area3D" parent="spawner"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -39.4781, 0.0122325, 0.0566831)

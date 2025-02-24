@@ -1,4 +1,4 @@
-[gd_scene load_steps=96 format=4 uid="uid://c7augcs4p0odc"]
+[gd_scene load_steps=102 format=4 uid="uid://c7augcs4p0odc"]
 
 [ext_resource type="Script" path="res://scripts/systems/rooms/room.gd" id="1_dgndr"]
 [ext_resource type="PackedScene" uid="uid://dqrjqsnh1f28f" path="res://scene/player/upgrades/shopkeeper.tscn" id="2_3qxvq"]
@@ -14,6 +14,7 @@
 [ext_resource type="Script" path="res://scripts/systems/upgrades/starting_ability_button.gd" id="12_5bwr0"]
 [ext_resource type="Material" uid="uid://dwu5chjmuyp5i" path="res://textures/buildings/concrete_01.tres" id="12_40f48"]
 [ext_resource type="Material" uid="uid://dqgomxkcjhq6b" path="res://textures/gore/blood_pool.tres" id="12_lx2im"]
+[ext_resource type="Script" path="res://scripts/systems/group_change_object.gd" id="15_rtegf"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_qe6j2"]
 size = Vector3(16, 3, 2.35602)
@@ -306,6 +307,25 @@ points = PackedVector3Array(38.75, 0.5, -4.125, 39.25, 0.5, -4.125, 39.25, 1.125
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_7gyhs"]
 size = Vector3(23, 1.43884, 71)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_rcnhb"]
+size = Vector3(3, 2, 3)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_c3lov"]
+transparency = 1
+albedo_color = Color(1, 0, 0, 0.564706)
+
+[sub_resource type="BoxMesh" id="BoxMesh_0gwm1"]
+material = SubResource("StandardMaterial3D_c3lov")
+size = Vector3(3, 2, 3)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_mtw7j"]
+transparency = 1
+albedo_color = Color(0.216667, 0, 1, 0.596078)
+
+[sub_resource type="BoxMesh" id="BoxMesh_nn5ji"]
+material = SubResource("StandardMaterial3D_mtw7j")
+size = Vector3(3, 2, 3)
 
 [node name="room_intro" type="Node3D" node_paths=PackedStringArray("start_pos", "shopkeepers")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 0)
@@ -707,6 +727,30 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2, 0)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.219421, 27)
 shape = SubResource("BoxShape3D_7gyhs")
 
+[node name="group_change_object" type="Area3D" parent="." node_paths=PackedStringArray("room")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.555, -0.0699944, -5.3637)
+script = ExtResource("15_rtegf")
+room = NodePath("..")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="group_change_object"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+shape = SubResource("BoxShape3D_rcnhb")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="group_change_object"]
+mesh = SubResource("BoxMesh_0gwm1")
+
+[node name="group_change_object2" type="Area3D" parent="." node_paths=PackedStringArray("room")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.555, -0.0699944, -0.88184)
+script = ExtResource("15_rtegf")
+room = NodePath("..")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="group_change_object2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+shape = SubResource("BoxShape3D_rcnhb")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="group_change_object2"]
+mesh = SubResource("BoxMesh_nn5ji")
+
 [connection signal="body_entered" from="rooms_end" to="rooms_end" method="_on_body_entered"]
 [connection signal="body_entered" from="the_figure" to="the_figure" method="_on_body_entered"]
 [connection signal="body_exited" from="the_figure" to="the_figure" method="_on_body_exited"]
@@ -716,3 +760,7 @@ shape = SubResource("BoxShape3D_7gyhs")
 [connection signal="pressed" from="the_figure/CanvasLayer/startingweaponscreen/Panel/MarginContainer/HBoxContainer/Ability2" to="the_figure/CanvasLayer/startingweaponscreen/Panel/MarginContainer/HBoxContainer/Ability2" method="_on_pressed"]
 [connection signal="pressed" from="the_figure/CanvasLayer/startingweaponscreen/Panel/exit" to="the_figure/CanvasLayer/startingweaponscreen" method="_on_button_pressed"]
 [connection signal="pressed" from="the_figure/CanvasLayer/startingweaponscreen/Panel/select" to="the_figure/CanvasLayer/startingweaponscreen" method="_on_select_pressed"]
+[connection signal="body_entered" from="group_change_object" to="group_change_object" method="_on_body_entered"]
+[connection signal="body_exited" from="group_change_object" to="group_change_object" method="_on_body_exited"]
+[connection signal="body_entered" from="group_change_object2" to="group_change_object2" method="_on_body_entered"]
+[connection signal="body_exited" from="group_change_object2" to="group_change_object2" method="_on_body_exited"]

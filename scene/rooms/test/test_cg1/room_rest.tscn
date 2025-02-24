@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=4 uid="uid://chi0yi6krxebk"]
+[gd_scene load_steps=32 format=4 uid="uid://chi0yi6krxebk"]
 
 [ext_resource type="Script" path="res://scripts/systems/rooms/room.gd" id="1_pcq3m"]
 [ext_resource type="Texture2D" uid="uid://1t3cqfe1gokb" path="res://textures/test/test_tile_grey.png" id="4_ut7nf"]
@@ -109,6 +109,14 @@ size = Vector3(9, 3, 4.74561)
 [sub_resource type="BoxShape3D" id="BoxShape3D_8ing4"]
 size = Vector3(3, 2, 3)
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qx7fy"]
+transparency = 1
+albedo_color = Color(1, 0, 0, 0.564706)
+
+[sub_resource type="BoxMesh" id="BoxMesh_n28wn"]
+material = SubResource("StandardMaterial3D_qx7fy")
+size = Vector3(3, 2, 3)
+
 [node name="room_rest" type="Node3D" node_paths=PackedStringArray("start_pos")]
 script = ExtResource("1_pcq3m")
 start_pos = NodePath("spawn")
@@ -190,6 +198,9 @@ room = NodePath("..")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="group_change_object"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
 shape = SubResource("BoxShape3D_8ing4")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="group_change_object"]
+mesh = SubResource("BoxMesh_n28wn")
 
 [node name="weapon_shopkeeper" parent="." instance=ExtResource("10_na7rh")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.034, -1.5, 7.87365)

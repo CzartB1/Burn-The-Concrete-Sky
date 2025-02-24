@@ -24,7 +24,7 @@ func _process(delta):
 
 func attack():
 	if !can_attack or master.global_position.distance_to(target)>dist_to_attack:return
-	anim.set("parameters/attack/request", AnimationNodeOneShot.ONE_SHOT_REQUEST_FIRE)
+	if anim != null: anim.set("parameters/attack/request", AnimationNodeOneShot.ONE_SHOT_REQUEST_FIRE)
 	await get_tree().create_timer(buildup_dur).timeout
 	can_attack=false
 	is_attacking = true

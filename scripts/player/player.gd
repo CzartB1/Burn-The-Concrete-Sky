@@ -16,6 +16,12 @@ var invulnerable=false
 @export_group("movement")
 var can_move=true
 var disabled=false
+# At the class level, define the two velocity vectors:
+var input_velocity: Vector3 = Vector3.ZERO
+var external_velocity: Vector3 = Vector3.ZERO
+var vel: Vector3 = Vector3.ZERO
+# Set how quickly external pushes fade away.
+var external_decay_rate: float = 10.0
 @export var body:Node3D
 @export var move_speed = 12
 @export_subgroup("Move Modifiers")
@@ -159,7 +165,7 @@ func _process(delta):
 func _physics_process(delta):
 	if alive and !disabled:
 		look(delta)
-		move()
+		move(delta)
 	elif disabled: 
 		# when choosing a starting weapon, the player can still move
 		# and when they change room when theyre still in the weapons menu, they cant exit
@@ -167,16 +173,30 @@ func _physics_process(delta):
 		velocity=Vector3.ZERO
 	move_and_slide()
 
-func move():
+func move(delta):
+	# Capture the player's directional will.
 	var input_dir = Input.get_vector("move_left", "move_right", "move_up", "move_down")
 	var direction = (transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
 	
 	if direction and !disabled and can_move:
-		velocity.x = direction.x * speed
-		velocity.z = direction.z * speed
+		# Compute the desired input velocity.
+		var target_velocity = direction * speed
+		# Use a high acceleration for responsive movement.
+		var acceleration = 20.0
+		input_velocity.x = lerp(input_velocity.x, target_velocity.x, acceleration * delta)
+		input_velocity.z = lerp(input_velocity.z, target_velocity.z, acceleration * delta)
 	else:
-		velocity.x = move_toward(velocity.x, 0, speed)
-		velocity.z = move_toward(velocity.z, 0, speed)
+		# Without player input, the controlled momentum vanishes instantly.
+		input_velocity.x = 0
+		input_velocity.z = 0
+	
+	# Allow external forces to persist and gradually fade.
+	external_velocity.x = move_toward(external_velocity.x, 0, external_decay_rate * delta)
+	external_velocity.z = move_toward(external_velocity.z, 0, external_decay_rate * delta)
+	
+	# The final motion is the sum of the player's intent and the world's impulse.
+	velocity = input_velocity + external_velocity
+
 
 func _input(event):
 	if event is InputEventMouseMotion or event is InputEventMouseButton:controller = false

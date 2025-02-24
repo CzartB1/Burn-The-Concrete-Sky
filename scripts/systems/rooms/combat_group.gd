@@ -157,15 +157,22 @@ func activate_next_group():
 	print("changing combat group")
 
 func activate_group(chos:Combat_Group):
+	if manager.current_room_category==2:manager.leave_intro()
 	manager.clear_abilities()
 	manager.combatgroup=chos
 	enabled=false
 	for oa in chos.rooms:
 		oa.spawner.reset_spawner()
+	if intro_room: 
+		intro_room.visible = false
+		intro_room.process_mode = Node.PROCESS_MODE_DISABLED
 	for ro in rooms:
 		ro.visible = false
 		ro.process_mode = Node.PROCESS_MODE_DISABLED
 		ro.navmesh.enabled=false
+	if boss_room!=null:
+		boss_room.visible=false
+		boss_room.process_mode=Node.PROCESS_MODE_DISABLED
 	#visible=false
 	#process_mode = Node.PROCESS_MODE_DISABLED
 	print("Group chosen: " + str(chos.name))

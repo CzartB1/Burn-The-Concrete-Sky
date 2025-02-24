@@ -162,6 +162,12 @@ elites = Array[PackedScene]([ExtResource("4_wb7kj"), ExtResource("6_td813")])
 manager = NodePath("..")
 next_group = [NodePath("../scum_town"), NodePath("../factory")]
 
+[node name="group_change_object" parent="room_manager/the_pit/room_intro" index="6" node_paths=PackedStringArray("destination")]
+destination = NodePath("../../../scum_town")
+
+[node name="group_change_object2" parent="room_manager/the_pit/room_intro" index="7" node_paths=PackedStringArray("destination")]
+destination = NodePath("../../../factory")
+
 [node name="scum_town" parent="room_manager" node_paths=PackedStringArray("manager", "next_group") instance=ExtResource("4_qu5kh")]
 manager = NodePath("..")
 next_group = [NodePath("../the_pit")]
@@ -345,3 +351,6 @@ shape = SubResource("BoxShape3D_0x23y")
 [connection signal="pressed" from="stats/demo_lock/HBoxContainer/choose char" to="stats/demo_lock" method="_on_choose_char_pressed"]
 [connection signal="pressed" from="stats/demo_lock/HBoxContainer/exit" to="stats/demo_lock" method="_on_exit_pressed"]
 [connection signal="body_entered" from="dedzone" to="dedzone" method="_on_body_entered"]
+
+[editable path="room_manager/the_pit"]
+[editable path="room_manager/the_pit/room_intro"]

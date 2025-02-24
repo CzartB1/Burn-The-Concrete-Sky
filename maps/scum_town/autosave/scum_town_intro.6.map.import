@@ -1,0 +1,14 @@
+[remap]
+
+importer="qodot.map"
+type="Resource"
+uid="uid://dl3s6q4nrmvs0"
+path="res://.godot/imported/scum_town_intro.6.map-7a08bf97a34f6b1a0f6a017ee2ce7fae.tres"
+
+[deps]
+
+source_file="res://maps/scum_town/autosave/scum_town_intro.6.map"
+dest_files=["res://.godot/imported/scum_town_intro.6.map-7a08bf97a34f6b1a0f6a017ee2ce7fae.tres"]
+
+[params]
+
