@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://crvj8m1cx4op1"
+path="res://.godot/imported/untitled_2025-03-02 11-55-12_Insert 1_2.wav-3ab40cdc7c638ed7b3af54af8d1144b2.sample"
+
+[deps]
+
+source_file="res://audios/music/char_themes/impact_intro/Audio/untitled_2025-03-02 11-55-12_Insert 1_2.wav"
+dest_files=["res://.godot/imported/untitled_2025-03-02 11-55-12_Insert 1_2.wav-3ab40cdc7c638ed7b3af54af8d1144b2.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

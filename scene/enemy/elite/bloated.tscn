@@ -1,7 +1,7 @@
 [gd_scene load_steps=21 format=3 uid="uid://br6en1t6sqi7x"]
 
 [ext_resource type="Script" path="res://scripts/enemy/enemy.gd" id="1_1h7ec"]
-[ext_resource type="PackedScene" uid="uid://dhpggcuo64yba" path="res://meshes/enemies/bloated/bloated.fbx" id="2_qtj6g"]
+[ext_resource type="PackedScene" uid="uid://dhpggcuo64yba" path="res://meshes/enemies/cg1_pit/bloated/bloated.fbx" id="2_qtj6g"]
 [ext_resource type="Script" path="res://scripts/enemy/states/masters/behavior_ranged.gd" id="2_qy1e0"]
 [ext_resource type="Script" path="res://addons/finite_state_machine/scripts/finite_state_machine.gd" id="3_qs6wd"]
 [ext_resource type="PackedScene" uid="uid://c48uakajh2dx1" path="res://scene/enemy/elite/bloated_proj.tscn" id="4_4sraj"]

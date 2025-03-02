@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://scripts/enemy/enemy.gd" id="1_7degi"]
 [ext_resource type="Script" path="res://scripts/enemy/states/masters/behavior_sniper.gd" id="2_1fvjp"]
-[ext_resource type="PackedScene" uid="uid://dhr468uqh6a6o" path="res://meshes/enemies/watcher/watcher.blend" id="2_2un4j"]
+[ext_resource type="PackedScene" uid="uid://dhr468uqh6a6o" path="res://meshes/enemies/cg3_scumtown/watcher/watcher.blend" id="2_2un4j"]
 [ext_resource type="PackedScene" uid="uid://goav50e4qvt0" path="res://scene/enemy/enemy_bullet.tscn" id="3_7obe5"]
 [ext_resource type="Script" path="res://addons/finite_state_machine/scripts/finite_state_machine.gd" id="4_c450r"]
 [ext_resource type="Script" path="res://addons/finite_state_machine/scripts/state_machine_state.gd" id="5_demth"]

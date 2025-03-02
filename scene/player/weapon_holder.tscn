@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://7elo11bnf3va"]
+[gd_scene load_steps=30 format=3 uid="uid://7elo11bnf3va"]
 
 [ext_resource type="Script" path="res://scripts/player/weapon/weapon_manager.gd" id="1_rku58"]
 [ext_resource type="Script" path="res://scripts/player/weapon/projectile_gun.gd" id="2_toky6"]
@@ -7,15 +7,19 @@
 [ext_resource type="Texture2D" uid="uid://b4digkieaudvy" path="res://sprites/pow.png" id="3_v305p"]
 [ext_resource type="Script" path="res://scripts/player/weapon/melee_weapon.gd" id="4_lfc15"]
 [ext_resource type="Texture2D" uid="uid://cmoka0opia5yq" path="res://sprites/slash-placeholder.png" id="5_pwomt"]
-[ext_resource type="AudioStream" uid="uid://eys01vibqmhu" path="res://audios/weapons/shotgun_1.wav" id="6_psg06"]
+[ext_resource type="AudioStream" uid="uid://eys01vibqmhu" path="res://audios/weapons/ranged/shotgun_1.wav" id="6_psg06"]
 [ext_resource type="PackedScene" uid="uid://cu23ddimpx0vu" path="res://meshes/effects/weapons/muzzle_flash.blend" id="7_wps2v"]
 [ext_resource type="PackedScene" uid="uid://dqltrr3q0qnho" path="res://meshes/player/weapons/double_barrel.blend" id="8_5yu2w"]
-[ext_resource type="AudioStream" uid="uid://c6een0c0m2u80" path="res://audios/weapons/mg_1.wav" id="8_o1aab"]
-[ext_resource type="AudioStream" uid="uid://66amfm225ril" path="res://audios/weapons/revolver_1.wav" id="9_o61uu"]
+[ext_resource type="AudioStream" uid="uid://c6een0c0m2u80" path="res://audios/weapons/ranged/mg_1.wav" id="8_o1aab"]
+[ext_resource type="AudioStream" uid="uid://66amfm225ril" path="res://audios/weapons/ranged/pistol/revolver_1.wav" id="9_o61uu"]
 [ext_resource type="PackedScene" uid="uid://bok2o8kqabga8" path="res://meshes/player/weapons/lmg_common.blend" id="9_ugy7q"]
 [ext_resource type="PackedScene" uid="uid://llmcibq3mjbm" path="res://meshes/player/weapons/revolver_common.blend" id="11_4ifep"]
 [ext_resource type="PackedScene" uid="uid://5ys7ompy1j6u" path="res://meshes/player/weapons/ar_common.blend" id="11_g3slb"]
 [ext_resource type="PackedScene" uid="uid://c2u4ckc0gt2cq" path="res://meshes/player/weapons/pistol_common.blend" id="15_mngps"]
+[ext_resource type="AudioStream" uid="uid://cfy6yrvpkq6dv" path="res://audios/weapons/ranged/pistol/pistol_light-01-2.wav" id="16_sr3eg"]
+[ext_resource type="AudioStream" uid="uid://citqnoqall3li" path="res://audios/weapons/ranged/pistol/pistol_light-02-2.wav" id="17_gkc2o"]
+[ext_resource type="AudioStream" uid="uid://5sx57jgwatyv" path="res://audios/weapons/ranged/pistol/pistol_light-03-2.wav" id="18_l6r30"]
+[ext_resource type="AudioStream" uid="uid://t33ixtemwr4d" path="res://audios/weapons/ranged/pistol/pistol_light-04-2.wav" id="19_icaqo"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_b8guf"]
 atlas = ExtResource("3_4xwoe")
@@ -43,6 +47,17 @@ region = Rect2(96, 0, 32, 32)
 [sub_resource type="AtlasTexture" id="AtlasTexture_7uicm"]
 atlas = ExtResource("3_4xwoe")
 region = Rect2(128, 0, 32, 32)
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_vmepa"]
+playback_mode = 1
+random_pitch = 1.5
+streams_count = 4
+stream_0/stream = ExtResource("16_sr3eg")
+stream_1/stream = ExtResource("17_gkc2o")
+stream_1/weight = 5.0
+stream_2/stream = ExtResource("18_l6r30")
+stream_2/weight = 3.0
+stream_3/stream = ExtResource("19_icaqo")
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_rvbas"]
 atlas = ExtResource("3_4xwoe")
@@ -248,6 +263,7 @@ spread = 0.0
 max_ammo = 12
 reload_duration = 1.5
 muzzle_flash = NodePath("muzzle_flash")
+gunshot_sound = SubResource("AudioStreamRandomizer_vmepa")
 price = 75
 icon = SubResource("AtlasTexture_rvbas")
 Description = "pistol"

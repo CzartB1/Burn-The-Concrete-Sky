@@ -160,7 +160,7 @@ shape = SubResource("CapsuleShape3D_dtuee")
 transform = Transform3D(-1.2, 0, -1.81195e-07, 0, 1.2, 0, 1.81195e-07, 0, -1.2, 0, -0.861741, 0)
 
 [node name="Skeleton3D" parent="body/Remnant_new/metarig" index="0"]
-bones/0/position = Vector3(-5.76005e-05, 0.86901, 0.0100708)
+bones/0/position = Vector3(-5.76005e-05, 0.869898, 0.0100708)
 bones/0/rotation = Quaternion(-2.28097e-08, 0.382684, 2.28097e-08, 0.92388)
 bones/0/scale = Vector3(1, 1, 1)
 bones/1/rotation = Quaternion(0.0104663, -0.642728, 0.00878231, 0.765973)
@@ -181,21 +181,21 @@ bones/10/scale = Vector3(1, 1, 1)
 bones/11/rotation = Quaternion(0.0379732, 0.21804, -0.00782299, 0.975169)
 bones/12/rotation = Quaternion(-0.0634644, -0.000805131, -0.00753154, 0.997955)
 bones/13/position = Vector3(0.00502848, 0.05589, 0.0882)
-bones/13/rotation = Quaternion(0.922457, -0.0444756, 0.382125, 0.032786)
+bones/13/rotation = Quaternion(0.92326, -0.0458598, 0.381382, 0.00596389)
 bones/13/scale = Vector3(1, 1, 1)
-bones/14/rotation = Quaternion(0.4295, -0.000170919, 0.000972929, 0.903066)
-bones/15/rotation = Quaternion(-0.649812, 0.0342046, -0.0340289, 0.758562)
+bones/14/rotation = Quaternion(0.393133, -9.53937e-05, 0.000598923, 0.919482)
+bones/15/rotation = Quaternion(-0.649587, 0.0392021, -0.0390007, 0.758274)
 bones/16/position = Vector3(0.00502853, 0.0558901, -0.0882)
-bones/16/rotation = Quaternion(0.910741, 0.00952372, 0.409608, 0.0517954)
+bones/16/rotation = Quaternion(0.910779, 0.0130078, 0.408499, 0.0586569)
 bones/16/scale = Vector3(1, 1, 1)
-bones/17/rotation = Quaternion(0.0102718, 0.0020518, 0.00632095, 0.999925)
-bones/18/rotation = Quaternion(-0.690374, -0.0220038, 0.0243033, 0.722709)
+bones/17/rotation = Quaternion(-0.00235209, 0.00217657, 0.00542963, 0.99998)
+bones/18/rotation = Quaternion(-0.675637, -0.027964, 0.0302916, 0.736081)
 bones/19/rotation = Quaternion(-0.655919, -0.0708456, 0.0243406, 0.751105)
 bones/19/scale = Vector3(1, 1, 1)
 bones/20/rotation = Quaternion(-0.0243408, 0.751105, 0.655919, -0.0708452)
 
 [node name="BoneAttachment3D" type="BoneAttachment3D" parent="body/Remnant_new/metarig/Skeleton3D" index="1"]
-transform = Transform3D(-0.99329, -0.0335486, 0.110673, 0.111141, -0.0123972, 0.993727, -0.0319662, 0.99936, 0.0160425, -0.312679, 1.29404, 0.112836)
+transform = Transform3D(-0.99329, -0.0335486, 0.110673, 0.111141, -0.0123972, 0.993727, -0.0319662, 0.99936, 0.0160425, -0.312679, 1.29493, 0.112836)
 bone_name = "hand.R"
 bone_idx = 10
 
@@ -282,8 +282,8 @@ offset_bottom = 80.0
 
 [connection signal="timeout" from="Ability/Timer" to="Ability" method="cooldown_timer_timeout"]
 [connection signal="timeout" from="dash_timer" to="." method="_on_dash_timer_timeout"]
-[connection signal="timeout" from="dash_cooldown" to="." method="_on_dash_timer_timeout"]
 [connection signal="timeout" from="dash_cooldown" to="." method="_on_dash_cooldown_timeout"]
+[connection signal="timeout" from="dash_cooldown" to="." method="_on_dash_timer_timeout"]
 
 [editable path="body/Remnant_new"]
 [editable path="body/Remnant_new/metarig/Skeleton3D/BoneAttachment3D/weapon_holder"]

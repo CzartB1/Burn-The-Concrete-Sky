@@ -23,13 +23,13 @@ func _process(delta):
 		end_charging()
 
 func attack():
-	if !can_attack or master.global_position.distance_to(target)>dist_to_attack and !detect_player():return
-	start_charging()
+	if can_attack and detect_player() and global_position.distance_to(target_position)<=dist_to_attack:
+		start_charging()
 
 func detect_player():
 	if charge_ray.is_colliding():
 		var collider = charge_ray.get_collider()
-		if collider and collider.is_in_group("player"):
+		if collider.is_in_group("Player"):
 			target_position = target
 			return true
 	return false
@@ -37,6 +37,7 @@ func detect_player():
 # Initialize charging (to be called once when charging begins)
 func start_charging(): #FIXME THANKS GPT, BUT NOT REALLY!!!!
 	await get_tree().create_timer(randf_range(charge_delay.x,charge_delay.y)).timeout
+	if anim: anim.set("parameters/attack/request", AnimationNodeOneShot.ONE_SHOT_REQUEST_FIRE)
 	master.stop_nav=true
 	can_attack=false
 	charging=true
@@ -56,6 +57,8 @@ func end_charging():
 	disable_look=false
 	charging=false
 	cooldown_timer.start()
+	#await get_tree().create_timer(5).timeout
+	can_attack=true
 
 func _on_charge_hitbox_body_entered(body):
 	if !charging: return

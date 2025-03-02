@@ -1,7 +1,7 @@
 [gd_scene load_steps=21 format=3 uid="uid://nhi2cs0lg025"]
 
 [ext_resource type="Script" path="res://scripts/enemy/enemy.gd" id="1_t80xs"]
-[ext_resource type="PackedScene" uid="uid://cneqckvnvqhcc" path="res://meshes/enemies/pistolero/pistolero.blend" id="2_adi1k"]
+[ext_resource type="PackedScene" uid="uid://cneqckvnvqhcc" path="res://meshes/enemies/cg2_factory/pistolero/pistolero.blend" id="2_adi1k"]
 [ext_resource type="Script" path="res://scripts/enemy/states/masters/behavior_ranged.gd" id="3_5ifrp"]
 [ext_resource type="PackedScene" uid="uid://goav50e4qvt0" path="res://scene/enemy/enemy_bullet.tscn" id="4_rayfs"]
 [ext_resource type="Script" path="res://addons/finite_state_machine/scripts/finite_state_machine.gd" id="5_k5bkb"]

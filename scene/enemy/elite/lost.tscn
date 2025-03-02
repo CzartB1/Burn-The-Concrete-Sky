@@ -1,7 +1,7 @@
 [gd_scene load_steps=21 format=3 uid="uid://kh8x4dwsv522"]
 
 [ext_resource type="Script" path="res://scripts/enemy/enemy.gd" id="1_pj2m2"]
-[ext_resource type="PackedScene" uid="uid://cvsfsqck1xyi5" path="res://meshes/enemies/losts/lost.blend" id="2_fpg8i"]
+[ext_resource type="PackedScene" uid="uid://cvsfsqck1xyi5" path="res://meshes/enemies/cg1_pit/losts/lost.blend" id="2_fpg8i"]
 [ext_resource type="Script" path="res://scripts/enemy/states/masters/behavior_ranged.gd" id="2_pem4h"]
 [ext_resource type="PackedScene" uid="uid://derh5gmq2d8f8" path="res://scene/utilities/gore/gore_manager.tscn" id="2_x8b4j"]
 [ext_resource type="Script" path="res://addons/finite_state_machine/scripts/finite_state_machine.gd" id="3_itb51"]

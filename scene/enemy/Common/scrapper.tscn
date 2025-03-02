@@ -1,7 +1,7 @@
 [gd_scene load_steps=23 format=3 uid="uid://bw7y82qxa2yhs"]
 
 [ext_resource type="Script" path="res://scripts/enemy/enemy.gd" id="1_8enms"]
-[ext_resource type="PackedScene" uid="uid://cjwreu6yxp24d" path="res://meshes/enemies/scrapper/scrapper.blend" id="2_m8u1i"]
+[ext_resource type="PackedScene" uid="uid://cjwreu6yxp24d" path="res://meshes/enemies/cg2_factory/scrapper/scrapper.blend" id="2_m8u1i"]
 [ext_resource type="PackedScene" uid="uid://b88c6k2bkb3fh" path="res://scene/money.tscn" id="2_rffi2"]
 [ext_resource type="Script" path="res://scripts/enemy/states/masters/behavior_melee.gd" id="3_6dk3f"]
 [ext_resource type="Script" path="res://addons/finite_state_machine/scripts/finite_state_machine.gd" id="4_h2tww"]
