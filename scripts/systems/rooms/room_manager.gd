@@ -21,6 +21,7 @@ var room_count = 0
 var changing_rooms = false
 var prev_combat_id
 var upgrading = false
+var faded=false
 
 func _ready():
 	intro_room=combatgroup.intro_room
@@ -73,7 +74,9 @@ func _process(_delta):
 
 func randomize_room(): # this was (and kinda still is) basically a big-ass RNG checking machine
 	var tr=get_tree().get_first_node_in_group("Transition")
-	tr.play("fade_out")
+	if !faded: 
+		tr.play("fade_out") #FIX ME make some kind of bool that checks if it's faded or not
+		faded=true
 	await get_tree().create_timer(.25).timeout
 	if !changing_rooms: 
 		changing_rooms=true
@@ -154,6 +157,7 @@ func check_room(): # This basically enables and disables shit, and also change c
 		print("room "+ str(room_count) +" || type: boss")
 	var tr=get_tree().get_first_node_in_group("Transition")
 	tr.play("fade_in")
+	faded=false
 
 func leave_intro():
 	intro = false
