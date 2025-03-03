@@ -35,6 +35,7 @@ func rand_upgrades():
 	weapon_screen.rand_weapons()
 
 func activate():
+	if weapon_screen==null: weapon_screen=get_tree().get_first_node_in_group("weapon_screen")
 	weapon_screen.toggle_menu(true)
 	rand_upgrades()
 	canvas.layer=6

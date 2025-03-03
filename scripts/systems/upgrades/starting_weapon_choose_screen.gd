@@ -27,6 +27,10 @@ func _ready():
 	print("ya")
 
 func _process(delta):
+	var sc = get_tree().get_nodes_in_group("weapon_screen")
+	if sc.size()>1:
+		for s in sc:
+			if s!=get_tree().get_first_node_in_group("weapon_screen"):s.queue_free()
 	if has_selected:queue_free()
 	if start and plr != null:
 		#rand_weapons()

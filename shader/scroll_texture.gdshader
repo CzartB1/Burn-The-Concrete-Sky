@@ -10,7 +10,7 @@ void fragment() {
     // Calculate the UV offset over time.
     vec2 offset = scroll_direction * scroll_speed * TIME;
     vec2 uv = fract(UV + offset);
-    
+
     // Snap the UV coordinates to the texture's pixel grid to remove blurriness.
     vec2 tex_size = vec2(textureSize(albedo_texture, 0));
     uv = floor(uv * tex_size) / tex_size;

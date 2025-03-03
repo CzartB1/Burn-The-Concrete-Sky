@@ -4,11 +4,13 @@ extends Button
 var plr:Player
 var start_screen:Starting_Weapon_Screen
 @export var ability_id:int
+@export var icon_:TextureRect
 
 func _process(delta):
 	if  plr == null:
 		plr = get_tree().get_first_node_in_group("Player")
-	text=str(plr.upgrade_manager.available_upgrade[ability_id].name)
+	#text=str(plr.upgrade_manager.available_upgrade[ability_id].name)
+	icon_.texture=plr.upgrade_manager.available_upgrade[ability_id].icon
 
 func _on_pressed():
 	start_screen.selected_weapon_id=ability_id

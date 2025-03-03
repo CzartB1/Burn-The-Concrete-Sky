@@ -1,17 +1,15 @@
-[gd_scene load_steps=102 format=4 uid="uid://c7augcs4p0odc"]
+[gd_scene load_steps=99 format=4 uid="uid://c7augcs4p0odc"]
 
 [ext_resource type="Script" path="res://scripts/systems/rooms/room.gd" id="1_dgndr"]
 [ext_resource type="PackedScene" uid="uid://dqrjqsnh1f28f" path="res://scene/player/upgrades/shopkeeper.tscn" id="2_3qxvq"]
 [ext_resource type="PackedScene" uid="uid://ovjo3gp6humn" path="res://meshes/npc/Justicar/justicar.blend" id="4_n4bbk"]
 [ext_resource type="Script" path="res://scripts/systems/rooms/room_end.gd" id="6_27ovw"]
+[ext_resource type="PackedScene" uid="uid://cjs4iti0daybj" path="res://scene/menus/intro_gift.tscn" id="6_qlign"]
 [ext_resource type="Script" path="res://scripts/systems/upgrades/starting_weapon_figure.gd" id="7_ko0r8"]
 [ext_resource type="Script" path="res://addons/func_godot/src/map/func_godot_map.gd" id="8_yquvv"]
-[ext_resource type="Script" path="res://scripts/systems/upgrades/starting_weapon_choose_screen.gd" id="9_2mgkj"]
 [ext_resource type="Resource" uid="uid://bkhxcqsquw1yg" path="res://addons/func_godot/func_godot_default_map_settings.tres" id="9_2q8o1"]
-[ext_resource type="Script" path="res://scripts/systems/upgrades/starting_weapon_button.gd" id="10_ky7fa"]
 [ext_resource type="Material" uid="uid://dt8hufwbic81h" path="res://textures/buildings/concrete_04.tres" id="10_wypgg"]
 [ext_resource type="Material" uid="uid://dq77rcnf0wn7e" path="res://textures/buildings/concrete_08.tres" id="11_quafm"]
-[ext_resource type="Script" path="res://scripts/systems/upgrades/starting_ability_button.gd" id="12_5bwr0"]
 [ext_resource type="Material" uid="uid://dwu5chjmuyp5i" path="res://textures/buildings/concrete_01.tres" id="12_40f48"]
 [ext_resource type="Material" uid="uid://dqgomxkcjhq6b" path="res://textures/gore/blood_pool.tres" id="12_lx2im"]
 [ext_resource type="Script" path="res://scripts/systems/group_change_object.gd" id="15_rtegf"]
@@ -21,9 +19,6 @@ size = Vector3(16, 3, 2.35602)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_w0qpc"]
 size = Vector3(3, 3, 3)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_igqtx"]
-bg_color = Color(0, 0, 0, 1)
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_ihb4w"]
 _surfaces = [{
@@ -335,6 +330,7 @@ shopkeepers = [NodePath("shopkeeper")]
 
 [node name="shopkeeper" parent="." instance=ExtResource("2_3qxvq")]
 transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, -4.65296e-05, -1.12465, 15.6049)
+visible = false
 
 [node name="spawn" type="Node3D" parent="." groups=["spawn_pos"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.148299, 0, 0.871401)
@@ -362,122 +358,10 @@ shape = SubResource("BoxShape3D_w0qpc")
 [node name="justicar" parent="the_figure" instance=ExtResource("4_n4bbk")]
 transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 1.22392e-06, 0, -14)
 
-[node name="CanvasLayer" type="CanvasLayer" parent="the_figure"]
-layer = 4
+[node name="CanvasLayer" parent="the_figure" instance=ExtResource("6_qlign")]
 
-[node name="startingweaponscreen" type="Control" parent="the_figure/CanvasLayer" node_paths=PackedStringArray("menu", "body", "w_button1", "w_button2", "a_button1", "a_button2")]
-layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-script = ExtResource("9_2mgkj")
-menu = NodePath("Panel")
+[node name="startingweaponscreen" parent="the_figure/CanvasLayer" index="0" node_paths=PackedStringArray("body")]
 body = NodePath("../..")
-w_button1 = NodePath("Panel/MarginContainer/HBoxContainer/weapon1")
-w_button2 = NodePath("Panel/MarginContainer/HBoxContainer/weapon2")
-a_button1 = NodePath("Panel/MarginContainer/HBoxContainer/Ability1")
-a_button2 = NodePath("Panel/MarginContainer/HBoxContainer/Ability2")
-
-[node name="Panel" type="Panel" parent="the_figure/CanvasLayer/startingweaponscreen"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_igqtx")
-
-[node name="RichTextLabel" type="RichTextLabel" parent="the_figure/CanvasLayer/startingweaponscreen/Panel"]
-layout_mode = 1
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -122.0
-offset_right = 122.0
-offset_bottom = 40.0
-grow_horizontal = 2
-theme_override_font_sizes/normal_font_size = 19
-text = "Choose a second weapon"
-
-[node name="MarginContainer" type="MarginContainer" parent="the_figure/CanvasLayer/startingweaponscreen/Panel"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 154.0
-offset_top = 85.0
-offset_right = -154.0
-offset_bottom = -252.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="HBoxContainer" type="HBoxContainer" parent="the_figure/CanvasLayer/startingweaponscreen/Panel/MarginContainer"]
-layout_mode = 2
-size_flags_horizontal = 4
-theme_override_constants/separation = 35
-alignment = 1
-
-[node name="weapon1" type="Button" parent="the_figure/CanvasLayer/startingweaponscreen/Panel/MarginContainer/HBoxContainer"]
-layout_mode = 2
-theme_override_font_sizes/font_size = 38
-action_mode = 0
-text = "Weapon 1"
-script = ExtResource("10_ky7fa")
-
-[node name="weapon2" type="Button" parent="the_figure/CanvasLayer/startingweaponscreen/Panel/MarginContainer/HBoxContainer"]
-layout_mode = 2
-theme_override_font_sizes/font_size = 38
-action_mode = 0
-text = "Weapon 1"
-script = ExtResource("10_ky7fa")
-
-[node name="Ability1" type="Button" parent="the_figure/CanvasLayer/startingweaponscreen/Panel/MarginContainer/HBoxContainer"]
-layout_mode = 2
-theme_override_font_sizes/font_size = 38
-action_mode = 0
-text = "Ability 1"
-script = ExtResource("12_5bwr0")
-
-[node name="Ability2" type="Button" parent="the_figure/CanvasLayer/startingweaponscreen/Panel/MarginContainer/HBoxContainer"]
-layout_mode = 2
-theme_override_font_sizes/font_size = 38
-action_mode = 0
-text = "Ability 1"
-script = ExtResource("12_5bwr0")
-
-[node name="exit" type="Button" parent="the_figure/CanvasLayer/startingweaponscreen/Panel"]
-layout_mode = 1
-anchors_preset = 7
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = -89.0
-offset_top = -74.0
-offset_right = 89.0
-offset_bottom = -39.0
-grow_horizontal = 2
-grow_vertical = 0
-action_mode = 0
-text = "exit"
-
-[node name="select" type="Button" parent="the_figure/CanvasLayer/startingweaponscreen/Panel"]
-layout_mode = 1
-anchors_preset = 7
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = -89.0
-offset_top = -130.0
-offset_right = 89.0
-offset_bottom = -95.0
-grow_horizontal = 2
-grow_vertical = 0
-action_mode = 0
-text = "Select weapon"
 
 [node name="FuncGodotMap" type="Node3D" parent="."]
 transform = Transform3D(-8.74228e-08, 0, -2, 0, 2, 0, 2, 0, -8.74228e-08, 0, -2, 0)
@@ -753,13 +637,9 @@ mesh = SubResource("BoxMesh_nn5ji")
 [connection signal="body_entered" from="rooms_end" to="rooms_end" method="_on_body_entered"]
 [connection signal="body_entered" from="the_figure" to="the_figure" method="_on_body_entered"]
 [connection signal="body_exited" from="the_figure" to="the_figure" method="_on_body_exited"]
-[connection signal="pressed" from="the_figure/CanvasLayer/startingweaponscreen/Panel/MarginContainer/HBoxContainer/weapon1" to="the_figure/CanvasLayer/startingweaponscreen/Panel/MarginContainer/HBoxContainer/weapon1" method="_on_pressed"]
-[connection signal="pressed" from="the_figure/CanvasLayer/startingweaponscreen/Panel/MarginContainer/HBoxContainer/weapon2" to="the_figure/CanvasLayer/startingweaponscreen/Panel/MarginContainer/HBoxContainer/weapon2" method="_on_pressed"]
-[connection signal="pressed" from="the_figure/CanvasLayer/startingweaponscreen/Panel/MarginContainer/HBoxContainer/Ability1" to="the_figure/CanvasLayer/startingweaponscreen/Panel/MarginContainer/HBoxContainer/Ability1" method="_on_pressed"]
-[connection signal="pressed" from="the_figure/CanvasLayer/startingweaponscreen/Panel/MarginContainer/HBoxContainer/Ability2" to="the_figure/CanvasLayer/startingweaponscreen/Panel/MarginContainer/HBoxContainer/Ability2" method="_on_pressed"]
-[connection signal="pressed" from="the_figure/CanvasLayer/startingweaponscreen/Panel/exit" to="the_figure/CanvasLayer/startingweaponscreen" method="_on_button_pressed"]
-[connection signal="pressed" from="the_figure/CanvasLayer/startingweaponscreen/Panel/select" to="the_figure/CanvasLayer/startingweaponscreen" method="_on_select_pressed"]
 [connection signal="body_entered" from="group_change_object" to="group_change_object" method="_on_body_entered"]
 [connection signal="body_exited" from="group_change_object" to="group_change_object" method="_on_body_exited"]
 [connection signal="body_entered" from="group_change_object2" to="group_change_object2" method="_on_body_entered"]
 [connection signal="body_exited" from="group_change_object2" to="group_change_object2" method="_on_body_exited"]
+
+[editable path="the_figure/CanvasLayer"]

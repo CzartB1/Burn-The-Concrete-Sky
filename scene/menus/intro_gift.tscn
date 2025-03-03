@@ -1,0 +1,172 @@
+[gd_scene load_steps=5 format=3 uid="uid://cjs4iti0daybj"]
+
+[ext_resource type="Script" path="res://scripts/systems/upgrades/starting_weapon_choose_screen.gd" id="1_0j7es"]
+[ext_resource type="Script" path="res://scripts/systems/upgrades/starting_weapon_button.gd" id="2_gk25m"]
+[ext_resource type="Script" path="res://scripts/systems/upgrades/starting_ability_button.gd" id="3_ik7n5"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_igqtx"]
+bg_color = Color(0, 0, 0, 1)
+
+[node name="CanvasLayer" type="CanvasLayer"]
+layer = 4
+
+[node name="startingweaponscreen" type="Control" parent="." node_paths=PackedStringArray("menu", "w_button1", "w_button2", "a_button1", "a_button2") groups=["weapon_screen"]]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_0j7es")
+menu = NodePath("Panel")
+w_button1 = NodePath("Panel/MarginContainer/HBoxContainer/weapon1")
+w_button2 = NodePath("Panel/MarginContainer/HBoxContainer/weapon2")
+a_button1 = NodePath("Panel/MarginContainer/HBoxContainer/Ability1")
+a_button2 = NodePath("Panel/MarginContainer/HBoxContainer/Ability2")
+
+[node name="Panel" type="Panel" parent="startingweaponscreen"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_igqtx")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="startingweaponscreen/Panel"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -187.0
+offset_right = 187.0
+offset_bottom = 40.0
+grow_horizontal = 2
+theme_override_font_sizes/normal_font_size = 19
+bbcode_enabled = true
+text = "[center]Choose a second gift"
+
+[node name="MarginContainer" type="MarginContainer" parent="startingweaponscreen/Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 154.0
+offset_top = 85.0
+offset_right = -154.0
+offset_bottom = -252.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="startingweaponscreen/Panel/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_constants/separation = 35
+alignment = 1
+
+[node name="weapon1" type="Button" parent="startingweaponscreen/Panel/MarginContainer/HBoxContainer" node_paths=PackedStringArray("icon_")]
+custom_minimum_size = Vector2(225, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 38
+action_mode = 0
+script = ExtResource("2_gk25m")
+icon_ = NodePath("TextureRect")
+
+[node name="TextureRect" type="TextureRect" parent="startingweaponscreen/Panel/MarginContainer/HBoxContainer/weapon1"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+stretch_mode = 5
+
+[node name="weapon2" type="Button" parent="startingweaponscreen/Panel/MarginContainer/HBoxContainer" node_paths=PackedStringArray("icon_")]
+custom_minimum_size = Vector2(225, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 38
+action_mode = 0
+script = ExtResource("2_gk25m")
+icon_ = NodePath("TextureRect")
+
+[node name="TextureRect" type="TextureRect" parent="startingweaponscreen/Panel/MarginContainer/HBoxContainer/weapon2"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+stretch_mode = 5
+
+[node name="Ability1" type="Button" parent="startingweaponscreen/Panel/MarginContainer/HBoxContainer" node_paths=PackedStringArray("icon_")]
+custom_minimum_size = Vector2(225, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 38
+action_mode = 0
+script = ExtResource("3_ik7n5")
+icon_ = NodePath("TextureRect")
+
+[node name="TextureRect" type="TextureRect" parent="startingweaponscreen/Panel/MarginContainer/HBoxContainer/Ability1"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+stretch_mode = 5
+
+[node name="Ability2" type="Button" parent="startingweaponscreen/Panel/MarginContainer/HBoxContainer" node_paths=PackedStringArray("icon_")]
+custom_minimum_size = Vector2(225, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 38
+action_mode = 0
+script = ExtResource("3_ik7n5")
+icon_ = NodePath("TextureRect")
+
+[node name="TextureRect" type="TextureRect" parent="startingweaponscreen/Panel/MarginContainer/HBoxContainer/Ability2"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+stretch_mode = 5
+
+[node name="exit" type="Button" parent="startingweaponscreen/Panel"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -89.0
+offset_top = -74.0
+offset_right = 89.0
+offset_bottom = -39.0
+grow_horizontal = 2
+grow_vertical = 0
+action_mode = 0
+text = "exit"
+
+[node name="select" type="Button" parent="startingweaponscreen/Panel"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -89.0
+offset_top = -130.0
+offset_right = 89.0
+offset_bottom = -95.0
+grow_horizontal = 2
+grow_vertical = 0
+action_mode = 0
+text = "Select weapon"
+
+[connection signal="pressed" from="startingweaponscreen/Panel/MarginContainer/HBoxContainer/weapon1" to="startingweaponscreen/Panel/MarginContainer/HBoxContainer/weapon1" method="_on_pressed"]
+[connection signal="pressed" from="startingweaponscreen/Panel/MarginContainer/HBoxContainer/weapon2" to="startingweaponscreen/Panel/MarginContainer/HBoxContainer/weapon2" method="_on_pressed"]
+[connection signal="pressed" from="startingweaponscreen/Panel/MarginContainer/HBoxContainer/Ability1" to="startingweaponscreen/Panel/MarginContainer/HBoxContainer/Ability1" method="_on_pressed"]
+[connection signal="pressed" from="startingweaponscreen/Panel/MarginContainer/HBoxContainer/Ability2" to="startingweaponscreen/Panel/MarginContainer/HBoxContainer/Ability2" method="_on_pressed"]
+[connection signal="pressed" from="startingweaponscreen/Panel/exit" to="startingweaponscreen" method="_on_button_pressed"]
+[connection signal="pressed" from="startingweaponscreen/Panel/select" to="startingweaponscreen" method="_on_select_pressed"]

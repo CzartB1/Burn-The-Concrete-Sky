@@ -22,6 +22,7 @@ var changing_rooms = false
 var prev_combat_id
 var upgrading = false
 var faded=false
+var can_change=false
 
 func _ready():
 	intro_room=combatgroup.intro_room
