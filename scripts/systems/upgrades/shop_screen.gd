@@ -23,6 +23,7 @@ var w3:Node3D
 @export var up_button3:Upgrade_Button
 @export_group("")
 @export var money_label:RichTextLabel
+@export var item_icon:TextureRect
 var selected_weapon_id:int
 var econom:Player_Economy_Manager
 var has_selected=false

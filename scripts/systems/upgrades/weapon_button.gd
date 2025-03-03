@@ -30,4 +30,5 @@ func _on_pressed():
 	weapon_screen.selected_button=self
 	button_disable.visible=false
 	button_enable.visible=true
+	weapon_screen.item_icon.texture=w_object.icon
 	#disabled=true

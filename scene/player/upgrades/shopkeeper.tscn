@@ -27,7 +27,7 @@ shape = SubResource("BoxShape3D_51dt0")
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 layer = 6
 
-[node name="shop_screen" type="Control" parent="CanvasLayer" node_paths=PackedStringArray("menu", "w_button1", "w_button2", "w_button3", "up_button1", "up_button2", "up_button3", "money_label")]
+[node name="shop_screen" type="Control" parent="CanvasLayer" node_paths=PackedStringArray("menu", "w_button1", "w_button2", "w_button3", "up_button1", "up_button2", "up_button3", "money_label", "item_icon")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -44,6 +44,7 @@ up_button1 = NodePath("Panel/MarginContainer/HBoxContainer/browse list/ability1_
 up_button2 = NodePath("Panel/MarginContainer/HBoxContainer/browse list/ability2_button")
 up_button3 = NodePath("Panel/MarginContainer/HBoxContainer/browse list/ability3_button")
 money_label = NodePath("Panel/money_label")
+item_icon = NodePath("Panel/MarginContainer/HBoxContainer/descriptions/TextureRect")
 
 [node name="Panel" type="Panel" parent="CanvasLayer/shop_screen"]
 layout_mode = 1
@@ -84,7 +85,7 @@ script = ExtResource("4_rpvdl")
 weapon_screen = NodePath("../../../../..")
 button_enable = NodePath("../../descriptions/HBoxContainer")
 button_disable = NodePath("../../descriptions/buy_button")
-description_box = NodePath("../../descriptions/RichTextLabel")
+description_box = NodePath("../../descriptions/MarginContainer/RichTextLabel")
 
 [node name="weapon1_button2" type="Button" parent="CanvasLayer/shop_screen/Panel/MarginContainer/HBoxContainer/browse list" node_paths=PackedStringArray("weapon_screen", "button_enable", "button_disable", "description_box")]
 layout_mode = 2
@@ -96,7 +97,7 @@ script = ExtResource("4_rpvdl")
 weapon_screen = NodePath("../../../../..")
 button_enable = NodePath("../../descriptions/HBoxContainer")
 button_disable = NodePath("../../descriptions/buy_button")
-description_box = NodePath("../../descriptions/RichTextLabel")
+description_box = NodePath("../../descriptions/MarginContainer/RichTextLabel")
 
 [node name="weapon1_button3" type="Button" parent="CanvasLayer/shop_screen/Panel/MarginContainer/HBoxContainer/browse list" node_paths=PackedStringArray("weapon_screen", "button_enable", "button_disable", "description_box")]
 layout_mode = 2
@@ -108,7 +109,7 @@ script = ExtResource("4_rpvdl")
 weapon_screen = NodePath("../../../../..")
 button_enable = NodePath("../../descriptions/HBoxContainer")
 button_disable = NodePath("../../descriptions/buy_button")
-description_box = NodePath("../../descriptions/RichTextLabel")
+description_box = NodePath("../../descriptions/MarginContainer/RichTextLabel")
 
 [node name="ability1_button" type="Button" parent="CanvasLayer/shop_screen/Panel/MarginContainer/HBoxContainer/browse list" node_paths=PackedStringArray("menu", "button_enable", "button_disable", "description_box")]
 layout_mode = 2
@@ -119,7 +120,7 @@ script = ExtResource("5_0d0sk")
 menu = NodePath("../../../../..")
 button_enable = NodePath("../../descriptions/buy_button")
 button_disable = NodePath("../../descriptions/HBoxContainer")
-description_box = NodePath("../../descriptions/RichTextLabel")
+description_box = NodePath("../../descriptions/MarginContainer/RichTextLabel")
 
 [node name="ability2_button" type="Button" parent="CanvasLayer/shop_screen/Panel/MarginContainer/HBoxContainer/browse list" node_paths=PackedStringArray("menu", "button_enable", "button_disable", "description_box")]
 layout_mode = 2
@@ -131,7 +132,7 @@ upgrade_id = 1
 menu = NodePath("../../../../..")
 button_enable = NodePath("../../descriptions/buy_button")
 button_disable = NodePath("../../descriptions/HBoxContainer")
-description_box = NodePath("../../descriptions/RichTextLabel")
+description_box = NodePath("../../descriptions/MarginContainer/RichTextLabel")
 
 [node name="ability3_button" type="Button" parent="CanvasLayer/shop_screen/Panel/MarginContainer/HBoxContainer/browse list" node_paths=PackedStringArray("menu", "button_enable", "button_disable", "description_box")]
 layout_mode = 2
@@ -143,7 +144,7 @@ upgrade_id = 2
 menu = NodePath("../../../../..")
 button_enable = NodePath("../../descriptions/buy_button")
 button_disable = NodePath("../../descriptions/HBoxContainer")
-description_box = NodePath("../../descriptions/RichTextLabel")
+description_box = NodePath("../../descriptions/MarginContainer/RichTextLabel")
 
 [node name="descriptions" type="VBoxContainer" parent="CanvasLayer/shop_screen/Panel/MarginContainer/HBoxContainer"]
 custom_minimum_size = Vector2(500, 0)
@@ -153,8 +154,15 @@ theme_override_constants/separation = 15
 [node name="TextureRect" type="TextureRect" parent="CanvasLayer/shop_screen/Panel/MarginContainer/HBoxContainer/descriptions"]
 custom_minimum_size = Vector2(0, 200)
 layout_mode = 2
+expand_mode = 3
+stretch_mode = 5
 
-[node name="RichTextLabel" type="RichTextLabel" parent="CanvasLayer/shop_screen/Panel/MarginContainer/HBoxContainer/descriptions"]
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/shop_screen/Panel/MarginContainer/HBoxContainer/descriptions"]
+layout_mode = 2
+theme_override_constants/margin_left = 45
+theme_override_constants/margin_right = 45
+
+[node name="RichTextLabel" type="RichTextLabel" parent="CanvasLayer/shop_screen/Panel/MarginContainer/HBoxContainer/descriptions/MarginContainer"]
 custom_minimum_size = Vector2(0, 210)
 layout_mode = 2
 theme_override_font_sizes/normal_font_size = 12

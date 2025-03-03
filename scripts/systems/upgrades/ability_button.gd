@@ -23,6 +23,7 @@ func _on_pressed():
 	var econom=get_tree().get_first_node_in_group("Economy")
 	button_disable.visible=false
 	button_enable.visible=true
+	menu.item_icon.texture=up_object.icon
 	if up_object!=null:
 		description_box.text=up_object.Description
 	if plr!=null and econom is Player_Economy_Manager:
