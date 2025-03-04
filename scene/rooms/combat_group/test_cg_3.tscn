@@ -1,10 +1,10 @@
 [gd_scene load_steps=10 format=3 uid="uid://gagx2whtjcm6"]
 
 [ext_resource type="Script" path="res://scripts/systems/rooms/combat_group.gd" id="1_me76h"]
-[ext_resource type="PackedScene" uid="uid://cetmp2xotayla" path="res://scene/enemy/enemy_melee.tscn" id="2_teuyy"]
-[ext_resource type="PackedScene" uid="uid://47qm8jauxjtt" path="res://scene/enemy/enemy_invisible.tscn" id="3_2ht5w"]
+[ext_resource type="PackedScene" uid="uid://bw7y82qxa2yhs" path="res://scene/enemy/Common/scrapper.tscn" id="2_mf6hn"]
 [ext_resource type="PackedScene" uid="uid://2b62hy8gi1wb" path="res://scene/rooms/test/test_cg3/room_cg3_1.tscn" id="3_bej8n"]
 [ext_resource type="PackedScene" uid="uid://cstkrfvtb6jxk" path="res://scene/rooms/test/test_cg3/room_rest_cg3.tscn" id="3_ctfdt"]
+[ext_resource type="PackedScene" uid="uid://nhi2cs0lg025" path="res://scene/enemy/elite/pistolero.tscn" id="3_p2ko5"]
 [ext_resource type="PackedScene" uid="uid://b13rkk6xn8xrc" path="res://scene/rooms/test/test_cg3/room_cg3_2.tscn" id="4_epttm"]
 [ext_resource type="PackedScene" uid="uid://ca2bnapbbuwbc" path="res://scene/rooms/test/test_cg3/room_cg3_3.tscn" id="5_2lilr"]
 [ext_resource type="PackedScene" uid="uid://kedshd64hp37" path="res://scene/rooms/test/test_cg3/room_boss_cg3.tscn" id="7_xxfp1"]
@@ -13,8 +13,8 @@
 [node name="test_cg3" type="Node3D" node_paths=PackedStringArray("rooms", "intro_room", "rest_room", "preboss_room", "boss_room")]
 script = ExtResource("1_me76h")
 rooms = [NodePath("room_1"), NodePath("room_2"), NodePath("room_3")]
-commons = Array[PackedScene]([ExtResource("2_teuyy")])
-elites = Array[PackedScene]([ExtResource("3_2ht5w")])
+commons = Array[PackedScene]([ExtResource("2_mf6hn")])
+elites = Array[PackedScene]([ExtResource("3_p2ko5")])
 intro_room = NodePath("room_rest")
 rest_room = NodePath("room_rest")
 preboss_room = NodePath("room_preboss")

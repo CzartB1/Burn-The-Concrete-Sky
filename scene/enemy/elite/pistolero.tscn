@@ -15,7 +15,7 @@
 radius = 0.292645
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_cvuv1"]
-animation = &"idle"
+animation = &"shoot"
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_tvlyy"]
 animation = &"idle"
@@ -50,7 +50,7 @@ blend_point_2/pos = 1.0
 min_space = 0.0
 
 [sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_xul8q"]
-graph_offset = Vector2(-832.286, 42.6587)
+graph_offset = Vector2(-828.409, 97.4917)
 nodes/Animation/node = SubResource("AnimationNodeAnimation_tvlyy")
 nodes/Animation/position = Vector2(-500, 80)
 "nodes/Animation 2/node" = SubResource("AnimationNodeAnimation_cvuv1")
@@ -78,7 +78,7 @@ shape = SubResource("CapsuleShape3D_gjrny")
 transform = Transform3D(-1.2, 0, 1.04907e-07, 0, 1.2, 0, -1.04907e-07, 0, -1.2, 0, -1, 0)
 
 [node name="Skeleton3D" parent="pistolero/metarig" index="0"]
-bones/0/position = Vector3(0, 0.995939, -0.00681275)
+bones/0/position = Vector3(0, 1.00642, -0.00681275)
 bones/1/rotation = Quaternion(-0.0583406, -0.607113, -0.0447664, 0.791205)
 bones/2/rotation = Quaternion(0.0585182, -1.15263e-07, 7.4644e-09, 0.998286)
 bones/3/rotation = Quaternion(-0.539901, -0.44005, -0.453665, 0.555924)
@@ -86,13 +86,16 @@ bones/4/rotation = Quaternion(-0.459773, 0.549693, -0.463777, 0.52092)
 bones/5/rotation = Quaternion(-0.477822, 0.506694, 0.522407, 0.491974)
 bones/6/rotation = Quaternion(-0.111951, -0.0679237, 0.511101, 0.849488)
 bones/7/rotation = Quaternion(0.135772, -0.00739314, 0.000478688, 0.990712)
+bones/8/rotation = Quaternion(-0.0213207, 0.00243081, 0.0257741, 0.999438)
+bones/9/position = Vector3(-0.0336939, 0.427721, 0.10101)
+bones/9/rotation = Quaternion(0.00420759, 0.00346588, 0.0337655, 0.999415)
 bones/10/rotation = Quaternion(0.168204, -0.129242, 0.0182628, 0.977072)
-bones/12/rotation = Quaternion(0.702851, -0.0774595, 0.702852, 0.0774595)
-bones/13/rotation = Quaternion(0.057598, -1.57258e-08, 5.01279e-09, 0.99834)
-bones/14/rotation = Quaternion(-0.648942, 7.97528e-07, -7.16348e-07, 0.760838)
-bones/15/rotation = Quaternion(0.704793, -0.057153, 0.704793, 0.057153)
-bones/16/rotation = Quaternion(0.616151, -1.01474e-08, 1.30386e-08, 0.787628)
-bones/17/rotation = Quaternion(-0.703997, 7.40927e-07, -7.77869e-07, 0.710203)
+bones/12/rotation = Quaternion(0.706829, 0.0198094, 0.706829, -0.0198094)
+bones/13/rotation = Quaternion(0.0264441, -1.58211e-08, 4.52396e-09, 0.99965)
+bones/14/rotation = Quaternion(-0.691932, 7.9271e-07, -7.23008e-07, 0.721963)
+bones/15/rotation = Quaternion(0.688948, -0.159219, 0.688948, 0.159219)
+bones/16/rotation = Quaternion(0.766683, -7.83199e-09, 1.52376e-08, 0.642025)
+bones/17/rotation = Quaternion(-0.670853, 7.59589e-07, -7.58339e-07, 0.74159)
 bones/19/rotation = Quaternion(-0.0243409, 0.751105, 0.655919, -0.0708453)
 
 [node name="Muzzle" type="Node3D" parent="pistolero/metarig/Skeleton3D/Revolver" index="0"]

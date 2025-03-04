@@ -1,8 +1,7 @@
-[gd_scene load_steps=23 format=3 uid="uid://bw7y82qxa2yhs"]
+[gd_scene load_steps=20 format=3 uid="uid://bw7y82qxa2yhs"]
 
 [ext_resource type="Script" path="res://scripts/enemy/enemy.gd" id="1_8enms"]
 [ext_resource type="PackedScene" uid="uid://cjwreu6yxp24d" path="res://meshes/enemies/cg2_factory/scrapper/scrapper.blend" id="2_m8u1i"]
-[ext_resource type="PackedScene" uid="uid://b88c6k2bkb3fh" path="res://scene/money.tscn" id="2_rffi2"]
 [ext_resource type="Script" path="res://scripts/enemy/states/masters/behavior_melee.gd" id="3_6dk3f"]
 [ext_resource type="Script" path="res://addons/finite_state_machine/scripts/finite_state_machine.gd" id="4_h2tww"]
 [ext_resource type="Script" path="res://addons/finite_state_machine/scripts/state_machine_state.gd" id="5_uot31"]
@@ -16,17 +15,10 @@
 radius = 0.364834
 height = 1.82751
 
-[sub_resource type="AnimationNodeBlend2" id="AnimationNodeBlend2_ty3bp"]
-filter_enabled = true
-filters = ["metarig/Skeleton3D:foot.L", "metarig/Skeleton3D:foot.R", "metarig/Skeleton3D:hip", "metarig/Skeleton3D:hip.L", "metarig/Skeleton3D:shin.L", "metarig/Skeleton3D:shin.R", "metarig/Skeleton3D:thigh.L", "metarig/Skeleton3D:thigh.R"]
-
 [sub_resource type="AnimationNodeOneShot" id="AnimationNodeOneShot_0t7ik"]
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_e54kd"]
-animation = &"upperbody_attack"
-
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_aecpi"]
-animation = &"upperbody_idle"
+animation = &"attack"
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_btmf1"]
 animation = &"idle"
@@ -47,18 +39,15 @@ blend_point_2/pos = 0.0
 min_space = 0.0
 
 [sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_xphmf"]
-nodes/Blend2/node = SubResource("AnimationNodeBlend2_ty3bp")
-nodes/Blend2/position = Vector2(140, 100)
+graph_offset = Vector2(-898.273, 3.98478)
 nodes/attack/node = SubResource("AnimationNodeOneShot_0t7ik")
 nodes/attack/position = Vector2(-120, 40)
 nodes/attack_anim/node = SubResource("AnimationNodeAnimation_e54kd")
-nodes/attack_anim/position = Vector2(-400, 240)
-nodes/idle/node = SubResource("AnimationNodeAnimation_aecpi")
-nodes/idle/position = Vector2(-400, 40)
+nodes/attack_anim/position = Vector2(-400, 200)
 nodes/leg/node = SubResource("AnimationNodeBlendSpace1D_d8wwa")
-nodes/leg/position = Vector2(-60, 280)
+nodes/leg/position = Vector2(-360, 40)
 nodes/output/position = Vector2(380, 120)
-node_connections = [&"Blend2", 0, &"attack", &"Blend2", 1, &"leg", &"attack", 0, &"idle", &"attack", 1, &"attack_anim", &"output", 0, &"Blend2"]
+node_connections = [&"attack", 0, &"leg", &"attack", 1, &"attack_anim", &"output", 0, &"attack"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_u2t00"]
 size = Vector3(1.0918, 1, 1)
@@ -66,7 +55,6 @@ size = Vector3(1.0918, 1, 1)
 [node name="wretch" type="CharacterBody3D" node_paths=PackedStringArray("navigation_agent", "gore_manager") groups=["Enemy"]]
 script = ExtResource("1_8enms")
 navigation_agent = NodePath("behavior_master/NavigationAgent3D")
-money_scene = ExtResource("2_rffi2")
 mult_loot = 0.5
 gore_manager = NodePath("gore_manager")
 
@@ -98,16 +86,16 @@ bones/10/rotation = Quaternion(-0.0225911, 0.00364458, 0.0259031, 0.999403)
 bones/10/scale = Vector3(1, 1, 1)
 bones/11/rotation = Quaternion(0.00951727, 0.176998, 0.0215552, 0.983929)
 bones/12/rotation = Quaternion(-0.154804, -1.16391e-07, -5.36931e-08, 0.987945)
-bones/13/position = Vector3(0.0341696, 0.0620999, 0.0931236)
-bones/13/rotation = Quaternion(0.800953, -0.118866, 0.575764, 0.113314)
+bones/13/position = Vector3(0.0227838, 0.0620999, 0.0956821)
+bones/13/rotation = Quaternion(0.794483, 0.0402645, 0.602953, -0.0601909)
 bones/13/scale = Vector3(1, 1, 1)
-bones/14/rotation = Quaternion(0.564213, -0.00800528, -0.140454, 0.813556)
-bones/15/rotation = Quaternion(-0.682957, 7.83714e-07, -7.32749e-07, 0.730459)
+bones/14/rotation = Quaternion(0.404093, -0.0010601, -0.0634435, 0.912515)
+bones/15/rotation = Quaternion(-0.682957, 7.83884e-07, -7.32908e-07, 0.730459)
 bones/15/scale = Vector3(1, 1, 1)
-bones/16/position = Vector3(-0.0229951, 0.0620999, -0.0931236)
-bones/16/rotation = Quaternion(0.762783, -0.00328486, 0.645748, -0.0340643)
+bones/16/position = Vector3(-0.0116093, 0.0620999, -0.0956821)
+bones/16/rotation = Quaternion(0.739029, -0.0908915, 0.652287, 0.141763)
 bones/16/scale = Vector3(1, 1, 1)
-bones/17/rotation = Quaternion(0.139047, 0.00144652, 0.0169279, 0.99014)
+bones/17/rotation = Quaternion(0.108005, -0.00158638, 0.0132953, 0.99406)
 bones/18/rotation = Quaternion(-0.706715, 0.0185437, -0.0210314, 0.706943)
 bones/18/scale = Vector3(1, 1, 1)
 bones/19/rotation = Quaternion(-0.655919, -0.0708456, 0.0243406, 0.751105)
@@ -118,7 +106,6 @@ bones/20/rotation = Quaternion(-0.0243409, 0.751105, 0.655919, -0.0708453)
 root_node = NodePath("../scrapper")
 tree_root = SubResource("AnimationNodeBlendTree_xphmf")
 anim_player = NodePath("../scrapper/AnimationPlayer")
-parameters/Blend2/blend_amount = 1.0
 parameters/attack/active = false
 parameters/attack/internal_active = false
 parameters/attack/request = 0
