@@ -12,6 +12,7 @@ var prev_combat_id
 @export_group("Special Rooms")
 @export var intro_room: Room
 @export var rest_room: Room
+@export var preboss_room: Room
 @export var boss_room: Boss_Room
 var last_room: Room
 
@@ -22,6 +23,9 @@ func _ready():
 	if rest_room!=null:
 		rest_room.visible=false
 		rest_room.process_mode=Node.PROCESS_MODE_DISABLED
+	if preboss_room!=null:
+		preboss_room.visible=false
+		preboss_room.process_mode=Node.PROCESS_MODE_DISABLED
 	if boss_room!=null:
 		boss_room.group = self
 		boss_room.visible=false
@@ -126,13 +130,26 @@ func enable_rest_room():
 	rest_room.process_mode = Node.PROCESS_MODE_INHERIT
 	await get_tree().create_timer(0.05).timeout
 	rest_room.move_player_to_spawn()
-	print("here=========")
-	if rest_room.shopkeeper!=null:
-		rest_room.shopkeeper.rand_upgrades()
+	#print("here=========")
+	if rest_room.shopkeepers.size()>0:
+		for i in rest_room.shopkeepers: i.rand_upgrades()
+
+func enable_preboss_room():
+	preboss_room.visible = true
+	preboss_room.process_mode = Node.PROCESS_MODE_INHERIT
+	await get_tree().create_timer(0.05).timeout
+	preboss_room.move_player_to_spawn()
+	#print("here=========")
+	if preboss_room.shopkeepers.size()>0:
+		for i in preboss_room.shopkeepers: i.rand_upgrades()
 
 func disable_rest_room():
 	rest_room.visible = false
 	rest_room.process_mode = Node.PROCESS_MODE_DISABLED
+
+func disable_preboss_room():
+	preboss_room.visible = false
+	preboss_room.process_mode = Node.PROCESS_MODE_DISABLED
 
 func activate_next_group():
 	manager.clear_abilities()
@@ -158,6 +175,7 @@ func activate_next_group():
 
 func activate_group(chos:Combat_Group):
 	if manager.current_room_category==2:manager.leave_intro()
+	manager.can_change=true
 	manager.clear_abilities()
 	manager.combatgroup=chos
 	enabled=false
@@ -180,6 +198,7 @@ func activate_group(chos:Combat_Group):
 
 func activate_selected_room(room_id:int):
 	manager.current_room = room_id
+	#manager.can_change=true
 	check_room()
 	print("combat room id: "+str(manager.current_room))
 	await get_tree().create_timer(0.1).timeout

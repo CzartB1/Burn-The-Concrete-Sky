@@ -18,6 +18,7 @@ func _process(delta):
 			can_go=true
 
 func _on_body_entered(body):
-	if body is Player and room.process_mode == Node.PROCESS_MODE_INHERIT and can_go:
+	if body is Player and room.process_mode == Node.PROCESS_MODE_INHERIT and can_go and !room.manager.can_change:
 		#await get_tree().physics_frame
+		room.manager.can_change=true
 		room.change_level()

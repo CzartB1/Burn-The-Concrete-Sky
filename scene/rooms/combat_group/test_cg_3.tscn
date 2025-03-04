@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://gagx2whtjcm6"]
+[gd_scene load_steps=10 format=3 uid="uid://gagx2whtjcm6"]
 
 [ext_resource type="Script" path="res://scripts/systems/rooms/combat_group.gd" id="1_me76h"]
 [ext_resource type="PackedScene" uid="uid://cetmp2xotayla" path="res://scene/enemy/enemy_melee.tscn" id="2_teuyy"]
@@ -8,14 +8,16 @@
 [ext_resource type="PackedScene" uid="uid://b13rkk6xn8xrc" path="res://scene/rooms/test/test_cg3/room_cg3_2.tscn" id="4_epttm"]
 [ext_resource type="PackedScene" uid="uid://ca2bnapbbuwbc" path="res://scene/rooms/test/test_cg3/room_cg3_3.tscn" id="5_2lilr"]
 [ext_resource type="PackedScene" uid="uid://kedshd64hp37" path="res://scene/rooms/test/test_cg3/room_boss_cg3.tscn" id="7_xxfp1"]
+[ext_resource type="PackedScene" uid="uid://chi0yi6krxebk" path="res://scene/rooms/test/test_cg1/room_rest.tscn" id="9_rqte7"]
 
-[node name="test_cg3" type="Node3D" node_paths=PackedStringArray("rooms", "intro_room", "rest_room", "boss_room")]
+[node name="test_cg3" type="Node3D" node_paths=PackedStringArray("rooms", "intro_room", "rest_room", "preboss_room", "boss_room")]
 script = ExtResource("1_me76h")
 rooms = [NodePath("room_1"), NodePath("room_2"), NodePath("room_3")]
 commons = Array[PackedScene]([ExtResource("2_teuyy")])
 elites = Array[PackedScene]([ExtResource("3_2ht5w")])
 intro_room = NodePath("room_rest")
 rest_room = NodePath("room_rest")
+preboss_room = NodePath("room_preboss")
 boss_room = NodePath("room_boss")
 
 [node name="room_rest" parent="." groups=["room"] instance=ExtResource("3_ctfdt")]
@@ -27,3 +29,5 @@ boss_room = NodePath("room_boss")
 [node name="room_3" parent="." groups=["room"] instance=ExtResource("5_2lilr")]
 
 [node name="room_boss" parent="." groups=["room"] instance=ExtResource("7_xxfp1")]
+
+[node name="room_preboss" parent="." instance=ExtResource("9_rqte7")]

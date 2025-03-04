@@ -22,7 +22,7 @@ var changing_rooms = false
 var prev_combat_id
 var upgrading = false
 var faded=false
-var can_change=false
+var can_change=true
 
 func _ready():
 	intro_room=combatgroup.intro_room
@@ -74,7 +74,9 @@ func _process(_delta):
 	SaveManager.current_room_count=room_count
 
 func randomize_room(): # this was (and kinda still is) basically a big-ass RNG checking machine
+	if !can_change: return
 	var tr=get_tree().get_first_node_in_group("Transition")
+	can_change=false
 	if !faded: 
 		tr.play("fade_out") #FIX ME make some kind of bool that checks if it's faded or not
 		faded=true
@@ -113,6 +115,7 @@ func randomize_room(): # this was (and kinda still is) basically a big-ass RNG c
 			changing_rooms = false
 
 func check_room(): # This basically enables and disables shit, and also change category
+	if !changing_rooms: return
 	clear_abilities()
 	if next_room_category == 1: # combat
 		current_room_category=1
@@ -132,17 +135,8 @@ func check_room(): # This basically enables and disables shit, and also change c
 		print("room "+ str(room_count) +" || type: rest")
 	elif next_room_category == 3: # pre-boss
 		current_room_category=3
-		disable_rest_room()
-		leave_intro()
 		disable_combat_rooms()
-		if rest_room==combatgroup.rest_room:
-			combatgroup.enable_rest_room()
-		elif rest_room!=combatgroup.rest_room:
-			rest_room.visible = true
-			rest_room.process_mode = Node.PROCESS_MODE_INHERIT
-			rest_room.move_player_to_spawn()
-			if rest_room.shopkeeper!=null:
-				rest_room.shopkeeper.rand_upgrades()
+		combatgroup.enable_preboss_room()
 		next_room_category=4
 		print("room "+ str(room_count) +" || type: pre-boss")
 	elif next_room_category == 4: # boss
@@ -150,6 +144,7 @@ func check_room(): # This basically enables and disables shit, and also change c
 		for room in combatgroup.rooms:
 			room.spawner.reset_spawner()
 		disable_combat_rooms()
+		combatgroup.disable_preboss_room()
 		disable_rest_room()
 		boss_room.move_player_to_spawn()
 		boss_room.visible = true
