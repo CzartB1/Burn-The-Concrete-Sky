@@ -66,7 +66,7 @@ region = Rect2(160, 0, 32, 32)
 [node name="weapon_holder" type="Node3D" node_paths=PackedStringArray("weapons")]
 script = ExtResource("1_rku58")
 current_1_id = 2
-weapons = [NodePath("fist"), NodePath("Shotty"), NodePath("machine_gun"), NodePath("sword"), NodePath("Revolver"), NodePath("Pistol"), NodePath("assault_rifle")]
+weapons = [NodePath("fist"), NodePath("Shotty"), NodePath("machine gun"), NodePath("sword"), NodePath("Revolver"), NodePath("Pistol"), NodePath("assault rifle")]
 
 [node name="fist" type="Node3D" parent="." node_paths=PackedStringArray("manager", "hitbox", "visual_effects", "cooldown_timer")]
 script = ExtResource("4_lfc15")
@@ -130,7 +130,7 @@ omni_range = 2.0
 [node name="double_barrel" parent="Shotty" instance=ExtResource("8_5yu2w")]
 transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0.129903, 0.501052, -0.568073)
 
-[node name="machine_gun" type="Node3D" parent="." node_paths=PackedStringArray("manager", "muzzles", "muzzle_flash")]
+[node name="machine gun" type="Node3D" parent="." node_paths=PackedStringArray("manager", "muzzles", "muzzle_flash")]
 visible = false
 script = ExtResource("2_toky6")
 manager = NodePath("..")
@@ -147,21 +147,21 @@ price = 150
 icon = SubResource("AtlasTexture_46epw")
 Description = "machine gun"
 
-[node name="muzzle" type="Node3D" parent="machine_gun"]
+[node name="muzzle" type="Node3D" parent="machine gun"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1.18281)
 
-[node name="muzzle_flash" parent="machine_gun" instance=ExtResource("7_wps2v")]
+[node name="muzzle_flash" parent="machine gun" instance=ExtResource("7_wps2v")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0.144604, 0.534947, -1.77125)
 
-[node name="OmniLight3D" type="OmniLight3D" parent="machine_gun/muzzle_flash"]
+[node name="OmniLight3D" type="OmniLight3D" parent="machine gun/muzzle_flash"]
 light_color = Color(1, 0.815686, 0.419608, 1)
 light_energy = 0.4
 omni_range = 2.0
 
-[node name="lmg_common" parent="machine_gun" instance=ExtResource("9_ugy7q")]
+[node name="lmg_common" parent="machine gun" instance=ExtResource("9_ugy7q")]
 transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0.141042, 0.479726, -0.797982)
 
-[node name="assault_rifle" type="Node3D" parent="." node_paths=PackedStringArray("manager", "muzzles", "muzzle_flash")]
+[node name="assault rifle" type="Node3D" parent="." node_paths=PackedStringArray("manager", "muzzles", "muzzle_flash")]
 visible = false
 script = ExtResource("2_toky6")
 manager = NodePath("..")
@@ -179,16 +179,16 @@ price = 150
 icon = SubResource("AtlasTexture_k0miw")
 Description = "assault rifle"
 
-[node name="ar_common" parent="assault_rifle" instance=ExtResource("11_g3slb")]
+[node name="ar_common" parent="assault rifle" instance=ExtResource("11_g3slb")]
 transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0.138757, 0.522058, -0.56377)
 
-[node name="muzzle" type="Node3D" parent="assault_rifle"]
+[node name="muzzle" type="Node3D" parent="assault rifle"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1.18281)
 
-[node name="muzzle_flash" parent="assault_rifle" instance=ExtResource("7_wps2v")]
+[node name="muzzle_flash" parent="assault rifle" instance=ExtResource("7_wps2v")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0.144604, 0.525665, -1.41713)
 
-[node name="OmniLight3D" type="OmniLight3D" parent="assault_rifle/muzzle_flash"]
+[node name="OmniLight3D" type="OmniLight3D" parent="assault rifle/muzzle_flash"]
 light_color = Color(1, 0.815686, 0.419608, 1)
 light_energy = 0.4
 omni_range = 2.0
@@ -224,7 +224,7 @@ one_shot = true
 visible = false
 script = ExtResource("2_toky6")
 manager = NodePath("..")
-muzzles = [NodePath("../machine_gun/muzzle")]
+muzzles = [NodePath("../machine gun/muzzle")]
 bullet = ExtResource("3_0j408")
 fire_rate = 4.0
 damage = 10

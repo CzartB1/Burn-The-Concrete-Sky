@@ -37,7 +37,7 @@ region = Rect2(384, 0, 64, 84)
 
 [node name="upgrade_manager" type="Node3D" node_paths=PackedStringArray("upgrade_list")]
 script = ExtResource("1_vpp7q")
-upgrade_list = [NodePath("Wind Blade"), NodePath("Hermes"), NodePath("Heavy"), NodePath("Last Stand"), NodePath("Tachypsychiaa"), NodePath("Focus")]
+upgrade_list = [NodePath("Wind Blade"), NodePath("Hermes"), NodePath("Heavy"), NodePath("Last Stand"), NodePath("Tachypsychia"), NodePath("Focus")]
 
 [node name="upgrade" type="Node" parent="."]
 script = ExtResource("2_jt6tb")
@@ -49,7 +49,7 @@ price = 200
 icon = SubResource("AtlasTexture_j8iib")
 Description = "Lowers spread when slowing time. Just because your enemies move slower than you, doesn't mean you can just magdump all over the place."
 
-[node name="Tachypsychiaa" type="Node" parent="."]
+[node name="Tachypsychia" type="Node" parent="."]
 script = ExtResource("4_ff6n0")
 price = 300
 icon = SubResource("AtlasTexture_5qx07")

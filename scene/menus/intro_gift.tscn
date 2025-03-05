@@ -1,11 +1,30 @@
-[gd_scene load_steps=5 format=3 uid="uid://cjs4iti0daybj"]
+[gd_scene load_steps=11 format=3 uid="uid://cjs4iti0daybj"]
 
 [ext_resource type="Script" path="res://scripts/systems/upgrades/starting_weapon_choose_screen.gd" id="1_0j7es"]
+[ext_resource type="Texture2D" uid="uid://cfdgceryqooel" path="res://sprites/UI/upgrade_icons.png" id="2_7ieyv"]
 [ext_resource type="Script" path="res://scripts/systems/upgrades/starting_weapon_button.gd" id="2_gk25m"]
 [ext_resource type="Script" path="res://scripts/systems/upgrades/starting_ability_button.gd" id="3_ik7n5"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_igqtx"]
 bg_color = Color(0, 0, 0, 1)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a7ami"]
+atlas = ExtResource("2_7ieyv")
+region = Rect2(0, 0, 63, 84)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_hakdo"]
+texture = SubResource("AtlasTexture_a7ami")
+expand_margin_left = 2.0
+expand_margin_top = 2.0
+expand_margin_right = 2.0
+expand_margin_bottom = 2.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_4ady0"]
+texture = SubResource("AtlasTexture_a7ami")
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_jrfha"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_egdbc"]
 
 [node name="CanvasLayer" type="CanvasLayer"]
 layer = 4
@@ -44,17 +63,17 @@ offset_bottom = 40.0
 grow_horizontal = 2
 theme_override_font_sizes/normal_font_size = 19
 bbcode_enabled = true
-text = "[center]Choose a second gift"
+text = "[center]Choose a gift"
 
 [node name="MarginContainer" type="MarginContainer" parent="startingweaponscreen/Panel"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 154.0
-offset_top = 85.0
-offset_right = -154.0
-offset_bottom = -252.0
+offset_left = 74.0
+offset_top = 40.0
+offset_right = -73.0
+offset_bottom = -313.0
 grow_horizontal = 2
 grow_vertical = 2
 
@@ -64,47 +83,99 @@ size_flags_horizontal = 4
 theme_override_constants/separation = 35
 alignment = 1
 
-[node name="weapon1" type="Button" parent="startingweaponscreen/Panel/MarginContainer/HBoxContainer" node_paths=PackedStringArray("icon_")]
+[node name="weapon1" type="Button" parent="startingweaponscreen/Panel/MarginContainer/HBoxContainer" node_paths=PackedStringArray("icon_", "label", "descriptor")]
 custom_minimum_size = Vector2(225, 0)
 layout_mode = 2
 theme_override_font_sizes/font_size = 38
+theme_override_styles/focus = SubResource("StyleBoxTexture_hakdo")
+theme_override_styles/hover = SubResource("StyleBoxTexture_hakdo")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_hakdo")
+theme_override_styles/normal = SubResource("StyleBoxTexture_4ady0")
 action_mode = 0
 script = ExtResource("2_gk25m")
 icon_ = NodePath("TextureRect")
+label = NodePath("RichTextLabel")
+descriptor = NodePath("../../../desc")
 
 [node name="TextureRect" type="TextureRect" parent="startingweaponscreen/Panel/MarginContainer/HBoxContainer/weapon1"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_top = -59.0
 grow_horizontal = 2
 grow_vertical = 2
 stretch_mode = 5
 
-[node name="weapon2" type="Button" parent="startingweaponscreen/Panel/MarginContainer/HBoxContainer" node_paths=PackedStringArray("icon_")]
+[node name="RichTextLabel" type="RichTextLabel" parent="startingweaponscreen/Panel/MarginContainer/HBoxContainer/weapon1"]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -68.0
+offset_bottom = -13.0
+grow_horizontal = 2
+grow_vertical = 0
+mouse_filter = 2
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/normal_font_size = 20
+bbcode_enabled = true
+text = "[center]NAME"
+scroll_active = false
+
+[node name="weapon2" type="Button" parent="startingweaponscreen/Panel/MarginContainer/HBoxContainer" node_paths=PackedStringArray("icon_", "label", "descriptor")]
 custom_minimum_size = Vector2(225, 0)
 layout_mode = 2
 theme_override_font_sizes/font_size = 38
+theme_override_styles/focus = SubResource("StyleBoxTexture_hakdo")
+theme_override_styles/hover = SubResource("StyleBoxTexture_hakdo")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_hakdo")
+theme_override_styles/normal = SubResource("StyleBoxTexture_4ady0")
 action_mode = 0
 script = ExtResource("2_gk25m")
 icon_ = NodePath("TextureRect")
+label = NodePath("RichTextLabel")
+descriptor = NodePath("../../../desc")
 
 [node name="TextureRect" type="TextureRect" parent="startingweaponscreen/Panel/MarginContainer/HBoxContainer/weapon2"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_top = -59.0
+offset_bottom = -59.0
 grow_horizontal = 2
 grow_vertical = 2
 stretch_mode = 5
 
-[node name="Ability1" type="Button" parent="startingweaponscreen/Panel/MarginContainer/HBoxContainer" node_paths=PackedStringArray("icon_")]
+[node name="RichTextLabel" type="RichTextLabel" parent="startingweaponscreen/Panel/MarginContainer/HBoxContainer/weapon2"]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -68.0
+offset_bottom = -13.0
+grow_horizontal = 2
+grow_vertical = 0
+mouse_filter = 2
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/normal_font_size = 20
+bbcode_enabled = true
+text = "[center]NAME"
+scroll_active = false
+
+[node name="Ability1" type="Button" parent="startingweaponscreen/Panel/MarginContainer/HBoxContainer" node_paths=PackedStringArray("icon_", "label", "descriptor")]
 custom_minimum_size = Vector2(225, 0)
 layout_mode = 2
 theme_override_font_sizes/font_size = 38
+theme_override_styles/normal = SubResource("StyleBoxEmpty_jrfha")
 action_mode = 0
 script = ExtResource("3_ik7n5")
 icon_ = NodePath("TextureRect")
+label = NodePath("RichTextLabel")
+descriptor = NodePath("../../../desc")
 
 [node name="TextureRect" type="TextureRect" parent="startingweaponscreen/Panel/MarginContainer/HBoxContainer/Ability1"]
 layout_mode = 1
@@ -115,13 +186,33 @@ grow_horizontal = 2
 grow_vertical = 2
 stretch_mode = 5
 
-[node name="Ability2" type="Button" parent="startingweaponscreen/Panel/MarginContainer/HBoxContainer" node_paths=PackedStringArray("icon_")]
+[node name="RichTextLabel" type="RichTextLabel" parent="startingweaponscreen/Panel/MarginContainer/HBoxContainer/Ability1"]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -68.0
+offset_bottom = -13.0
+grow_horizontal = 2
+grow_vertical = 0
+mouse_filter = 2
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/normal_font_size = 20
+bbcode_enabled = true
+text = "[center]NAME"
+scroll_active = false
+
+[node name="Ability2" type="Button" parent="startingweaponscreen/Panel/MarginContainer/HBoxContainer" node_paths=PackedStringArray("icon_", "label", "descriptor")]
 custom_minimum_size = Vector2(225, 0)
 layout_mode = 2
 theme_override_font_sizes/font_size = 38
+theme_override_styles/normal = SubResource("StyleBoxEmpty_egdbc")
 action_mode = 0
 script = ExtResource("3_ik7n5")
 icon_ = NodePath("TextureRect")
+label = NodePath("RichTextLabel")
+descriptor = NodePath("../../../desc")
 
 [node name="TextureRect" type="TextureRect" parent="startingweaponscreen/Panel/MarginContainer/HBoxContainer/Ability2"]
 layout_mode = 1
@@ -131,6 +222,23 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 stretch_mode = 5
+
+[node name="RichTextLabel" type="RichTextLabel" parent="startingweaponscreen/Panel/MarginContainer/HBoxContainer/Ability2"]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -68.0
+offset_bottom = -13.0
+grow_horizontal = 2
+grow_vertical = 0
+mouse_filter = 2
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/normal_font_size = 20
+bbcode_enabled = true
+text = "[center]NAME"
+scroll_active = false
 
 [node name="exit" type="Button" parent="startingweaponscreen/Panel"]
 layout_mode = 1
@@ -163,6 +271,20 @@ grow_horizontal = 2
 grow_vertical = 0
 action_mode = 0
 text = "Select weapon"
+
+[node name="desc" type="RichTextLabel" parent="startingweaponscreen/Panel"]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 73.0
+offset_top = -295.0
+offset_right = -73.0
+offset_bottom = -151.0
+grow_horizontal = 2
+grow_vertical = 0
+bbcode_enabled = true
 
 [connection signal="pressed" from="startingweaponscreen/Panel/MarginContainer/HBoxContainer/weapon1" to="startingweaponscreen/Panel/MarginContainer/HBoxContainer/weapon1" method="_on_pressed"]
 [connection signal="pressed" from="startingweaponscreen/Panel/MarginContainer/HBoxContainer/weapon2" to="startingweaponscreen/Panel/MarginContainer/HBoxContainer/weapon2" method="_on_pressed"]
