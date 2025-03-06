@@ -306,8 +306,9 @@ text = "Exit"
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 layer = 5
 
-[node name="character_select_screen" parent="CanvasLayer" node_paths=PackedStringArray("room_manager") instance=ExtResource("11_xgfu7")]
+[node name="character_select_screen" parent="CanvasLayer" node_paths=PackedStringArray("room_manager", "character_buttons") instance=ExtResource("11_xgfu7")]
 room_manager = NodePath("../../room_manager")
+character_buttons = []
 
 [node name="char_manager" type="Control" parent="CanvasLayer" node_paths=PackedStringArray("room_manager") groups=["char_manager"]]
 layout_mode = 3
