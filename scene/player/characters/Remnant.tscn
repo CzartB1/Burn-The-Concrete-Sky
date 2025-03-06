@@ -1,4 +1,4 @@
-[gd_scene load_steps=34 format=3 uid="uid://dks7eg8o5s7al"]
+[gd_scene load_steps=31 format=3 uid="uid://dks7eg8o5s7al"]
 
 [ext_resource type="Script" uid="uid://bnh4kfsbfcrbs" path="res://scripts/player/player.gd" id="1_o64jm"]
 [ext_resource type="PackedScene" uid="uid://c5c1e0lvux7ox" path="res://meshes/player/characters/Remnant/Remnant_new.blend" id="2_h1g6s"]
@@ -125,18 +125,7 @@ node_connections = [&"Blend2", 0, &"melee_attack", &"Blend2", 1, &"BlendSpace2D"
 [sub_resource type="BoxShape3D" id="BoxShape3D_c71mp"]
 size = Vector3(276.536, 0.001, 129.934)
 
-[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_27x45"]
-
-[sub_resource type="Sky" id="Sky_04xiq"]
-sky_material = SubResource("ProceduralSkyMaterial_27x45")
-
-[sub_resource type="Environment" id="Environment_61b4n"]
-background_mode = 1
-sky = SubResource("Sky_04xiq")
-ambient_light_source = 1
-ambient_light_color = Color(1, 1, 1, 1)
-
-[node name="Remnant" type="CharacterBody3D" node_paths=PackedStringArray("upgrade_manager", "HP_bar", "time_slow_bar", "charge_bar", "body", "cont_look_target", "cam", "cam_holder", "anim_manager") groups=["Player"]]
+[node name="Remnant" type="CharacterBody3D" node_paths=PackedStringArray("upgrade_manager", "HP_bar", "time_slow_bar", "charge_bar", "body", "cont_look_target", "cam_holder", "anim_manager") groups=["Player"]]
 script = ExtResource("1_o64jm")
 upgrade_manager = NodePath("upgrade_manager")
 hp = 30
@@ -148,19 +137,19 @@ dash_speed = 60
 dash_duration = 0.25
 controller = true
 cont_look_target = NodePath("cont_look_target")
-cam = NodePath("cam_holder/Camera3D")
 cam_holder = NodePath("cam_holder")
 anim_manager = NodePath("body/anim_manager")
 combat_music_index = 1
 
 [node name="body" type="CollisionShape3D" parent="."]
+visible = false
 shape = SubResource("CapsuleShape3D_dtuee")
 
 [node name="Remnant_new" parent="body" instance=ExtResource("2_h1g6s")]
 transform = Transform3D(-1.2, 0, -1.81195e-07, 0, 1.2, 0, 1.81195e-07, 0, -1.2, 0, -0.861741, 0)
 
 [node name="Skeleton3D" parent="body/Remnant_new/metarig" index="0"]
-bones/0/position = Vector3(-5.76005e-05, 0.869898, 0.0100708)
+bones/0/position = Vector3(-5.76005e-05, 0.866372, 0.0100708)
 bones/0/rotation = Quaternion(-2.28097e-08, 0.382684, 2.28097e-08, 0.92388)
 bones/0/scale = Vector3(1, 1, 1)
 bones/1/rotation = Quaternion(0.0104663, -0.642728, 0.00878231, 0.765973)
@@ -181,21 +170,21 @@ bones/10/scale = Vector3(1, 1, 1)
 bones/11/rotation = Quaternion(0.0379732, 0.21804, -0.00782299, 0.975169)
 bones/12/rotation = Quaternion(-0.0634644, -0.000805131, -0.00753154, 0.997955)
 bones/13/position = Vector3(0.00502848, 0.05589, 0.0882)
-bones/13/rotation = Quaternion(0.92326, -0.0458598, 0.381382, 0.00596389)
+bones/13/rotation = Quaternion(0.914158, -0.0248438, 0.381103, 0.135862)
 bones/13/scale = Vector3(1, 1, 1)
-bones/14/rotation = Quaternion(0.393133, -9.53937e-05, 0.000598923, 0.919482)
-bones/15/rotation = Quaternion(-0.649587, 0.0392021, -0.0390007, 0.758274)
+bones/14/rotation = Quaternion(0.471595, -0.000316158, 0.002093, 0.881813)
+bones/15/rotation = Quaternion(-0.650487, -0.00850127, 0.00845771, 0.759423)
 bones/16/position = Vector3(0.00502853, 0.0558901, -0.0882)
-bones/16/rotation = Quaternion(0.910779, 0.0130078, 0.408499, 0.0586569)
+bones/16/rotation = Quaternion(0.90984, -0.0168044, 0.41428, -0.0167762)
 bones/16/scale = Vector3(1, 1, 1)
-bones/17/rotation = Quaternion(-0.00235209, 0.00217657, 0.00542963, 0.99998)
-bones/18/rotation = Quaternion(-0.675637, -0.027964, 0.0302916, 0.736081)
+bones/17/rotation = Quaternion(0.141358, 0.000713636, 0.0154456, 0.989838)
+bones/18/rotation = Quaternion(-0.736788, 0.0166951, -0.0275199, 0.675357)
 bones/19/rotation = Quaternion(-0.655919, -0.0708456, 0.0243406, 0.751105)
 bones/19/scale = Vector3(1, 1, 1)
 bones/20/rotation = Quaternion(-0.0243408, 0.751105, 0.655919, -0.0708452)
 
 [node name="BoneAttachment3D" type="BoneAttachment3D" parent="body/Remnant_new/metarig/Skeleton3D" index="1"]
-transform = Transform3D(-0.99329, -0.0335486, 0.110673, 0.111141, -0.0123972, 0.993727, -0.0319662, 0.99936, 0.0160425, -0.312679, 1.29493, 0.112836)
+transform = Transform3D(-0.99329, -0.0335486, 0.110673, 0.111141, -0.0123972, 0.993727, -0.0319662, 0.99936, 0.0160425, -0.312679, 1.29141, 0.112836)
 bone_name = "hand.R"
 bone_idx = 10
 
@@ -252,10 +241,8 @@ body = NodePath("../body")
 
 [node name="Camera3D" type="Camera3D" parent="cam_holder"]
 transform = Transform3D(1, 0, 0, 0, -8.9407e-08, 1, 0, -1, -8.9407e-08, 0, 38.0416, 0)
-environment = SubResource("Environment_61b4n")
 projection = 1
 size = 20.0
-near = 0.001
 
 [node name="dash_timer" type="Timer" parent="."]
 wait_time = 0.1

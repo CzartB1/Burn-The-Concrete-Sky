@@ -8,6 +8,7 @@ extends Enemy_Behavior_Master
 @export var dist_to_attack = 8.0
 @export var charge_delay=Vector2(0.0,1.2)
 @export var cooldown_timer:Timer
+@export var anim_plr:AnimationPlayer
 
 var target_position:Vector3=Vector3.ZERO  # Player's position
 var charge_timer_frames = 0  # Timer in frames
@@ -37,7 +38,8 @@ func detect_player():
 # Initialize charging (to be called once when charging begins)
 func start_charging(): #FIXME THANKS GPT, BUT NOT REALLY!!!!
 	await get_tree().create_timer(randf_range(charge_delay.x,charge_delay.y)).timeout
-	if anim: anim.set("parameters/attack/request", AnimationNodeOneShot.ONE_SHOT_REQUEST_FIRE)
+	if anim: anim.active=false
+	if anim_plr: anim_plr.play("attack")
 	master.stop_nav=true
 	can_attack=false
 	charging=true
@@ -68,3 +70,9 @@ func _on_charge_hitbox_body_entered(body):
 
 func _on_cooldown_timer_timeout():
 	can_attack=true
+
+func _on_animation_player_animation_finished(anim_name):
+	if anim_name=="attack":
+		anim_plr.play("attack_end")
+	if anim_name=="attack_end":
+		if anim: anim.active=true
