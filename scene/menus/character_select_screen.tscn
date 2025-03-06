@@ -1,6 +1,6 @@
 [gd_scene load_steps=137 format=3 uid="uid://b1au5gcyhryfm"]
 
-[ext_resource type="Script" path="res://scripts/player/char_select/char_select_screen.gd" id="1_hc0jr"]
+[ext_resource type="Script" uid="uid://bk8v0bbmdmjaj" path="res://scripts/player/char_select/char_select_screen.gd" id="1_hc0jr"]
 [ext_resource type="PackedScene" uid="uid://bnxrhky3nbvov" path="res://scene/player/characters/remnant_fix.tscn" id="2_7n8wp"]
 [ext_resource type="PackedScene" uid="uid://dgx2clkxdsth2" path="res://scene/player/characters/Silver.tscn" id="3_omfb8"]
 [ext_resource type="PackedScene" uid="uid://cj7kkva2uk3m0" path="res://scene/player/characters/Impact.tscn" id="4_ftefj"]
@@ -13,7 +13,7 @@
 [ext_resource type="Texture2D" uid="uid://6f8cgom4foj4" path="res://sprites/UI/char select/remnant_avatar/frame_15_delay-0.1s.png" id="10_sa2wp"]
 [ext_resource type="Texture2D" uid="uid://bltbholgjhvir" path="res://sprites/UI/char select/remnant_avatar/frame_16_delay-0.1s.png" id="11_65st5"]
 [ext_resource type="Texture2D" uid="uid://8iaj88bwu0w" path="res://sprites/UI/char select/char_select_portrait.png" id="11_suile"]
-[ext_resource type="Script" path="res://scripts/player/char_select/char_select_button.gd" id="12_81350"]
+[ext_resource type="Script" uid="uid://deb7i744vqgbf" path="res://scripts/player/char_select/char_select_button.gd" id="12_81350"]
 [ext_resource type="Texture2D" uid="uid://s301ga2g2fkp" path="res://sprites/UI/char select/remnant_avatar/frame_17_delay-0.1s.png" id="12_t2ry3"]
 [ext_resource type="Texture2D" uid="uid://dnuiu85e6ie05" path="res://sprites/UI/char select/remnant_avatar/frame_18_delay-0.1s.png" id="13_dvabb"]
 [ext_resource type="Texture2D" uid="uid://cgjvhaw27pifg" path="res://sprites/UI/char select/remnant_avatar/frame_19_delay-0.1s.png" id="14_otf6k"]

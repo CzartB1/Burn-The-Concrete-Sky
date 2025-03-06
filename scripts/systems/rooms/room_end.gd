@@ -2,6 +2,7 @@ class_name Room_End
 extends Area3D
 
 @export var room:Room
+@export var intro=false
 var can_go=false
 
 func _ready():
@@ -18,7 +19,9 @@ func _process(delta):
 			can_go=true
 
 func _on_body_entered(body):
-	if body is Player and room.process_mode == Node.PROCESS_MODE_INHERIT and can_go and !room.manager.can_change:
+	if body is Player and room.process_mode == Node.PROCESS_MODE_INHERIT and can_go and (!room.manager.can_change or intro):
 		#await get_tree().physics_frame
+		#print("asdf")
 		room.manager.can_change=true
+		intro=false
 		room.change_level()

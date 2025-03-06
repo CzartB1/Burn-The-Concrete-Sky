@@ -1,6 +1,6 @@
 [gd_scene load_steps=11 format=3 uid="uid://dobo5bwy3fiha"]
 
-[ext_resource type="Script" path="res://scripts/systems/rooms/combat_group.gd" id="1_wulxw"]
+[ext_resource type="Script" uid="uid://vmrxn0ewthlg" path="res://scripts/systems/rooms/combat_group.gd" id="1_wulxw"]
 [ext_resource type="PackedScene" uid="uid://cetmp2xotayla" path="res://scene/enemy/enemy_melee.tscn" id="2_5k56y"]
 [ext_resource type="PackedScene" uid="uid://bec01vxm0w464" path="res://scene/rooms/test/test_cg2/room_cg2_1.tscn" id="3_1kaj4"]
 [ext_resource type="PackedScene" uid="uid://ws57loxbjyuh" path="res://scene/rooms/test/test_cg2/room_rest_cg2.tscn" id="3_4mt3y"]

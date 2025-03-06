@@ -1,6 +1,6 @@
 [gd_scene load_steps=31 format=3 uid="uid://dwx34svdy6oqn"]
 
-[ext_resource type="Script" path="res://scripts/systems/rooms/room_manager.gd" id="2_eglug"]
+[ext_resource type="Script" uid="uid://d3aknym658jr2" path="res://scripts/systems/rooms/room_manager.gd" id="2_eglug"]
 [ext_resource type="PackedScene" uid="uid://cebc076cxalyg" path="res://scene/rooms/combat_group/test_cg_1.tscn" id="3_8qmyu"]
 [ext_resource type="PackedScene" uid="uid://ec2asu88nit2" path="res://scene/enemy/Common/wretch.tscn" id="3_ec2g0"]
 [ext_resource type="PackedScene" uid="uid://dobo5bwy3fiha" path="res://scene/rooms/combat_group/test_cg_2.tscn" id="4_qu5kh"]
@@ -14,10 +14,10 @@
 [ext_resource type="PackedScene" uid="uid://b1au5gcyhryfm" path="res://scene/menus/character_select_screen.tscn" id="11_xgfu7"]
 [ext_resource type="PackedScene" uid="uid://cj7kkva2uk3m0" path="res://scene/player/characters/Impact.tscn" id="12_b3tjq"]
 [ext_resource type="PackedScene" uid="uid://d5vt4gjy1jd2" path="res://scene/player/characters/Mirage.tscn" id="13_ojb4m"]
-[ext_resource type="Script" path="res://scripts/systems/char_manager.gd" id="20_0ogmo"]
-[ext_resource type="Script" path="res://scripts/player/UI/player_stat_screen.gd" id="20_wjgrw"]
-[ext_resource type="Script" path="res://scripts/systems/music_manager.gd" id="21_ss30e"]
-[ext_resource type="Script" path="res://scripts/systems/dedzone.gd" id="23_jahdx"]
+[ext_resource type="Script" uid="uid://exx6mb3ilk5" path="res://scripts/systems/char_manager.gd" id="20_0ogmo"]
+[ext_resource type="Script" uid="uid://b0yyyp38lwmyw" path="res://scripts/player/UI/player_stat_screen.gd" id="20_wjgrw"]
+[ext_resource type="Script" uid="uid://c7x00y40vwan" path="res://scripts/systems/music_manager.gd" id="21_ss30e"]
+[ext_resource type="Script" uid="uid://dsp52sgih7sk5" path="res://scripts/systems/dedzone.gd" id="23_jahdx"]
 [ext_resource type="AudioStream" uid="uid://ww5tyx75bmgb" path="res://audios/music/char_themes/remnant_song.wav" id="23_nbrpy"]
 [ext_resource type="AudioStream" uid="uid://dq603slg7hjl0" path="res://audios/music/placeholders/sci-fi-ambient-music-183269.mp3" id="23_tcdhp"]
 [ext_resource type="AudioStream" uid="uid://cfpjrddawhlh3" path="res://audios/music/placeholders/epic-battle-song-loop-182700.mp3" id="23_wm11b"]
@@ -49,31 +49,31 @@ clip_3/stream = ExtResource("25_uv8ym")
 clip_3/auto_advance = 0
 _transitions = {
 Vector2i(0, 1): {
-"fade_beats": 1,
+"fade_beats": 1.0,
 "fade_mode": 4,
 "from_time": 1,
 "to_time": 1
 },
 Vector2i(0, 2): {
-"fade_beats": 1,
+"fade_beats": 1.0,
 "fade_mode": 2,
 "from_time": 0,
 "to_time": 1
 },
 Vector2i(0, 3): {
-"fade_beats": 1,
+"fade_beats": 1.0,
 "fade_mode": 0,
 "from_time": 0,
 "to_time": 1
 },
 Vector2i(1, 0): {
-"fade_beats": 1,
+"fade_beats": 1.0,
 "fade_mode": 3,
 "from_time": 1,
 "to_time": 2
 },
 Vector2i(3, 0): {
-"fade_beats": 1,
+"fade_beats": 1.0,
 "fade_mode": 3,
 "from_time": 1,
 "to_time": 0
@@ -116,8 +116,8 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_qwopu"]
 _data = {
-"fade_in": SubResource("Animation_koyps"),
-"fade_out": SubResource("Animation_wryib")
+&"fade_in": SubResource("Animation_koyps"),
+&"fade_out": SubResource("Animation_wryib")
 }
 
 [sub_resource type="Environment" id="Environment_5440b"]
@@ -161,6 +161,9 @@ commons = Array[PackedScene]([ExtResource("3_ec2g0")])
 elites = Array[PackedScene]([ExtResource("4_wb7kj"), ExtResource("6_td813")])
 manager = NodePath("..")
 next_group = [NodePath("../scum_town"), NodePath("../factory")]
+
+[node name="room_intro" parent="room_manager/the_pit" index="3" node_paths=PackedStringArray("manager")]
+manager = NodePath("../..")
 
 [node name="group_change_object" parent="room_manager/the_pit/room_intro" index="6" node_paths=PackedStringArray("destination")]
 destination = NodePath("../../../scum_town")
@@ -327,7 +330,7 @@ manager = NodePath("../room_manager")
 [node name="Transition" type="AnimationPlayer" parent="CanvasLayer2" groups=["Transition"]]
 root_node = NodePath("../..")
 libraries = {
-"": SubResource("AnimationLibrary_qwopu")
+&"": SubResource("AnimationLibrary_qwopu")
 }
 
 [node name="ColorRect" type="ColorRect" parent="CanvasLayer2/Transition"]

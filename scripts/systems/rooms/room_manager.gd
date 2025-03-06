@@ -80,7 +80,7 @@ func randomize_room(): # this was (and kinda still is) basically a big-ass RNG c
 	if !faded: 
 		tr.play("fade_out") #FIX ME make some kind of bool that checks if it's faded or not
 		faded=true
-	await get_tree().create_timer(.25).timeout
+	await get_tree().create_timer(.01).timeout
 	if !changing_rooms: 
 		changing_rooms=true
 		if intro: 

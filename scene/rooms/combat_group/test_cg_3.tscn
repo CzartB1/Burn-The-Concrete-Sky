@@ -1,6 +1,6 @@
 [gd_scene load_steps=10 format=3 uid="uid://gagx2whtjcm6"]
 
-[ext_resource type="Script" path="res://scripts/systems/rooms/combat_group.gd" id="1_me76h"]
+[ext_resource type="Script" uid="uid://vmrxn0ewthlg" path="res://scripts/systems/rooms/combat_group.gd" id="1_me76h"]
 [ext_resource type="PackedScene" uid="uid://bw7y82qxa2yhs" path="res://scene/enemy/Common/scrapper.tscn" id="2_mf6hn"]
 [ext_resource type="PackedScene" uid="uid://2b62hy8gi1wb" path="res://scene/rooms/test/test_cg3/room_cg3_1.tscn" id="3_bej8n"]
 [ext_resource type="PackedScene" uid="uid://cstkrfvtb6jxk" path="res://scene/rooms/test/test_cg3/room_rest_cg3.tscn" id="3_ctfdt"]

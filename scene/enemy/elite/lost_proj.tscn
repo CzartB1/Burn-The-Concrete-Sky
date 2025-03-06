@@ -1,6 +1,6 @@
 [gd_scene load_steps=9 format=3 uid="uid://d2fex6enn48vn"]
 
-[ext_resource type="Script" path="res://scripts/enemy/enemy_bullet.gd" id="1_vs4mo"]
+[ext_resource type="Script" uid="uid://cy0fonjjbj03k" path="res://scripts/enemy/enemy_bullet.gd" id="1_vs4mo"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_rbsiu"]
 radius = 0.2

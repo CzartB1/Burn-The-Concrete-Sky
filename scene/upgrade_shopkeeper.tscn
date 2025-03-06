@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://bceq1kcso5i56"]
 
-[ext_resource type="Script" path="res://scripts/systems/upgrades/shopkeeper.gd" id="1_xxxas"]
+[ext_resource type="Script" uid="uid://b0l07rebrwue1" path="res://scripts/systems/upgrades/shopkeeper.gd" id="1_xxxas"]
 [ext_resource type="PackedScene" uid="uid://3tdjy78ipj88" path="res://meshes/human_male_base.blend" id="2_kei07"]
 [ext_resource type="PackedScene" uid="uid://5rnl8sgiev1v" path="res://scene/player/upgrades/upgrade_screen.tscn" id="3_yo67n"]
 

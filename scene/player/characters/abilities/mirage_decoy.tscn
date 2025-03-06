@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://dofv6wsmohjmf"]
 
-[ext_resource type="Script" path="res://scripts/player/abilities/kunoichi_decoy.gd" id="1_1pmwv"]
+[ext_resource type="Script" uid="uid://div6d2fu0v86u" path="res://scripts/player/abilities/kunoichi_decoy.gd" id="1_1pmwv"]
 [ext_resource type="PackedScene" uid="uid://cp7y4m5g1v21j" path="res://scene/utilities/stun_area.tscn" id="2_tdyq1"]
 [ext_resource type="PackedScene" uid="uid://bkps0liwiv650" path="res://meshes/player_male_base.blend" id="3_r2ceb"]
 

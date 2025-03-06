@@ -1,13 +1,13 @@
 [gd_scene load_steps=13 format=3 uid="uid://ckvitxqasphd0"]
 
-[ext_resource type="Script" path="res://scripts/enemy/enemy.gd" id="1_rr712"]
-[ext_resource type="Script" path="res://scripts/enemy/states/masters/enemy_base_behavior_master.gd" id="2_uoxeu"]
-[ext_resource type="Script" path="res://addons/finite_state_machine/scripts/finite_state_machine.gd" id="4_jssdr"]
-[ext_resource type="Script" path="res://addons/finite_state_machine/scripts/state_machine_state.gd" id="5_4npax"]
-[ext_resource type="Script" path="res://scripts/enemy/states/idle_state.gd" id="6_gk66t"]
-[ext_resource type="Script" path="res://scripts/enemy/states/chase_state.gd" id="7_4w7xi"]
+[ext_resource type="Script" uid="uid://oisxcn4h6tg2" path="res://scripts/enemy/enemy.gd" id="1_rr712"]
+[ext_resource type="Script" uid="uid://ck77u7q4hye27" path="res://scripts/enemy/states/masters/enemy_base_behavior_master.gd" id="2_uoxeu"]
+[ext_resource type="Script" uid="uid://dcobhyh2ydvef" path="res://addons/finite_state_machine/scripts/finite_state_machine.gd" id="4_jssdr"]
+[ext_resource type="Script" uid="uid://dj3y7t3gdn6bj" path="res://addons/finite_state_machine/scripts/state_machine_state.gd" id="5_4npax"]
+[ext_resource type="Script" uid="uid://dug1msh1cc714" path="res://scripts/enemy/states/idle_state.gd" id="6_gk66t"]
+[ext_resource type="Script" uid="uid://t3yepo8pmdk" path="res://scripts/enemy/states/chase_state.gd" id="7_4w7xi"]
 [ext_resource type="PackedScene" uid="uid://derh5gmq2d8f8" path="res://scene/utilities/gore/gore_manager.tscn" id="8_74hq4"]
-[ext_resource type="Script" path="res://scripts/enemy/states/avoid_state.gd" id="8_xqhe8"]
+[ext_resource type="Script" uid="uid://4p7iwa71qh84" path="res://scripts/enemy/states/avoid_state.gd" id="8_xqhe8"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_gjrny"]
 

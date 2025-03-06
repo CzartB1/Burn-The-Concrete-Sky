@@ -1,9 +1,9 @@
 [gd_scene load_steps=11 format=3 uid="uid://cjs4iti0daybj"]
 
-[ext_resource type="Script" path="res://scripts/systems/upgrades/starting_weapon_choose_screen.gd" id="1_0j7es"]
+[ext_resource type="Script" uid="uid://6h6yp1b3dlp1" path="res://scripts/systems/upgrades/starting_weapon_choose_screen.gd" id="1_0j7es"]
 [ext_resource type="Texture2D" uid="uid://cfdgceryqooel" path="res://sprites/UI/upgrade_icons.png" id="2_7ieyv"]
-[ext_resource type="Script" path="res://scripts/systems/upgrades/starting_weapon_button.gd" id="2_gk25m"]
-[ext_resource type="Script" path="res://scripts/systems/upgrades/starting_ability_button.gd" id="3_ik7n5"]
+[ext_resource type="Script" uid="uid://0pexl23fuok3" path="res://scripts/systems/upgrades/starting_weapon_button.gd" id="2_gk25m"]
+[ext_resource type="Script" uid="uid://dnojodvglsmif" path="res://scripts/systems/upgrades/starting_ability_button.gd" id="3_ik7n5"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_igqtx"]
 bg_color = Color(0, 0, 0, 1)

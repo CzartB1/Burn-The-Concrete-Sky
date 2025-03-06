@@ -1,10 +1,10 @@
 [gd_scene load_steps=8 format=3 uid="uid://dqrjqsnh1f28f"]
 
-[ext_resource type="Script" path="res://scripts/systems/upgrades/shopkeeper.gd" id="1_jly2y"]
+[ext_resource type="Script" uid="uid://b0l07rebrwue1" path="res://scripts/systems/upgrades/shopkeeper.gd" id="1_jly2y"]
 [ext_resource type="PackedScene" uid="uid://ovjo3gp6humn" path="res://meshes/npc/Justicar/justicar.blend" id="2_t0l8n"]
-[ext_resource type="Script" path="res://scripts/systems/upgrades/shop_screen.gd" id="3_u0fyw"]
-[ext_resource type="Script" path="res://scripts/systems/upgrades/weapon_button.gd" id="4_rpvdl"]
-[ext_resource type="Script" path="res://scripts/systems/upgrades/ability_button.gd" id="5_0d0sk"]
+[ext_resource type="Script" uid="uid://bocjfjp16fbof" path="res://scripts/systems/upgrades/shop_screen.gd" id="3_u0fyw"]
+[ext_resource type="Script" uid="uid://brvejlixfab31" path="res://scripts/systems/upgrades/weapon_button.gd" id="4_rpvdl"]
+[ext_resource type="Script" uid="uid://bhqhjees3jphw" path="res://scripts/systems/upgrades/ability_button.gd" id="5_0d0sk"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_51dt0"]
 size = Vector3(3, 2.45703, 3)

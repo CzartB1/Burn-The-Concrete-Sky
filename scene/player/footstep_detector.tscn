@@ -1,6 +1,6 @@
 [gd_scene load_steps=9 format=3 uid="uid://bpfjiepxftms8"]
 
-[ext_resource type="Script" path="res://scripts/player/footstep_detector.gd" id="1_gpwuu"]
+[ext_resource type="Script" uid="uid://dreebf46t1asb" path="res://scripts/player/footstep_detector.gd" id="1_gpwuu"]
 [ext_resource type="AudioStream" uid="uid://chiit86na75ri" path="res://audios/effects/footsteps/zapsplat_foley_footstep_single_shallow_puddle_water_002_30458.mp3" id="2_fhg1j"]
 [ext_resource type="AudioStream" uid="uid://vitby6d872ti" path="res://audios/effects/footsteps/zapsplat_foley_footstep_single_wet_dirt_001_30460.mp3" id="3_sawh4"]
 [ext_resource type="AudioStream" uid="uid://baxb21ofu4hes" path="res://audios/effects/footsteps/zapsplat_foley_footstep_single_wet_dirt_010_30469.mp3" id="4_4buju"]

@@ -1,9 +1,9 @@
 [gd_scene load_steps=56 format=4 uid="uid://ws57loxbjyuh"]
 
-[ext_resource type="Script" path="res://scripts/systems/rooms/room.gd" id="1_mqrfu"]
-[ext_resource type="Script" path="res://addons/func_godot/src/map/func_godot_map.gd" id="5_k2hg5"]
+[ext_resource type="Script" uid="uid://co3c0f6rssoiw" path="res://scripts/systems/rooms/room.gd" id="1_mqrfu"]
+[ext_resource type="Script" uid="uid://ykg70hu78l4m" path="res://addons/func_godot/src/map/func_godot_map.gd" id="5_k2hg5"]
 [ext_resource type="Resource" uid="uid://bkhxcqsquw1yg" path="res://addons/func_godot/func_godot_default_map_settings.tres" id="6_kolce"]
-[ext_resource type="Script" path="res://scripts/systems/rooms/room_end.gd" id="7_2jdjn"]
+[ext_resource type="Script" uid="uid://rj37g3i8nor3" path="res://scripts/systems/rooms/room_end.gd" id="7_2jdjn"]
 [ext_resource type="Material" uid="uid://dq77rcnf0wn7e" path="res://textures/buildings/concrete_08.tres" id="7_qbedk"]
 [ext_resource type="Material" uid="uid://dt8hufwbic81h" path="res://textures/buildings/concrete_04.tres" id="8_3g4ww"]
 [ext_resource type="PackedScene" uid="uid://bceq1kcso5i56" path="res://scene/upgrade_shopkeeper.tscn" id="8_5l1u5"]

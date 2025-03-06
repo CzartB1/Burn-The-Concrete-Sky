@@ -1,21 +1,21 @@
 [gd_scene load_steps=99 format=4 uid="uid://c7augcs4p0odc"]
 
-[ext_resource type="Script" path="res://scripts/systems/rooms/room.gd" id="1_dgndr"]
+[ext_resource type="Script" uid="uid://co3c0f6rssoiw" path="res://scripts/systems/rooms/room.gd" id="1_dgndr"]
 [ext_resource type="PackedScene" uid="uid://dqrjqsnh1f28f" path="res://scene/player/upgrades/shopkeeper.tscn" id="2_3qxvq"]
 [ext_resource type="PackedScene" uid="uid://ovjo3gp6humn" path="res://meshes/npc/Justicar/justicar.blend" id="4_n4bbk"]
-[ext_resource type="Script" path="res://scripts/systems/rooms/room_end.gd" id="6_27ovw"]
+[ext_resource type="Script" uid="uid://rj37g3i8nor3" path="res://scripts/systems/rooms/room_end.gd" id="6_27ovw"]
 [ext_resource type="PackedScene" uid="uid://cjs4iti0daybj" path="res://scene/menus/intro_gift.tscn" id="6_qlign"]
-[ext_resource type="Script" path="res://scripts/systems/upgrades/starting_weapon_figure.gd" id="7_ko0r8"]
-[ext_resource type="Script" path="res://addons/func_godot/src/map/func_godot_map.gd" id="8_yquvv"]
+[ext_resource type="Script" uid="uid://dg5voqmv04vjl" path="res://scripts/systems/upgrades/starting_weapon_figure.gd" id="7_ko0r8"]
+[ext_resource type="Script" uid="uid://ykg70hu78l4m" path="res://addons/func_godot/src/map/func_godot_map.gd" id="8_yquvv"]
 [ext_resource type="Resource" uid="uid://bkhxcqsquw1yg" path="res://addons/func_godot/func_godot_default_map_settings.tres" id="9_2q8o1"]
 [ext_resource type="Material" uid="uid://dt8hufwbic81h" path="res://textures/buildings/concrete_04.tres" id="10_wypgg"]
 [ext_resource type="Material" uid="uid://dq77rcnf0wn7e" path="res://textures/buildings/concrete_08.tres" id="11_quafm"]
 [ext_resource type="Material" uid="uid://dwu5chjmuyp5i" path="res://textures/buildings/concrete_01.tres" id="12_40f48"]
 [ext_resource type="Material" uid="uid://dqgomxkcjhq6b" path="res://textures/gore/blood_pool.tres" id="12_lx2im"]
-[ext_resource type="Script" path="res://scripts/systems/group_change_object.gd" id="15_rtegf"]
+[ext_resource type="Script" uid="uid://cxkwnrc22gmt4" path="res://scripts/systems/group_change_object.gd" id="15_rtegf"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_qe6j2"]
-size = Vector3(16, 3, 2.35602)
+size = Vector3(16, 3, 14.7908)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_w0qpc"]
 size = Vector3(3, 3, 3)
@@ -323,7 +323,6 @@ material = SubResource("StandardMaterial3D_mtw7j")
 size = Vector3(3, 2, 3)
 
 [node name="room_intro" type="Node3D" node_paths=PackedStringArray("start_pos", "shopkeepers")]
-transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 0)
 script = ExtResource("1_dgndr")
 start_pos = NodePath("spawn")
 shopkeepers = [NodePath("shopkeeper")]
@@ -336,12 +335,12 @@ visible = false
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.148299, 0, 0.871401)
 
 [node name="rooms_end" type="Area3D" parent="." node_paths=PackedStringArray("room")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 28)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 54)
 script = ExtResource("6_27ovw")
 room = NodePath("..")
+intro = true
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="rooms_end"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.66087e-06, 0.5, 19.8969)
 shape = SubResource("BoxShape3D_qe6j2")
 
 [node name="the_figure" type="Area3D" parent="." node_paths=PackedStringArray("weapon_screen", "canvas") groups=["justicar"]]

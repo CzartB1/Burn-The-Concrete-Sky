@@ -1,12 +1,12 @@
 [gd_scene load_steps=36 format=3 uid="uid://dwsbb66nlsgy1"]
 
-[ext_resource type="Script" path="res://scripts/menus/main_menu.gd" id="1_psoe4"]
+[ext_resource type="Script" uid="uid://bihhpxn887ica" path="res://scripts/menus/main_menu.gd" id="1_psoe4"]
 [ext_resource type="PackedScene" uid="uid://dwx34svdy6oqn" path="res://scene/test_world.tscn" id="2_cowbv"]
 [ext_resource type="Texture2D" uid="uid://bewcyc8yfjlxo" path="res://sprites/Title.png" id="3_7wtxt"]
 [ext_resource type="PackedScene" uid="uid://beurm5o4g7kuq" path="res://scene/menus/settings_menu.tscn" id="4_7cyxg"]
-[ext_resource type="Script" path="res://scripts/menus/main_menu_background.gd" id="5_al40l"]
+[ext_resource type="Script" uid="uid://ch3wqfrw3qmvh" path="res://scripts/menus/main_menu_background.gd" id="5_al40l"]
 [ext_resource type="PackedScene" uid="uid://xfkyjhqxxcl6" path="res://meshes/environment/Arktol.blend" id="5_aso8j"]
-[ext_resource type="Script" path="res://scripts/menus/poem_intro.gd" id="7_1jlfq"]
+[ext_resource type="Script" uid="uid://cadnq40sgh4r8" path="res://scripts/menus/poem_intro.gd" id="7_1jlfq"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_eeqin"]
 bg_color = Color(0, 0, 0, 1)
@@ -104,8 +104,8 @@ tracks/2/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_dj4lu"]
 _data = {
-"RESET": SubResource("Animation_gs4re"),
-"title_screen_press": SubResource("Animation_lc715")
+&"RESET": SubResource("Animation_gs4re"),
+&"title_screen_press": SubResource("Animation_lc715")
 }
 
 [sub_resource type="Gradient" id="Gradient_5o7nh"]

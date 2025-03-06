@@ -1,12 +1,12 @@
 [gd_scene load_steps=31 format=4 uid="uid://chi0yi6krxebk"]
 
-[ext_resource type="Script" path="res://scripts/systems/rooms/room.gd" id="1_pcq3m"]
+[ext_resource type="Script" uid="uid://co3c0f6rssoiw" path="res://scripts/systems/rooms/room.gd" id="1_pcq3m"]
 [ext_resource type="Texture2D" uid="uid://1t3cqfe1gokb" path="res://textures/test/test_tile_grey.png" id="4_ut7nf"]
 [ext_resource type="Texture2D" uid="uid://yfiunqqtua6f" path="res://textures/test/test_tile_white.png" id="5_0njfy"]
 [ext_resource type="Texture2D" uid="uid://dwtjiw3ioqq6h" path="res://textures/test/test_tile_orange.png" id="6_6smah"]
-[ext_resource type="Script" path="res://scripts/systems/rooms/room_end.gd" id="6_wash3"]
+[ext_resource type="Script" uid="uid://rj37g3i8nor3" path="res://scripts/systems/rooms/room_end.gd" id="6_wash3"]
 [ext_resource type="PackedScene" uid="uid://dqrjqsnh1f28f" path="res://scene/player/upgrades/shopkeeper.tscn" id="7_mcgto"]
-[ext_resource type="Script" path="res://scripts/systems/group_change_object.gd" id="9_y6qw3"]
+[ext_resource type="Script" uid="uid://cxkwnrc22gmt4" path="res://scripts/systems/group_change_object.gd" id="9_y6qw3"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_n6w2a"]
 albedo_texture = ExtResource("5_0njfy")

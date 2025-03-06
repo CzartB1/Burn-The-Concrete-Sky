@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://bbrv0muijwlh6"]
 
-[ext_resource type="Script" path="res://scripts/player/economy_manager.gd" id="1_al3fy"]
+[ext_resource type="Script" uid="uid://rgabfp52ygbs" path="res://scripts/player/economy_manager.gd" id="1_al3fy"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_6rap4"]
 

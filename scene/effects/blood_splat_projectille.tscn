@@ -1,6 +1,6 @@
 [gd_scene load_steps=13 format=3 uid="uid://c4skxyme680aw"]
 
-[ext_resource type="Script" path="res://scripts/misc/gore_system/blood_splat_projectille.gd" id="1_prw4p"]
+[ext_resource type="Script" uid="uid://brl3jyurfuddd" path="res://scripts/misc/gore_system/blood_splat_projectille.gd" id="1_prw4p"]
 [ext_resource type="PackedScene" uid="uid://bxsgrr3so08hu" path="res://scene/effects/blood_splatter.tscn" id="2_yi6ae"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_ku24v"]

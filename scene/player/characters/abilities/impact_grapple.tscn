@@ -1,9 +1,9 @@
 [gd_scene load_steps=10 format=3 uid="uid://b7s666fjvh0kq"]
 
-[ext_resource type="Script" path="res://scripts/player/abilities/gladiator_grapple.gd" id="1_m5u8c"]
+[ext_resource type="Script" uid="uid://uvivms48nxkt" path="res://scripts/player/abilities/gladiator_grapple.gd" id="1_m5u8c"]
 [ext_resource type="PackedScene" uid="uid://cp7y4m5g1v21j" path="res://scene/utilities/stun_area.tscn" id="2_61vj7"]
 [ext_resource type="Texture2D" uid="uid://bljqohb032g47" path="res://meshes/player/characters/Impact/Textures/impact-grapple.png" id="3_5ubtb"]
-[ext_resource type="Script" path="res://addons/LineRenderer/line_renderer.gd" id="3_w66jv"]
+[ext_resource type="Script" uid="uid://dicgmhtyro43c" path="res://addons/LineRenderer/line_renderer.gd" id="3_w66jv"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_qf046"]
 radius = 0.3

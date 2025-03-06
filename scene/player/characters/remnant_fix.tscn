@@ -1,14 +1,14 @@
 [gd_scene load_steps=34 format=3 uid="uid://bnxrhky3nbvov"]
 
-[ext_resource type="Script" path="res://scripts/player/player.gd" id="1_p385m"]
-[ext_resource type="Script" path="res://scripts/player/player_anim_manager.gd" id="3_wmxeq"]
+[ext_resource type="Script" uid="uid://bnh4kfsbfcrbs" path="res://scripts/player/player.gd" id="1_p385m"]
+[ext_resource type="Script" uid="uid://b6x33qp53g17r" path="res://scripts/player/player_anim_manager.gd" id="3_wmxeq"]
 [ext_resource type="PackedScene" uid="uid://7elo11bnf3va" path="res://scene/player/weapon_holder.tscn" id="4_fi7t2"]
 [ext_resource type="PackedScene" uid="uid://d2ssiplk0o8os" path="res://scene/player/upgrades/upgrade_manager.tscn" id="5_v065w"]
 [ext_resource type="PackedScene" uid="uid://ci5nqrvy8tbkw" path="res://meshes/player/characters/Remnant/Remnant.blend" id="5_xyyuu"]
-[ext_resource type="Script" path="res://scripts/player/player_cam.gd" id="7_up0a7"]
+[ext_resource type="Script" uid="uid://dtlsgep2tn4r4" path="res://scripts/player/player_cam.gd" id="7_up0a7"]
 [ext_resource type="PackedScene" uid="uid://bbrv0muijwlh6" path="res://scene/player/player_economy_manager.tscn" id="8_gcldx"]
 [ext_resource type="PackedScene" uid="uid://bi7qoo74n8kdj" path="res://scene/player/player_hud.tscn" id="9_vw047"]
-[ext_resource type="Script" path="res://scripts/player/abilities/remnant_ability.gd" id="10_bkvo7"]
+[ext_resource type="Script" uid="uid://cp8lfu07mltsr" path="res://scripts/player/abilities/remnant_ability.gd" id="10_bkvo7"]
 [ext_resource type="PackedScene" uid="uid://bpfjiepxftms8" path="res://scene/player/footstep_detector.tscn" id="10_xbfqs"]
 [ext_resource type="PackedScene" uid="uid://cbe7vyi0jjwbi" path="res://scene/player/characters/abilities/remnant_ability_area.tscn" id="11_hvpsy"]
 

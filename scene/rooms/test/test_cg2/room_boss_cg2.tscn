@@ -1,8 +1,8 @@
 [gd_scene load_steps=40 format=4 uid="uid://brvxceh61ahpp"]
 
-[ext_resource type="Script" path="res://scripts/systems/rooms/boss_room.gd" id="1_8mic3"]
+[ext_resource type="Script" uid="uid://btfuem0c64bs6" path="res://scripts/systems/rooms/boss_room.gd" id="1_8mic3"]
 [ext_resource type="PackedScene" uid="uid://brlqcjircjtno" path="res://scene/enemy/bosses/enemy_boss_test_1.tscn" id="2_fosjv"]
-[ext_resource type="Script" path="res://addons/func_godot/src/map/func_godot_map.gd" id="3_bjoxr"]
+[ext_resource type="Script" uid="uid://ykg70hu78l4m" path="res://addons/func_godot/src/map/func_godot_map.gd" id="3_bjoxr"]
 [ext_resource type="Resource" uid="uid://bkhxcqsquw1yg" path="res://addons/func_godot/func_godot_default_map_settings.tres" id="4_eyypm"]
 [ext_resource type="Material" uid="uid://yjv7h47lnu24" path="res://textures/buildings/concrete_05.tres" id="5_fvoop"]
 [ext_resource type="Material" uid="uid://cp6bkk0fsmx57" path="res://textures/gore/meat_2.tres" id="6_a06tc"]

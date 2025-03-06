@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://cp7y4m5g1v21j"]
 
-[ext_resource type="Script" path="res://scripts/player/abilities/stun_area.gd" id="1_pb2jw"]
+[ext_resource type="Script" uid="uid://74a53w1fv3ku" path="res://scripts/player/abilities/stun_area.gd" id="1_pb2jw"]
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_xv0xc"]
 height = 1.0

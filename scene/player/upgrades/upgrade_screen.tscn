@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://5rnl8sgiev1v"]
 
-[ext_resource type="Script" path="res://scripts/player/upgrades/upgrade_screen.gd" id="1_ylfma"]
-[ext_resource type="Script" path="res://scripts/systems/upgrades/ability_button.gd" id="2_e6tq1"]
+[ext_resource type="Script" uid="uid://dswln0qod1v7t" path="res://scripts/player/upgrades/upgrade_screen.gd" id="1_ylfma"]
+[ext_resource type="Script" uid="uid://bhqhjees3jphw" path="res://scripts/systems/upgrades/ability_button.gd" id="2_e6tq1"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gdblg"]
 bg_color = Color(0, 0, 0, 1)

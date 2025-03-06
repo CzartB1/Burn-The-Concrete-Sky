@@ -183,8 +183,8 @@ tracks/3/keys = {
 
 [resource]
 _data = {
-"RESET": SubResource("Animation_au0a2"),
-"new_text": SubResource("Animation_6kbwc"),
-"textbox_fade_up": SubResource("Animation_g6k55"),
-"textbox_pop": SubResource("Animation_htbgc")
+&"RESET": SubResource("Animation_au0a2"),
+&"new_text": SubResource("Animation_6kbwc"),
+&"textbox_fade_up": SubResource("Animation_g6k55"),
+&"textbox_pop": SubResource("Animation_htbgc")
 }

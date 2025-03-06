@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://ded5mk0u40yid"]
 
-[ext_resource type="Script" path="res://scripts/systems/rooms/room_end.gd" id="1_7gyse"]
+[ext_resource type="Script" uid="uid://rj37g3i8nor3" path="res://scripts/systems/rooms/room_end.gd" id="1_7gyse"]
 
 [node name="rooms_end" type="Area3D"]
 script = ExtResource("1_7gyse")

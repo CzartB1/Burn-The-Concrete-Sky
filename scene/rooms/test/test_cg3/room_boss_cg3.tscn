@@ -1,9 +1,9 @@
 [gd_scene load_steps=82 format=4 uid="uid://kedshd64hp37"]
 
-[ext_resource type="Script" path="res://scripts/systems/rooms/boss_room.gd" id="1_3ctib"]
+[ext_resource type="Script" uid="uid://btfuem0c64bs6" path="res://scripts/systems/rooms/boss_room.gd" id="1_3ctib"]
 [ext_resource type="PackedScene" uid="uid://brlqcjircjtno" path="res://scene/enemy/bosses/enemy_boss_test_1.tscn" id="2_n8rdx"]
 [ext_resource type="AudioStream" uid="uid://wr18kx8p1l8l" path="res://audios/music/placeholders/the-final-boss-battle-158700.mp3" id="3_6swvj"]
-[ext_resource type="Script" path="res://addons/func_godot/src/map/func_godot_map.gd" id="4_b7mwk"]
+[ext_resource type="Script" uid="uid://ykg70hu78l4m" path="res://addons/func_godot/src/map/func_godot_map.gd" id="4_b7mwk"]
 [ext_resource type="Resource" uid="uid://bkhxcqsquw1yg" path="res://addons/func_godot/func_godot_default_map_settings.tres" id="5_dtsjf"]
 [ext_resource type="Material" uid="uid://05soxk0bl7ib" path="res://textures/environments/chain-thingie.tres" id="6_clcmc"]
 [ext_resource type="Material" uid="uid://dwq2v3x8tn5ix" path="res://textures/buildings/metal_1.tres" id="7_7whwn"]

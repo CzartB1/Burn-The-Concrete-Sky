@@ -1,6 +1,6 @@
 [gd_scene load_steps=16 format=3 uid="uid://blwyb80tpldxb"]
 
-[ext_resource type="Script" path="res://scripts/menus/pause_menu.gd" id="1_83na2"]
+[ext_resource type="Script" uid="uid://2anfk75352qw" path="res://scripts/menus/pause_menu.gd" id="1_83na2"]
 
 [sub_resource type="Animation" id="Animation_8wiok"]
 length = 0.001
@@ -52,9 +52,9 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_rn2qp"]
 _data = {
-"RESET": SubResource("Animation_8wiok"),
-"pause_slide_in": SubResource("Animation_vmokf"),
-"reset": SubResource("Animation_ykost")
+&"RESET": SubResource("Animation_8wiok"),
+&"pause_slide_in": SubResource("Animation_vmokf"),
+&"reset": SubResource("Animation_ykost")
 }
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_loyjt"]

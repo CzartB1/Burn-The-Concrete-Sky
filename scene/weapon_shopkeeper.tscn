@@ -1,9 +1,9 @@
 [gd_scene load_steps=7 format=3 uid="uid://6u7p3n73gi11"]
 
-[ext_resource type="Script" path="res://scripts/systems/upgrades/shopkeeper.gd" id="1_844um"]
+[ext_resource type="Script" uid="uid://b0l07rebrwue1" path="res://scripts/systems/upgrades/shopkeeper.gd" id="1_844um"]
 [ext_resource type="PackedScene" uid="uid://3tdjy78ipj88" path="res://meshes/human_male_base.blend" id="2_d6oxk"]
-[ext_resource type="Script" path="res://scripts/systems/upgrades/weapon_menu.gd" id="3_b40wm"]
-[ext_resource type="Script" path="res://scripts/systems/upgrades/weapon_button.gd" id="4_c6rd5"]
+[ext_resource type="Script" uid="uid://nhy5em8gv7ht" path="res://scripts/systems/upgrades/weapon_menu.gd" id="3_b40wm"]
+[ext_resource type="Script" uid="uid://brvejlixfab31" path="res://scripts/systems/upgrades/weapon_button.gd" id="4_c6rd5"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_205ab"]
 size = Vector3(3.91986, 2.56885, 3.84277)

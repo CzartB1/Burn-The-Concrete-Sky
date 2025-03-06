@@ -1,9 +1,9 @@
 [gd_scene load_steps=109 format=4 uid="uid://ca2bnapbbuwbc"]
 
-[ext_resource type="Script" path="res://scripts/systems/rooms/room.gd" id="1_nihum"]
-[ext_resource type="Script" path="res://scripts/systems/rooms/room_end.gd" id="2_v0xsb"]
+[ext_resource type="Script" uid="uid://co3c0f6rssoiw" path="res://scripts/systems/rooms/room.gd" id="1_nihum"]
+[ext_resource type="Script" uid="uid://rj37g3i8nor3" path="res://scripts/systems/rooms/room_end.gd" id="2_v0xsb"]
 [ext_resource type="PackedScene" uid="uid://bqiys4354dkyo" path="res://scene/enemy/enemy_spawner.tscn" id="3_4ambn"]
-[ext_resource type="Script" path="res://addons/func_godot/src/map/func_godot_map.gd" id="4_cbpfj"]
+[ext_resource type="Script" uid="uid://ykg70hu78l4m" path="res://addons/func_godot/src/map/func_godot_map.gd" id="4_cbpfj"]
 [ext_resource type="Resource" uid="uid://bkhxcqsquw1yg" path="res://addons/func_godot/func_godot_default_map_settings.tres" id="5_l1l0f"]
 [ext_resource type="Material" uid="uid://bpo277rselb05" path="res://textures/buildings/concrete_03.tres" id="6_t60un"]
 [ext_resource type="Material" uid="uid://dwu5chjmuyp5i" path="res://textures/buildings/concrete_01.tres" id="7_mfadh"]

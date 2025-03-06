@@ -1,9 +1,9 @@
 [gd_scene load_steps=64 format=4 uid="uid://2b62hy8gi1wb"]
 
-[ext_resource type="Script" path="res://scripts/systems/rooms/room.gd" id="1_fsomy"]
-[ext_resource type="Script" path="res://scripts/systems/rooms/room_end.gd" id="2_6m4yt"]
+[ext_resource type="Script" uid="uid://co3c0f6rssoiw" path="res://scripts/systems/rooms/room.gd" id="1_fsomy"]
+[ext_resource type="Script" uid="uid://rj37g3i8nor3" path="res://scripts/systems/rooms/room_end.gd" id="2_6m4yt"]
 [ext_resource type="PackedScene" uid="uid://bqiys4354dkyo" path="res://scene/enemy/enemy_spawner.tscn" id="3_xlhji"]
-[ext_resource type="Script" path="res://addons/func_godot/src/map/func_godot_map.gd" id="4_momsb"]
+[ext_resource type="Script" uid="uid://ykg70hu78l4m" path="res://addons/func_godot/src/map/func_godot_map.gd" id="4_momsb"]
 [ext_resource type="Resource" uid="uid://bkhxcqsquw1yg" path="res://addons/func_godot/func_godot_default_map_settings.tres" id="5_timoy"]
 [ext_resource type="Material" uid="uid://bpo277rselb05" path="res://textures/buildings/concrete_03.tres" id="6_3wa6v"]
 [ext_resource type="Material" uid="uid://dwu5chjmuyp5i" path="res://textures/buildings/concrete_01.tres" id="7_rxmi3"]
@@ -12,7 +12,7 @@
 [ext_resource type="Material" uid="uid://cwwh10unxqn3n" path="res://textures/lights/light_red.tres" id="10_jr6vs"]
 [ext_resource type="Material" uid="uid://bcesxplk7qv40" path="res://textures/environments/vent.tres" id="11_yvsi0"]
 [ext_resource type="Material" uid="uid://b8i5tok8akib3" path="res://textures/environments/conveyor_belt.tres" id="12_syfsu"]
-[ext_resource type="Script" path="res://scripts/misc/conveyor_belt.gd" id="13_jcbxk"]
+[ext_resource type="Script" uid="uid://clkgtkt2x0sdw" path="res://scripts/misc/conveyor_belt.gd" id="13_jcbxk"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_qe6j2"]
 size = Vector3(15.3545, 3, 5.13471)

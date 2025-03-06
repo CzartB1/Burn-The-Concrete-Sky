@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://t53uv01pfjjr"]
 
-[ext_resource type="Script" path="res://scripts/player/UI/player_stat_screen.gd" id="1_fo4pg"]
+[ext_resource type="Script" uid="uid://b0yyyp38lwmyw" path="res://scripts/player/UI/player_stat_screen.gd" id="1_fo4pg"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dusv0"]
 bg_color = Color(0, 0, 0, 1)
@@ -40,8 +40,8 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_kduqj"]
 _data = {
-"RESET": SubResource("Animation_gu5xt"),
-"show": SubResource("Animation_aperj")
+&"RESET": SubResource("Animation_gu5xt"),
+&"show": SubResource("Animation_aperj")
 }
 
 [node name="death_stat_screen" type="CanvasLayer"]

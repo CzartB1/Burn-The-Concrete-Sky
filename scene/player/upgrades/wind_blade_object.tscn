@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://dcr5km4dago7k"]
 
-[ext_resource type="Script" path="res://scripts/player/upgrades/wind_blade_object.gd" id="1_kcw5y"]
+[ext_resource type="Script" uid="uid://cbqi2o4hlwfi3" path="res://scripts/player/upgrades/wind_blade_object.gd" id="1_kcw5y"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_7rswg"]
 radius = 1.8

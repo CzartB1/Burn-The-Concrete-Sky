@@ -1,15 +1,15 @@
 [gd_scene load_steps=21 format=3 uid="uid://kh8x4dwsv522"]
 
-[ext_resource type="Script" path="res://scripts/enemy/enemy.gd" id="1_pj2m2"]
+[ext_resource type="Script" uid="uid://oisxcn4h6tg2" path="res://scripts/enemy/enemy.gd" id="1_pj2m2"]
 [ext_resource type="PackedScene" uid="uid://cvsfsqck1xyi5" path="res://meshes/enemies/cg1_pit/losts/lost.blend" id="2_fpg8i"]
-[ext_resource type="Script" path="res://scripts/enemy/states/masters/behavior_ranged.gd" id="2_pem4h"]
+[ext_resource type="Script" uid="uid://1r8tgct0dik1" path="res://scripts/enemy/states/masters/behavior_ranged.gd" id="2_pem4h"]
 [ext_resource type="PackedScene" uid="uid://derh5gmq2d8f8" path="res://scene/utilities/gore/gore_manager.tscn" id="2_x8b4j"]
-[ext_resource type="Script" path="res://addons/finite_state_machine/scripts/finite_state_machine.gd" id="3_itb51"]
-[ext_resource type="Script" path="res://addons/finite_state_machine/scripts/state_machine_state.gd" id="4_8tijc"]
+[ext_resource type="Script" uid="uid://dcobhyh2ydvef" path="res://addons/finite_state_machine/scripts/finite_state_machine.gd" id="3_itb51"]
+[ext_resource type="Script" uid="uid://dj3y7t3gdn6bj" path="res://addons/finite_state_machine/scripts/state_machine_state.gd" id="4_8tijc"]
 [ext_resource type="PackedScene" uid="uid://d2fex6enn48vn" path="res://scene/enemy/elite/lost_proj.tscn" id="4_32v53"]
-[ext_resource type="Script" path="res://scripts/enemy/states/idle_state.gd" id="5_6fdxg"]
-[ext_resource type="Script" path="res://scripts/enemy/states/chase_state.gd" id="6_exrv7"]
-[ext_resource type="Script" path="res://scripts/enemy/states/avoid_state.gd" id="7_ivoqt"]
+[ext_resource type="Script" uid="uid://dug1msh1cc714" path="res://scripts/enemy/states/idle_state.gd" id="5_6fdxg"]
+[ext_resource type="Script" uid="uid://t3yepo8pmdk" path="res://scripts/enemy/states/chase_state.gd" id="6_exrv7"]
+[ext_resource type="Script" uid="uid://4p7iwa71qh84" path="res://scripts/enemy/states/avoid_state.gd" id="7_ivoqt"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_gjrny"]
 radius = 0.406947

@@ -13,7 +13,7 @@ config_version=5
 config/name="project_godless"
 config/version="indev"
 run/main_scene="res://scene/menus/main_menu.tscn"
-config/features=PackedStringArray("4.3", "Forward Plus")
+config/features=PackedStringArray("4.4", "Forward Plus")
 boot_splash/bg_color=Color(0.141176, 0.141176, 0.141176, 1)
 config/icon="res://icon.svg"
 
@@ -232,7 +232,6 @@ dialogic_default_action={
 
 [physics]
 
-3d/physics_engine="JoltPhysics3D"
 jolt_3d/collisions/areas_detect_static_bodies=true
 
 [rendering]
