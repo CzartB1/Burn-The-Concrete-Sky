@@ -19,13 +19,15 @@ func _process(delta):
 	super._process(delta)
 	if charge_timer_frames > 0:
 		anim.active=false
+		looking=false
+		master.axis_lock_angular_y=true
 		if target_position==Vector3.ZERO or target_position==null: target_position = target
 		perform_charge()
 	elif charge_timer_frames <= 0 and charging:
 		end_charging()
 
 func attack():
-	if can_attack and detect_player() and global_position.distance_to(target_position)<=dist_to_attack and !charging:
+	if can_attack and detect_player()==true and global_position.distance_to(target_position)<=dist_to_attack and !charging:
 		start_charging()
 
 func detect_player():
@@ -41,6 +43,7 @@ func start_charging(): #FIXME THANKS GPT, BUT NOT REALLY!!!!
 	#await get_tree().create_timer(randf_range(charge_delay.x,charge_delay.y)).timeout
 	if anim: anim.active=false
 	if anim_plr: anim_plr.play("attack")
+	looking=false
 	master.stop_nav=true
 	can_attack=false
 	charging=true
@@ -61,6 +64,7 @@ func end_charging():
 	master.stop_nav=false
 	anim.active=false
 	if anim_plr: anim_plr.play("attack_end")
+	stop=true
 	disable_look=false
 	charging=false
 	cooldown_timer.start()
@@ -73,11 +77,15 @@ func _on_charge_hitbox_body_entered(body):
 	if body is Player: body.take_damage(charge_damage)
 	elif body is Enemy and body!=master: body.take_damage(charge_damage)
 
-#func _on_cooldown_timer_timeout():
-	#can_attack=true
+func _on_cooldown_timer_timeout():
+	can_attack=true
+	looking=true
 
 func _on_animation_player_animation_finished(anim_name):
 	if anim_name=="attack_end":
+		stop=false
 		anim.active=true
+		master.axis_lock_angular_y=false
+		looking=true
 		#anim_plr.stop()
-		can_attack=true
+		#can_attack=true

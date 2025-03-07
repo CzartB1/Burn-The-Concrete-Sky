@@ -78,7 +78,7 @@ func _ready():
 	time_slow_bar.max_value = time_slow_duration_max
 	Engine.time_scale = 1.0
 	letter_box=get_tree().get_first_node_in_group("l8rbox")
-	cam_normal_size=cam.size
+	if cam!=null: cam_normal_size=cam.size
 	total_speed_mult=move_speed_multiplier
 	
 

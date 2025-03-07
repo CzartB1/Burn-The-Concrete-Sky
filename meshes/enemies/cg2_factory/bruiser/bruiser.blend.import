@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://e13mgwqv1n3o"
-path="res://.godot/imported/technom_charger.blend-a7a3d3a43526aa36e26283ed9fdfa1d1.scn"
+path="res://.godot/imported/bruiser.blend-9e7f3ea4dcb80f46dddf778efdbbd832.scn"
 
 [deps]
 
-source_file="res://meshes/enemies/cg2_factory/bruiser/technom_charger.blend"
-dest_files=["res://.godot/imported/technom_charger.blend-a7a3d3a43526aa36e26283ed9fdfa1d1.scn"]
+source_file="res://meshes/enemies/cg2_factory/bruiser/bruiser.blend"
+dest_files=["res://.godot/imported/bruiser.blend-9e7f3ea4dcb80f46dddf778efdbbd832.scn"]
 
 [params]
 

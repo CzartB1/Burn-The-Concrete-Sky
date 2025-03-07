@@ -35,6 +35,7 @@ var will_stop_on_close=true
 @export var anim_move_smooth: float = 5.0   # Speed of the smooth transition
 var anim_move_state: float = 0.0  # whether running or not
 var current_speed: float
+var looking=true
 
 func _ready():
 	target = global_position
@@ -60,7 +61,7 @@ func _process(delta): # HACK spread the pathfinding update so each enemies updat
 	
 	states()
 	
-	aim(delta)
+	if looking:aim(delta)
 	
 	if is_attacking and state_machine.current_state!=idle_state:
 		master.speed = attack_speed

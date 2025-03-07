@@ -1,24 +1,16 @@
-[gd_scene load_steps=20 format=3 uid="uid://bw7y82qxa2yhs"]
+[gd_scene load_steps=17 format=3 uid="uid://cmxnw6he4xqce"]
 
 [ext_resource type="Script" uid="uid://oisxcn4h6tg2" path="res://scripts/enemy/enemy.gd" id="1_8enms"]
 [ext_resource type="PackedScene" uid="uid://cjwreu6yxp24d" path="res://meshes/enemies/cg2_factory/scrapper/scrapper.blend" id="2_m8u1i"]
-[ext_resource type="Script" uid="uid://eda4l1wan1ox" path="res://scripts/enemy/states/masters/behavior_melee.gd" id="3_6dk3f"]
+[ext_resource type="Script" uid="uid://br0k5mvuhwc5u" path="res://scripts/enemy/states/masters/behavior_charge.gd" id="3_nyhbf"]
 [ext_resource type="Script" uid="uid://dcobhyh2ydvef" path="res://addons/finite_state_machine/scripts/finite_state_machine.gd" id="4_h2tww"]
 [ext_resource type="Script" uid="uid://dj3y7t3gdn6bj" path="res://addons/finite_state_machine/scripts/state_machine_state.gd" id="5_uot31"]
 [ext_resource type="Script" uid="uid://dug1msh1cc714" path="res://scripts/enemy/states/idle_state.gd" id="6_mk5bk"]
 [ext_resource type="Script" uid="uid://t3yepo8pmdk" path="res://scripts/enemy/states/chase_state.gd" id="7_y6j6m"]
 [ext_resource type="Script" uid="uid://4p7iwa71qh84" path="res://scripts/enemy/states/avoid_state.gd" id="8_3jijo"]
-[ext_resource type="Texture2D" uid="uid://cmoka0opia5yq" path="res://sprites/slash-placeholder.png" id="9_tti0y"]
 [ext_resource type="PackedScene" uid="uid://derh5gmq2d8f8" path="res://scene/utilities/gore/gore_manager.tscn" id="10_cb7t1"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_gjrny"]
-radius = 0.364834
-height = 1.82751
-
-[sub_resource type="AnimationNodeOneShot" id="AnimationNodeOneShot_0t7ik"]
-
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_e54kd"]
-animation = &"attack"
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_btmf1"]
 animation = &"idle"
@@ -38,24 +30,20 @@ blend_point_2/node = SubResource("AnimationNodeAnimation_6amg7")
 blend_point_2/pos = 0.0
 min_space = 0.0
 
-[sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_xphmf"]
-graph_offset = Vector2(-898.273, 3.98478)
-nodes/attack/node = SubResource("AnimationNodeOneShot_0t7ik")
-nodes/attack/position = Vector2(-120, 40)
-nodes/attack_anim/node = SubResource("AnimationNodeAnimation_e54kd")
-nodes/attack_anim/position = Vector2(-400, 200)
+[sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_6hryh"]
 nodes/leg/node = SubResource("AnimationNodeBlendSpace1D_d8wwa")
-nodes/leg/position = Vector2(-360, 40)
+nodes/leg/position = Vector2(-340, 60)
 nodes/output/position = Vector2(380, 120)
-node_connections = [&"attack", 0, &"leg", &"attack", 1, &"attack_anim", &"output", 0, &"attack"]
+node_connections = [&"output", 0, &"leg"]
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_u2t00"]
-size = Vector3(1.0918, 1, 1)
+[sub_resource type="BoxShape3D" id="BoxShape3D_4qbp4"]
+size = Vector3(0.769531, 1.2876, 0.338318)
 
-[node name="wretch" type="CharacterBody3D" node_paths=PackedStringArray("navigation_agent", "gore_manager") groups=["Enemy"]]
+[node name="scrapper" type="CharacterBody3D" node_paths=PackedStringArray("navigation_agent", "anim", "gore_manager") groups=["Enemy"]]
 script = ExtResource("1_8enms")
+hp = 15
 navigation_agent = NodePath("behavior_master/NavigationAgent3D")
-mult_loot = 0.5
+anim = NodePath("scrapper/AnimationPlayer")
 gore_manager = NodePath("gore_manager")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
@@ -65,37 +53,37 @@ shape = SubResource("CapsuleShape3D_gjrny")
 transform = Transform3D(-1.2, 0, 1.81195e-07, 0, 1.2, 0, -1.81195e-07, 0, -1.2, 0, -1, 0)
 
 [node name="Skeleton3D" parent="scrapper/metarig" index="0"]
-bones/0/position = Vector3(1.20419e-09, 0.997803, -0.00681275)
+bones/0/position = Vector3(1.20419e-09, 1.05326, -0.00681275)
 bones/0/rotation = Quaternion(0, 0.608762, 0, 0.793353)
 bones/0/scale = Vector3(1, 1, 1)
-bones/1/rotation = Quaternion(0.111363, -0.698879, 0.0732758, 0.702707)
+bones/1/rotation = Quaternion(0.124543, -0.83395, 0.0475417, 0.535496)
 bones/1/scale = Vector3(1, 1, 1)
-bones/2/rotation = Quaternion(0.0232663, 0.00398404, -0.0142417, 0.99962)
-bones/3/rotation = Quaternion(-0.537625, -0.464698, -0.422541, 0.562561)
-bones/4/rotation = Quaternion(-0.429669, 0.566973, -0.515989, 0.47716)
+bones/2/rotation = Quaternion(0.0232663, 0.00398405, -0.0142417, 0.99962)
+bones/3/rotation = Quaternion(-0.495078, -0.509787, -0.469963, 0.523593)
+bones/4/rotation = Quaternion(0.200629, 0.668862, -0.255528, 0.668639)
 bones/4/scale = Vector3(1, 1, 1)
-bones/5/rotation = Quaternion(0.156985, -0.0447123, 0.0109151, 0.986528)
+bones/5/rotation = Quaternion(0.725105, -0.0288279, 0.0358786, 0.687099)
 bones/6/rotation = Quaternion(0.0747881, -0.0178685, 0.0476038, 0.995902)
-bones/7/rotation = Quaternion(-0.521127, 0.457088, 0.482137, 0.535762)
+bones/7/rotation = Quaternion(-0.495223, 0.485076, 0.510792, 0.508475)
 bones/7/scale = Vector3(1, 1, 1)
-bones/8/rotation = Quaternion(-0.432523, -0.621521, 0.361815, 0.543807)
+bones/8/rotation = Quaternion(-0.0336824, -0.756459, 0.0154147, 0.652992)
 bones/8/scale = Vector3(1, 1, 1)
-bones/9/rotation = Quaternion(-0.0159074, -0.0285882, 0.0564982, 0.997867)
+bones/9/rotation = Quaternion(0.899826, 0.15861, -0.0241216, 0.405678)
 bones/9/scale = Vector3(1, 1, 1)
 bones/10/rotation = Quaternion(-0.0225911, 0.00364458, 0.0259031, 0.999403)
 bones/10/scale = Vector3(1, 1, 1)
-bones/11/rotation = Quaternion(0.00951727, 0.176998, 0.0215552, 0.983929)
+bones/11/rotation = Quaternion(0.00605758, 0.327516, 0.0227708, 0.944552)
 bones/12/rotation = Quaternion(-0.154804, -1.16391e-07, -5.36931e-08, 0.987945)
-bones/13/position = Vector3(0.0141285, 0.0620999, 0.0976271)
-bones/13/rotation = Quaternion(0.774874, -0.0974264, 0.605572, 0.152845)
+bones/13/position = Vector3(0.00558716, 0.0621001, 0.098)
+bones/13/rotation = Quaternion(0.744647, 0.189999, 0.618594, -0.163534)
 bones/13/scale = Vector3(1, 1, 1)
-bones/14/rotation = Quaternion(0.0681044, -0.00168183, -0.00844191, 0.997641)
-bones/15/rotation = Quaternion(-0.682957, 7.83884e-07, -7.32908e-07, 0.730459)
+bones/14/rotation = Quaternion(0.197705, -0.000695095, -0.00756425, 0.980232)
+bones/15/rotation = Quaternion(-0.41588, 4.9859e-07, -9.3459e-07, 0.909419)
 bones/15/scale = Vector3(1, 1, 1)
-bones/16/position = Vector3(-0.00295397, 0.0620999, -0.0976271)
-bones/16/rotation = Quaternion(0.721322, 0.108745, 0.673951, -0.116869)
+bones/16/position = Vector3(0.00558735, 0.0621001, -0.098)
+bones/16/rotation = Quaternion(0.631189, -0.315689, 0.620384, 0.342149)
 bones/16/scale = Vector3(1, 1, 1)
-bones/17/rotation = Quaternion(0.234329, 0.0046376, 0.0509817, 0.970809)
+bones/17/rotation = Quaternion(0.688881, -8.06732e-09, 1.53008e-10, 0.724874)
 bones/18/rotation = Quaternion(-0.706715, 0.0185437, -0.0210314, 0.706943)
 bones/18/scale = Vector3(1, 1, 1)
 bones/19/rotation = Quaternion(-0.655919, -0.0708456, 0.0243406, 0.751105)
@@ -104,34 +92,31 @@ bones/20/rotation = Quaternion(-0.0243409, 0.751105, 0.655919, -0.0708453)
 
 [node name="AnimationTree" type="AnimationTree" parent="."]
 root_node = NodePath("../scrapper")
-tree_root = SubResource("AnimationNodeBlendTree_xphmf")
+tree_root = SubResource("AnimationNodeBlendTree_6hryh")
 anim_player = NodePath("../scrapper/AnimationPlayer")
-parameters/attack/active = false
-parameters/attack/internal_active = false
-parameters/attack/request = 0
 parameters/leg/blend_position = 1.0
 
 [node name="Looker" type="Node3D" parent="."]
 
 [node name="aim_ray" type="RayCast3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.475871)
 target_position = Vector3(0, 0, -100)
-collision_mask = 3
 debug_shape_custom_color = Color(1, 0.427451, 0.635294, 1)
 debug_shape_thickness = 5
 
-[node name="behavior_master" type="Node3D" parent="." node_paths=PackedStringArray("visual_effects", "hitbox", "master", "state_machine", "aim_node", "attack_timer", "look_ray", "dead_state", "idle_state", "chase_state", "avoid_state", "anim")]
-script = ExtResource("3_6dk3f")
-visual_effects = NodePath("../Area3D/Sprite3D")
-hitbox = NodePath("../Area3D")
-dist_to_attack = 1.5
+[node name="behavior_master" type="Node3D" parent="." node_paths=PackedStringArray("charge_ray", "cooldown_timer", "anim_plr", "master", "state_machine", "aim_node", "attack_timer", "look_ray", "dead_state", "idle_state", "chase_state", "avoid_state", "anim")]
+script = ExtResource("3_nyhbf")
+detection_range = 5.0
+charge_duration = 0.5
+charge_ray = NodePath("../aim_ray")
+cooldown_timer = NodePath("cooldown_timer")
+anim_plr = NodePath("../scrapper/AnimationPlayer")
 master = NodePath("..")
 state_machine = NodePath("FiniteStateMachine")
-speed = 12.0
-dist_to_chase = 1.5
-dist_to_avoid = 1.0
+dist_to_chase = 2.0
+dist_to_avoid = 0.0
 aim_node = NodePath("aimnode")
 attack_timer = NodePath("attack_timer")
-attack_prepare_duration = 1.0
 look_ray = NodePath("../aim_ray")
 dead_state = NodePath("FiniteStateMachine/Dead")
 idle_state = NodePath("FiniteStateMachine/Idle")
@@ -160,30 +145,29 @@ behavior = NodePath("../..")
 [node name="NavigationAgent3D" type="NavigationAgent3D" parent="behavior_master"]
 navigation_layers = 255
 avoidance_enabled = true
+radius = 1.0
+debug_enabled = true
 
 [node name="attack_timer" type="Timer" parent="behavior_master"]
-
-[node name="cooldown_timer" type="Timer" parent="behavior_master"]
-one_shot = true
 
 [node name="aimnode" type="Node3D" parent="behavior_master"]
 top_level = true
 
-[node name="Area3D" type="Area3D" parent="."]
+[node name="charge_hitbox" type="Area3D" parent="behavior_master"]
+input_ray_pickable = false
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1)
-shape = SubResource("BoxShape3D_u2t00")
+[node name="CollisionShape3D" type="CollisionShape3D" parent="behavior_master/charge_hitbox"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.143799, -0.529738)
+shape = SubResource("BoxShape3D_4qbp4")
 
-[node name="Sprite3D" type="Sprite3D" parent="Area3D"]
-transform = Transform3D(0.258819, -0.965926, -4.2222e-08, 0, -4.37114e-08, 1, -0.965926, -0.258819, -1.13133e-08, 0.0703011, 0, -0.634945)
-pixel_size = 0.005
-texture = ExtResource("9_tti0y")
+[node name="cooldown_timer" type="Timer" parent="behavior_master"]
 
 [node name="gore_manager" parent="." instance=ExtResource("10_cb7t1")]
 
+[connection signal="animation_finished" from="scrapper/AnimationPlayer" to="behavior_master" method="_on_animation_player_animation_finished"]
 [connection signal="velocity_computed" from="behavior_master/NavigationAgent3D" to="behavior_master" method="_on_navigation_agent_3d_velocity_computed"]
 [connection signal="timeout" from="behavior_master/attack_timer" to="behavior_master" method="_on_attack_timer_timeout"]
+[connection signal="body_entered" from="behavior_master/charge_hitbox" to="behavior_master" method="_on_charge_hitbox_body_entered"]
 [connection signal="timeout" from="behavior_master/cooldown_timer" to="behavior_master" method="_on_cooldown_timer_timeout"]
 
 [editable path="scrapper"]
