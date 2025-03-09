@@ -17,7 +17,7 @@ func on_physics_process(delta):
 	behavior.master.set_movement_target(behavior.master.global_position)
 	var plrpos = behavior.target
 	if plrpos == null: return
-	if !behavior.disable_look: behavior.rotate_to(behavior.nav_agent.get_next_path_position(),delta)
+	#if !behavior.disable_look: behavior.rotate_to(behavior.nav_agent.get_next_path_position(),delta)
 
 
 # Called when there is an input event while this state is active.

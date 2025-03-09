@@ -24,7 +24,7 @@ func _ready():
 
 func _process(_delta):
 	super._process(_delta)
-	stop=look_at_player
+	#stop=is_attacking
 	if in_sight:
 		laser.visible=true
 		laser.points[0]=master.global_position
@@ -33,8 +33,10 @@ func _process(_delta):
 		laser.visible=false
 
 func attack():
-	if can_shoot == false or master.stunned or reloading: return 
+	if can_shoot == false or master.stunned or reloading or !look_at_player: return 
 	if ammo > 0:
+		stop=true
+		#looking=false
 		is_attacking = true
 		can_shoot = false
 		in_sight=true
@@ -57,7 +59,10 @@ func attack():
 		reload()
 
 func _on_shoot_cooldown_timeout():
-	if can_shoot == false: can_shoot = true
+	stop=false
+	#looking=true
+	if can_shoot == false: 
+		can_shoot = true
 
 func reload():
 	is_attacking = true

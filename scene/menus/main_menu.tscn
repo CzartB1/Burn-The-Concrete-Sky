@@ -1,4 +1,4 @@
-[gd_scene load_steps=36 format=3 uid="uid://dwsbb66nlsgy1"]
+[gd_scene load_steps=38 format=3 uid="uid://dwsbb66nlsgy1"]
 
 [ext_resource type="Script" uid="uid://bihhpxn887ica" path="res://scripts/menus/main_menu.gd" id="1_psoe4"]
 [ext_resource type="PackedScene" uid="uid://dwx34svdy6oqn" path="res://scene/test_world.tscn" id="2_cowbv"]
@@ -117,7 +117,7 @@ gradient = SubResource("Gradient_5o7nh")
 
 [sub_resource type="Gradient" id="Gradient_7blxb"]
 offsets = PackedFloat32Array(0, 0.659794, 1)
-colors = PackedColorArray(0.17, 0.17, 0.17, 1, 1, 1, 1, 1, 1, 1, 1, 0)
+colors = PackedColorArray(0.17, 0.17, 0.17, 0.847059, 1, 1, 1, 0.341176, 1, 1, 1, 0)
 
 [sub_resource type="GradientTexture1D" id="GradientTexture1D_74524"]
 gradient = SubResource("Gradient_7blxb")
@@ -137,8 +137,8 @@ angle_min = -40.0
 angle_max = 40.0
 direction = Vector3(0.1, 0, 0)
 gravity = Vector3(0, 0.5, 0)
-scale_min = 4.0
-scale_max = 6.0
+scale_min = 3.0
+scale_max = 4.0
 scale_curve = SubResource("CurveTexture_cq2wf")
 color_ramp = SubResource("GradientTexture1D_74524")
 color_initial_ramp = SubResource("GradientTexture1D_wjlgt")
@@ -211,11 +211,21 @@ albedo_color = Color(0.54099, 0.54099, 0.54099, 1)
 material = SubResource("StandardMaterial3D_s7sh3")
 size = Vector2(200, 200)
 
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_dnxt3"]
+
+[sub_resource type="Sky" id="Sky_muahy"]
+sky_material = SubResource("ProceduralSkyMaterial_dnxt3")
+
 [sub_resource type="Environment" id="Environment_x55ll"]
 background_mode = 1
-background_color = Color(0.3698, 0.404917, 0.43, 1)
+background_color = Color(0.4644, 0.5085, 0.54, 1)
+sky = SubResource("Sky_muahy")
 tonemap_mode = 2
-volumetric_fog_length = 10.0
+fog_sky_affect = 0.1
+fog_depth_curve = 1.93187
+volumetric_fog_enabled = true
+volumetric_fog_length = 8.0
+volumetric_fog_sky_affect = 0.0
 
 [node name="MainMenu" type="CanvasLayer" node_paths=PackedStringArray("anim", "settingsMenu", "background_scene", "intro", "focus_button")]
 layer = 5
@@ -335,7 +345,7 @@ texture = ExtResource("3_7wtxt")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
-"": SubResource("AnimationLibrary_dj4lu")
+&"": SubResource("AnimationLibrary_dj4lu")
 }
 
 [node name="settingsMenu" parent="." instance=ExtResource("4_7cyxg")]
@@ -343,9 +353,9 @@ layer = 10
 
 [node name="scene" type="Node3D" parent="." node_paths=PackedStringArray("lights", "particles", "world_environment")]
 script = ExtResource("5_al40l")
-lights = [NodePath("Arktol/OmniLight3D"), NodePath("Arktol/OmniLight3D5"), NodePath("Arktol/OmniLight3D2"), NodePath("Arktol/OmniLight3D4"), NodePath("Arktol/OmniLight3D3"), NodePath("Arktol/OmniLight3D6")]
+lights = [NodePath("Arktol/OmniLight3D"), NodePath("Arktol/OmniLight3D5"), NodePath("Arktol/OmniLight3D2"), NodePath("Arktol/OmniLight3D4"), NodePath("Arktol/OmniLight3D3"), NodePath("Arktol/OmniLight3D6"), NodePath("Arktol/OmniLight3D7")]
 light_transition_speed = 1.0
-particles = [NodePath("Arktol/GPUParticles3D"), NodePath("Arktol/GPUParticles3D2")]
+particles = [NodePath("Arktol/smoke"), NodePath("Arktol/ember")]
 particle_transition_speed = 1.0
 world_environment = NodePath("WorldEnvironment")
 fixed_bg_color = Color(0.3698, 0.404917, 0.43, 1)
@@ -357,16 +367,16 @@ transform = Transform3D(0.446198, 0.231626, 0.86444, 0, 0.965926, -0.258819, -0.
 
 [node name="Arktol" parent="scene" instance=ExtResource("5_aso8j")]
 
-[node name="GPUParticles3D" type="GPUParticles3D" parent="scene/Arktol"]
+[node name="smoke" type="GPUParticles3D" parent="scene/Arktol"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 26.6267)
-amount = 7
+amount = 3
 lifetime = 8.0
 fixed_fps = 12
 collision_base_size = 0.1
 process_material = SubResource("ParticleProcessMaterial_6q72a")
 draw_pass_1 = SubResource("PlaneMesh_48dng")
 
-[node name="GPUParticles3D2" type="GPUParticles3D" parent="scene/Arktol"]
+[node name="ember" type="GPUParticles3D" parent="scene/Arktol"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 26.6267)
 amount = 15
 lifetime = 4.0
@@ -375,9 +385,18 @@ process_material = SubResource("ParticleProcessMaterial_eiaa7")
 draw_pass_1 = SubResource("PlaneMesh_sym6u")
 
 [node name="OmniLight3D" type="OmniLight3D" parent="scene/Arktol"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.51657, -23.9385)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -39.8476, 3.51657, -36.4395)
 light_color = Color(1, 0.433333, 0, 1)
 light_energy = 2.401
+light_indirect_energy = 1.285
+omni_range = 63.2231
+omni_attenuation = 0.416
+omni_shadow_mode = 0
+
+[node name="OmniLight3D7" type="OmniLight3D" parent="scene/Arktol"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.6901, 1.99568, 16.4222)
+light_color = Color(1, 0.433333, 0, 1)
+light_energy = 4.0
 light_indirect_energy = 1.285
 omni_range = 63.2231
 omni_attenuation = 0.416
@@ -411,7 +430,7 @@ omni_attenuation = 0.416
 omni_shadow_mode = 0
 
 [node name="OmniLight3D3" type="OmniLight3D" parent="scene/Arktol"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -21.2604, 3.70351, 33.3511)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -45.0447, 3.70351, 28.3283)
 light_color = Color(1, 0.433333, 0, 1)
 light_energy = 2.401
 light_indirect_energy = 1.285
@@ -420,9 +439,9 @@ omni_attenuation = 0.416
 omni_shadow_mode = 0
 
 [node name="OmniLight3D6" type="OmniLight3D" parent="scene/Arktol"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -44.8219, 3.70351, 4.26786)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -55.657, 3.70351, 3.17109)
 light_color = Color(1, 0.433333, 0, 1)
-light_energy = 2.401
+light_energy = 5.0
 light_indirect_energy = 1.285
 omni_range = 29.8882
 omni_attenuation = 0.416

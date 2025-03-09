@@ -1,0 +1,14 @@
+[remap]
+
+importer="qodot.map"
+type="Resource"
+uid="uid://b7uhqfcsnniuv"
+path="res://.godot/imported/scum_town_preboss.map-675650e84eb8040bf332e3d822c4dd49.tres"
+
+[deps]
+
+source_file="res://maps/scum_town/scum_town_preboss.map"
+dest_files=["res://.godot/imported/scum_town_preboss.map-675650e84eb8040bf332e3d822c4dd49.tres"]
+
+[params]
+

@@ -53,7 +53,6 @@ blend_point_2/pos = 1.0
 min_space = 0.0
 
 [sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_1ie24"]
-graph_offset = Vector2(-884.42, 61.031)
 nodes/Animation/node = SubResource("AnimationNodeAnimation_tvlyy")
 nodes/Animation/position = Vector2(-500, 80)
 "nodes/Animation 2/node" = SubResource("AnimationNodeAnimation_cvuv1")
@@ -72,11 +71,12 @@ shading_mode = 0
 albedo_color = Color(1, 0, 0, 1)
 albedo_texture = ExtResource("9_24rre")
 
-[sub_resource type="ImmediateMesh" id="ImmediateMesh_n2qim"]
+[sub_resource type="ImmediateMesh" id="ImmediateMesh_u3lbf"]
 
-[node name="watcher" type="CharacterBody3D" node_paths=PackedStringArray("navigation_agent", "gore_manager") groups=["Enemy"]]
+[node name="watcher" type="CharacterBody3D" node_paths=PackedStringArray("navigation_agent", "anim", "gore_manager") groups=["Enemy"]]
 script = ExtResource("1_7degi")
 navigation_agent = NodePath("behavior_master/NavigationAgent3D")
+anim = NodePath("watcher/AnimationPlayer")
 gore_manager = NodePath("gore_manager")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
@@ -86,7 +86,7 @@ shape = SubResource("CapsuleShape3D_gjrny")
 transform = Transform3D(-1.2, 0, -1.81195e-07, 0, 1.2, 0, 1.81195e-07, 0, -1.2, 0, -1, 0)
 
 [node name="Skeleton3D" parent="watcher/metarig" index="0"]
-bones/0/position = Vector3(2.63418e-09, 0.97476, -0.00681275)
+bones/0/position = Vector3(2.63418e-09, 0.990958, -0.00681275)
 bones/0/rotation = Quaternion(0, 0.382684, 0, 0.92388)
 bones/1/rotation = Quaternion(0.0539057, -0.642064, 0.0125753, 0.76465)
 bones/3/rotation = Quaternion(-0.468234, -0.55803, -0.60049, 0.329805)
@@ -100,12 +100,12 @@ bones/10/rotation = Quaternion(-0.431606, 0.341462, 0.262756, 0.792515)
 bones/11/position = Vector3(-0.0611371, 0.125221, 0.0647552)
 bones/12/rotation = Quaternion(0.118194, 0.228598, 0.0825752, 0.962785)
 bones/13/rotation = Quaternion(-0.0554855, 0.0317227, 0.287183, 0.955741)
-bones/14/rotation = Quaternion(0.907799, -0.0710889, 0.376023, 0.171624)
-bones/15/rotation = Quaternion(0.701554, -3.82737e-08, 7.17908e-08, 0.712616)
-bones/16/rotation = Quaternion(-0.650445, 8.20404e-07, -7.00872e-07, 0.759554)
-bones/17/rotation = Quaternion(0.905454, -0.0373162, 0.411181, 0.0984413)
-bones/18/rotation = Quaternion(0.214187, 0.000849649, 0.0203813, 0.97658)
-bones/19/rotation = Quaternion(-0.782602, 0.013616, -0.0207745, 0.622026)
+bones/14/rotation = Quaternion(0.915414, 0.0514376, 0.379403, -0.1242)
+bones/15/rotation = Quaternion(0.166368, -2.18615e-08, 1.11563e-08, 0.986064)
+bones/16/rotation = Quaternion(-0.710692, 7.43687e-07, -7.46141e-07, 0.703503)
+bones/17/rotation = Quaternion(0.870182, -0.103521, 0.395584, 0.274919)
+bones/18/rotation = Quaternion(0.375864, -0.000271203, 0.0313555, 0.926144)
+bones/19/rotation = Quaternion(-0.677561, 0.00686086, -0.0129835, 0.73532)
 bones/21/rotation = Quaternion(-0.0243409, 0.751105, 0.655919, -0.0708453)
 
 [node name="AnimationTree" type="AnimationTree" parent="watcher"]
@@ -118,7 +118,7 @@ parameters/attack/request = 0
 parameters/moveBlend/blend_position = 1.04777
 
 [node name="shoot_cooldown" type="Timer" parent="."]
-wait_time = 0.25
+wait_time = 10.0
 
 [node name="Muzzle" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.217125, 0.592686, -1.21382)
@@ -131,15 +131,18 @@ collision_mask = 3
 debug_shape_custom_color = Color(1, 0.427451, 0.635294, 1)
 debug_shape_thickness = 5
 
-[node name="behavior_master" type="Node3D" parent="." node_paths=PackedStringArray("muzzles", "shoot_cooldown", "laser", "master", "state_machine", "aim_node", "attack_timer", "look_ray", "dead_state", "idle_state", "chase_state", "avoid_state")]
+[node name="behavior_master" type="Node3D" parent="." node_paths=PackedStringArray("muzzles", "shoot_cooldown", "laser", "master", "state_machine", "aim_node", "attack_timer", "look_ray", "dead_state", "idle_state", "chase_state", "avoid_state", "anim")]
 script = ExtResource("2_1fvjp")
 muzzles = [NodePath("muzzle")]
 bullet = ExtResource("3_7obe5")
 shoot_cooldown = NodePath("../shoot_cooldown")
 shoot_range = 75
 laser = NodePath("LineRenderer3D")
+max_ammo = 1
 master = NodePath("..")
 state_machine = NodePath("FiniteStateMachine")
+dist_to_chase = 12.0
+dist_to_avoid = 6.0
 aim_speed = 50.0
 aim_node = NodePath("aimnode")
 attack_timer = NodePath("attack_timer")
@@ -148,6 +151,7 @@ dead_state = NodePath("FiniteStateMachine/Dead")
 idle_state = NodePath("FiniteStateMachine/Idle")
 chase_state = NodePath("FiniteStateMachine/Chase")
 avoid_state = NodePath("FiniteStateMachine/Avoid")
+anim = NodePath("../watcher/AnimationTree")
 
 [node name="FiniteStateMachine" type="Node" parent="behavior_master"]
 script = ExtResource("4_c450r")
@@ -181,7 +185,7 @@ top_level = true
 
 [node name="LineRenderer3D" type="MeshInstance3D" parent="behavior_master"]
 material_override = SubResource("StandardMaterial3D_4xpis")
-mesh = SubResource("ImmediateMesh_n2qim")
+mesh = SubResource("ImmediateMesh_u3lbf")
 script = ExtResource("10_0ajq3")
 points = Array[Vector3]([Vector3(5, 0, 0), Vector3(-5, 0, 0)])
 

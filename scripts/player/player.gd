@@ -78,7 +78,7 @@ func _ready():
 	time_slow_bar.max_value = time_slow_duration_max
 	Engine.time_scale = 1.0
 	letter_box=get_tree().get_first_node_in_group("l8rbox")
-	if cam!=null: cam_normal_size=cam.size
+	if cam:cam_normal_size=cam.size
 	total_speed_mult=move_speed_multiplier
 	
 
@@ -193,6 +193,8 @@ func move(delta):
 	# Allow external forces to persist and gradually fade.
 	external_velocity.x = move_toward(external_velocity.x, 0, external_decay_rate * delta)
 	external_velocity.z = move_toward(external_velocity.z, 0, external_decay_rate * delta)
+	
+	if !is_on_floor(): input_velocity.y=get_gravity().y
 	
 	# The final motion is the sum of the player's intent and the world's impulse.
 	velocity = input_velocity + external_velocity
