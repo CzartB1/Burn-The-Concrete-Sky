@@ -25,6 +25,10 @@ func _process(delta):
 		perform_charge()
 	elif charge_timer_frames <= 0 and charging:
 		end_charging()
+	elif charge_timer_frames <= 0 and !charging:
+		looking=true
+		disable_look=false
+		anim.active=true
 
 func attack():
 	if can_attack and detect_player()==true and global_position.distance_to(target_position)<=dist_to_attack and !charging:
@@ -65,7 +69,6 @@ func end_charging():
 	anim.active=false
 	if anim_plr: anim_plr.play("attack_end")
 	stop=true
-	disable_look=false
 	charging=false
 	cooldown_timer.start()
 	#await get_tree().create_timer(5).timeout
@@ -80,12 +83,13 @@ func _on_charge_hitbox_body_entered(body):
 func _on_cooldown_timer_timeout():
 	can_attack=true
 	looking=true
+	disable_look=false
+	anim.active=true
 
 func _on_animation_player_animation_finished(anim_name):
 	if anim_name=="attack_end":
 		stop=false
 		anim.active=true
 		master.axis_lock_angular_y=false
-		looking=true
 		#anim_plr.stop()
 		#can_attack=true

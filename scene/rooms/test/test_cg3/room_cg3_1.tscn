@@ -250,7 +250,7 @@ points = PackedVector3Array(6, 0.53125, -10, 6, 0.5, -10, 10, 0.5, -10, 10, 0.53
 points = PackedVector3Array(-10, 0.53125, -10, -10, 0.5, -10, -6, 0.5, -10, -6, 0.53125, -10, -10, 0.53125, 10, -10, 0.5, 10, -6, 0.5, 10, -6, 0.53125, 10)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_etfxf"]
-size = Vector3(42, 3, 7.94446)
+size = Vector3(38.189, 3, 7.94446)
 
 [node name="room_1" type="Node3D" node_paths=PackedStringArray("start_pos", "spawner", "navmesh")]
 script = ExtResource("1_fsomy")
@@ -478,7 +478,7 @@ script = ExtResource("13_jcbxk")
 push_direction = Vector3(-1, 0, 0)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="conveyor_belt"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, -1, -0.0140991)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.855469, -1, -0.0140991)
 shape = SubResource("BoxShape3D_etfxf")
 
 [node name="conveyor_belt2" type="Area3D" parent="."]
@@ -486,7 +486,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -16)
 script = ExtResource("13_jcbxk")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="conveyor_belt2"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, -1, -0.0140991)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.05005, -1, -0.0140991)
 shape = SubResource("BoxShape3D_etfxf")
 
 [connection signal="body_entered" from="rooms_end" to="rooms_end" method="_on_body_entered"]

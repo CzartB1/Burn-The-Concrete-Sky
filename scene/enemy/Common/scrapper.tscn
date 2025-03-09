@@ -90,6 +90,18 @@ bones/19/rotation = Quaternion(-0.655919, -0.0708456, 0.0243406, 0.751105)
 bones/19/scale = Vector3(1, 1, 1)
 bones/20/rotation = Quaternion(-0.0243409, 0.751105, 0.655919, -0.0708453)
 
+[node name="BoneAttachment3D" type="BoneAttachment3D" parent="scrapper/metarig/Skeleton3D" index="4"]
+transform = Transform3D(0.99754, -0.0617813, -0.0331268, 0.0615612, 0.998074, -0.00762585, 0.033534, 0.00556788, 0.999422, -0.016919, 1.74909, 0.194828)
+bone_name = "head"
+bone_idx = 12
+
+[node name="SpotLight3D" type="SpotLight3D" parent="scrapper/metarig/Skeleton3D/BoneAttachment3D"]
+transform = Transform3D(1.00807, -3.19245e-08, -3.73672e-07, -1.44892e-07, -0.959574, -0.308899, -3.45914e-07, 0.308899, -0.959574, 4.00469e-08, 1.79212, 0.26515)
+light_color = Color(1, 0, 0, 1)
+light_energy = 2.0
+spot_attenuation = 1.5
+spot_angle = 78.2975
+
 [node name="AnimationTree" type="AnimationTree" parent="."]
 root_node = NodePath("../scrapper")
 tree_root = SubResource("AnimationNodeBlendTree_6hryh")
@@ -113,8 +125,10 @@ cooldown_timer = NodePath("cooldown_timer")
 anim_plr = NodePath("../scrapper/AnimationPlayer")
 master = NodePath("..")
 state_machine = NodePath("FiniteStateMachine")
+speed = 15.0
 dist_to_chase = 2.0
 dist_to_avoid = 0.0
+aim_speed = 10.0
 aim_node = NodePath("aimnode")
 attack_timer = NodePath("attack_timer")
 look_ray = NodePath("../aim_ray")
@@ -149,6 +163,7 @@ radius = 1.0
 debug_enabled = true
 
 [node name="attack_timer" type="Timer" parent="behavior_master"]
+wait_time = 2.0
 
 [node name="aimnode" type="Node3D" parent="behavior_master"]
 top_level = true
@@ -161,6 +176,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.143799, -0.529738)
 shape = SubResource("BoxShape3D_4qbp4")
 
 [node name="cooldown_timer" type="Timer" parent="behavior_master"]
+wait_time = 0.5
 
 [node name="gore_manager" parent="." instance=ExtResource("10_cb7t1")]
 

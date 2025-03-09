@@ -11,6 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://derh5gmq2d8f8" path="res://scene/utilities/gore/gore_manager.tscn" id="9_356rx"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_gjrny"]
+radius = 0.600856
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_btmf1"]
 animation = &"idle"
@@ -41,7 +42,7 @@ size = Vector3(0.769531, 1.2876, 0.338318)
 
 [node name="bruiser" type="CharacterBody3D" node_paths=PackedStringArray("navigation_agent", "anim", "gore_manager") groups=["Enemy"]]
 script = ExtResource("1_xu357")
-hp = 30
+hp = 35
 elite = true
 navigation_agent = NodePath("behavior_master/NavigationAgent3D")
 anim = NodePath("bruiser/AnimationPlayer")
@@ -51,28 +52,28 @@ gore_manager = NodePath("gore_manager")
 shape = SubResource("CapsuleShape3D_gjrny")
 
 [node name="bruiser" parent="." instance=ExtResource("2_xvaul")]
-transform = Transform3D(-1.3, 0, -1.96295e-07, 0, 1.3, 0, 1.96295e-07, 0, -1.3, 0, -1, 0)
+transform = Transform3D(-1.5, 0, -2.26494e-07, 0, 1.5, 0, 2.26494e-07, 0, -1.5, 0, -1, 0)
 
 [node name="Skeleton3D" parent="bruiser/metarig" index="0"]
-bones/0/position = Vector3(-9.94793e-10, 1.0099, -0.00681275)
-bones/0/rotation = Quaternion(0, 0.913073, 0, 0.407797)
-bones/1/rotation = Quaternion(0.066356, -0.64455, 0.0587865, 0.759405)
-bones/2/rotation = Quaternion(0.0161974, -0.00070729, 0.0436137, 0.998917)
-bones/3/rotation = Quaternion(-0.611398, -0.33054, -0.34234, 0.63225)
-bones/4/rotation = Quaternion(-0.0603468, 0.734697, -0.0750544, 0.671525)
-bones/5/rotation = Quaternion(0.765783, 0.0170456, -0.0237347, 0.642435)
-bones/7/rotation = Quaternion(-0.277686, 0.609383, 0.592186, 0.448173)
-bones/8/rotation = Quaternion(0.0692023, -0.600542, 0.0470743, 0.795201)
-bones/9/rotation = Quaternion(0.0446597, -0.103959, -0.0618825, 0.99165)
-bones/11/rotation = Quaternion(0.107313, -0.249129, 0.0300422, 0.962038)
-bones/13/position = Vector3(0.00558712, 0.0621002, 0.098)
-bones/13/rotation = Quaternion(0.502205, 0.136318, 0.853443, -0.0290286)
-bones/14/rotation = Quaternion(0.211362, -3.05635e-08, 1.5758e-08, 0.977408)
-bones/15/rotation = Quaternion(-0.682957, 7.91065e-07, -7.35797e-07, 0.730459)
-bones/16/position = Vector3(0.00558732, 0.0621002, -0.098)
-bones/16/rotation = Quaternion(0.437459, -0.223538, 0.867626, 0.0767174)
-bones/17/rotation = Quaternion(0.373428, 4.86446e-09, 1.25577e-09, 0.927659)
-bones/18/rotation = Quaternion(-0.682957, 7.80149e-07, -7.34516e-07, 0.730459)
+bones/0/position = Vector3(2.41595e-09, 1.02118, -0.00681275)
+bones/0/rotation = Quaternion(0, 0.422618, 0, 0.906308)
+bones/1/rotation = Quaternion(0.0389239, -0.72034, 0.0373665, 0.691519)
+bones/2/rotation = Quaternion(0.0161974, -0.000707335, 0.0436137, 0.998917)
+bones/3/rotation = Quaternion(-0.488672, -0.49423, -0.51159, 0.505185)
+bones/4/rotation = Quaternion(-0.396716, 0.597514, -0.42725, 0.550501)
+bones/5/rotation = Quaternion(0.305211, 0.0270767, -0.0109882, 0.951836)
+bones/7/rotation = Quaternion(-0.491762, 0.475785, 0.589665, 0.429061)
+bones/8/rotation = Quaternion(-0.295072, -0.644142, 0.306458, 0.635686)
+bones/9/rotation = Quaternion(0.277593, 0.00770792, 0.119863, 0.953161)
+bones/11/rotation = Quaternion(0.161293, 0.338752, -0.0471707, 0.925746)
+bones/13/position = Vector3(0.00558726, 0.0620999, 0.098)
+bones/13/rotation = Quaternion(0.879516, -0.059859, 0.457862, 0.115023)
+bones/14/rotation = Quaternion(0.543934, -2.18865e-08, 5.35603e-08, 0.839128)
+bones/15/rotation = Quaternion(-0.656413, 7.21292e-07, -7.64439e-07, 0.754402)
+bones/16/position = Vector3(0.00558725, 0.0620999, -0.098)
+bones/16/rotation = Quaternion(0.843323, 0.000277805, 0.537341, -0.00847856)
+bones/17/rotation = Quaternion(0.126169, -5.48717e-08, 6.28892e-08, 0.992009)
+bones/18/rotation = Quaternion(-0.698895, 7.97594e-07, -7.12558e-07, 0.715224)
 bones/20/rotation = Quaternion(-0.0243409, 0.751105, 0.655919, -0.0708453)
 
 [node name="AnimationTree" type="AnimationTree" parent="."]
@@ -102,6 +103,7 @@ state_machine = NodePath("FiniteStateMachine")
 speed = 5.0
 dist_to_chase = 2.0
 dist_to_avoid = 0.0
+aim_speed = 10.0
 aim_node = NodePath("aimnode")
 attack_timer = NodePath("attack_timer")
 attack_speed = 10.0
@@ -137,6 +139,7 @@ radius = 1.0
 debug_enabled = true
 
 [node name="attack_timer" type="Timer" parent="behavior_master"]
+wait_time = 5.0
 
 [node name="aimnode" type="Node3D" parent="behavior_master"]
 top_level = true
@@ -149,7 +152,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.143799, -0.529738)
 shape = SubResource("BoxShape3D_4qbp4")
 
 [node name="cooldown_timer" type="Timer" parent="behavior_master"]
-wait_time = 3.0
+wait_time = 0.5
 
 [node name="gore_manager" parent="." instance=ExtResource("9_356rx")]
 
