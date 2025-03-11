@@ -1,10 +1,11 @@
-[gd_scene load_steps=15 format=3 uid="uid://5h1usjqaabvb"]
+[gd_scene load_steps=16 format=3 uid="uid://5h1usjqaabvb"]
 
 [ext_resource type="Script" uid="uid://oisxcn4h6tg2" path="res://scripts/enemy/enemy.gd" id="1_2tx1q"]
 [ext_resource type="Script" uid="uid://tu88ql113j2x" path="res://scripts/enemy/states/masters/boss_behavior.gd" id="2_hu7mq"]
 [ext_resource type="Script" uid="uid://dcobhyh2ydvef" path="res://addons/finite_state_machine/scripts/finite_state_machine.gd" id="3_fmc7f"]
-[ext_resource type="Script" uid="uid://d1oth4evkfcgx" path="res://scripts/enemy/states/masters/boss_phase.gd" id="4_bonpb"]
+[ext_resource type="Script" uid="uid://dh1uvc6o7eeo3" path="res://scripts/enemy/states/masters/boss_phases/phase_test_1.gd" id="3_vqhl3"]
 [ext_resource type="Script" uid="uid://dj3y7t3gdn6bj" path="res://addons/finite_state_machine/scripts/state_machine_state.gd" id="4_ccsq6"]
+[ext_resource type="PackedScene" uid="uid://goav50e4qvt0" path="res://scene/enemy/enemy_bullet.tscn" id="4_y8djt"]
 [ext_resource type="Script" uid="uid://dug1msh1cc714" path="res://scripts/enemy/states/idle_state.gd" id="5_oxotu"]
 [ext_resource type="Script" uid="uid://t3yepo8pmdk" path="res://scripts/enemy/states/chase_state.gd" id="6_kfbsx"]
 [ext_resource type="Script" uid="uid://4p7iwa71qh84" path="res://scripts/enemy/states/avoid_state.gd" id="7_810qt"]
@@ -49,6 +50,12 @@ skeleton = NodePath("../..")
 [node name="Muzzle" type="Node3D" parent="MeshInstance3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1)
 
+[node name="Muzzle2" type="Node3D" parent="MeshInstance3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, -1)
+
+[node name="Muzzle3" type="Node3D" parent="MeshInstance3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, -1)
+
 [node name="Looker" type="Node3D" parent="."]
 
 [node name="aim_ray" type="RayCast3D" parent="."]
@@ -59,7 +66,7 @@ debug_shape_thickness = 5
 
 [node name="behavior_master" type="Node3D" parent="." node_paths=PackedStringArray("phases", "health_bar", "master", "state_machine", "aim_node", "attack_timer", "look_ray", "dead_state", "idle_state", "chase_state", "avoid_state")]
 script = ExtResource("2_hu7mq")
-phases = [NodePath("phase_base")]
+phases = [NodePath("phase_base"), null]
 health_bar = NodePath("../HUD/ProgressBar")
 master = NodePath("..")
 state_machine = NodePath("FiniteStateMachine")
@@ -71,8 +78,19 @@ idle_state = NodePath("FiniteStateMachine/Idle")
 chase_state = NodePath("FiniteStateMachine/Chase")
 avoid_state = NodePath("FiniteStateMachine/Avoid")
 
-[node name="phase_base" type="Node3D" parent="behavior_master"]
-script = ExtResource("4_bonpb")
+[node name="phase_base" type="Node3D" parent="behavior_master" node_paths=PackedStringArray("muzzles", "shoot_cooldown")]
+script = ExtResource("3_vqhl3")
+muzzles = [NodePath("../../MeshInstance3D/Muzzle")]
+bullet = ExtResource("4_y8djt")
+shoot_cooldown = NodePath("../attack_timer")
+hp_to_activate = 1000
+
+[node name="phase_base2" type="Node3D" parent="behavior_master" node_paths=PackedStringArray("muzzles", "shoot_cooldown")]
+script = ExtResource("3_vqhl3")
+muzzles = [NodePath("../../MeshInstance3D/Muzzle"), NodePath("../../MeshInstance3D/Muzzle2"), NodePath("../../MeshInstance3D/Muzzle3")]
+bullet = ExtResource("4_y8djt")
+shoot_cooldown = NodePath("../attack_timer")
+hp_to_activate = 500
 
 [node name="FiniteStateMachine" type="Node" parent="behavior_master"]
 script = ExtResource("3_fmc7f")
@@ -126,4 +144,4 @@ value = 50.0
 show_percentage = false
 
 [connection signal="velocity_computed" from="behavior_master/NavigationAgent3D" to="behavior_master" method="_on_navigation_agent_3d_velocity_computed"]
-[connection signal="timeout" from="behavior_master/attack_timer" to="behavior_master" method="_on_attack_timer_timeout"]
+[connection signal="timeout" from="behavior_master/attack_timer" to="behavior_master/phase_base" method="_on_attack_timer_timeout"]

@@ -53,5 +53,5 @@ func reload():
 	behavior.is_attacking = false
 	reloading=false
 
-func _on_shoot_cooldown_timeout():
+func _on_attack_timer_timeout():
 	if can_shoot == false: can_shoot = true

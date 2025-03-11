@@ -29,7 +29,9 @@ func perform_attack():
 	print("Attacking")
 
 func _process(delta):
-	if active and !activated:activated=true
+	activated=active
 	if hp_to_activate >= behavior.master.hp and !active and !activated and behavior.current_phase!=behavior.phases.find(self):
 		behavior.current_phase=behavior.phases.find(self) 
-		activated=true
+		active=true
+		for b in behavior.phases:
+			if b!=self:b.active=false

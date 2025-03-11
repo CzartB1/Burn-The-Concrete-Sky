@@ -56,13 +56,10 @@ collision_mask = 3
 debug_shape_custom_color = Color(1, 0.427451, 0.635294, 1)
 debug_shape_thickness = 5
 
-[node name="behavior_master" type="Node3D" parent="." node_paths=PackedStringArray("phases", "health_bar", "muzzles", "shoot_cooldown", "master", "state_machine", "aim_node", "attack_timer", "look_ray", "dead_state", "idle_state", "chase_state", "avoid_state")]
+[node name="behavior_master" type="Node3D" parent="." node_paths=PackedStringArray("phases", "health_bar", "master", "state_machine", "aim_node", "attack_timer", "look_ray", "dead_state", "idle_state", "chase_state", "avoid_state")]
 script = ExtResource("2_gxsmt")
 phases = [NodePath("phase_2"), NodePath("phase_3"), NodePath("phase_1")]
 health_bar = NodePath("../HUD/ProgressBar")
-muzzles = [NodePath("phase_1/Muzzle")]
-bullet = ExtResource("4_1awqw")
-shoot_cooldown = NodePath("phase_1/shoot_cooldown")
 master = NodePath("..")
 state_machine = NodePath("FiniteStateMachine")
 aim_node = NodePath("aimnode")
