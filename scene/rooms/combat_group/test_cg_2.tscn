@@ -9,7 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://fsiodlolvois" path="res://scene/rooms/test/test_cg2/room_cg2_3.tscn" id="5_igyys"]
 [ext_resource type="PackedScene" uid="uid://brvxceh61ahpp" path="res://scene/rooms/test/test_cg2/room_boss_cg2.tscn" id="7_ugyc6"]
 [ext_resource type="AudioStream" uid="uid://wr18kx8p1l8l" path="res://audios/music/placeholders/the-final-boss-battle-158700.mp3" id="9_2m1xi"]
-[ext_resource type="PackedScene" uid="uid://wxe84cmlkj4s" path="res://scene/rooms/test/test_cg2/room_preboss_cg2.tscn" id="10_ml78d"]
+[ext_resource type="PackedScene" uid="uid://wxe84cmlkj4s" path="res://scene/rooms/test/test_cg3/room_preboss_cg3.tscn" id="10_ml78d"]
 
 [node name="test_cg2" type="Node3D" node_paths=PackedStringArray("rooms", "intro_room", "rest_room", "preboss_room", "boss_room")]
 script = ExtResource("1_wulxw")

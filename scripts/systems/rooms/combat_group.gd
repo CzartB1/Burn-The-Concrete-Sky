@@ -107,13 +107,16 @@ func check_room():
 			rooms[i].visible = false
 			rooms[i].process_mode = Node.PROCESS_MODE_DISABLED
 	if manager.room_count==room_amount: 
-		if boss_room==null:
-			manager.next_room_category=2 #change to intro
-			#rest_room.move_player_to_spawn()
-			#manager.room_count=0
-			#rest becomes intro
-		elif boss_room!=null:
-			manager.next_room_category=3
+		if manager.next_room_category==4 or manager.current_room_category==4:
+			enable_boss_room()
+		else:
+			if boss_room==null:
+				manager.next_room_category=2 #change to intro
+				#rest_room.move_player_to_spawn()
+				#manager.room_count=0
+				#rest becomes intro
+			elif boss_room!=null:
+				manager.next_room_category=3
 		
 	else:
 		manager.next_room_category=1 #to another combat
@@ -143,13 +146,20 @@ func enable_preboss_room():
 	if preboss_room.shopkeepers.size()>0:
 		for i in preboss_room.shopkeepers: i.rand_upgrades()
 
+func enable_boss_room():
+	for room in rooms:
+		room.spawner.reset_spawner()
+	boss_room.move_player_to_spawn()
+	boss_room.visible = true
+	boss_room.process_mode = Node.PROCESS_MODE_INHERIT
+
 func disable_rest_room():
 	rest_room.visible = false
 	rest_room.process_mode = Node.PROCESS_MODE_DISABLED
 
 func disable_preboss_room():
-	preboss_room.visible = false
-	preboss_room.process_mode = Node.PROCESS_MODE_DISABLED
+	preboss_room.visible=false
+	preboss_room.process_mode=Node.PROCESS_MODE_DISABLED
 
 func activate_next_group():
 	manager.clear_abilities()

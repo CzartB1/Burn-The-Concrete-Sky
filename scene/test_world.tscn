@@ -184,8 +184,10 @@ manager = NodePath("..")
 next_group = [NodePath("../the_pit")]
 
 [node name="room_boss" parent="room_manager" instance=ExtResource("9_eqyys")]
+visible = false
 
 [node name="room_rest" parent="room_manager" node_paths=PackedStringArray("manager") instance=ExtResource("7_mf3ok")]
+visible = false
 manager = NodePath("..")
 
 [node name="stats" type="CanvasLayer" parent="."]

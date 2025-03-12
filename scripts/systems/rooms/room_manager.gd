@@ -124,7 +124,7 @@ func check_room(): # This basically enables and disables shit, and also change c
 		room_count+=1
 		#if room_count>=combatgroup.room_amount: combatgroup.activate_next_group()
 		combatgroup.check_room()
-	elif next_room_category == 2: # intro
+	elif next_room_category == 2: # intro/rest
 		current_room_category=2
 		disable_combat_rooms()
 		room_count+=1
@@ -141,14 +141,9 @@ func check_room(): # This basically enables and disables shit, and also change c
 		print("room "+ str(room_count) +" || type: pre-boss")
 	elif next_room_category == 4: # boss
 		current_room_category=4
-		for room in combatgroup.rooms:
-			room.spawner.reset_spawner()
+		#combatgroup.disable_preboss_room() FIXME THIS SHIT FUCKING BREAKS ME
+		combatgroup.check_room()
 		disable_combat_rooms()
-		combatgroup.disable_preboss_room()
-		disable_rest_room()
-		boss_room.move_player_to_spawn()
-		boss_room.visible = true
-		boss_room.process_mode = Node.PROCESS_MODE_INHERIT
 		next_room_category=2
 		print("room "+ str(room_count) +" || type: boss")
 	var tr=get_tree().get_first_node_in_group("Transition")
@@ -245,7 +240,6 @@ func select_room(room_id:int=0,category:int=0,combat_group_id:int=0): #HACK add 
 		intro = false
 		intro_room.visible = false
 		intro_room.process_mode = Node.PROCESS_MODE_DISABLED
-		disable_boss()
 		disable_combat_rooms()
 		await get_tree().create_timer(0.05).timeout
 		combatgroup.enable_rest_room()
