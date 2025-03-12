@@ -638,7 +638,7 @@ shape = SubResource("CapsuleShape3D_gjrny")
 transform = Transform3D(-1.1, 0, -9.61651e-08, 0, 1.1, 0, 9.61651e-08, 0, -1.1, 0, -1, 0)
 
 [node name="Skeleton3D" parent="goon/metarig" index="0"]
-bones/0/position = Vector3(1.57438e-09, 0.984778, -0.00681275)
+bones/0/position = Vector3(1.57438e-09, 0.985807, -0.00681275)
 bones/0/rotation = Quaternion(0, 0.5373, 0, 0.843391)
 bones/1/rotation = Quaternion(0.0404926, -0.705947, 0.0404926, 0.705946)
 bones/2/rotation = Quaternion(0.0585182, -1.18109e-07, 8.10909e-09, 0.998286)
@@ -651,12 +651,12 @@ bones/9/rotation = Quaternion(0.917935, 0.103113, -0.0226954, 0.382425)
 bones/10/rotation = Quaternion(0.238079, 0.0090188, 0.0242667, 0.970901)
 bones/12/rotation = Quaternion(-0.0152001, 0.2584, -0.0431805, 0.964953)
 bones/13/rotation = Quaternion(-0.111563, -1.16161e-07, -5.07856e-08, 0.993757)
-bones/14/rotation = Quaternion(0.821726, 0.0211514, 0.569332, -0.0134113)
-bones/15/rotation = Quaternion(0.0854549, -1.68291e-08, -1.2004e-09, 0.996342)
-bones/16/rotation = Quaternion(-0.714169, 8.08832e-07, -6.99983e-07, 0.699973)
-bones/17/rotation = Quaternion(0.852301, -0.0537446, 0.50232, 0.135532)
-bones/18/rotation = Quaternion(0.727227, -2.28491e-08, 6.11284e-08, 0.686397)
-bones/19/rotation = Quaternion(-0.751845, 8.51193e-07, -6.62002e-07, 0.65934)
+bones/14/rotation = Quaternion(0.818109, -0.0433631, 0.567873, 0.0796115)
+bones/15/rotation = Quaternion(0.607603, -1.61385e-08, 4.67e-08, 0.794241)
+bones/16/rotation = Quaternion(-0.693479, 7.89928e-07, -7.20211e-07, 0.720477)
+bones/17/rotation = Quaternion(0.862907, 0.0170326, 0.504851, 0.0150638)
+bones/18/rotation = Quaternion(0.154051, -4.91922e-08, -1.07538e-08, 0.988063)
+bones/19/rotation = Quaternion(-0.738254, 8.19267e-07, -6.91052e-07, 0.674523)
 bones/21/rotation = Quaternion(-0.0243408, 0.751105, 0.655919, -0.0708453)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="goon/AnimationPlayer" index="0"]
@@ -739,6 +739,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.143799, -0.529738)
 shape = SubResource("BoxShape3D_4qbp4")
 
 [node name="cooldown_timer" type="Timer" parent="behavior_master"]
+wait_time = 0.5
 
 [node name="gore_manager" parent="." instance=ExtResource("9_djuwg")]
 

@@ -23,3 +23,8 @@ transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 
 
 [node name="rest_toom" parent="." instance=ExtResource("6_5bni7")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 0)
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.72095, 0.692987, 0, -0.692987, 0.72095, 0, 10.1473, 0)
+light_energy = 0.25
+directional_shadow_mode = 0

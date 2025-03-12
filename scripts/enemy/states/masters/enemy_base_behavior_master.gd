@@ -43,7 +43,7 @@ func _ready():
 	plrdist = global_position.distance_to(plrpos)
 	nav_agent.avoidance_enabled=true
 	nav_agent.debug_enabled=false
-	anim.active=true
+	if anim:anim.active=true
 	current_speed = 0.0
 
 func _process(delta): # HACK spread the pathfinding update so each enemies update in different frames and not at the same time to reduce workload
@@ -79,7 +79,7 @@ func _process(delta): # HACK spread the pathfinding update so each enemies updat
 		if master.alive: 
 			anim.set("parameters/moveBlend/blend_position", anim_move_state) # don't abs or ceil this. It'll stutter. And it's broken as it is
 		elif !master.alive: anim.active=false
-	print("Current Speed: ", current_speed)
+	#print("Current Speed: ", current_speed)
 
 func aim(delta):
 	if master.stunned:return
