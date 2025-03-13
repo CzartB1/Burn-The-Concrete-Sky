@@ -109,7 +109,7 @@ func check_room():
 	if manager.room_count==room_amount: 
 		if manager.next_room_category==4 or manager.current_room_category==4:
 			enable_boss_room()
-		else:
+		elif manager.next_room_category!=4 and manager.current_room_category!=4:
 			if boss_room==null:
 				manager.next_room_category=2 #change to intro
 				#rest_room.move_player_to_spawn()
@@ -147,6 +147,8 @@ func enable_preboss_room():
 		for i in preboss_room.shopkeepers: i.rand_upgrades()
 
 func enable_boss_room():
+	preboss_room.visible=false
+	preboss_room.process_mode=Node.PROCESS_MODE_DISABLED
 	for room in rooms:
 		room.spawner.reset_spawner()
 	boss_room.move_player_to_spawn()
