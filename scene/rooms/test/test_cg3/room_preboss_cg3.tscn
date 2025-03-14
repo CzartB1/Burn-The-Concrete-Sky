@@ -237,7 +237,7 @@ points = PackedVector3Array(0.5, 2.25, 9.75, 0.5, 0.5, 9.75, 0.75, 0.5, 9.75, 0.
 [sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_s4k0x"]
 points = PackedVector3Array(-0.5, 2, 9.875, -0.5, 0.5, 9.875, 0.5, 0.5, 9.875, 0.5, 2, 9.875, -0.5, 2, 10, -0.5, 0.5, 10, 0.5, 0.5, 10, 0.5, 2, 10)
 
-[node name="roompreboss" type="Node3D" node_paths=PackedStringArray("start_pos", "shopkeepers")]
+[node name="room_preboss_cg3" type="Node3D" node_paths=PackedStringArray("start_pos", "shopkeepers")]
 script = ExtResource("1_emhbn")
 start_pos = NodePath("spawn")
 shopkeepers = [NodePath("shopkeeper")]

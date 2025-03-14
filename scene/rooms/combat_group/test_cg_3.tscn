@@ -18,7 +18,7 @@ commons = Array[PackedScene]([ExtResource("2_aqp6n")])
 elites = Array[PackedScene]([ExtResource("3_p2ko5"), ExtResource("4_31kom")])
 intro_room = NodePath("room_rest")
 rest_room = NodePath("room_rest")
-preboss_room = NodePath("roompreboss")
+preboss_room = NodePath("room_preboss")
 boss_room = NodePath("room_boss")
 
 [node name="room_rest" parent="." groups=["room"] instance=ExtResource("3_ctfdt")]
@@ -37,4 +37,4 @@ light_color = Color(0.79, 0.720875, 0.5925, 1)
 light_energy = 0.5
 directional_shadow_mode = 0
 
-[node name="roompreboss" parent="." instance=ExtResource("10_31kom")]
+[node name="room_preboss" parent="." instance=ExtResource("10_31kom")]

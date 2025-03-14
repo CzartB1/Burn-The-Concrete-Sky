@@ -23,12 +23,14 @@ var prev_combat_id
 var upgrading = false
 var faded=false
 var can_change=true
+var preboss:Room
 
 func _ready():
 	intro_room=combatgroup.intro_room
 	boss_room.manager=self
 	intro_room.manager = self
 	rest_room.manager = self
+	if preboss!=null:preboss.manager=self
 	go_to_intro()
 	
 	if demo_lock_screen!= null:
@@ -135,13 +137,12 @@ func check_room(): # This basically enables and disables shit, and also change c
 		print("room "+ str(room_count) +" || type: rest")
 	elif next_room_category == 3: # pre-boss
 		current_room_category=3
+		combatgroup.enable_preboss_room() #FIXME for some reason, scumtown will usse factory's preboss
 		disable_combat_rooms()
-		combatgroup.enable_preboss_room()
 		next_room_category=4
 		print("room "+ str(room_count) +" || type: pre-boss")
 	elif next_room_category == 4: # boss
 		current_room_category=4
-		#combatgroup.disable_preboss_room() FIXME THIS SHIT FUCKING BREAKS ME
 		combatgroup.check_room()
 		disable_combat_rooms()
 		next_room_category=2

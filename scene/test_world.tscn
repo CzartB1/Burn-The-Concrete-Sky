@@ -140,7 +140,7 @@ adjustment_brightness = 0.83
 adjustment_contrast = 1.22
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_0x23y"]
-size = Vector3(1000, 1, 1000)
+size = Vector3(1000, 7.62074, 1000)
 
 [node name="Node3D" type="Node3D"]
 
@@ -353,7 +353,7 @@ environment = SubResource("Environment_5440b")
 script = ExtResource("23_jahdx")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="dedzone"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -37.5853, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -17.9122, 0)
 shape = SubResource("BoxShape3D_0x23y")
 
 [connection signal="pressed" from="stats/demo_lock/HBoxContainer/choose char" to="stats/demo_lock" method="_on_choose_char_pressed"]
@@ -363,3 +363,5 @@ shape = SubResource("BoxShape3D_0x23y")
 [editable path="room_manager/the_pit"]
 [editable path="room_manager/the_pit/room_intro"]
 [editable path="room_manager/the_pit/room_intro/the_figure/CanvasLayer"]
+[editable path="room_manager/scum_town"]
+[editable path="room_manager/factory"]

@@ -569,16 +569,16 @@ skeleton = NodePath("../Entrance")
 shape = SubResource("BoxShape3D_nn2hp")
 
 [node name="Node3D" type="Node3D" parent="spawner"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22.2941, 0, -16)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22.2941, -1, -16)
 
 [node name="Node3D2" type="Node3D" parent="spawner"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18.4987, 0, 21.7463)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18.4987, -1, 21.7463)
 
 [node name="Node3D3" type="Node3D" parent="spawner"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17.2611, 0, 21.8686)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17.2611, -1, 21.8686)
 
 [node name="Node3D4" type="Node3D" parent="spawner"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22.7298, 0, -17.7582)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22.7298, -1, -17.7582)
 
 [node name="Trigger" type="Area3D" parent="spawner"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -38.4693, 0.0122325, 0.0566831)

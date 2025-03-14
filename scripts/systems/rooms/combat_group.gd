@@ -112,9 +112,6 @@ func check_room():
 		elif manager.next_room_category!=4 and manager.current_room_category!=4:
 			if boss_room==null:
 				manager.next_room_category=2 #change to intro
-				#rest_room.move_player_to_spawn()
-				#manager.room_count=0
-				#rest becomes intro
 			elif boss_room!=null:
 				manager.next_room_category=3
 		
