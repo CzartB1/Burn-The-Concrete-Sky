@@ -68,7 +68,8 @@ func _process(_delta):
 		if i == combatgroup:
 			i.enabled=true
 		elif i != combatgroup:
-			i.enabled=false
+			if i:i.enabled=false
+			elif !i:combatgroups.erase(i)
 	
 	SaveManager.current_room_id=current_room
 	SaveManager.current_room_category=current_room_category
@@ -163,13 +164,13 @@ func go_to_intro():
 
 func disable_combat_rooms():
 	for i in combatgroups:
-		i.disable_group()
+		if i:i.disable_group()
 
 func disable_rest_room():
 	rest_room.visible = false
 	rest_room.process_mode = Node.PROCESS_MODE_DISABLED
 	for i in combatgroups:
-		i.disable_rest_room()
+		if i:i.disable_rest_room()
 
 func leave_pre_boss():
 	rest_room.visible = false

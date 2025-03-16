@@ -8,6 +8,7 @@ extends Node3D
 var prev_combat_id
 @export var enabled = false
 @export var next_group:Array[Combat_Group]
+@export var sibling_groups:Array[Combat_Group]
 @export var room_amount:int=4
 @export_group("Special Rooms")
 @export var intro_room: Room
@@ -51,6 +52,12 @@ func _process(_delta):
 		if boss_room!=null and manager.rest_room!=boss_room:
 			manager.boss_room=boss_room
 			boss_room.manager=manager
+		if sibling_groups.size()>0:
+			for sibling in sibling_groups:
+				if sibling:sibling.queue_free()
+			for g in get_tree().get_nodes_in_group("preboss"):
+				if get_children().has(g):
+					preboss_room=g
 	elif !enabled:
 		for ro in rooms:
 			ro.visible = false
@@ -158,12 +165,15 @@ func disable_rest_room():
 
 func disable_preboss_room():
 	preboss_room.visible=false
-	preboss_room.process_mode=Node.PROCESS_MODE_DISABLED
+	preboss_room.process_mode=Node.PROCESS_MODE_INHERIT
 
 func activate_next_group():
 	manager.clear_abilities()
 	#TODO instead of having all groups active all at once, instantiate the next one, and delete the old one to free up memory
 	var chos=next_group.pick_random()
+	for group in next_group:
+		if group!=chos:
+			group.queue_free()
 	manager.combatgroup=chos
 	chos.enabled=true
 	enabled=false
@@ -200,6 +210,9 @@ func activate_group(chos:Combat_Group):
 	if boss_room!=null:
 		boss_room.visible=false
 		boss_room.process_mode=Node.PROCESS_MODE_DISABLED
+	if chos.sibling_groups.size()>0:
+		for sibling in chos.sibling_groups:
+			sibling.queue_free()
 	#visible=false
 	#process_mode = Node.PROCESS_MODE_DISABLED
 	print("Group chosen: " + str(chos.name))

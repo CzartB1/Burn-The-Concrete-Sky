@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://gagx2whtjcm6"]
+[gd_scene load_steps=12 format=3 uid="uid://gagx2whtjcm6"]
 
 [ext_resource type="Script" uid="uid://vmrxn0ewthlg" path="res://scripts/systems/rooms/combat_group.gd" id="1_me76h"]
 [ext_resource type="PackedScene" uid="uid://cmxnw6he4xqce" path="res://scene/enemy/Common/scrapper.tscn" id="2_aqp6n"]
@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://ca2bnapbbuwbc" path="res://scene/rooms/test/test_cg3/room_cg3_3.tscn" id="5_2lilr"]
 [ext_resource type="PackedScene" uid="uid://kedshd64hp37" path="res://scene/rooms/test/test_cg3/room_boss_cg3.tscn" id="7_xxfp1"]
 [ext_resource type="PackedScene" uid="uid://wxe84cmlkj4s" path="res://scene/rooms/test/test_cg3/room_preboss_cg3.tscn" id="10_31kom"]
+[ext_resource type="PackedScene" uid="uid://bochid44ruy06" path="res://scene/rooms/test/test_cg3/fix_sroom_preboss_cg3.tscn" id="11_o3x10"]
 
 [node name="test_cg3" type="Node3D" node_paths=PackedStringArray("rooms", "intro_room", "rest_room", "preboss_room", "boss_room")]
 script = ExtResource("1_me76h")
@@ -18,7 +19,7 @@ commons = Array[PackedScene]([ExtResource("2_aqp6n")])
 elites = Array[PackedScene]([ExtResource("3_p2ko5"), ExtResource("4_31kom")])
 intro_room = NodePath("room_rest")
 rest_room = NodePath("room_rest")
-preboss_room = NodePath("room_preboss")
+preboss_room = NodePath("fixroom_preboss_cg4")
 boss_room = NodePath("room_boss")
 
 [node name="room_rest" parent="." groups=["room"] instance=ExtResource("3_ctfdt")]
@@ -37,4 +38,8 @@ light_color = Color(0.79, 0.720875, 0.5925, 1)
 light_energy = 0.5
 directional_shadow_mode = 0
 
-[node name="room_preboss" parent="." instance=ExtResource("10_31kom")]
+[node name="room_preboss_cg3" parent="." instance=ExtResource("10_31kom")]
+process_mode = 4
+visible = false
+
+[node name="fixroom_preboss_cg4" parent="." instance=ExtResource("11_o3x10")]

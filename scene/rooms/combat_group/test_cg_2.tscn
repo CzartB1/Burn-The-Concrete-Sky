@@ -18,7 +18,7 @@ commons = Array[PackedScene]([ExtResource("2_5k56y")])
 elites = Array[PackedScene]([ExtResource("3_egx6l")])
 intro_room = NodePath("room_rest")
 rest_room = NodePath("room_rest")
-preboss_room = NodePath("roompreboss")
+preboss_room = NodePath("room_preboss_cg2")
 boss_room = NodePath("room_boss")
 
 [node name="room_rest" parent="." groups=["room"] instance=ExtResource("3_4mt3y")]
@@ -37,4 +37,5 @@ transform = Transform3D(1, 0, 0, 0, 0.72095, 0.692987, 0, -0.692987, 0.72095, 0,
 directional_shadow_mode = 0
 sky_mode = 1
 
-[node name="roompreboss" parent="." instance=ExtResource("10_ml78d")]
+[node name="room_preboss_cg2" parent="." instance=ExtResource("10_ml78d")]
+visible = false

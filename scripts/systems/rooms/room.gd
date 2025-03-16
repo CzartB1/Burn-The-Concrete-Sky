@@ -17,7 +17,7 @@ func _ready():
 		print("nav disabled")
 	
 
-func _process(_delta):
+func _process(_delta): #FIXME preboss of cg3 randomly replaces itself with preboss of cg2 for some fucking reason
 	if manager == null:
 		print("room no manager")
 		var _man = get_tree().get_first_node_in_group("room_manager")
