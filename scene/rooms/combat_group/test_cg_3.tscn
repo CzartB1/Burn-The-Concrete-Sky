@@ -2,15 +2,15 @@
 
 [ext_resource type="Script" uid="uid://vmrxn0ewthlg" path="res://scripts/systems/rooms/combat_group.gd" id="1_me76h"]
 [ext_resource type="PackedScene" uid="uid://cmxnw6he4xqce" path="res://scene/enemy/Common/scrapper.tscn" id="2_aqp6n"]
-[ext_resource type="PackedScene" uid="uid://2b62hy8gi1wb" path="res://scene/rooms/test/test_cg3/room_cg3_1.tscn" id="3_bej8n"]
-[ext_resource type="PackedScene" uid="uid://cstkrfvtb6jxk" path="res://scene/rooms/test/test_cg3/room_rest_cg3.tscn" id="3_ctfdt"]
+[ext_resource type="PackedScene" uid="uid://2b62hy8gi1wb" path="res://scene/rooms/undercity/factory/room_cg3_1.tscn" id="3_bej8n"]
+[ext_resource type="PackedScene" uid="uid://cstkrfvtb6jxk" path="res://scene/rooms/undercity/factory/room_rest_cg3.tscn" id="3_ctfdt"]
 [ext_resource type="PackedScene" uid="uid://nhi2cs0lg025" path="res://scene/enemy/elite/pistolero.tscn" id="3_p2ko5"]
 [ext_resource type="PackedScene" uid="uid://dt7ehaiia82nr" path="res://scene/enemy/elite/bruiser.tscn" id="4_31kom"]
-[ext_resource type="PackedScene" uid="uid://b13rkk6xn8xrc" path="res://scene/rooms/test/test_cg3/room_cg3_2.tscn" id="4_epttm"]
-[ext_resource type="PackedScene" uid="uid://ca2bnapbbuwbc" path="res://scene/rooms/test/test_cg3/room_cg3_3.tscn" id="5_2lilr"]
-[ext_resource type="PackedScene" uid="uid://kedshd64hp37" path="res://scene/rooms/test/test_cg3/room_boss_cg3.tscn" id="7_xxfp1"]
-[ext_resource type="PackedScene" uid="uid://wxe84cmlkj4s" path="res://scene/rooms/test/test_cg3/room_preboss_cg3.tscn" id="10_31kom"]
-[ext_resource type="PackedScene" uid="uid://bochid44ruy06" path="res://scene/rooms/test/test_cg3/fix_sroom_preboss_cg3.tscn" id="11_o3x10"]
+[ext_resource type="PackedScene" uid="uid://b13rkk6xn8xrc" path="res://scene/rooms/undercity/factory/room_cg3_2.tscn" id="4_epttm"]
+[ext_resource type="PackedScene" uid="uid://ca2bnapbbuwbc" path="res://scene/rooms/undercity/factory/room_cg3_3.tscn" id="5_2lilr"]
+[ext_resource type="PackedScene" uid="uid://kedshd64hp37" path="res://scene/rooms/undercity/factory/room_boss_cg3.tscn" id="7_xxfp1"]
+[ext_resource type="PackedScene" uid="uid://wxe84cmlkj4s" path="res://scene/rooms/undercity/scum_town/room_preboss_cg2.tscn" id="10_31kom"]
+[ext_resource type="PackedScene" uid="uid://bochid44ruy06" path="res://scene/rooms/undercity/factory/fix_sroom_preboss_cg3.tscn" id="11_o3x10"]
 
 [node name="test_cg3" type="Node3D" node_paths=PackedStringArray("rooms", "intro_room", "rest_room", "preboss_room", "boss_room")]
 script = ExtResource("1_me76h")

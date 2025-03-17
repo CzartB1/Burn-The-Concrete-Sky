@@ -1,10 +1,10 @@
 [gd_scene load_steps=6 format=3 uid="uid://cebc076cxalyg"]
 
 [ext_resource type="Script" uid="uid://vmrxn0ewthlg" path="res://scripts/systems/rooms/combat_group.gd" id="1_mtgbv"]
-[ext_resource type="PackedScene" uid="uid://btqeey3k04vc2" path="res://scene/rooms/test/test_cg1/room_1.tscn" id="3_h6cxn"]
-[ext_resource type="PackedScene" uid="uid://bi7ur8x77bvb0" path="res://scene/rooms/test/test_cg1/room_3.tscn" id="4_58p0v"]
-[ext_resource type="PackedScene" uid="uid://ctkp4fivu5dna" path="res://scene/rooms/test/test_cg1/room_2.tscn" id="5_vq6ku"]
-[ext_resource type="PackedScene" uid="uid://c7augcs4p0odc" path="res://scene/rooms/test/room_intro.tscn" id="6_5bni7"]
+[ext_resource type="PackedScene" uid="uid://btqeey3k04vc2" path="res://scene/rooms/undercity/the_pit/room_1.tscn" id="3_h6cxn"]
+[ext_resource type="PackedScene" uid="uid://bi7ur8x77bvb0" path="res://scene/rooms/undercity/the_pit/room_3.tscn" id="4_58p0v"]
+[ext_resource type="PackedScene" uid="uid://ctkp4fivu5dna" path="res://scene/rooms/undercity/the_pit/room_2.tscn" id="5_vq6ku"]
+[ext_resource type="PackedScene" uid="uid://c7augcs4p0odc" path="res://scene/rooms/undercity/room_intro.tscn" id="6_5bni7"]
 
 [node name="test_cg1" type="Node3D" node_paths=PackedStringArray("rooms", "intro_room", "rest_room")]
 script = ExtResource("1_mtgbv")

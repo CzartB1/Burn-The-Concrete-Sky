@@ -138,8 +138,8 @@ func check_room(): # This basically enables and disables shit, and also change c
 		print("room "+ str(room_count) +" || type: rest")
 	elif next_room_category == 3: # pre-boss
 		current_room_category=3
-		combatgroup.enable_preboss_room() #FIXME for some reason, scumtown will usse factory's preboss
 		disable_combat_rooms()
+		go_to_preboss() #FIXME for some reason, scumtown will usse factory's preboss
 		next_room_category=4
 		print("room "+ str(room_count) +" || type: pre-boss")
 	elif next_room_category == 4: # boss
@@ -161,6 +161,10 @@ func leave_intro():
 func go_to_intro():
 	combatgroup.intro_room.visible = true
 	combatgroup.intro_room.process_mode = Node.PROCESS_MODE_INHERIT
+
+func go_to_preboss():
+	combatgroup.preboss_room.visible = true
+	combatgroup.preboss_room.process_mode = Node.PROCESS_MODE_INHERIT
 
 func disable_combat_rooms():
 	for i in combatgroups:

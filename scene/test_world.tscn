@@ -8,9 +8,9 @@
 [ext_resource type="PackedScene" uid="uid://gagx2whtjcm6" path="res://scene/rooms/combat_group/test_cg_3.tscn" id="5_kwnv4"]
 [ext_resource type="PackedScene" uid="uid://kh8x4dwsv522" path="res://scene/enemy/elite/lost.tscn" id="6_td813"]
 [ext_resource type="PackedScene" uid="uid://dnsg7vjjerv46" path="res://scene/enemy/Common/goon.tscn" id="7_j5kwb"]
-[ext_resource type="PackedScene" uid="uid://chi0yi6krxebk" path="res://scene/rooms/test/test_cg1/room_rest.tscn" id="7_mf3ok"]
+[ext_resource type="PackedScene" uid="uid://chi0yi6krxebk" path="res://scene/rooms/undercity/the_pit/room_rest.tscn" id="7_mf3ok"]
 [ext_resource type="PackedScene" uid="uid://dup18x3lqhykg" path="res://scene/enemy/elite/watcher.tscn" id="8_2wsw0"]
-[ext_resource type="PackedScene" uid="uid://bokolxfdwrhar" path="res://scene/rooms/test/room_boss.tscn" id="9_eqyys"]
+[ext_resource type="PackedScene" uid="uid://bokolxfdwrhar" path="res://scene/rooms/undercity/room_boss.tscn" id="9_eqyys"]
 [ext_resource type="PackedScene" uid="uid://dks7eg8o5s7al" path="res://scene/player/characters/Remnant.tscn" id="10_0jsb7"]
 [ext_resource type="PackedScene" uid="uid://dgx2clkxdsth2" path="res://scene/player/characters/Silver.tscn" id="11_m1rxn"]
 [ext_resource type="PackedScene" uid="uid://b1au5gcyhryfm" path="res://scene/menus/character_select_screen.tscn" id="11_xgfu7"]
@@ -174,7 +174,7 @@ demo_lock_screen = NodePath("../stats/demo_lock")
 commons = Array[PackedScene]([ExtResource("3_ec2g0")])
 elites = Array[PackedScene]([ExtResource("4_wb7kj"), ExtResource("6_td813")])
 manager = NodePath("..")
-next_group = [NodePath("../factory"), NodePath("../scum_town")]
+next_group = [NodePath("../factory")]
 
 [node name="room_intro" parent="room_manager/the_pit" index="3" node_paths=PackedStringArray("manager")]
 manager = NodePath("../..")

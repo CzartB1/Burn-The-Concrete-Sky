@@ -49,9 +49,11 @@ func _process(_delta):
 			manager.intro_room=intro_room
 		if rest_room!=null and manager.rest_room!=rest_room:
 			manager.rest_room=rest_room
-		if boss_room!=null and manager.rest_room!=boss_room:
+		if boss_room!=null and manager.boss_room!=boss_room:
 			manager.boss_room=boss_room
 			boss_room.manager=manager
+		if preboss_room!=null and manager.preboss!=preboss_room:
+			manager.preboss=preboss_room
 		if sibling_groups.size()>0:
 			for sibling in sibling_groups:
 				if sibling:sibling.queue_free()
