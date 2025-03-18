@@ -140,6 +140,7 @@ func check_room(): # This basically enables and disables shit, and also change c
 		current_room_category=3
 		disable_combat_rooms()
 		go_to_preboss() #FIXME for some reason, scumtown will usse factory's preboss
+		combatgroup.preboss_room.move_player_to_spawn()
 		next_room_category=4
 		print("room "+ str(room_count) +" || type: pre-boss")
 	elif next_room_category == 4: # boss

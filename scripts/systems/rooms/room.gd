@@ -42,7 +42,7 @@ func _process(_delta): #FIXME preboss of cg3 randomly replaces itself with prebo
 			if spawner.end!=end: 
 				spawner.end=end
 				end.can_go=false
-		if spawner==null or navmesh==null:
+		if spawner==null and end!=null or navmesh==null and end!=null:
 			end.can_go=true
 
 func move_player_to_spawn():
