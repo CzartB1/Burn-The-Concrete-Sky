@@ -15,9 +15,9 @@
 [ext_resource type="PackedScene" uid="uid://dgx2clkxdsth2" path="res://scene/player/characters/Silver.tscn" id="11_m1rxn"]
 [ext_resource type="PackedScene" uid="uid://b1au5gcyhryfm" path="res://scene/menus/character_select_screen.tscn" id="11_xgfu7"]
 [ext_resource type="PackedScene" uid="uid://cj7kkva2uk3m0" path="res://scene/player/characters/Impact.tscn" id="12_b3tjq"]
+[ext_resource type="PackedScene" uid="uid://dax77v5pluquy" path="res://scene/menus/demo_lock_screen.tscn" id="12_s143w"]
 [ext_resource type="PackedScene" uid="uid://d5vt4gjy1jd2" path="res://scene/player/characters/Mirage.tscn" id="13_ojb4m"]
 [ext_resource type="Script" uid="uid://exx6mb3ilk5" path="res://scripts/systems/char_manager.gd" id="20_0ogmo"]
-[ext_resource type="Script" uid="uid://b0yyyp38lwmyw" path="res://scripts/player/UI/player_stat_screen.gd" id="20_wjgrw"]
 [ext_resource type="AudioStream" uid="uid://b2w8xrtvdnc7l" path="res://audios/music/char_themes/Empire of Rust.mp3" id="21_s143w"]
 [ext_resource type="Script" uid="uid://c7x00y40vwan" path="res://scripts/systems/music_manager.gd" id="21_ss30e"]
 [ext_resource type="AudioStream" uid="uid://bf7sdaeh7oe5c" path="res://audios/music/char_themes/Against All Odds.mp3" id="22_yfyi7"]
@@ -210,119 +210,7 @@ manager = NodePath("..")
 [node name="stats" type="CanvasLayer" parent="."]
 layer = 5
 
-[node name="demo_lock" type="Control" parent="stats" node_paths=PackedStringArray("kill_label", "rooms_cleared_label", "playtime_label", "money_label", "mult_label")]
-layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-script = ExtResource("20_wjgrw")
-kill_label = NodePath("VBoxContainer/kills")
-rooms_cleared_label = NodePath("VBoxContainer/roomcleared")
-playtime_label = NodePath("VBoxContainer/playtime")
-money_label = NodePath("VBoxContainer/moneyearnd")
-mult_label = NodePath("VBoxContainer/highstmult")
-
-[node name="ColorRect" type="ColorRect" parent="stats/demo_lock"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-color = Color(0, 0, 0, 1)
-
-[node name="RichTextLabel" type="RichTextLabel" parent="stats/demo_lock"]
-layout_mode = 1
-anchors_preset = 10
-anchor_right = 1.0
-offset_top = 23.0
-offset_bottom = 107.0
-grow_horizontal = 2
-theme_override_font_sizes/bold_font_size = 30
-bbcode_enabled = true
-text = "[center][b]YOU'VE REACHED THE END OF THE DEMO!
-THANK YOU FOR PLAYING!"
-fit_content = true
-
-[node name="VBoxContainer" type="VBoxContainer" parent="stats/demo_lock"]
-layout_mode = 1
-anchors_preset = 14
-anchor_top = 0.5
-anchor_right = 1.0
-anchor_bottom = 0.5
-offset_left = 67.0
-offset_top = 14.0
-offset_right = -67.0
-offset_bottom = 170.0
-grow_horizontal = 2
-grow_vertical = 2
-size_flags_horizontal = 3
-
-[node name="kills" type="RichTextLabel" parent="stats/demo_lock/VBoxContainer"]
-layout_mode = 2
-size_flags_vertical = 4
-theme_override_font_sizes/normal_font_size = 20
-bbcode_enabled = true
-text = "Enemies Killed: 0"
-fit_content = true
-
-[node name="roomcleared" type="RichTextLabel" parent="stats/demo_lock/VBoxContainer"]
-layout_mode = 2
-size_flags_vertical = 4
-theme_override_font_sizes/normal_font_size = 20
-bbcode_enabled = true
-text = "Rooms Cleared: 0"
-fit_content = true
-
-[node name="playtime" type="RichTextLabel" parent="stats/demo_lock/VBoxContainer"]
-layout_mode = 2
-size_flags_vertical = 4
-theme_override_font_sizes/normal_font_size = 20
-bbcode_enabled = true
-text = "Playtime: 0"
-fit_content = true
-
-[node name="moneyearnd" type="RichTextLabel" parent="stats/demo_lock/VBoxContainer"]
-layout_mode = 2
-size_flags_vertical = 4
-theme_override_font_sizes/normal_font_size = 20
-bbcode_enabled = true
-text = "Money Earned: 0"
-fit_content = true
-
-[node name="highstmult" type="RichTextLabel" parent="stats/demo_lock/VBoxContainer"]
-layout_mode = 2
-size_flags_vertical = 4
-theme_override_font_sizes/normal_font_size = 20
-bbcode_enabled = true
-text = "Highest Multiplier: 0"
-fit_content = true
-
-[node name="HBoxContainer" type="HBoxContainer" parent="stats/demo_lock"]
-layout_mode = 1
-anchors_preset = 7
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = -152.0
-offset_top = -72.0
-offset_right = 152.0
-offset_bottom = -40.0
-grow_horizontal = 2
-grow_vertical = 0
-theme_override_constants/separation = 5
-alignment = 1
-
-[node name="choose char" type="Button" parent="stats/demo_lock/HBoxContainer"]
-layout_mode = 2
-text = "Play Again"
-
-[node name="exit" type="Button" parent="stats/demo_lock/HBoxContainer"]
-layout_mode = 2
-text = "Exit"
+[node name="demo_lock" parent="stats" instance=ExtResource("12_s143w")]
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 layer = 5
@@ -373,8 +261,6 @@ script = ExtResource("23_jahdx")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -17.9122, 0)
 shape = SubResource("BoxShape3D_0x23y")
 
-[connection signal="pressed" from="stats/demo_lock/HBoxContainer/choose char" to="stats/demo_lock" method="_on_choose_char_pressed"]
-[connection signal="pressed" from="stats/demo_lock/HBoxContainer/exit" to="stats/demo_lock" method="_on_exit_pressed"]
 [connection signal="body_entered" from="dedzone" to="dedzone" method="_on_body_entered"]
 
 [editable path="room_manager/the_pit"]

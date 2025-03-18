@@ -15,6 +15,7 @@ var started=false
 var finished=false
 var vis_demolock=false
 var plr
+var shwn=false
 
 func _ready():
 	entrance.visible = false
@@ -26,8 +27,10 @@ func _process(delta):
 	if boss==null and !finished:
 		boss_killed()
 	if vis_demolock:
-		if manager.demo_lock_screen.modulate.a<1:
-			manager.demo_lock_screen.modulate.a+=(delta*5)/Engine.time_scale
+		manager.demo_lock_screen.process_mode=Node.PROCESS_MODE_INHERIT
+		if !shwn:
+			manager.demo_lock_screen.show_anim()
+			shwn=true
 
 func move_player_to_spawn():
 	plr = get_tree().get_first_node_in_group("Player")

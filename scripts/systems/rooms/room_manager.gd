@@ -37,7 +37,6 @@ func _ready():
 		if !demo_lock: demo_lock_screen.queue_free()
 		elif demo_lock:
 			demo_lock_screen.process_mode=Node.PROCESS_MODE_DISABLED
-			demo_lock_screen.modulate.a=0
 	#for i in combat_rooms.size(): #disable combat room
 		#combat_rooms[i].manager = self
 	disable_combat_rooms()
