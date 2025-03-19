@@ -167,9 +167,10 @@ fit_content = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="stat_screen"]
 libraries = {
-"": SubResource("AnimationLibrary_kduqj")
+&"": SubResource("AnimationLibrary_kduqj")
 }
 
 [connection signal="pressed" from="stat_screen/Panel/HBoxContainer/restart" to="stat_screen" method="_on_restart_pressed"]
 [connection signal="pressed" from="stat_screen/Panel/HBoxContainer/choose char" to="stat_screen" method="_on_choose_char_pressed"]
 [connection signal="pressed" from="stat_screen/Panel/HBoxContainer/exit" to="stat_screen" method="_on_exit_pressed"]
+[connection signal="animation_finished" from="stat_screen/AnimationPlayer" to="stat_screen" method="_on_animation_player_animation_finished"]

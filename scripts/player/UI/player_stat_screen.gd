@@ -40,4 +40,9 @@ func _on_exit_pressed(): #FIX ME main menu button
 
 func show_anim():
 	anim.play("show")
-	game_manager.pause()
+	#game_manager.pause()
+
+
+func _on_animation_player_animation_finished(anim_name):
+	if anim_name=="show":
+		game_manager.pause()

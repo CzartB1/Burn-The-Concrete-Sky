@@ -67,7 +67,8 @@ func pause():
 	paused=true
 
 func unpause():
-	Engine.time_scale=prev_timescale
+	if prev_timescale!=null: Engine.time_scale=prev_timescale
+	elif !prev_timescale: Engine.time_scale=1
 	paused=false
 
 func kill_all_enemies():
