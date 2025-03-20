@@ -1,0 +1,175 @@
+[gd_scene load_steps=16 format=3 uid="uid://d2ykjs1m2rf3s"]
+
+[ext_resource type="Script" uid="uid://oisxcn4h6tg2" path="res://scripts/enemy/enemy.gd" id="1_12ga4"]
+[ext_resource type="Script" uid="uid://tu88ql113j2x" path="res://scripts/enemy/states/masters/boss_behavior.gd" id="2_1mn6g"]
+[ext_resource type="Script" uid="uid://bxifkk674f4s0" path="res://scripts/enemy/states/masters/boss_phases/minotaur/minotaur_phase_1.gd" id="3_12ga4"]
+[ext_resource type="Script" uid="uid://dcobhyh2ydvef" path="res://addons/finite_state_machine/scripts/finite_state_machine.gd" id="5_r6wwu"]
+[ext_resource type="Script" uid="uid://dj3y7t3gdn6bj" path="res://addons/finite_state_machine/scripts/state_machine_state.gd" id="6_bukap"]
+[ext_resource type="Script" uid="uid://dug1msh1cc714" path="res://scripts/enemy/states/idle_state.gd" id="7_xggn5"]
+[ext_resource type="Script" uid="uid://t3yepo8pmdk" path="res://scripts/enemy/states/chase_state.gd" id="8_dds14"]
+[ext_resource type="Script" uid="uid://4p7iwa71qh84" path="res://scripts/enemy/states/avoid_state.gd" id="9_wo24b"]
+[ext_resource type="PackedScene" uid="uid://derh5gmq2d8f8" path="res://scene/utilities/gore/gore_manager.tscn" id="10_6d7tv"]
+[ext_resource type="PackedScene" uid="uid://ddymj4xvu8f1s" path="res://meshes/enemies/bosses/Minotaur/minotaur.blend" id="11_1mn6g"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_gjrny"]
+radius = 0.604963
+height = 3.3782
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_12ga4"]
+animation = &"run"
+
+[sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_12ga4"]
+graph_offset = Vector2(-510.668, -13.7457)
+nodes/Animation/node = SubResource("AnimationNodeAnimation_12ga4")
+nodes/Animation/position = Vector2(-125, 118)
+nodes/output/position = Vector2(380, 120)
+node_connections = [&"output", 0, &"Animation"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_12ga4"]
+size = Vector3(1.66113, 3.38226, 1.614)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_un28l"]
+bg_color = Color(0.572549, 0, 0, 1)
+
+[node name="enemy_test" type="CharacterBody3D" node_paths=PackedStringArray("navigation_agent", "anim", "gore_manager") groups=["Enemy"]]
+script = ExtResource("1_12ga4")
+hp = 1000
+navigation_agent = NodePath("behavior_master/NavigationAgent3D")
+anim = NodePath("minotaur/AnimationPlayer")
+gore_manager = NodePath("gore_manager")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.736892, 0)
+shape = SubResource("CapsuleShape3D_gjrny")
+
+[node name="Looker" type="Node3D" parent="."]
+
+[node name="aim_ray" type="RayCast3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.376687)
+target_position = Vector3(0, 0, -100)
+collision_mask = 3
+debug_shape_custom_color = Color(1, 0.427451, 0.635294, 1)
+debug_shape_thickness = 5
+
+[node name="behavior_master" type="Node3D" parent="." node_paths=PackedStringArray("phases", "health_bar", "master", "state_machine", "aim_node", "attack_timer", "look_ray", "dead_state", "idle_state", "chase_state", "avoid_state", "anim")]
+script = ExtResource("2_1mn6g")
+phases = [NodePath("phase_base")]
+health_bar = NodePath("../HUD/ProgressBar")
+master = NodePath("..")
+state_machine = NodePath("FiniteStateMachine")
+aim_node = NodePath("aimnode")
+attack_timer = NodePath("attack_timer")
+look_ray = NodePath("../aim_ray")
+dead_state = NodePath("FiniteStateMachine/Dead")
+idle_state = NodePath("FiniteStateMachine/Idle")
+chase_state = NodePath("FiniteStateMachine/Chase")
+avoid_state = NodePath("FiniteStateMachine/Avoid")
+anim = NodePath("AnimationTree")
+
+[node name="phase_base" type="Node3D" parent="behavior_master" node_paths=PackedStringArray("master", "charge_ray", "cooldown_timer", "anim_plr")]
+script = ExtResource("3_12ga4")
+master = NodePath("../..")
+charge_damage = 5
+charge_speed = 25.0
+charge_ray = NodePath("../../aim_ray")
+dist_to_attack = 10.0
+cooldown_timer = NodePath("../cooldown_timer")
+anim_plr = NodePath("../../minotaur/AnimationPlayer")
+
+[node name="FiniteStateMachine" type="Node" parent="behavior_master"]
+script = ExtResource("5_r6wwu")
+
+[node name="Dead" type="Node" parent="behavior_master/FiniteStateMachine"]
+script = ExtResource("6_bukap")
+
+[node name="Idle" type="Node" parent="behavior_master/FiniteStateMachine" node_paths=PackedStringArray("behavior")]
+script = ExtResource("7_xggn5")
+behavior = NodePath("../..")
+
+[node name="Chase" type="Node" parent="behavior_master/FiniteStateMachine" node_paths=PackedStringArray("behavior")]
+script = ExtResource("8_dds14")
+behavior = NodePath("../..")
+
+[node name="Avoid" type="Node" parent="behavior_master/FiniteStateMachine" node_paths=PackedStringArray("behavior")]
+script = ExtResource("9_wo24b")
+behavior = NodePath("../..")
+
+[node name="NavigationAgent3D" type="NavigationAgent3D" parent="behavior_master"]
+navigation_layers = 255
+debug_enabled = true
+
+[node name="attack_timer" type="Timer" parent="behavior_master"]
+
+[node name="aimnode" type="Node3D" parent="behavior_master"]
+top_level = true
+
+[node name="AnimationTree" type="AnimationTree" parent="behavior_master"]
+root_node = NodePath("../../minotaur")
+tree_root = SubResource("AnimationNodeBlendTree_12ga4")
+anim_player = NodePath("../../minotaur/AnimationPlayer")
+
+[node name="cooldown_timer" type="Timer" parent="behavior_master"]
+wait_time = 0.5
+
+[node name="charge_hitbox" type="Area3D" parent="behavior_master"]
+input_ray_pickable = false
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="behavior_master/charge_hitbox"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.903533, -0.979527)
+shape = SubResource("BoxShape3D_12ga4")
+
+[node name="gore_manager" parent="." instance=ExtResource("10_6d7tv")]
+
+[node name="HUD" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ProgressBar" type="ProgressBar" parent="HUD"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -373.0
+offset_top = 21.0
+offset_right = 373.0
+offset_bottom = 48.0
+grow_horizontal = 2
+theme_override_styles/fill = SubResource("StyleBoxFlat_un28l")
+value = 50.0
+show_percentage = false
+
+[node name="minotaur" parent="." instance=ExtResource("11_1mn6g")]
+transform = Transform3D(-3, 0, -3.77489e-07, 0, 2.5, 0, 4.52987e-07, 0, -2.5, 0, -1, 0)
+
+[node name="Skeleton3D" parent="minotaur/metarig" index="0"]
+bones/0/position = Vector3(0, 0.996105, -0.00681275)
+bones/1/rotation = Quaternion(0.00966109, -0.707041, 0.0096611, 0.707041)
+bones/2/rotation = Quaternion(-0.0287109, -1.19157e-07, -3.52896e-09, 0.999588)
+bones/3/rotation = Quaternion(-0.470492, -0.410155, -0.56387, 0.540796)
+bones/4/position = Vector3(0.00661594, 0.17689, -0.00828764)
+bones/4/rotation = Quaternion(-0.457949, 0.6036, -0.374663, 0.534395)
+bones/5/rotation = Quaternion(0.256091, -0.000176982, -0.102362, 0.961218)
+bones/7/rotation = Quaternion(-0.525253, 0.467746, 0.517153, 0.487725)
+bones/8/position = Vector3(-0.00661598, 0.17689, -0.00828782)
+bones/8/rotation = Quaternion(-0.364409, -0.531936, 0.438679, 0.625948)
+bones/9/rotation = Quaternion(0.261657, -0.053669, 0.157892, 0.950645)
+bones/11/rotation = Quaternion(0.169656, 2.34962e-07, 4.04477e-08, 0.985503)
+bones/12/rotation = Quaternion(-0.154804, -1.17772e-07, -5.53621e-08, 0.987945)
+bones/13/rotation = Quaternion(0.703665, -0.0696845, 0.703665, 0.0696845)
+bones/14/rotation = Quaternion(0.146674, -1.52468e-08, 6.38781e-09, 0.989185)
+bones/15/rotation = Quaternion(-0.707378, 8.57927e-07, -6.52467e-07, 0.706836)
+bones/16/rotation = Quaternion(0.703674, -0.0695876, 0.703675, 0.0695876)
+bones/17/rotation = Quaternion(0.460685, -1.23162e-08, 1.09796e-08, 0.887563)
+bones/18/rotation = Quaternion(-0.778553, 6.73419e-07, -8.35287e-07, 0.627578)
+bones/20/rotation = Quaternion(-0.0243409, 0.751105, 0.655919, -0.0708453)
+
+[connection signal="velocity_computed" from="behavior_master/NavigationAgent3D" to="behavior_master" method="_on_navigation_agent_3d_velocity_computed"]
+[connection signal="timeout" from="behavior_master/cooldown_timer" to="behavior_master/phase_base" method="_on_cooldown_timer_timeout"]
+[connection signal="body_entered" from="behavior_master/charge_hitbox" to="behavior_master/phase_base" method="_on_charge_hitbox_body_entered"]
+[connection signal="animation_finished" from="minotaur/AnimationPlayer" to="behavior_master/phase_base" method="_on_animation_player_animation_finished"]
+
+[editable path="minotaur"]

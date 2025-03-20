@@ -1,7 +1,7 @@
 [gd_scene load_steps=85 format=4 uid="uid://kedshd64hp37"]
 
 [ext_resource type="Script" uid="uid://btfuem0c64bs6" path="res://scripts/systems/rooms/boss_room.gd" id="1_3ctib"]
-[ext_resource type="PackedScene" uid="uid://brlqcjircjtno" path="res://scene/enemy/bosses/enemy_boss_test_1.tscn" id="2_n8rdx"]
+[ext_resource type="PackedScene" uid="uid://d2ykjs1m2rf3s" path="res://scene/enemy/bosses/Minotaur.tscn" id="2_xgfav"]
 [ext_resource type="AudioStream" uid="uid://wr18kx8p1l8l" path="res://audios/music/placeholders/the-final-boss-battle-158700.mp3" id="3_6swvj"]
 [ext_resource type="Script" uid="uid://ykg70hu78l4m" path="res://addons/func_godot/src/map/func_godot_map.gd" id="4_b7mwk"]
 [ext_resource type="Resource" uid="uid://bkhxcqsquw1yg" path="res://addons/func_godot/func_godot_default_map_settings.tres" id="5_dtsjf"]
@@ -328,7 +328,7 @@ points = PackedVector3Array(-65, 1.375, -3.75, -65, 1.25, -3.75, -41, 1.25, -3.7
 script = ExtResource("1_3ctib")
 start_pos = NodePath("spawn")
 entrance = NodePath("entrance")
-boss_scene = ExtResource("2_n8rdx")
+boss_scene = ExtResource("2_xgfav")
 boss_spawn = NodePath("boss_spawn")
 nav = NodePath("NavigationRegion3D")
 boss_music = ExtResource("3_6swvj")
