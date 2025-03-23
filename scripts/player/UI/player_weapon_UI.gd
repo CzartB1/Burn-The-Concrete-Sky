@@ -12,6 +12,9 @@ extends HBoxContainer
 @export var ammo_c_2:Label
 @export var icon_1:TextureRect
 @export var icon_2:TextureRect
+@export_group("Crosshairs")
+@export var crosshair:TextureRect
+@export var crosshair_reload:TextureRect
 var w1_ammo:int
 var w2_ammo:int
 
@@ -21,6 +24,21 @@ func _ready():
 func _process(delta):
 	if Input.is_action_just_pressed("weapon_1") or Input.is_action_just_pressed("weapon_2"):
 		select_check()
+	
+	if weapon_holder.selected_weapon==1 and weapon_holder.weapons[weapon_holder.current_1_id] is Projectile_Gun:
+		if weapon_holder.weapons[weapon_holder.current_1_id].is_reloading:
+			crosshair.visible=false
+			crosshair_reload.visible=true
+		elif !weapon_holder.weapons[weapon_holder.current_1_id].is_reloading:
+			crosshair.visible=true
+			crosshair_reload.visible=false
+	if weapon_holder.selected_weapon==2 and weapon_holder.weapons[weapon_holder.current_2_id] is Projectile_Gun:
+		if weapon_holder.weapons[weapon_holder.current_2_id].is_reloading:
+			crosshair.visible=false
+			crosshair_reload.visible=true
+		elif !weapon_holder.weapons[weapon_holder.current_2_id].is_reloading:
+			crosshair.visible=true
+			crosshair_reload.visible=false
 	ammo_check()
 
 func ammo_check():

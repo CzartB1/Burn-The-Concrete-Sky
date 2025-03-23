@@ -1,15 +1,16 @@
-[gd_scene load_steps=4 format=3 uid="uid://derh5gmq2d8f8"]
+[gd_scene load_steps=5 format=3 uid="uid://derh5gmq2d8f8"]
 
 [ext_resource type="Script" uid="uid://bfst3vsp6bdjb" path="res://scripts/misc/gore_system/gore_manager.gd" id="1_uoa86"]
 [ext_resource type="PackedScene" uid="uid://bciheosskkwqp" path="res://scene/effects/blood_mist.tscn" id="2_th8vv"]
 [ext_resource type="PackedScene" uid="uid://c4skxyme680aw" path="res://scene/effects/blood_splat_projectille.tscn" id="3_f2lpi"]
+[ext_resource type="PackedScene" uid="uid://be1d0m78mo0vw" path="res://scene/effects/gore/gib.tscn" id="4_xuxy3"]
 
 [node name="gore_manager" type="Node3D" node_paths=PackedStringArray("blood_mist")]
 script = ExtResource("1_uoa86")
 blood_mist = NodePath("blood_mist")
 death_effect = ExtResource("2_th8vv")
 blood_splatter = ExtResource("3_f2lpi")
-blood_splat_force = Vector2(2, 11)
+gib = ExtResource("4_xuxy3")
 
 [node name="blood_mist" parent="." instance=ExtResource("2_th8vv")]
 transform = Transform3D(0.266111, 0, 0.963942, 0, 1, 0, -0.963942, 0, 0.266111, 0, 0, 0)

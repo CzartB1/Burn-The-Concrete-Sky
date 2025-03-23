@@ -487,6 +487,7 @@ map_settings = ExtResource("5_l1l0f")
 collision_layer = 17
 
 [node name="entity_0_mesh_instance" type="MeshInstance3D" parent="NavigationRegion3D/FuncGodotMap/entity_0_worldspawn"]
+layers = 17
 mesh = SubResource("ArrayMesh_c8m5t")
 
 [node name="entity_0_occluder_instance" type="OccluderInstance3D" parent="NavigationRegion3D/FuncGodotMap/entity_0_worldspawn"]

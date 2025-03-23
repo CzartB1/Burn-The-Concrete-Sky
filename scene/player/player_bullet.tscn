@@ -1,6 +1,7 @@
-[gd_scene load_steps=6 format=3 uid="uid://8ysnnu4dntee"]
+[gd_scene load_steps=7 format=3 uid="uid://8ysnnu4dntee"]
 
 [ext_resource type="Script" uid="uid://dd7bpbdewxe2c" path="res://scripts/player/weapon/player_bullet.gd" id="1_wxf1h"]
+[ext_resource type="PackedScene" uid="uid://bq5k7wrisl7hq" path="res://scene/effects/gunshot_particle.tscn" id="2_ds02y"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_e2qoj"]
 albedo_color = Color(1, 0.74902, 0, 1)
@@ -24,6 +25,7 @@ motion_mode = 1
 script = ExtResource("1_wxf1h")
 speed = 200
 destroyTimer = NodePath("Timer")
+wall_particle = ExtResource("2_ds02y")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 transform = Transform3D(0.5, 0, 0, 0, -2.18557e-08, -0.5, 0, 0.5, -2.18557e-08, 0, 0, 0)

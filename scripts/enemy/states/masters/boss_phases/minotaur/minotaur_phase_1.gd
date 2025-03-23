@@ -80,6 +80,7 @@ func end_charging():
 	#can_attack=true
 
 func _on_charge_hitbox_body_entered(body):
+	print(body.name)
 	if !charging: return
 	end_charging()
 	if body is Player: body.take_damage(charge_damage)

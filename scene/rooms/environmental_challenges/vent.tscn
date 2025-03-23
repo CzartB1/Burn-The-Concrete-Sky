@@ -1,0 +1,71 @@
+[gd_scene load_steps=12 format=3 uid="uid://cvhypjvukmb3d"]
+
+[ext_resource type="Script" uid="uid://c1kj2v7ev1bjk" path="res://scripts/misc/vent.gd" id="1_0mkji"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_3uilg"]
+size = Vector3(7.86108, 1.68176, 7.67578)
+
+[sub_resource type="Gradient" id="Gradient_pc8mu"]
+colors = PackedColorArray(1, 0.78, 0.78, 1, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_3uilg"]
+gradient = SubResource("Gradient_pc8mu")
+
+[sub_resource type="Gradient" id="Gradient_wbdj6"]
+offsets = PackedFloat32Array(0, 0.372611, 0.72293, 1)
+colors = PackedColorArray(0.4, 0.4, 0.4, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_aqcbw"]
+gradient = SubResource("Gradient_wbdj6")
+
+[sub_resource type="Curve" id="Curve_xwqbm"]
+_data = [Vector2(0, 0), 0.0, 1.4, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_tlt8r"]
+curve = SubResource("Curve_xwqbm")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_an3x7"]
+emission_shape = 3
+emission_box_extents = Vector3(3, 0, 3)
+direction = Vector3(0, 1, 0)
+spread = 15.0
+initial_velocity_min = 8.0
+initial_velocity_max = 10.0
+gravity = Vector3(0, 0, 0)
+attractor_interaction_enabled = false
+scale_curve = SubResource("CurveTexture_tlt8r")
+color_ramp = SubResource("GradientTexture1D_aqcbw")
+color_initial_ramp = SubResource("GradientTexture1D_3uilg")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xmdni"]
+transparency = 1
+shading_mode = 0
+vertex_color_use_as_albedo = true
+billboard_mode = 1
+billboard_keep_scale = true
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_468d5"]
+material = SubResource("StandardMaterial3D_xmdni")
+orientation = 2
+
+[node name="vent" type="Area3D" node_paths=PackedStringArray("steam_particles", "damage_timer")]
+script = ExtResource("1_0mkji")
+steam_particles = NodePath("GPUParticles3D")
+damage_timer = NodePath("damage_timer")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.125916, 0)
+shape = SubResource("BoxShape3D_3uilg")
+
+[node name="damage_timer" type="Timer" parent="."]
+
+[node name="GPUParticles3D" type="GPUParticles3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.07906, 0)
+emitting = false
+amount = 25
+lifetime = 0.3
+process_material = SubResource("ParticleProcessMaterial_an3x7")
+draw_pass_1 = SubResource("PlaneMesh_468d5")
+
+[connection signal="timeout" from="damage_timer" to="." method="_on_damage_timer_timeout"]

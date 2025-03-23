@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://be1d0m78mo0vw"]
+
+[ext_resource type="PackedScene" uid="uid://di85shy7eoyhj" path="res://meshes/effects/gore/gib.blend" id="1_v5vvu"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_l1qj2"]
+size = Vector3(0.409424, 0.288635, 0.359863)
+
+[node name="gib" type="RigidBody3D" groups=["Effects"]]
+collision_layer = 16
+collision_mask = 16
+mass = 0.2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0816681, 0.0494446, 0.0159546)
+shape = SubResource("BoxShape3D_l1qj2")
+
+[node name="gib" parent="." instance=ExtResource("1_v5vvu")]
+transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0, 0, 0)

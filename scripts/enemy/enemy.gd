@@ -71,7 +71,9 @@ func take_damage(damage:int,attacker:Vector3=global_position):
 	hp-=damage
 	if gore_manager!=null:
 		gore_manager.mist_activate(attacker)
-		gore_manager.shoot_splatters(attacker)
+		if hp>0:
+			gore_manager.shoot_squirt(attacker)
+		elif hp<=0: gore_manager.shoot_splatters(attacker)
 
 func explode_money():
 	if not money_scene:

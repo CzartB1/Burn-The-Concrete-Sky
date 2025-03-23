@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=3 uid="uid://7elo11bnf3va"]
+[gd_scene load_steps=36 format=3 uid="uid://7elo11bnf3va"]
 
 [ext_resource type="Script" uid="uid://cw7kdng7csvp6" path="res://scripts/player/weapon/weapon_manager.gd" id="1_rku58"]
 [ext_resource type="Script" uid="uid://bvumx55vmv8m" path="res://scripts/player/weapon/projectile_gun.gd" id="2_toky6"]
@@ -10,16 +10,22 @@
 [ext_resource type="AudioStream" uid="uid://eys01vibqmhu" path="res://audios/weapons/ranged/shotgun_1.wav" id="6_psg06"]
 [ext_resource type="PackedScene" uid="uid://cu23ddimpx0vu" path="res://meshes/effects/weapons/muzzle_flash.blend" id="7_wps2v"]
 [ext_resource type="PackedScene" uid="uid://dqltrr3q0qnho" path="res://meshes/player/weapons/double_barrel.blend" id="8_5yu2w"]
+[ext_resource type="AudioStream" uid="uid://bjy6p12w5pxms" path="res://audios/weapons/ranged/reloads/shotgun_insert_shell.wav" id="8_adchn"]
 [ext_resource type="AudioStream" uid="uid://c6een0c0m2u80" path="res://audios/weapons/ranged/mg_1.wav" id="8_o1aab"]
+[ext_resource type="AudioStream" uid="uid://di4s4wivnidee" path="res://audios/weapons/ranged/reloads/shotgun_reload_finish.wav" id="9_axoe1"]
 [ext_resource type="AudioStream" uid="uid://66amfm225ril" path="res://audios/weapons/ranged/pistol/revolver_1.wav" id="9_o61uu"]
 [ext_resource type="PackedScene" uid="uid://bok2o8kqabga8" path="res://meshes/player/weapons/lmg_common.blend" id="9_ugy7q"]
 [ext_resource type="PackedScene" uid="uid://llmcibq3mjbm" path="res://meshes/player/weapons/revolver_common.blend" id="11_4ifep"]
 [ext_resource type="PackedScene" uid="uid://5ys7ompy1j6u" path="res://meshes/player/weapons/ar_common.blend" id="11_g3slb"]
+[ext_resource type="AudioStream" uid="uid://xtsbvmwbu5lh" path="res://audios/weapons/ranged/reloads/276964__gfl7__m4a1-or-m16-reload-sound.mp3" id="14_l0y5u"]
 [ext_resource type="PackedScene" uid="uid://c2u4ckc0gt2cq" path="res://meshes/player/weapons/pistol_common.blend" id="15_mngps"]
 [ext_resource type="AudioStream" uid="uid://cfy6yrvpkq6dv" path="res://audios/weapons/ranged/pistol/pistol_light-01-2.wav" id="16_sr3eg"]
 [ext_resource type="AudioStream" uid="uid://citqnoqall3li" path="res://audios/weapons/ranged/pistol/pistol_light-02-2.wav" id="17_gkc2o"]
+[ext_resource type="AudioStream" uid="uid://b4l8bqclbekmn" path="res://audios/weapons/ranged/reloads/revolver_reload.wav" id="18_l0y5u"]
 [ext_resource type="AudioStream" uid="uid://5sx57jgwatyv" path="res://audios/weapons/ranged/pistol/pistol_light-03-2.wav" id="18_l6r30"]
 [ext_resource type="AudioStream" uid="uid://t33ixtemwr4d" path="res://audios/weapons/ranged/pistol/pistol_light-04-2.wav" id="19_icaqo"]
+[ext_resource type="AudioStream" uid="uid://8eybsy0yyq6v" path="res://audios/weapons/ranged/reloads/revolver_reload_finish.wav" id="19_wl3d1"]
+[ext_resource type="AudioStream" uid="uid://dbb2xnljx8uqh" path="res://audios/weapons/ranged/reloads/276959__gfl7__pistol-reload-sound.mp3" id="25_wl3d1"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_b8guf"]
 atlas = ExtResource("3_4xwoe")
@@ -112,6 +118,8 @@ bullet_counted_reload = true
 muzzle_flash = NodePath("muzzle_flash")
 anim_id = 1
 gunshot_sound = ExtResource("6_psg06")
+reload_sound = ExtResource("8_adchn")
+bcr_finish_sound = ExtResource("9_axoe1")
 price = 250
 icon = SubResource("AtlasTexture_3neot")
 Description = "shotty's like a melody in my head~"
@@ -175,6 +183,7 @@ max_ammo = 30
 muzzle_flash = NodePath("muzzle_flash")
 anim_id = 1
 gunshot_sound = ExtResource("8_o1aab")
+reload_sound = ExtResource("14_l0y5u")
 price = 150
 icon = SubResource("AtlasTexture_k0miw")
 Description = "assault rifle"
@@ -234,6 +243,8 @@ reload_duration = 0.5
 bullet_counted_reload = true
 muzzle_flash = NodePath("muzzle_flash")
 gunshot_sound = ExtResource("9_o61uu")
+reload_sound = ExtResource("18_l0y5u")
+bcr_finish_sound = ExtResource("19_wl3d1")
 price = 300
 icon = SubResource("AtlasTexture_7uicm")
 Description = "revolver"
@@ -264,6 +275,7 @@ max_ammo = 12
 reload_duration = 1.5
 muzzle_flash = NodePath("muzzle_flash")
 gunshot_sound = SubResource("AudioStreamRandomizer_vmepa")
+reload_sound = ExtResource("25_wl3d1")
 price = 75
 icon = SubResource("AtlasTexture_rvbas")
 Description = "pistol"

@@ -85,6 +85,7 @@ func _ready():
 func _process(delta):
 	HP_bar.value = hp
 	time_slow_bar.value = time_slow_duration
+	if !cam: cam=get_tree().get_first_node_in_group("playercamera")
 	if alive:
 		if controller:
 			cursor_icon.set_position(cam.unproject_position(cont_look_target.global_position))

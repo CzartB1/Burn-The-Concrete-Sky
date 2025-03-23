@@ -131,6 +131,8 @@ func check_room(): # This basically enables and disables shit, and also change c
 		disable_combat_rooms()
 		room_count+=1
 		go_to_intro()
+		for s in intro_room.shopkeepers:
+			s.rand_upgrades()
 		intro_room.move_player_to_spawn()
 		next_room_category=1
 		room_count=0
@@ -139,6 +141,8 @@ func check_room(): # This basically enables and disables shit, and also change c
 		current_room_category=3
 		disable_combat_rooms()
 		go_to_preboss() #FIXME for some reason, scumtown will usse factory's preboss
+		for s in combatgroup.preboss_room.shopkeepers:
+			s.rand_upgrades()
 		combatgroup.preboss_room.move_player_to_spawn()
 		next_room_category=4
 		print("room "+ str(room_count) +" || type: pre-boss")

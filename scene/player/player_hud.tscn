@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://bi7qoo74n8kdj"]
+[gd_scene load_steps=17 format=3 uid="uid://bi7qoo74n8kdj"]
 
 [ext_resource type="Texture2D" uid="uid://cddj8k55a3nh1" path="res://sprites/crosshair.png" id="1_iujy2"]
 [ext_resource type="Shader" uid="uid://da07pkkq2kl54" path="res://shader/posterize.gdshader" id="1_t8rcp"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://did7m5jvkwgf3" path="res://sprites/CircularProgressBar.png" id="2_m6pgi"]
 [ext_resource type="Script" uid="uid://bqw842oycl3ru" path="res://scripts/player/UI/player_death_screen.gd" id="4_w4vkn"]
 [ext_resource type="Script" uid="uid://nxnviq760a0y" path="res://scripts/player/UI/player_weapon_UI.gd" id="5_slv7q"]
+[ext_resource type="Texture2D" uid="uid://t5fwovp8fj6e" path="res://sprites/crosshair_reload.png" id="5_vh3cp"]
 [ext_resource type="Script" uid="uid://ctp15x5v5plba" path="res://scripts/misc/letterboxing.gd" id="6_j5g7i"]
 [ext_resource type="PackedScene" uid="uid://t53uv01pfjjr" path="res://scene/menus/death_stat_screen.tscn" id="8_wlndf"]
 [ext_resource type="PackedScene" uid="uid://blwyb80tpldxb" path="res://scene/menus/pause_menu.tscn" id="9_1yxso"]
@@ -96,20 +97,27 @@ offset_right = 7.5
 offset_bottom = 7.5
 texture = ExtResource("1_iujy2")
 
-[node name="TextureProgressBar" type="TextureProgressBar" parent="HUD/mouse_icon"]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
+[node name="reload" type="TextureRect" parent="HUD/mouse_icon"]
+modulate = Color(1, 1, 1, 0.780392)
+layout_mode = 0
 offset_left = -16.0
 offset_top = -16.0
-offset_right = 190.0
-offset_bottom = 190.0
+offset_right = 16.0
+offset_bottom = 16.0
+texture = ExtResource("5_vh3cp")
+
+[node name="TextureProgressBar" type="TextureProgressBar" parent="HUD/mouse_icon"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -32.0
+offset_top = -32.0
+offset_right = 174.0
+offset_bottom = 174.0
 grow_horizontal = 2
 grow_vertical = 2
-scale = Vector2(0.15, 0.15)
+scale = Vector2(0.3, 0.3)
 value = 75.0
 fill_mode = 4
 texture_progress = ExtResource("2_m6pgi")
@@ -145,7 +153,7 @@ value = 75.0
 rounded = true
 show_percentage = false
 
-[node name="HBoxContainer" type="HBoxContainer" parent="HUD/VBoxContainer" node_paths=PackedStringArray("box_1", "box_2", "ammo_c_1", "ammo_c_2", "icon_1", "icon_2")]
+[node name="HBoxContainer" type="HBoxContainer" parent="HUD/VBoxContainer" node_paths=PackedStringArray("box_1", "box_2", "ammo_c_1", "ammo_c_2", "icon_1", "icon_2", "crosshair", "crosshair_reload")]
 layout_mode = 2
 theme_override_constants/separation = 0
 script = ExtResource("5_slv7q")
@@ -157,6 +165,8 @@ ammo_c_1 = NodePath("wbox_1/ammo_counter")
 ammo_c_2 = NodePath("wbox_2/ammo_counter2")
 icon_1 = NodePath("wbox_1/icon")
 icon_2 = NodePath("wbox_2/icon")
+crosshair = NodePath("../../mouse_icon/TextureRect")
+crosshair_reload = NodePath("../../mouse_icon/reload")
 
 [node name="wbox_1" type="ColorRect" parent="HUD/VBoxContainer/HBoxContainer"]
 custom_minimum_size = Vector2(167, 50)
