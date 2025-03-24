@@ -1,12 +1,14 @@
-[gd_scene load_steps=36 format=3 uid="uid://7elo11bnf3va"]
+[gd_scene load_steps=40 format=3 uid="uid://7elo11bnf3va"]
 
 [ext_resource type="Script" uid="uid://cw7kdng7csvp6" path="res://scripts/player/weapon/weapon_manager.gd" id="1_rku58"]
 [ext_resource type="Script" uid="uid://bvumx55vmv8m" path="res://scripts/player/weapon/projectile_gun.gd" id="2_toky6"]
 [ext_resource type="PackedScene" uid="uid://8ysnnu4dntee" path="res://scene/player/player_bullet.tscn" id="3_0j408"]
 [ext_resource type="Texture2D" uid="uid://cmvyyualmkccw" path="res://sprites/UI/weapon-icons.png" id="3_4xwoe"]
 [ext_resource type="Texture2D" uid="uid://b4digkieaudvy" path="res://sprites/pow.png" id="3_v305p"]
+[ext_resource type="AudioStream" uid="uid://wpjarba6ccey" path="res://audios/weapons/melee/unarmed/348241__newagesoup__punch-boxing-04.wav" id="4_dkh8o"]
 [ext_resource type="Script" uid="uid://b7ac4wqk62s2u" path="res://scripts/player/weapon/melee_weapon.gd" id="4_lfc15"]
 [ext_resource type="Texture2D" uid="uid://cmoka0opia5yq" path="res://sprites/slash-placeholder.png" id="5_pwomt"]
+[ext_resource type="AudioStream" uid="uid://cesxsyklpqhcr" path="res://audios/weapons/melee/unarmed/kung-fu-punch-4-105262.mp3" id="5_qn2jl"]
 [ext_resource type="AudioStream" uid="uid://eys01vibqmhu" path="res://audios/weapons/ranged/shotgun_1.wav" id="6_psg06"]
 [ext_resource type="PackedScene" uid="uid://cu23ddimpx0vu" path="res://meshes/effects/weapons/muzzle_flash.blend" id="7_wps2v"]
 [ext_resource type="PackedScene" uid="uid://dqltrr3q0qnho" path="res://meshes/player/weapons/double_barrel.blend" id="8_5yu2w"]
@@ -23,6 +25,7 @@
 [ext_resource type="AudioStream" uid="uid://citqnoqall3li" path="res://audios/weapons/ranged/pistol/pistol_light-02-2.wav" id="17_gkc2o"]
 [ext_resource type="AudioStream" uid="uid://b4l8bqclbekmn" path="res://audios/weapons/ranged/reloads/revolver_reload.wav" id="18_l0y5u"]
 [ext_resource type="AudioStream" uid="uid://5sx57jgwatyv" path="res://audios/weapons/ranged/pistol/pistol_light-03-2.wav" id="18_l6r30"]
+[ext_resource type="AudioStream" uid="uid://cqjha6ahebcr6" path="res://audios/weapons/melee/574820__wesleyextreme_gamer__slash2.ogg" id="18_qn2jl"]
 [ext_resource type="AudioStream" uid="uid://t33ixtemwr4d" path="res://audios/weapons/ranged/pistol/pistol_light-04-2.wav" id="19_icaqo"]
 [ext_resource type="AudioStream" uid="uid://8eybsy0yyq6v" path="res://audios/weapons/ranged/reloads/revolver_reload_finish.wav" id="19_wl3d1"]
 [ext_resource type="AudioStream" uid="uid://dbb2xnljx8uqh" path="res://audios/weapons/ranged/reloads/276959__gfl7__pistol-reload-sound.mp3" id="25_wl3d1"]
@@ -30,6 +33,11 @@
 [sub_resource type="AtlasTexture" id="AtlasTexture_b8guf"]
 atlas = ExtResource("3_4xwoe")
 region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_pvctk"]
+streams_count = 2
+stream_0/stream = ExtResource("4_dkh8o")
+stream_1/stream = ExtResource("5_qn2jl")
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_nchdq"]
 size = Vector3(1.2627, 1, 0.804445)
@@ -84,6 +92,7 @@ stance = 2
 strike_type = 0
 icon = SubResource("AtlasTexture_b8guf")
 Description = "Some are born with silver tongues, others with steady trigger fingers. You were born with these. They’re yours. Own them. And if someone asks why you're punching them, tell them it’s divine intervention."
+attack_sound = SubResource("AudioStreamRandomizer_pvctk")
 
 [node name="Area3D" type="Area3D" parent="fist"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.533335)
@@ -212,6 +221,7 @@ cooldown_timer = NodePath("cooldown")
 price = 150
 icon = SubResource("AtlasTexture_mfitw")
 Description = "sword"
+attack_sound = ExtResource("18_qn2jl")
 
 [node name="Area3D" type="Area3D" parent="sword"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.533335)
