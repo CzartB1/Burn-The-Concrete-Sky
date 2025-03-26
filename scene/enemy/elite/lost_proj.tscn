@@ -60,7 +60,7 @@ collision_layer = 3
 collision_mask = 3
 motion_mode = 1
 script = ExtResource("1_vs4mo")
-speed = 25
+speed = 15
 homing = true
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]

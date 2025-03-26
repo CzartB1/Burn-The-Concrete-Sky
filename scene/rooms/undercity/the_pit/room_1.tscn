@@ -598,62 +598,68 @@ one_shot = true
 
 [node name="omnilight" type="OmniLight3D" parent="lights"]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -23.6029, 0.622848, 0.375815)
-omni_range = 11.041
-omni_attenuation = 0.32
+light_energy = 5.0
+omni_range = 19.291
 omni_shadow_mode = 0
 
 [node name="omnilight2" type="OmniLight3D" parent="lights"]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -23.6029, 0.622848, 28.3758)
-omni_range = 11.041
-omni_attenuation = 0.32
+light_energy = 5.0
+omni_range = 19.291
 omni_shadow_mode = 0
 
 [node name="omnilight3" type="OmniLight3D" parent="lights"]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -23.6029, 0.622848, -26.6242)
-omni_range = 11.041
-omni_attenuation = 0.32
+light_energy = 5.0
+omni_range = 19.291
 omni_shadow_mode = 0
 
 [node name="omnilight4" type="OmniLight3D" parent="lights"]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 23.3971, 0.622848, 0.375815)
-omni_range = 11.041
-omni_attenuation = 0.32
+light_energy = 5.0
+omni_range = 19.291
 omni_shadow_mode = 0
 
 [node name="omnilight5" type="OmniLight3D" parent="lights"]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 23.3971, 0.622848, 28.3758)
-omni_range = 11.041
-omni_attenuation = 0.32
+light_energy = 5.0
+omni_range = 19.291
 omni_shadow_mode = 0
 
 [node name="omnilight6" type="OmniLight3D" parent="lights"]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 23.3971, 0.622848, -26.6242)
-omni_range = 11.041
-omni_attenuation = 0.32
+light_energy = 5.0
+omni_range = 19.291
 omni_shadow_mode = 0
 
 [node name="omnilight7" type="OmniLight3D" parent="lights"]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -0.602926, 0.622848, 55.3758)
-omni_range = 11.041
-omni_attenuation = 0.32
+light_energy = 5.0
+omni_range = 19.291
 omni_shadow_mode = 0
 
 [node name="omnilight10" type="OmniLight3D" parent="lights"]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -0.602926, 0.622848, -55.6242)
-omni_range = 11.041
-omni_attenuation = 0.32
+light_energy = 5.0
+omni_range = 19.291
 omni_shadow_mode = 0
 
 [node name="omnilight8" type="OmniLight3D" parent="lights"]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -0.602926, 0.622848, 28.3758)
-omni_range = 11.041
-omni_attenuation = 0.32
+light_energy = 5.0
+omni_range = 19.291
 omni_shadow_mode = 0
 
 [node name="omnilight9" type="OmniLight3D" parent="lights"]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -0.602926, 0.622848, -26.6242)
-omni_range = 11.041
-omni_attenuation = 0.32
+light_energy = 5.0
+omni_range = 19.291
+omni_shadow_mode = 0
+
+[node name="omnilight11" type="OmniLight3D" parent="lights"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -0.602926, 0.622848, 2.3758)
+light_energy = 5.0
+omni_range = 19.291
 omni_shadow_mode = 0
 
 [node name="NavigationRegion3D" type="NavigationRegion3D" parent="."]

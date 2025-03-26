@@ -242,6 +242,9 @@ func take_damage(damage:int):
 	if !dashing and !invulnerable:
 		print(name + " took " + str(damage) + " damage")
 		hp-=damage*damage_taken_multiplier
+		var econom=get_tree().get_first_node_in_group("Economy")
+		if econom is Player_Economy_Manager:
+			econom.mult_reset()
 
 func death():
 	game_manager.stop_count_time()

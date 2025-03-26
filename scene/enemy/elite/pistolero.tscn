@@ -63,48 +63,49 @@ nodes/moveBlend/node = SubResource("AnimationNodeBlendSpace1D_wx5di")
 nodes/moveBlend/position = Vector2(-200, 260)
 node_connections = [&"Blend2", 0, &"attack", &"Blend2", 1, &"moveBlend", &"attack", 0, &"Animation", &"attack", 1, &"Animation 2", &"output", 0, &"Blend2"]
 
-[node name="enemy_ranged" type="CharacterBody3D" node_paths=PackedStringArray("navigation_agent", "gore_manager") groups=["Enemy"]]
+[node name="enemy_ranged" type="CharacterBody3D" node_paths=PackedStringArray("navigation_agent", "gore_manager", "mesh_instances") groups=["Enemy"]]
 script = ExtResource("1_t80xs")
 navigation_agent = NodePath("behavior_master/NavigationAgent3D")
 mult_loot = 0.5
 gore_manager = NodePath("gore_manager")
+mesh_instances = [NodePath("mesh/metarig/Skeleton3D/Character"), NodePath("mesh/metarig/Skeleton3D/Character_001"), NodePath("mesh/metarig/Skeleton3D/Character_002"), NodePath("mesh/metarig/Skeleton3D/Cube"), NodePath("mesh/metarig/Skeleton3D/Revolver")]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("CapsuleShape3D_gjrny")
 
 [node name="shoot_cooldown" type="Timer" parent="."]
 
-[node name="pistolero" parent="." instance=ExtResource("2_adi1k")]
+[node name="mesh" parent="." instance=ExtResource("2_adi1k")]
 transform = Transform3D(-1.2, 0, 1.04907e-07, 0, 1.2, 0, -1.04907e-07, 0, -1.2, 0, -1, 0)
 
-[node name="Skeleton3D" parent="pistolero/metarig" index="0"]
-bones/0/position = Vector3(0, 0.974749, -0.00681275)
+[node name="Skeleton3D" parent="mesh/metarig" index="0"]
+bones/0/position = Vector3(0, 1.00637, -0.00681275)
 bones/1/rotation = Quaternion(-0.0583406, -0.607113, -0.0447664, 0.791205)
 bones/2/rotation = Quaternion(0.0585182, -1.15263e-07, 7.4644e-09, 0.998286)
 bones/3/rotation = Quaternion(-0.539901, -0.44005, -0.453665, 0.555924)
 bones/4/rotation = Quaternion(-0.459773, 0.549693, -0.463777, 0.52092)
 bones/5/rotation = Quaternion(-0.477822, 0.506694, 0.522407, 0.491974)
-bones/6/rotation = Quaternion(-0.111951, -0.0679237, 0.511101, 0.849488)
+bones/6/rotation = Quaternion(-0.111951, -0.0679236, 0.511101, 0.849488)
 bones/7/rotation = Quaternion(0.135772, -0.00739314, 0.000478688, 0.990712)
 bones/8/rotation = Quaternion(-0.0213207, 0.00243081, 0.0257741, 0.999438)
 bones/9/position = Vector3(-0.0336939, 0.427721, 0.10101)
 bones/9/rotation = Quaternion(0.00420759, 0.00346588, 0.0337655, 0.999415)
 bones/10/rotation = Quaternion(0.168204, -0.129242, 0.0182628, 0.977072)
-bones/12/rotation = Quaternion(0.699185, 0.105548, 0.699185, -0.105548)
-bones/13/rotation = Quaternion(0.221629, -1.45269e-08, 7.54376e-09, 0.975131)
-bones/14/rotation = Quaternion(-0.713625, 8.69837e-07, -6.39171e-07, 0.700527)
-bones/15/rotation = Quaternion(0.695541, -0.127369, 0.695541, 0.127369)
-bones/16/rotation = Quaternion(0.122235, -1.53679e-08, 6.0747e-09, 0.992501)
-bones/17/rotation = Quaternion(-0.619131, 5.98435e-07, -9.25347e-07, 0.785288)
+bones/12/rotation = Quaternion(0.689424, -0.157145, 0.689424, 0.157145)
+bones/13/rotation = Quaternion(0.762431, -6.43005e-09, 1.44173e-08, 0.64707)
+bones/14/rotation = Quaternion(-0.670751, 7.83584e-07, -7.32672e-07, 0.741683)
+bones/15/rotation = Quaternion(0.706865, 0.0184929, 0.706865, -0.0184929)
+bones/16/rotation = Quaternion(0.041331, -1.5752e-08, 4.75911e-09, 0.999146)
+bones/17/rotation = Quaternion(-0.691993, 7.92771e-07, -7.22941e-07, 0.721904)
 bones/19/rotation = Quaternion(-0.0243409, 0.751105, 0.655919, -0.0708453)
 
-[node name="Muzzle" type="Node3D" parent="pistolero/metarig/Skeleton3D/Revolver" index="0"]
+[node name="Muzzle" type="Node3D" parent="mesh/metarig/Skeleton3D/Revolver" index="0"]
 transform = Transform3D(-1.00807, 0, -8.81281e-08, 0, 1.00807, 0, 8.81281e-08, 0, -1.00807, -0.444068, 1.53635, 1.1025)
 
 [node name="AnimationTree" type="AnimationTree" parent="."]
-root_node = NodePath("../pistolero")
+root_node = NodePath("../mesh")
 tree_root = SubResource("AnimationNodeBlendTree_xul8q")
-anim_player = NodePath("../pistolero/AnimationPlayer")
+anim_player = NodePath("../mesh/AnimationPlayer")
 parameters/Blend2/blend_amount = 1.0
 parameters/attack/active = false
 parameters/attack/internal_active = false
@@ -176,4 +177,4 @@ top_level = true
 [connection signal="velocity_computed" from="behavior_master/NavigationAgent3D" to="behavior_master" method="_on_navigation_agent_3d_velocity_computed"]
 [connection signal="timeout" from="behavior_master/attack_timer" to="behavior_master" method="_on_attack_timer_timeout"]
 
-[editable path="pistolero"]
+[editable path="mesh"]

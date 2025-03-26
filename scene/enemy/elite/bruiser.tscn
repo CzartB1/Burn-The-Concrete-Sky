@@ -40,46 +40,47 @@ node_connections = [&"output", 0, &"leg"]
 [sub_resource type="BoxShape3D" id="BoxShape3D_4qbp4"]
 size = Vector3(0.769531, 1.2876, 0.338318)
 
-[node name="bruiser" type="CharacterBody3D" node_paths=PackedStringArray("navigation_agent", "anim", "gore_manager") groups=["Enemy"]]
+[node name="bruiser" type="CharacterBody3D" node_paths=PackedStringArray("navigation_agent", "anim", "gore_manager", "mesh_instances") groups=["Enemy"]]
 script = ExtResource("1_xu357")
 hp = 35
 elite = true
 navigation_agent = NodePath("behavior_master/NavigationAgent3D")
-anim = NodePath("bruiser/AnimationPlayer")
+anim = NodePath("mesh/AnimationPlayer")
 gore_manager = NodePath("gore_manager")
+mesh_instances = [NodePath("mesh/metarig/Skeleton3D/Character"), NodePath("mesh/metarig/Skeleton3D/Character_001"), NodePath("mesh/metarig/Skeleton3D/Character_002")]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("CapsuleShape3D_gjrny")
 
-[node name="bruiser" parent="." instance=ExtResource("2_xvaul")]
+[node name="mesh" parent="." instance=ExtResource("2_xvaul")]
 transform = Transform3D(-1.5, 0, -2.26494e-07, 0, 1.5, 0, 2.26494e-07, 0, -1.5, 0, -1, 0)
 
-[node name="Skeleton3D" parent="bruiser/metarig" index="0"]
-bones/0/position = Vector3(2.41595e-09, 1.02118, -0.00681275)
+[node name="Skeleton3D" parent="mesh/metarig" index="0"]
+bones/0/position = Vector3(2.41595e-09, 1.06891, -0.00681275)
 bones/0/rotation = Quaternion(0, 0.422618, 0, 0.906308)
-bones/1/rotation = Quaternion(0.0389239, -0.72034, 0.0373665, 0.691519)
+bones/1/rotation = Quaternion(0.0356996, -0.66067, 0.0404582, 0.748735)
 bones/2/rotation = Quaternion(0.0161974, -0.000707335, 0.0436137, 0.998917)
-bones/3/rotation = Quaternion(-0.488672, -0.49423, -0.51159, 0.505185)
-bones/4/rotation = Quaternion(-0.396716, 0.597514, -0.42725, 0.550501)
-bones/5/rotation = Quaternion(0.305211, 0.0270767, -0.0109882, 0.951836)
-bones/7/rotation = Quaternion(-0.491762, 0.475785, 0.589665, 0.429061)
-bones/8/rotation = Quaternion(-0.295072, -0.644142, 0.306458, 0.635686)
-bones/9/rotation = Quaternion(0.277593, 0.00770792, 0.119863, 0.953161)
+bones/3/rotation = Quaternion(-0.572424, -0.394201, -0.408169, 0.59189)
+bones/4/rotation = Quaternion(-0.500132, 0.658528, -0.300361, 0.475386)
+bones/5/rotation = Quaternion(0.461694, 0.02483, -0.0154065, 0.886558)
+bones/7/rotation = Quaternion(-0.471087, 0.496281, 0.607301, 0.403693)
+bones/8/rotation = Quaternion(-0.242603, -0.601147, 0.355243, 0.673475)
+bones/9/rotation = Quaternion(0.215991, 1.71037e-05, 0.120111, 0.96898)
 bones/11/rotation = Quaternion(0.161293, 0.338752, -0.0471707, 0.925746)
 bones/13/position = Vector3(0.00558726, 0.0620999, 0.098)
-bones/13/rotation = Quaternion(0.879516, -0.059859, 0.457862, 0.115023)
-bones/14/rotation = Quaternion(0.543934, -2.18865e-08, 5.35603e-08, 0.839128)
-bones/15/rotation = Quaternion(-0.656413, 7.21292e-07, -7.64439e-07, 0.754402)
+bones/13/rotation = Quaternion(0.880923, 0.0537776, 0.458695, -0.103347)
+bones/14/rotation = Quaternion(0.069602, -1.48451e-08, 4.69874e-09, 0.997575)
+bones/15/rotation = Quaternion(-0.768802, 8.64768e-07, -6.31344e-07, 0.639487)
 bones/16/position = Vector3(0.00558725, 0.0620999, -0.098)
-bones/16/rotation = Quaternion(0.843323, 0.000277805, 0.537341, -0.00847856)
-bones/17/rotation = Quaternion(0.126169, -5.48717e-08, 6.28892e-08, 0.992009)
-bones/18/rotation = Quaternion(-0.698895, 7.97594e-07, -7.12558e-07, 0.715224)
+bones/16/rotation = Quaternion(0.817042, -0.13816, 0.519275, 0.209063)
+bones/17/rotation = Quaternion(0.334015, -1.21007e-08, 5.57475e-08, 0.942568)
+bones/18/rotation = Quaternion(-0.607461, 7.13616e-07, -8.02938e-07, 0.79435)
 bones/20/rotation = Quaternion(-0.0243409, 0.751105, 0.655919, -0.0708453)
 
 [node name="AnimationTree" type="AnimationTree" parent="."]
-root_node = NodePath("../bruiser")
+root_node = NodePath("../mesh")
 tree_root = SubResource("AnimationNodeBlendTree_6hryh")
-anim_player = NodePath("../bruiser/AnimationPlayer")
+anim_player = NodePath("../mesh/AnimationPlayer")
 parameters/leg/blend_position = 1.0
 
 [node name="Looker" type="Node3D" parent="."]
@@ -97,7 +98,7 @@ detection_range = 10.0
 charge_duration = 1.0
 charge_ray = NodePath("../aim_ray")
 cooldown_timer = NodePath("cooldown_timer")
-anim_plr = NodePath("../bruiser/AnimationPlayer")
+anim_plr = NodePath("../mesh/AnimationPlayer")
 master = NodePath("..")
 state_machine = NodePath("FiniteStateMachine")
 speed = 5.0
@@ -156,10 +157,10 @@ wait_time = 0.5
 
 [node name="gore_manager" parent="." instance=ExtResource("9_356rx")]
 
-[connection signal="animation_finished" from="bruiser/AnimationPlayer" to="behavior_master" method="_on_animation_player_animation_finished"]
+[connection signal="animation_finished" from="mesh/AnimationPlayer" to="behavior_master" method="_on_animation_player_animation_finished"]
 [connection signal="velocity_computed" from="behavior_master/NavigationAgent3D" to="behavior_master" method="_on_navigation_agent_3d_velocity_computed"]
 [connection signal="timeout" from="behavior_master/attack_timer" to="behavior_master" method="_on_attack_timer_timeout"]
 [connection signal="body_entered" from="behavior_master/charge_hitbox" to="behavior_master" method="_on_charge_hitbox_body_entered"]
 [connection signal="timeout" from="behavior_master/cooldown_timer" to="behavior_master" method="_on_cooldown_timer_timeout"]
 
-[editable path="bruiser"]
+[editable path="mesh"]

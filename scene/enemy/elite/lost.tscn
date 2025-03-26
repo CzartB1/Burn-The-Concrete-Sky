@@ -65,11 +65,12 @@ nodes/moveBlend/node = SubResource("AnimationNodeBlendSpace1D_wx5di")
 nodes/moveBlend/position = Vector2(-200, 260)
 node_connections = [&"Blend2", 0, &"attack", &"Blend2", 1, &"moveBlend", &"attack", 0, &"Animation", &"attack", 1, &"Animation 2", &"output", 0, &"Blend2"]
 
-[node name="enemy_ranged" type="CharacterBody3D" node_paths=PackedStringArray("navigation_agent", "gore_manager") groups=["Enemy"]]
+[node name="enemy_ranged" type="CharacterBody3D" node_paths=PackedStringArray("navigation_agent", "gore_manager", "mesh_instances") groups=["Enemy"]]
 script = ExtResource("1_pj2m2")
 navigation_agent = NodePath("behavior_master/NavigationAgent3D")
 mult_loot = 0.5
 gore_manager = NodePath("gore_manager")
+mesh_instances = [NodePath("mesh/metarig/Skeleton3D/Character")]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("CapsuleShape3D_gjrny")
@@ -79,11 +80,11 @@ shape = SubResource("CapsuleShape3D_gjrny")
 [node name="Muzzle" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.346103, -0.576913)
 
-[node name="lost" parent="." instance=ExtResource("2_fpg8i")]
+[node name="mesh" parent="." instance=ExtResource("2_fpg8i")]
 transform = Transform3D(-1.2, 0, -1.81195e-07, 0, 1.2, 0, 1.81195e-07, 0, -1.2, 0, -1, 0)
 
-[node name="Skeleton3D" parent="lost/metarig" index="0"]
-bones/0/position = Vector3(0, 1.00169, -0.00681275)
+[node name="Skeleton3D" parent="mesh/metarig" index="0"]
+bones/0/position = Vector3(0, 1.00036, -0.00681275)
 bones/0/scale = Vector3(1, 1, 1)
 bones/1/rotation = Quaternion(0.0096611, -0.707041, 0.0096611, 0.707041)
 bones/1/scale = Vector3(1, 1, 1)
@@ -102,24 +103,24 @@ bones/9/rotation = Quaternion(0.480037, -0.259526, 0.660363, 0.515879)
 bones/10/rotation = Quaternion(-0.0225636, 0.00381004, 0.0141313, 0.999638)
 bones/12/rotation = Quaternion(-0.19775, -1.1684e-07, -7.07229e-08, 0.980253)
 bones/13/position = Vector3(-0.133213, 0.298144, 0.210985)
-bones/14/rotation = Quaternion(0.706698, 0.02403, 0.706699, -0.02403)
+bones/14/rotation = Quaternion(0.702245, -0.0827722, 0.702246, 0.0827722)
 bones/14/scale = Vector3(1, 1, 1)
-bones/15/rotation = Quaternion(0.436793, -1.16285e-08, 1.03817e-08, 0.899562)
-bones/16/rotation = Quaternion(-0.763626, 1.03402e-06, -4.53289e-07, 0.645659)
+bones/15/rotation = Quaternion(0.101016, -1.55476e-08, 5.67643e-09, 0.994885)
+bones/16/rotation = Quaternion(-0.682957, 7.83714e-07, -7.32749e-07, 0.730459)
 bones/16/scale = Vector3(1, 1, 1)
-bones/17/rotation = Quaternion(0.703673, -0.0696021, 0.703673, 0.069602)
+bones/17/rotation = Quaternion(0.706083, 0.038027, 0.706084, -0.038027)
 bones/17/scale = Vector3(1, 1, 1)
-bones/18/rotation = Quaternion(0.0600594, -1.51171e-08, 4.85394e-09, 0.998195)
-bones/19/rotation = Quaternion(-0.682957, 7.83714e-07, -7.32749e-07, 0.730459)
+bones/18/rotation = Quaternion(0.39548, -1.31707e-08, 1.00417e-08, 0.918475)
+bones/19/rotation = Quaternion(-0.75842, 6.99913e-07, -8.13041e-07, 0.651766)
 bones/19/scale = Vector3(1, 1, 1)
 bones/20/rotation = Quaternion(-0.655919, -0.0708456, 0.0243406, 0.751105)
 bones/20/scale = Vector3(1, 1, 1)
 bones/21/rotation = Quaternion(-0.0243409, 0.751105, 0.655919, -0.0708453)
 
 [node name="AnimationTree" type="AnimationTree" parent="."]
-root_node = NodePath("../lost")
+root_node = NodePath("../mesh")
 tree_root = SubResource("AnimationNodeBlendTree_ilvdg")
-anim_player = NodePath("../lost/AnimationPlayer")
+anim_player = NodePath("../mesh/AnimationPlayer")
 parameters/Blend2/blend_amount = 1.0
 parameters/attack/active = false
 parameters/attack/internal_active = false
@@ -192,4 +193,4 @@ top_level = true
 [connection signal="velocity_computed" from="behavior_master/NavigationAgent3D" to="behavior_master" method="_on_navigation_agent_3d_velocity_computed"]
 [connection signal="timeout" from="behavior_master/attack_timer" to="behavior_master" method="_on_attack_timer_timeout"]
 
-[editable path="lost"]
+[editable path="mesh"]

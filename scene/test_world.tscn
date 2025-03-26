@@ -149,7 +149,7 @@ volumetric_fog_density = 0.0091
 volumetric_fog_albedo = Color(0, 0, 0, 1)
 adjustment_enabled = true
 adjustment_brightness = 0.83
-adjustment_contrast = 1.22
+adjustment_contrast = 1.5
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_0x23y"]
 size = Vector3(1000, 7.62074, 1000)
@@ -158,6 +158,7 @@ size = Vector3(1000, 7.62074, 1000)
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.72095, 0.692987, 0, -0.692987, 0.72095, 0, 10.1473, 0)
+visible = false
 directional_shadow_mode = 0
 
 [node name="room_manager" type="Node3D" parent="." node_paths=PackedStringArray("rest_room", "boss_room", "combatgroup", "combatgroups", "demo_lock_screen") groups=["room_manager"]]

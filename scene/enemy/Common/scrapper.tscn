@@ -39,63 +39,64 @@ node_connections = [&"output", 0, &"leg"]
 [sub_resource type="BoxShape3D" id="BoxShape3D_4qbp4"]
 size = Vector3(0.769531, 1.2876, 0.338318)
 
-[node name="scrapper" type="CharacterBody3D" node_paths=PackedStringArray("navigation_agent", "anim", "gore_manager") groups=["Enemy"]]
+[node name="scrapper" type="CharacterBody3D" node_paths=PackedStringArray("navigation_agent", "anim", "gore_manager", "mesh_instances") groups=["Enemy"]]
 script = ExtResource("1_8enms")
 hp = 15
 navigation_agent = NodePath("behavior_master/NavigationAgent3D")
-anim = NodePath("scrapper/AnimationPlayer")
+anim = NodePath("mesh/AnimationPlayer")
 gore_manager = NodePath("gore_manager")
+mesh_instances = [NodePath("mesh/metarig/Skeleton3D/Character"), NodePath("mesh/metarig/Skeleton3D/Character_001"), NodePath("mesh/metarig/Skeleton3D/Character_002"), NodePath("mesh/metarig/Skeleton3D/Cube")]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("CapsuleShape3D_gjrny")
 
-[node name="scrapper" parent="." instance=ExtResource("2_m8u1i")]
+[node name="mesh" parent="." instance=ExtResource("2_m8u1i")]
 transform = Transform3D(-1.2, 0, 1.81195e-07, 0, 1.2, 0, -1.81195e-07, 0, -1.2, 0, -1, 0)
 
-[node name="Skeleton3D" parent="scrapper/metarig" index="0"]
-bones/0/position = Vector3(1.20419e-09, 1.05326, -0.00681275)
+[node name="Skeleton3D" parent="mesh/metarig" index="0"]
+bones/0/position = Vector3(1.20419e-09, 0.997803, -0.00681275)
 bones/0/rotation = Quaternion(0, 0.608762, 0, 0.793353)
 bones/0/scale = Vector3(1, 1, 1)
-bones/1/rotation = Quaternion(0.124543, -0.83395, 0.0475417, 0.535496)
+bones/1/rotation = Quaternion(0.111363, -0.698879, 0.0732758, 0.702707)
 bones/1/scale = Vector3(1, 1, 1)
-bones/2/rotation = Quaternion(0.0232663, 0.00398405, -0.0142417, 0.99962)
-bones/3/rotation = Quaternion(-0.495078, -0.509787, -0.469963, 0.523593)
-bones/4/rotation = Quaternion(0.200629, 0.668862, -0.255528, 0.668639)
+bones/2/rotation = Quaternion(0.0232663, 0.00398404, -0.0142417, 0.99962)
+bones/3/rotation = Quaternion(-0.537625, -0.464698, -0.422541, 0.562561)
+bones/4/rotation = Quaternion(-0.429669, 0.566973, -0.515989, 0.47716)
 bones/4/scale = Vector3(1, 1, 1)
-bones/5/rotation = Quaternion(0.725105, -0.0288279, 0.0358786, 0.687099)
+bones/5/rotation = Quaternion(0.156985, -0.0447123, 0.0109151, 0.986528)
 bones/6/rotation = Quaternion(0.0747881, -0.0178685, 0.0476038, 0.995902)
-bones/7/rotation = Quaternion(-0.495223, 0.485076, 0.510792, 0.508475)
+bones/7/rotation = Quaternion(-0.521127, 0.457088, 0.482137, 0.535762)
 bones/7/scale = Vector3(1, 1, 1)
-bones/8/rotation = Quaternion(-0.0336824, -0.756459, 0.0154147, 0.652992)
+bones/8/rotation = Quaternion(-0.432523, -0.621521, 0.361815, 0.543807)
 bones/8/scale = Vector3(1, 1, 1)
-bones/9/rotation = Quaternion(0.899826, 0.15861, -0.0241216, 0.405678)
+bones/9/rotation = Quaternion(-0.0159074, -0.0285882, 0.0564982, 0.997867)
 bones/9/scale = Vector3(1, 1, 1)
 bones/10/rotation = Quaternion(-0.0225911, 0.00364458, 0.0259031, 0.999403)
 bones/10/scale = Vector3(1, 1, 1)
-bones/11/rotation = Quaternion(0.00605758, 0.327516, 0.0227708, 0.944552)
+bones/11/rotation = Quaternion(0.00951727, 0.176998, 0.0215552, 0.983929)
 bones/12/rotation = Quaternion(-0.154804, -1.16391e-07, -5.36931e-08, 0.987945)
-bones/13/position = Vector3(0.00558716, 0.0621001, 0.098)
-bones/13/rotation = Quaternion(0.744647, 0.189999, 0.618594, -0.163534)
+bones/13/position = Vector3(0.0143688, 0.0620999, 0.0975731)
+bones/13/rotation = Quaternion(0.774524, 0.108882, 0.610774, -0.12334)
 bones/13/scale = Vector3(1, 1, 1)
-bones/14/rotation = Quaternion(0.197705, -0.000695095, -0.00756425, 0.980232)
-bones/15/rotation = Quaternion(-0.41588, 4.9859e-07, -9.3459e-07, 0.909419)
+bones/14/rotation = Quaternion(0.204693, 0.0031448, -0.00744285, 0.978793)
+bones/15/rotation = Quaternion(-0.682957, 7.83884e-07, -7.32908e-07, 0.730459)
 bones/15/scale = Vector3(1, 1, 1)
-bones/16/position = Vector3(0.00558735, 0.0621001, -0.098)
-bones/16/rotation = Quaternion(0.631189, -0.315689, 0.620384, 0.342149)
+bones/16/position = Vector3(-0.0031943, 0.0620999, -0.0975731)
+bones/16/rotation = Quaternion(0.724509, -0.0769421, 0.662013, 0.175798)
 bones/16/scale = Vector3(1, 1, 1)
-bones/17/rotation = Quaternion(0.688881, -8.06732e-09, 1.53008e-10, 0.724874)
+bones/17/rotation = Quaternion(0.107697, -0.0020654, 0.0278687, 0.993791)
 bones/18/rotation = Quaternion(-0.706715, 0.0185437, -0.0210314, 0.706943)
 bones/18/scale = Vector3(1, 1, 1)
 bones/19/rotation = Quaternion(-0.655919, -0.0708456, 0.0243406, 0.751105)
 bones/19/scale = Vector3(1, 1, 1)
 bones/20/rotation = Quaternion(-0.0243409, 0.751105, 0.655919, -0.0708453)
 
-[node name="BoneAttachment3D" type="BoneAttachment3D" parent="scrapper/metarig/Skeleton3D" index="4"]
-transform = Transform3D(0.99754, -0.0617813, -0.0331268, 0.0615612, 0.998074, -0.00762585, 0.033534, 0.00556788, 0.999422, -0.016919, 1.74909, 0.194828)
+[node name="BoneAttachment3D" type="BoneAttachment3D" parent="mesh/metarig/Skeleton3D" index="4"]
+transform = Transform3D(0.993012, -0.0744787, 0.0915402, 0.0764748, 0.9969, -0.0184898, -0.0898793, 0.025361, 0.99563, -0.00630988, 1.69359, 0.195573)
 bone_name = "head"
 bone_idx = 12
 
-[node name="SpotLight3D" type="SpotLight3D" parent="scrapper/metarig/Skeleton3D/BoneAttachment3D"]
+[node name="SpotLight3D" type="SpotLight3D" parent="mesh/metarig/Skeleton3D/BoneAttachment3D"]
 transform = Transform3D(1.00807, -3.19245e-08, -3.73672e-07, -1.44892e-07, -0.959574, -0.308899, -3.45914e-07, 0.308899, -0.959574, 4.00469e-08, 1.79212, 0.26515)
 light_color = Color(1, 0, 0, 1)
 light_energy = 2.0
@@ -103,9 +104,9 @@ spot_attenuation = 1.5
 spot_angle = 78.2975
 
 [node name="AnimationTree" type="AnimationTree" parent="."]
-root_node = NodePath("../scrapper")
+root_node = NodePath("../mesh")
 tree_root = SubResource("AnimationNodeBlendTree_6hryh")
-anim_player = NodePath("../scrapper/AnimationPlayer")
+anim_player = NodePath("../mesh/AnimationPlayer")
 parameters/leg/blend_position = 1.0
 
 [node name="Looker" type="Node3D" parent="."]
@@ -122,7 +123,7 @@ detection_range = 5.0
 charge_duration = 0.5
 charge_ray = NodePath("../aim_ray")
 cooldown_timer = NodePath("cooldown_timer")
-anim_plr = NodePath("../scrapper/AnimationPlayer")
+anim_plr = NodePath("../mesh/AnimationPlayer")
 master = NodePath("..")
 state_machine = NodePath("FiniteStateMachine")
 speed = 15.0
@@ -180,10 +181,10 @@ wait_time = 0.5
 
 [node name="gore_manager" parent="." instance=ExtResource("10_cb7t1")]
 
-[connection signal="animation_finished" from="scrapper/AnimationPlayer" to="behavior_master" method="_on_animation_player_animation_finished"]
+[connection signal="animation_finished" from="mesh/AnimationPlayer" to="behavior_master" method="_on_animation_player_animation_finished"]
 [connection signal="velocity_computed" from="behavior_master/NavigationAgent3D" to="behavior_master" method="_on_navigation_agent_3d_velocity_computed"]
 [connection signal="timeout" from="behavior_master/attack_timer" to="behavior_master" method="_on_attack_timer_timeout"]
 [connection signal="body_entered" from="behavior_master/charge_hitbox" to="behavior_master" method="_on_charge_hitbox_body_entered"]
 [connection signal="timeout" from="behavior_master/cooldown_timer" to="behavior_master" method="_on_cooldown_timer_timeout"]
 
-[editable path="scrapper"]
+[editable path="mesh"]

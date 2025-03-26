@@ -31,12 +31,13 @@ size = Vector3(2.13647, 3.38226, 1.99694)
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_un28l"]
 bg_color = Color(0.572549, 0, 0, 1)
 
-[node name="enemy_test" type="CharacterBody3D" node_paths=PackedStringArray("navigation_agent", "anim", "gore_manager") groups=["Enemy"]]
+[node name="enemy_test" type="CharacterBody3D" node_paths=PackedStringArray("navigation_agent", "anim", "gore_manager", "mesh_instances") groups=["Enemy"]]
 script = ExtResource("1_12ga4")
 hp = 1000
 navigation_agent = NodePath("behavior_master/NavigationAgent3D")
-anim = NodePath("minotaur/AnimationPlayer")
+anim = NodePath("mesh/AnimationPlayer")
 gore_manager = NodePath("gore_manager")
+mesh_instances = [NodePath("mesh/metarig/Skeleton3D/Character"), NodePath("mesh/metarig/Skeleton3D/Character_001"), NodePath("mesh/metarig/Skeleton3D/Character_002"), NodePath("mesh/metarig/Skeleton3D/Character_003"), NodePath("mesh/metarig/Skeleton3D/Character_004"), NodePath("mesh/metarig/Skeleton3D/horn_L"), NodePath("mesh/metarig/Skeleton3D/horn_R")]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.736892, 0)
@@ -75,7 +76,7 @@ charge_duration = 5.0
 charge_ray = NodePath("../../aim_ray")
 dist_to_attack = 12.0
 cooldown_timer = NodePath("../cooldown_timer")
-anim_plr = NodePath("../../minotaur/AnimationPlayer")
+anim_plr = NodePath("../../mesh/AnimationPlayer")
 
 [node name="FiniteStateMachine" type="Node" parent="behavior_master"]
 script = ExtResource("5_r6wwu")
@@ -105,9 +106,9 @@ debug_enabled = true
 top_level = true
 
 [node name="AnimationTree" type="AnimationTree" parent="behavior_master"]
-root_node = NodePath("../../minotaur")
+root_node = NodePath("../../mesh")
 tree_root = SubResource("AnimationNodeBlendTree_12ga4")
-anim_player = NodePath("../../minotaur/AnimationPlayer")
+anim_player = NodePath("../../mesh/AnimationPlayer")
 
 [node name="cooldown_timer" type="Timer" parent="behavior_master"]
 
@@ -142,34 +143,34 @@ theme_override_styles/fill = SubResource("StyleBoxFlat_un28l")
 value = 50.0
 show_percentage = false
 
-[node name="minotaur" parent="." instance=ExtResource("11_1mn6g")]
+[node name="mesh" parent="." instance=ExtResource("11_1mn6g")]
 transform = Transform3D(-3, 0, -3.77489e-07, 0, 2.5, 0, 4.52987e-07, 0, -2.5, 0, -1, 0)
 
-[node name="Skeleton3D" parent="minotaur/metarig" index="0"]
-bones/0/position = Vector3(0, 0.979592, -0.00681275)
+[node name="Skeleton3D" parent="mesh/metarig" index="0"]
+bones/0/position = Vector3(0, 0.97361, -0.00681275)
 bones/1/rotation = Quaternion(0.00966109, -0.707041, 0.0096611, 0.707041)
 bones/2/rotation = Quaternion(-0.0287109, -1.19157e-07, -3.52896e-09, 0.999588)
-bones/3/rotation = Quaternion(-0.456039, -0.394686, -0.574736, 0.55311)
+bones/3/rotation = Quaternion(-0.452069, -0.39042, -0.577623, 0.556379)
 bones/4/position = Vector3(0.00661594, 0.17689, -0.00828764)
-bones/4/rotation = Quaternion(-0.472977, 0.62414, -0.3539, 0.511367)
-bones/5/rotation = Quaternion(0.198241, 0.00606287, -0.102836, 0.974725)
-bones/7/rotation = Quaternion(-0.538318, 0.48121, 0.504537, 0.473385)
+bones/4/rotation = Quaternion(-0.476635, 0.629716, -0.348214, 0.504999)
+bones/5/rotation = Quaternion(0.177137, 0.00831504, -0.102917, 0.978755)
+bones/7/rotation = Quaternion(-0.541815, 0.484792, 0.501052, 0.469426)
 bones/8/position = Vector3(-0.00661598, 0.17689, -0.00828782)
-bones/8/rotation = Quaternion(-0.331723, -0.516557, 0.447957, 0.649972)
-bones/9/rotation = Quaternion(0.209868, -0.129519, 0.196093, 0.949067)
+bones/8/rotation = Quaternion(-0.321739, -0.512919, 0.449542, 0.656742)
+bones/9/rotation = Quaternion(0.190671, -0.156574, 0.209402, 0.946192)
 bones/11/rotation = Quaternion(0.169656, 2.34962e-07, 4.04477e-08, 0.985503)
 bones/12/rotation = Quaternion(-0.154804, -1.17772e-07, -5.53621e-08, 0.987945)
-bones/13/rotation = Quaternion(0.700947, -0.0931316, 0.700947, 0.0931316)
-bones/14/rotation = Quaternion(0.153294, -1.52036e-08, 6.48917e-09, 0.988181)
-bones/15/rotation = Quaternion(-0.688231, 7.99616e-07, -7.157e-07, 0.725492)
-bones/16/rotation = Quaternion(0.706772, 0.0217548, 0.706772, -0.0217548)
-bones/17/rotation = Quaternion(0.205228, -1.4816e-08, 7.28299e-09, 0.978714)
-bones/18/rotation = Quaternion(-0.795051, 6.5086e-07, -8.52976e-07, 0.606543)
+bones/13/rotation = Quaternion(0.700077, -0.0994604, 0.700077, 0.0994603)
+bones/14/rotation = Quaternion(0.15507, -1.51919e-08, 6.51634e-09, 0.987904)
+bones/15/rotation = Quaternion(-0.682957, 7.83714e-07, -7.32749e-07, 0.730459)
+bones/16/rotation = Quaternion(0.705009, 0.0544216, 0.70501, -0.0544216)
+bones/17/rotation = Quaternion(0.111851, -1.54369e-08, 5.8567e-09, 0.993725)
+bones/18/rotation = Quaternion(-0.799424, 6.44666e-07, -8.57665e-07, 0.600767)
 bones/20/rotation = Quaternion(-0.0243409, 0.751105, 0.655919, -0.0708453)
 
 [connection signal="velocity_computed" from="behavior_master/NavigationAgent3D" to="behavior_master" method="_on_navigation_agent_3d_velocity_computed"]
 [connection signal="timeout" from="behavior_master/cooldown_timer" to="behavior_master/phase_base" method="_on_cooldown_timer_timeout"]
 [connection signal="body_entered" from="behavior_master/charge_hitbox" to="behavior_master/phase_base" method="_on_charge_hitbox_body_entered"]
-[connection signal="animation_finished" from="minotaur/AnimationPlayer" to="behavior_master/phase_base" method="_on_animation_player_animation_finished"]
+[connection signal="animation_finished" from="mesh/AnimationPlayer" to="behavior_master/phase_base" method="_on_animation_player_animation_finished"]
 
-[editable path="minotaur"]
+[editable path="mesh"]

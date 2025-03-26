@@ -1,4 +1,4 @@
-[gd_scene load_steps=85 format=4 uid="uid://kedshd64hp37"]
+[gd_scene load_steps=94 format=4 uid="uid://kedshd64hp37"]
 
 [ext_resource type="Script" uid="uid://btfuem0c64bs6" path="res://scripts/systems/rooms/boss_room.gd" id="1_3ctib"]
 [ext_resource type="PackedScene" uid="uid://d2ykjs1m2rf3s" path="res://scene/enemy/bosses/Minotaur.tscn" id="2_xgfav"]
@@ -13,6 +13,7 @@
 [ext_resource type="Material" uid="uid://dt8hufwbic81h" path="res://textures/buildings/concrete_04.tres" id="12_2euya"]
 [ext_resource type="Material" uid="uid://dwu5chjmuyp5i" path="res://textures/buildings/concrete_01.tres" id="13_40a4l"]
 [ext_resource type="Material" uid="uid://dq77rcnf0wn7e" path="res://textures/buildings/concrete_08.tres" id="14_1w3yb"]
+[ext_resource type="PackedScene" uid="uid://cvhypjvukmb3d" path="res://scene/rooms/environmental_challenges/vent.tscn" id="14_3wbrb"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_hcjfp"]
 size = Vector3(1, 1.99023, 15.9053)
@@ -324,6 +325,42 @@ points = PackedVector3Array(-65, 1.125, -3.75, -65, 1, -3.75, -41, 1, -3.75, -41
 [sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_bmp0s"]
 points = PackedVector3Array(-65, 1.375, -3.75, -65, 1.25, -3.75, -41, 1.25, -3.75, -41, 1.375, -3.75, -65, 1.375, -3.625, -65, 1.25, -3.625, -41, 1.25, -3.625, -41, 1.375, -3.625)
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_qjxxa"]
+size = Vector3(18, 3, 18)
+
+[sub_resource type="Gradient" id="Gradient_jbuoe"]
+colors = PackedColorArray(1, 0.78, 0.78, 1, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_g8vcp"]
+gradient = SubResource("Gradient_jbuoe")
+
+[sub_resource type="Gradient" id="Gradient_r4btu"]
+offsets = PackedFloat32Array(0, 0.372611, 0.72293, 1)
+colors = PackedColorArray(0.4, 0.4, 0.4, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_c3a40"]
+gradient = SubResource("Gradient_r4btu")
+
+[sub_resource type="Curve" id="Curve_que84"]
+_data = [Vector2(0, 0), 0.0, 1.4, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_h1rbj"]
+curve = SubResource("Curve_que84")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_npxb7"]
+emission_shape = 3
+emission_box_extents = Vector3(9, 0, 9)
+direction = Vector3(0, 1, 0)
+spread = 15.0
+initial_velocity_min = 8.0
+initial_velocity_max = 10.0
+gravity = Vector3(0, 0, 0)
+attractor_interaction_enabled = false
+scale_curve = SubResource("CurveTexture_h1rbj")
+color_ramp = SubResource("GradientTexture1D_c3a40")
+color_initial_ramp = SubResource("GradientTexture1D_g8vcp")
+
 [node name="room_boss" type="Node3D" node_paths=PackedStringArray("start_pos", "entrance", "boss_spawn", "nav")]
 script = ExtResource("1_3ctib")
 start_pos = NodePath("spawn")
@@ -571,4 +608,49 @@ shape = SubResource("ConvexPolygonShape3D_c0fbk")
 [node name="entity_0_brush_64_collision_shape" type="CollisionShape3D" parent="NavigationRegion3D/FuncGodotMap/entity_0_worldspawn"]
 shape = SubResource("ConvexPolygonShape3D_bmp0s")
 
+[node name="vent" parent="." instance=ExtResource("14_3wbrb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -27, -1, 21)
+
+[node name="CollisionShape3D" parent="vent" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.533204, 0)
+shape = SubResource("BoxShape3D_qjxxa")
+
+[node name="GPUParticles3D" parent="vent" index="2"]
+process_material = SubResource("ParticleProcessMaterial_npxb7")
+
+[node name="vent2" parent="." instance=ExtResource("14_3wbrb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -27, -1, -21)
+
+[node name="CollisionShape3D" parent="vent2" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.533204, 0)
+shape = SubResource("BoxShape3D_qjxxa")
+
+[node name="GPUParticles3D" parent="vent2" index="2"]
+process_material = SubResource("ParticleProcessMaterial_npxb7")
+
+[node name="vent3" parent="." instance=ExtResource("14_3wbrb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 27, -1, 21)
+
+[node name="CollisionShape3D" parent="vent3" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.533204, 0)
+shape = SubResource("BoxShape3D_qjxxa")
+
+[node name="GPUParticles3D" parent="vent3" index="2"]
+process_material = SubResource("ParticleProcessMaterial_npxb7")
+
+[node name="vent4" parent="." instance=ExtResource("14_3wbrb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 27, -1, -21)
+
+[node name="CollisionShape3D" parent="vent4" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.533204, 0)
+shape = SubResource("BoxShape3D_qjxxa")
+
+[node name="GPUParticles3D" parent="vent4" index="2"]
+process_material = SubResource("ParticleProcessMaterial_npxb7")
+
 [connection signal="body_entered" from="Trigger" to="." method="_on_trigger_body_entered"]
+
+[editable path="vent"]
+[editable path="vent2"]
+[editable path="vent3"]
+[editable path="vent4"]

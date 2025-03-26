@@ -19,6 +19,11 @@ var distraction: Node3D
 @export var mult_loot = 1.0
 @export_group("gore")
 @export var gore_manager:Gore_Manager
+@export var flash_color: Color = Color(1, 0, 0) # Default: Red
+@export var flash_duration: float = 0.15
+@export var mesh_instances:Array[MeshInstance3D]
+var original_material: StandardMaterial3D
+var flashing: bool = false
 var stop_nav=false
 var hp_start:int
 
@@ -68,6 +73,7 @@ func _on_velocity_computed(safe_velocity: Vector3):
 
 func take_damage(damage:int,attacker:Vector3=global_position):
 	#print(name.get_basename() + " took " + str(damage) + " damage")
+	flash()
 	hp-=damage
 	if gore_manager!=null:
 		gore_manager.mist_activate(attacker)
@@ -104,3 +110,26 @@ func explode_money():
 			# Apply a random impulse to the money
 			var random_impulse = random_direction * randf_range(money_impulse_min, money_impulse_max)
 			money.apply_impulse(random_impulse)
+
+func flash():
+	if flashing:
+		return
+	flashing = true
+
+	if mesh_instances:
+		# Save the original material (could be null)
+		for m in mesh_instances: #FIXME this flashes the meshes one by one, not all of them at once. It should've flash all of em
+			if original_material == null:
+				original_material = m.material_override
+
+			# Create a new material with the flash color
+			var flash_material = StandardMaterial3D.new()
+			flash_material.albedo_color = flash_color
+			m.material_override = flash_material
+
+			# Wait for flash_duration seconds before restoring the original material
+			await get_tree().create_timer(flash_duration).timeout
+			m.material_override = original_material
+	elif !mesh_instances:
+		printerr(name + " can't detect its mesh for the flashing effect when damaged. Please rename its mesh or adjust the hierarchy. mesh_instance location from the parent enemy should be: /mesh/metarig/Skeleton3D/Character")
+	flashing = false

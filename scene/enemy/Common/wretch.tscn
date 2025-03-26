@@ -39,50 +39,51 @@ node_connections = [&"output", 0, &"leg"]
 [sub_resource type="BoxShape3D" id="BoxShape3D_4qbp4"]
 size = Vector3(0.769531, 1.2876, 0.338318)
 
-[node name="enemy_charge" type="CharacterBody3D" node_paths=PackedStringArray("navigation_agent", "gore_manager") groups=["Enemy"]]
+[node name="enemy_charge" type="CharacterBody3D" node_paths=PackedStringArray("navigation_agent", "gore_manager", "mesh_instances") groups=["Enemy"]]
 script = ExtResource("1_3ia0x")
 navigation_agent = NodePath("behavior_master/NavigationAgent3D")
 gore_manager = NodePath("gore_manager")
+mesh_instances = [NodePath("mesh/metarig/Skeleton3D/Character")]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("CapsuleShape3D_gjrny")
 
-[node name="wretch" parent="." instance=ExtResource("3_bpmr3")]
+[node name="mesh" parent="." instance=ExtResource("3_bpmr3")]
 transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 0, -1, 0)
 
-[node name="Skeleton3D" parent="wretch/metarig" index="0"]
-bones/0/position = Vector3(0, 1.02998, -0.00681275)
+[node name="Skeleton3D" parent="mesh/metarig" index="0"]
+bones/0/position = Vector3(0, 1.03173, -0.00681275)
 bones/0/rotation = Quaternion(0, 0.707107, 0, 0.707107)
 bones/1/rotation = Quaternion(0.101866, -0.699731, 0.101866, 0.699731)
-bones/2/rotation = Quaternion(0.0718181, -1.18951e-07, 8.45219e-09, 0.997418)
+bones/2/rotation = Quaternion(0.0667084, -1.18988e-07, 7.84277e-09, 0.997773)
 bones/3/position = Vector3(0.0183, 0.324628, -0.00610971)
 bones/3/rotation = Quaternion(-0.66585, -0.620822, -0.366796, 0.191531)
 bones/4/position = Vector3(0.00608176, 0.157778, -0.00830019)
 bones/4/rotation = Quaternion(-0.183683, 0.37376, -0.55227, 0.722193)
-bones/5/rotation = Quaternion(0.267904, -0.00271112, 0.0130361, 0.963354)
+bones/5/rotation = Quaternion(0.263925, -0.00220329, 0.0128836, 0.964455)
 bones/6/rotation = Quaternion(-0.0223499, -0.00118914, -0.0266289, 0.999395)
 bones/7/position = Vector3(-0.0183, 0.324628, -0.00610971)
 bones/7/rotation = Quaternion(-0.654235, 0.613084, 0.364439, 0.251572)
 bones/8/position = Vector3(-0.0060927, 0.158169, -0.00829984)
 bones/8/rotation = Quaternion(-0.139511, -0.305528, 0.594912, 0.730252)
-bones/9/rotation = Quaternion(0.225366, -0.00248424, 0.00763546, 0.974241)
+bones/9/rotation = Quaternion(0.221348, -0.00298685, 0.00793022, 0.975158)
 bones/10/rotation = Quaternion(-0.0225636, 0.00381004, 0.0141313, 0.999638)
 bones/11/rotation = Quaternion(0.0394198, -0.0233542, -0.0839684, 0.995414)
 bones/12/rotation = Quaternion(-0.154215, -0.0134922, -0.0861052, 0.984186)
 bones/13/position = Vector3(0.00558717, 0.0621001, 0.098)
-bones/13/rotation = Quaternion(0.683808, -0.180017, 0.683809, 0.180017)
-bones/14/rotation = Quaternion(0.26777, -1.79965e-08, 9.69917e-09, 0.963483)
+bones/13/rotation = Quaternion(0.698905, 0.107383, 0.698906, -0.107383)
+bones/14/rotation = Quaternion(0.300195, -1.32549e-08, 8.29589e-09, 0.953878)
 bones/15/rotation = Quaternion(-0.682957, 7.83714e-07, -7.32749e-07, 0.730459)
 bones/16/position = Vector3(0.00558735, 0.0621001, -0.098)
-bones/16/rotation = Quaternion(0.699941, 0.100409, 0.699942, -0.100408)
-bones/17/rotation = Quaternion(0.246675, -1.55938e-08, 8.47529e-09, 0.969098)
+bones/16/rotation = Quaternion(0.682555, -0.184712, 0.682555, 0.184712)
+bones/17/rotation = Quaternion(0.208262, -1.22116e-08, 6.31756e-09, 0.978073)
 bones/18/rotation = Quaternion(-0.682957, 7.83714e-07, -7.32749e-07, 0.730459)
 bones/20/rotation = Quaternion(-0.0243409, 0.751105, 0.655919, -0.0708453)
 
 [node name="AnimationTree" type="AnimationTree" parent="."]
-root_node = NodePath("../wretch")
+root_node = NodePath("../mesh")
 tree_root = SubResource("AnimationNodeBlendTree_6hryh")
-anim_player = NodePath("../wretch/AnimationPlayer")
+anim_player = NodePath("../mesh/AnimationPlayer")
 parameters/leg/blend_position = 1.0
 
 [node name="Looker" type="Node3D" parent="."]
@@ -99,7 +100,7 @@ charge_speed = 17.0
 charge_duration = 0.2
 charge_ray = NodePath("../aim_ray")
 cooldown_timer = NodePath("cooldown_timer")
-anim_plr = NodePath("../wretch/AnimationPlayer")
+anim_plr = NodePath("../mesh/AnimationPlayer")
 master = NodePath("..")
 state_machine = NodePath("FiniteStateMachine")
 dist_to_chase = 2.0
@@ -153,10 +154,10 @@ shape = SubResource("BoxShape3D_4qbp4")
 
 [node name="gore_manager" parent="." instance=ExtResource("9_jf6dc")]
 
-[connection signal="animation_finished" from="wretch/AnimationPlayer" to="behavior_master" method="_on_animation_player_animation_finished"]
+[connection signal="animation_finished" from="mesh/AnimationPlayer" to="behavior_master" method="_on_animation_player_animation_finished"]
 [connection signal="velocity_computed" from="behavior_master/NavigationAgent3D" to="behavior_master" method="_on_navigation_agent_3d_velocity_computed"]
 [connection signal="timeout" from="behavior_master/attack_timer" to="behavior_master" method="_on_attack_timer_timeout"]
 [connection signal="body_entered" from="behavior_master/charge_hitbox" to="behavior_master" method="_on_charge_hitbox_body_entered"]
 [connection signal="timeout" from="behavior_master/cooldown_timer" to="behavior_master" method="_on_cooldown_timer_timeout"]
 
-[editable path="wretch"]
+[editable path="mesh"]
