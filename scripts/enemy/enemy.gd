@@ -22,7 +22,7 @@ var distraction: Node3D
 @export var flash_color: Color = Color(1, 0, 0) # Default: Red
 @export var flash_duration: float = 0.15
 @export var mesh_instances:Array[MeshInstance3D]
-var original_material: StandardMaterial3D
+var original_materials: Dictionary = {}
 var flashing: bool = false
 var stop_nav=false
 var hp_start:int
@@ -112,24 +112,23 @@ func explode_money():
 			money.apply_impulse(random_impulse)
 
 func flash():
-	if flashing:
-		return
+	if flashing: return
 	flashing = true
 
 	if mesh_instances:
 		# Save the original material (could be null)
 		for m in mesh_instances: #FIXME this flashes the meshes one by one, not all of them at once. It should've flash all of em
-			if original_material == null:
-				original_material = m.material_override
-
-			# Create a new material with the flash color
+			if not original_materials.has(m):
+				original_materials[m] = m.material_override
 			var flash_material = StandardMaterial3D.new()
 			flash_material.albedo_color = flash_color
 			m.material_override = flash_material
 
 			# Wait for flash_duration seconds before restoring the original material
-			await get_tree().create_timer(flash_duration).timeout
-			m.material_override = original_material
+		await get_tree().create_timer(flash_duration).timeout
+		for mesh in mesh_instances:
+			if original_materials.has(mesh):
+				mesh.material_override = original_materials[mesh]
 	elif !mesh_instances:
 		printerr(name + " can't detect its mesh for the flashing effect when damaged. Please rename its mesh or adjust the hierarchy. mesh_instance location from the parent enemy should be: /mesh/metarig/Skeleton3D/Character")
 	flashing = false
