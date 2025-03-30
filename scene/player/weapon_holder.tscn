@@ -1,11 +1,10 @@
-[gd_scene load_steps=40 format=3 uid="uid://7elo11bnf3va"]
+[gd_scene load_steps=39 format=3 uid="uid://7elo11bnf3va"]
 
 [ext_resource type="Script" uid="uid://cw7kdng7csvp6" path="res://scripts/player/weapon/weapon_manager.gd" id="1_rku58"]
 [ext_resource type="Script" uid="uid://bvumx55vmv8m" path="res://scripts/player/weapon/projectile_gun.gd" id="2_toky6"]
 [ext_resource type="PackedScene" uid="uid://8ysnnu4dntee" path="res://scene/player/player_bullet.tscn" id="3_0j408"]
 [ext_resource type="Texture2D" uid="uid://cmvyyualmkccw" path="res://sprites/UI/weapon-icons.png" id="3_4xwoe"]
 [ext_resource type="Texture2D" uid="uid://b4digkieaudvy" path="res://sprites/pow.png" id="3_v305p"]
-[ext_resource type="AudioStream" uid="uid://wpjarba6ccey" path="res://audios/weapons/melee/unarmed/348241__newagesoup__punch-boxing-04.wav" id="4_dkh8o"]
 [ext_resource type="Script" uid="uid://b7ac4wqk62s2u" path="res://scripts/player/weapon/melee_weapon.gd" id="4_lfc15"]
 [ext_resource type="Texture2D" uid="uid://cmoka0opia5yq" path="res://sprites/slash-placeholder.png" id="5_pwomt"]
 [ext_resource type="AudioStream" uid="uid://cesxsyklpqhcr" path="res://audios/weapons/melee/unarmed/kung-fu-punch-4-105262.mp3" id="5_qn2jl"]
@@ -35,9 +34,8 @@ atlas = ExtResource("3_4xwoe")
 region = Rect2(0, 0, 32, 32)
 
 [sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_pvctk"]
-streams_count = 2
-stream_0/stream = ExtResource("4_dkh8o")
-stream_1/stream = ExtResource("5_qn2jl")
+streams_count = 1
+stream_0/stream = ExtResource("5_qn2jl")
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_nchdq"]
 size = Vector3(1.2627, 1, 0.804445)

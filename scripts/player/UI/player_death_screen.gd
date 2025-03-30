@@ -6,6 +6,7 @@ extends Control
 @export var stat_screen_fade_speed:float=5
 @export var cam_zoom_size:float=0.5
 @export var cam_zoom_speed:float=0.5
+@export var HUD:CanvasLayer
 @onready var t:Timer=$Timer
 var zoom:float
 var origin_fov:float
@@ -39,6 +40,7 @@ func _process(delta):
 func activate():
 	visible=true
 	show()
+	if HUD and HUD.visible: HUD.visible=false
 	t.start(t.wait_time*Engine.time_scale)
 	stat_canvas.process_mode=Node.PROCESS_MODE_INHERIT
 	stat_canvas.visible=true

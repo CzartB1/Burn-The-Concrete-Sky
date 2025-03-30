@@ -6,6 +6,7 @@ extends Control
 @export var money_label:RichTextLabel
 @export var mult_label:RichTextLabel
 @export var anim:AnimationPlayer
+@export var HUD:CanvasLayer
 var plr
 
 func _ready():
@@ -40,7 +41,7 @@ func _on_exit_pressed(): #FIX ME main menu button
 
 func show_anim():
 	anim.play("show")
-	#game_manager.pause()
+	if HUD and HUD.visible: HUD.visible=false
 
 
 func _on_animation_player_animation_finished(anim_name):

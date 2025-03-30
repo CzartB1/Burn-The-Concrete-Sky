@@ -22,6 +22,9 @@ var distraction: Node3D
 @export var flash_color: Color = Color(1, 0, 0) # Default: Red
 @export var flash_duration: float = 0.15
 @export var mesh_instances:Array[MeshInstance3D]
+@export_group("audio")
+var audio_direct=preload("res://scene/utilities/audio_direct.tscn")
+@export var hurt_sound:AudioStream
 var original_materials: Dictionary = {}
 var flashing: bool = false
 var stop_nav=false
@@ -75,6 +78,7 @@ func take_damage(damage:int,attacker:Vector3=global_position):
 	#print(name.get_basename() + " took " + str(damage) + " damage")
 	flash()
 	hp-=damage
+	if hurt_sound!=null:play_sound(hurt_sound)
 	if gore_manager!=null:
 		gore_manager.mist_activate(attacker)
 		if hp>0:
@@ -132,3 +136,12 @@ func flash():
 	elif !mesh_instances:
 		printerr(name + " can't detect its mesh for the flashing effect when damaged. Please rename its mesh or adjust the hierarchy. mesh_instance location from the parent enemy should be: /mesh/metarig/Skeleton3D/Character")
 	flashing = false
+
+func play_sound(austr:AudioStream):
+	if austr!=null:
+		var audio=audio_direct.instantiate()
+		var plr=get_tree().get_first_node_in_group("Player")
+		plr.add_child(audio)
+		audio.play_sound(austr)
+	elif !austr:
+		print("sound not found")

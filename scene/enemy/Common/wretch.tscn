@@ -1,6 +1,7 @@
-[gd_scene load_steps=17 format=3 uid="uid://ec2asu88nit2"]
+[gd_scene load_steps=18 format=3 uid="uid://ec2asu88nit2"]
 
 [ext_resource type="Script" uid="uid://oisxcn4h6tg2" path="res://scripts/enemy/enemy.gd" id="1_3ia0x"]
+[ext_resource type="AudioStream" uid="uid://cl6od6rm8g8e3" path="res://audios/effects/enemy_hurt.wav" id="2_2loa8"]
 [ext_resource type="PackedScene" uid="uid://c8cjf5ijwasly" path="res://meshes/enemies/cg1_pit/wretch/wretch.blend" id="3_bpmr3"]
 [ext_resource type="Script" uid="uid://br0k5mvuhwc5u" path="res://scripts/enemy/states/masters/behavior_charge.gd" id="3_sepvj"]
 [ext_resource type="Script" uid="uid://dcobhyh2ydvef" path="res://addons/finite_state_machine/scripts/finite_state_machine.gd" id="4_nmrwv"]
@@ -44,6 +45,7 @@ script = ExtResource("1_3ia0x")
 navigation_agent = NodePath("behavior_master/NavigationAgent3D")
 gore_manager = NodePath("gore_manager")
 mesh_instances = [NodePath("mesh/metarig/Skeleton3D/Character")]
+hurt_sound = ExtResource("2_2loa8")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("CapsuleShape3D_gjrny")
@@ -52,31 +54,31 @@ shape = SubResource("CapsuleShape3D_gjrny")
 transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 0, -1, 0)
 
 [node name="Skeleton3D" parent="mesh/metarig" index="0"]
-bones/0/position = Vector3(0, 1.03173, -0.00681275)
+bones/0/position = Vector3(0, 1.01215, -0.00681275)
 bones/0/rotation = Quaternion(0, 0.707107, 0, 0.707107)
 bones/1/rotation = Quaternion(0.101866, -0.699731, 0.101866, 0.699731)
-bones/2/rotation = Quaternion(0.0667084, -1.18988e-07, 7.84277e-09, 0.997773)
+bones/2/rotation = Quaternion(0.0924842, -1.18743e-07, 1.09156e-08, 0.995714)
 bones/3/position = Vector3(0.0183, 0.324628, -0.00610971)
 bones/3/rotation = Quaternion(-0.66585, -0.620822, -0.366796, 0.191531)
 bones/4/position = Vector3(0.00608176, 0.157778, -0.00830019)
 bones/4/rotation = Quaternion(-0.183683, 0.37376, -0.55227, 0.722193)
-bones/5/rotation = Quaternion(0.263925, -0.00220329, 0.0128836, 0.964455)
+bones/5/rotation = Quaternion(0.300363, -0.00687507, 0.014278, 0.953693)
 bones/6/rotation = Quaternion(-0.0223499, -0.00118914, -0.0266289, 0.999395)
 bones/7/position = Vector3(-0.0183, 0.324628, -0.00610971)
 bones/7/rotation = Quaternion(-0.654235, 0.613084, 0.364439, 0.251572)
 bones/8/position = Vector3(-0.0060927, 0.158169, -0.00829984)
 bones/8/rotation = Quaternion(-0.139511, -0.305528, 0.594912, 0.730252)
-bones/9/rotation = Quaternion(0.221348, -0.00298685, 0.00793022, 0.975158)
+bones/9/rotation = Quaternion(0.258174, 0.00164013, 0.00521256, 0.966083)
 bones/10/rotation = Quaternion(-0.0225636, 0.00381004, 0.0141313, 0.999638)
 bones/11/rotation = Quaternion(0.0394198, -0.0233542, -0.0839684, 0.995414)
 bones/12/rotation = Quaternion(-0.154215, -0.0134922, -0.0861052, 0.984186)
 bones/13/position = Vector3(0.00558717, 0.0621001, 0.098)
-bones/13/rotation = Quaternion(0.698905, 0.107383, 0.698906, -0.107383)
-bones/14/rotation = Quaternion(0.300195, -1.32549e-08, 8.29589e-09, 0.953878)
+bones/13/rotation = Quaternion(0.7048, -0.0570682, 0.7048, 0.0570681)
+bones/14/rotation = Quaternion(0.631511, -1.48411e-08, 1.51784e-08, 0.775367)
 bones/15/rotation = Quaternion(-0.682957, 7.83714e-07, -7.32749e-07, 0.730459)
 bones/16/position = Vector3(0.00558735, 0.0621001, -0.098)
-bones/16/rotation = Quaternion(0.682555, -0.184712, 0.682555, 0.184712)
-bones/17/rotation = Quaternion(0.208262, -1.22116e-08, 6.31756e-09, 0.978073)
+bones/16/rotation = Quaternion(0.70555, -0.0468983, 0.70555, 0.0468983)
+bones/17/rotation = Quaternion(0.0778386, -1.72971e-08, 6.05822e-09, 0.996966)
 bones/18/rotation = Quaternion(-0.682957, 7.83714e-07, -7.32749e-07, 0.730459)
 bones/20/rotation = Quaternion(-0.0243409, 0.751105, 0.655919, -0.0708453)
 

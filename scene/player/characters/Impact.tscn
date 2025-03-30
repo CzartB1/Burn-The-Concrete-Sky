@@ -1,7 +1,8 @@
-[gd_scene load_steps=31 format=3 uid="uid://cj7kkva2uk3m0"]
+[gd_scene load_steps=32 format=3 uid="uid://cj7kkva2uk3m0"]
 
 [ext_resource type="Script" uid="uid://bnh4kfsbfcrbs" path="res://scripts/player/player.gd" id="1_2kbpr"]
 [ext_resource type="PackedScene" uid="uid://bsluxy1if04dd" path="res://meshes/player/characters/Impact/impact.blend" id="2_ivvde"]
+[ext_resource type="AudioStream" uid="uid://gvwkqtej1w5x" path="res://audios/effects/player_hurt.wav" id="2_pfj5v"]
 [ext_resource type="Script" uid="uid://b6x33qp53g17r" path="res://scripts/player/player_anim_manager.gd" id="3_70vgf"]
 [ext_resource type="PackedScene" uid="uid://7elo11bnf3va" path="res://scene/player/weapon_holder.tscn" id="4_ch0b0"]
 [ext_resource type="PackedScene" uid="uid://d2ssiplk0o8os" path="res://scene/player/upgrades/upgrade_manager.tscn" id="5_1mgav"]
@@ -140,6 +141,7 @@ cam = NodePath("cam_holder/Camera3D")
 cam_holder = NodePath("cam_holder")
 anim_manager = NodePath("body/anim_manager")
 combat_music_index = 2
+hurt_sound = ExtResource("2_pfj5v")
 
 [node name="body" type="CollisionShape3D" parent="."]
 shape = SubResource("CapsuleShape3D_6vhwg")
@@ -148,7 +150,7 @@ shape = SubResource("CapsuleShape3D_6vhwg")
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, -0.778036, 0)
 
 [node name="Skeleton3D" parent="body/impact/metarig" index="0"]
-bones/0/position = Vector3(2.63418e-09, 0.985583, -0.00681275)
+bones/0/position = Vector3(2.63418e-09, 0.986479, -0.00681275)
 bones/0/rotation = Quaternion(0, 0.382684, 0, 0.92388)
 bones/0/scale = Vector3(1, 1, 1)
 bones/1/rotation = Quaternion(0.0104663, -0.642728, 0.00878231, 0.765973)
@@ -170,23 +172,23 @@ bones/10/scale = Vector3(1, 1, 1)
 bones/11/rotation = Quaternion(0.0856499, 0.218162, 0.0028567, 0.972143)
 bones/12/rotation = Quaternion(-0.112218, -0.00117268, -0.00748315, 0.993655)
 bones/13/position = Vector3(0.00558721, 0.0621001, 0.098)
-bones/13/rotation = Quaternion(0.922493, -0.0345084, 0.383236, 0.0307595)
+bones/13/rotation = Quaternion(0.920798, -0.0411095, 0.382854, 0.0621622)
 bones/13/scale = Vector3(1, 1, 1)
-bones/14/rotation = Quaternion(0.146113, -2.22943e-08, 9.99394e-09, 0.989268)
-bones/15/rotation = Quaternion(-0.649065, 0.0213955, -0.0212192, 0.760136)
+bones/14/rotation = Quaternion(0.462886, -0.000261833, 0.00141803, 0.886417)
+bones/15/rotation = Quaternion(-0.64888, 0.027596, -0.0273687, 0.759898)
 bones/15/scale = Vector3(1, 1, 1)
 bones/16/position = Vector3(0.00558726, 0.0621001, -0.098)
-bones/16/rotation = Quaternion(0.903258, -0.0297689, 0.40765, 0.130617)
+bones/16/rotation = Quaternion(0.910675, 0.00374707, 0.410872, 0.0429135)
 bones/16/scale = Vector3(1, 1, 1)
-bones/17/rotation = Quaternion(0.500435, -0.00164389, 0.039718, 0.864861)
-bones/18/rotation = Quaternion(-0.697548, -0.0101962, 0.00953353, 0.716402)
+bones/17/rotation = Quaternion(0.027462, 0.00188025, 0.00754872, 0.999593)
+bones/18/rotation = Quaternion(-0.70641, -0.0146341, 0.0161185, 0.707468)
 bones/18/scale = Vector3(1, 1, 1)
 bones/19/rotation = Quaternion(-0.655919, -0.0708456, 0.0243406, 0.751105)
 bones/19/scale = Vector3(1, 1, 1)
 bones/20/rotation = Quaternion(-0.0243409, 0.751105, 0.655919, -0.0708453)
 
 [node name="BoneAttachment3D" type="BoneAttachment3D" parent="body/impact/metarig/Skeleton3D" index="5"]
-transform = Transform3D(-0.993829, 0.0196864, 0.109162, 0.11064, 0.246181, 0.962888, -0.00791783, 0.969024, -0.24684, -0.296652, 1.50643, 0.120614)
+transform = Transform3D(-0.993829, 0.0196864, 0.109162, 0.11064, 0.246181, 0.962888, -0.00791783, 0.969024, -0.24684, -0.296652, 1.50733, 0.120614)
 bone_name = "hand.R"
 bone_idx = 10
 
@@ -267,8 +269,8 @@ character_controller = NodePath("..")
 
 [connection signal="timeout" from="body/Ability/Timer" to="body/Ability" method="cooldown_timer_timeout"]
 [connection signal="timeout" from="dash_timer" to="." method="_on_dash_timer_timeout"]
-[connection signal="timeout" from="dash_cooldown" to="." method="_on_dash_timer_timeout"]
 [connection signal="timeout" from="dash_cooldown" to="." method="_on_dash_cooldown_timeout"]
+[connection signal="timeout" from="dash_cooldown" to="." method="_on_dash_timer_timeout"]
 
 [editable path="body/impact"]
 [editable path="player_HUD"]

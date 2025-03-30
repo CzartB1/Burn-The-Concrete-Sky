@@ -3,6 +3,9 @@ extends RigidBody3D
 @export var attract_radius: float = 5.0 # Distance within which the money flies to the player
 @export var attraction_speed: float = 65.0 # Speed at which the money moves toward the player
 @export var spawn_to_fly_delay: float = 0.4
+@export_group("audio")
+var audio_direct=preload("res://scene/utilities/audio_direct.tscn")
+@export var coin_sound:AudioStream
 var plr: Node = null
 var is_physics_disabled: bool = false # To track whether physics is disabled
 var can_fly=false
@@ -39,7 +42,17 @@ func _process(delta):
 
 func _on_area_3d_body_entered(body):
 	if body.is_in_group("Player"):
+		play_sound(coin_sound)
 		var econom = get_tree().get_first_node_in_group("Economy")
 		if econom is Player_Economy_Manager:
 			econom.increase_money(1)
 			queue_free()
+
+func play_sound(austr:AudioStream):
+	if austr!=null:
+		var audio=audio_direct.instantiate()
+		var plr=get_tree().get_first_node_in_group("Player")
+		plr.add_child(audio)
+		audio.play_sound(austr)
+	elif !austr:
+		print("sound not found")

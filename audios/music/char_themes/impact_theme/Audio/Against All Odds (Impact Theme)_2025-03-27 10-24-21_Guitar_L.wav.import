@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://0eh1ysrm3o11"
+path="res://.godot/imported/Against All Odds (Impact Theme)_2025-03-27 10-24-21_Guitar_L.wav-79b5af2e27b2da02398c0978ae5237af.sample"
+
+[deps]
+
+source_file="res://audios/music/char_themes/impact_theme/Audio/Against All Odds (Impact Theme)_2025-03-27 10-24-21_Guitar_L.wav"
+dest_files=["res://.godot/imported/Against All Odds (Impact Theme)_2025-03-27 10-24-21_Guitar_L.wav-79b5af2e27b2da02398c0978ae5237af.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

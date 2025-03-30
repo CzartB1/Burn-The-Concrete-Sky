@@ -56,21 +56,6 @@ bg_color = Color(1, 0, 0.0166664, 1)
 expand_margin_top = 1.0
 expand_margin_bottom = 1.0
 
-[sub_resource type="Animation" id="Animation_57uob"]
-resource_name = "mult_add"
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("CanvasLayer/VBoxContainer/mult_label:theme_override_font_sizes/normal_font_size")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.3),
-"transitions": PackedFloat32Array(0.287175, 2, 1),
-"update": 0,
-"values": [45, 55, 45]
-}
-
 [sub_resource type="Animation" id="Animation_ya7q0"]
 length = 0.001
 tracks/0/type = "value"
@@ -108,6 +93,21 @@ tracks/2/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [null]
+}
+
+[sub_resource type="Animation" id="Animation_57uob"]
+resource_name = "mult_add"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CanvasLayer/VBoxContainer/mult_label:theme_override_font_sizes/normal_font_size")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.3),
+"transitions": PackedFloat32Array(0.287175, 2, 1),
+"update": 0,
+"values": [45, 55, 45]
 }
 
 [sub_resource type="Animation" id="Animation_mlbk3"]

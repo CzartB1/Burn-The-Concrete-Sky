@@ -67,6 +67,9 @@ var mousepos
 @export var anim_manager:AnimationTree
 @export_group("music")
 @export var combat_music_index:int=0 #HACK if you wanna change the music, add it to the combat music list in the musicmanager and set this to its index
+@export_group("audio")
+var audio_direct=preload("res://scene/utilities/audio_direct.tscn")
+@export var hurt_sound:AudioStream
 
 func _ready():
 	speed = (move_speed+move_speed_modifier)*move_speed_multiplier
@@ -239,17 +242,21 @@ func _on_dash_cooldown_timeout():
 		dash_timer.start()
 
 func take_damage(damage:int):
+	if hurt_sound!=null:play_sound(hurt_sound)
 	if !dashing and !invulnerable:
 		print(name + " took " + str(damage) + " damage")
 		hp-=damage*damage_taken_multiplier
 		var econom=get_tree().get_first_node_in_group("Economy")
-		if econom is Player_Economy_Manager:
-			econom.mult_reset(true)
+		if econom is Player_Economy_Manager:econom.mult_reset(true)
 
 func death():
 	game_manager.stop_count_time()
 	alive = false
 	death_screen=get_tree().get_first_node_in_group("death_screen")
+	var econom=get_tree().get_first_node_in_group("Economy")
+	if econom is Player_Economy_Manager:
+		econom.hide_mult()
+		econom.hide_money()
 	show_cursor=true
 	Engine.time_scale = 0.2
 	print("player died")
@@ -264,3 +271,11 @@ func revive():
 func ground_check():
 	if is_on_floor(): velocity.y=0
 	elif !is_on_floor(): velocity.y=-1
+
+func play_sound(austr:AudioStream):
+	if austr!=null:
+		var audio=audio_direct.instantiate()
+		add_child(audio)
+		audio.play_sound(austr)
+	elif !austr:
+		print("sound not found")

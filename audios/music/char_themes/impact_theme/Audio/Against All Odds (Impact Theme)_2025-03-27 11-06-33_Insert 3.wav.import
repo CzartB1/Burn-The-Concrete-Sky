@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://dy1jhd77a5o6y"
+path="res://.godot/imported/Against All Odds (Impact Theme)_2025-03-27 11-06-33_Insert 3.wav-cf04c6b5139a7ec3ff02955322376633.sample"
+
+[deps]
+
+source_file="res://audios/music/char_themes/impact_theme/Audio/Against All Odds (Impact Theme)_2025-03-27 11-06-33_Insert 3.wav"
+dest_files=["res://.godot/imported/Against All Odds (Impact Theme)_2025-03-27 11-06-33_Insert 3.wav-cf04c6b5139a7ec3ff02955322376633.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

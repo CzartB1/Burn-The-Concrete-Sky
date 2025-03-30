@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://6ljeg837v0ia"
+path="res://.godot/imported/untitled_2025-03-27 08-08-21_Guitar_L.wav-33f89221b8d36a561ad2ad890137959d.sample"
+
+[deps]
+
+source_file="res://audios/music/char_themes/impact_theme/Audio/untitled_2025-03-27 08-08-21_Guitar_L.wav"
+dest_files=["res://.godot/imported/untitled_2025-03-27 08-08-21_Guitar_L.wav-33f89221b8d36a561ad2ad890137959d.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

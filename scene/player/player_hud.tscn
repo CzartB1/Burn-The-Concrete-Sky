@@ -258,7 +258,7 @@ theme_override_font_sizes/bold_font_size = 32
 bbcode_enabled = true
 text = "[center][b]CLEARED"
 
-[node name="death_screen" type="Control" parent="." node_paths=PackedStringArray("stat_screen", "stat_canvas") groups=["death_screen"]]
+[node name="death_screen" type="Control" parent="." node_paths=PackedStringArray("stat_screen", "stat_canvas", "HUD") groups=["death_screen"]]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -269,6 +269,7 @@ script = ExtResource("4_w4vkn")
 stat_screen = NodePath("../death_stat_screen/stat_screen")
 stat_canvas = NodePath("../death_stat_screen")
 stat_screen_fade_speed = 10.0
+HUD = NodePath("../HUD")
 
 [node name="RichTextLabel" type="RichTextLabel" parent="death_screen"]
 layout_mode = 1
@@ -292,6 +293,9 @@ wait_time = 5.0
 one_shot = true
 
 [node name="death_stat_screen" parent="." instance=ExtResource("8_wlndf")]
+
+[node name="stat_screen" parent="death_stat_screen" index="0" node_paths=PackedStringArray("HUD")]
+HUD = NodePath("../../HUD")
 
 [node name="pause_menu" parent="." node_paths=PackedStringArray("HUD", "settingsMenu") instance=ExtResource("9_1yxso")]
 HUD = NodePath("../HUD/VBoxContainer")
