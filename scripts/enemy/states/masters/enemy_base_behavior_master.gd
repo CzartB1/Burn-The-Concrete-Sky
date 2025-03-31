@@ -33,6 +33,9 @@ var will_stop_on_close=true
 @export_group("anim")
 @export var anim:AnimationTree
 @export var anim_move_smooth: float = 5.0   # Speed of the smooth transition
+@export_group("audio")
+@export var audio:AudioStreamPlayer3D
+@export var attack_sound:AudioStream
 var anim_move_state: float = 0.0  # whether running or not
 var current_speed: float
 var looking=true
@@ -139,3 +142,9 @@ func rotate_to(subject:Vector3, delta):
 	aim_node.global_position=master.global_position
 	if subject!=aim_node.position: aim_node.look_at(subject)
 	master.rotation.y=lerp_angle(master.rotation.y,aim_node.rotation.y,aim_speed*delta)
+
+func play_sound(austr:AudioStream):
+	if austr!=null and audio!=null and attack_sound!=null:
+		audio.play_sound(austr)
+	elif !austr:
+		print("sound not found")
