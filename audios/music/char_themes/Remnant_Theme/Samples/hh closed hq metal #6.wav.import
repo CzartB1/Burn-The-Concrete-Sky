@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://cel8lyng0keou"
+path="res://.godot/imported/hh closed hq metal #6.wav-9fe6f0414846c564cc41c3f64c58bc11.sample"
+
+[deps]
+
+source_file="res://audios/music/char_themes/Remnant_Theme/Samples/hh closed hq metal #6.wav"
+dest_files=["res://.godot/imported/hh closed hq metal #6.wav-9fe6f0414846c564cc41c3f64c58bc11.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

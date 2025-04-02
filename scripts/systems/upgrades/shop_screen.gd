@@ -24,6 +24,7 @@ var w3:Node3D
 @export_group("")
 @export var money_label:RichTextLabel
 @export var item_icon:TextureRect
+var randomized=false
 var selected_weapon_id:int
 var econom:Player_Economy_Manager
 var has_selected=false
@@ -50,10 +51,10 @@ func toggle_menu(on:bool):
 		menu.process_mode = Node.PROCESS_MODE_DISABLED
 
 func _on_exit_button_pressed():
+	toggle_menu(false)
 	econom=get_tree().get_first_node_in_group("Economy") 
 	if econom is Player_Economy_Manager:
 		econom.hide_money()
-	toggle_menu(false)
 	plr.show_cursor = false
 	plr.disabled=false
 

@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://dd85l8k7fvet1"
+path="res://.godot/imported/snare side hq metal #6.wav-9a3ad64ea2b00e79458c4606c1a2f505.sample"
+
+[deps]
+
+source_file="res://audios/music/char_themes/Remnant_Theme/Samples/snare side hq metal #6.wav"
+dest_files=["res://.godot/imported/snare side hq metal #6.wav-9a3ad64ea2b00e79458c4606c1a2f505.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

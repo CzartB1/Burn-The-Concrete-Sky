@@ -1,7 +1,8 @@
-Justicar: You see what appears to be an old factory up ahead. The sound of metal and machinery still lives on even after the structure's death. The symbols of the company that owned it, replaced by the banner of its new owner.\
+You see what appears to be an old factory up ahead. The sound of metal and machinery still lives on even after the structure's death. The symbols of the company that owned it, replaced by the banner of its new owner.
+"This factory should've rusted away centuries ago, but the Technomancers won't let it die," the figure's gaze is locked upon the ancient structure, "On the center of it all, stands their king, The Minotaur. A monster of flesh and metal, looking for a something worthy to break." \
 \
-"This factory should've rusted away centuries ago, but the Technomancers won't let it die," their gaze locked upon the ancient structure, "On the center of it all, stands their king, The Minotaur. A monster of flesh and metal, looking for a something worthy to break." the figure turns to you, "Maybe it's you. Maybe not. Either way, I've got something that'll keep you alive longer than the others."
+the figure turns to you, "Maybe it's you. Maybe not. Either way, I've got something that'll keep you alive longer than the others."
 - Buy from them
-	[end_timeline]
+	[signal arg="open_shop"]
 - Walk away
 	[end_timeline]

@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://dei0qb6l0qnma"
+path="res://.godot/imported/hh open hq metal #8.wav-ef2f71a47b22278b6fbafb1887d0a612.sample"
+
+[deps]
+
+source_file="res://audios/music/char_themes/Remnant_Theme/Samples/hh open hq metal #8.wav"
+dest_files=["res://.godot/imported/hh open hq metal #8.wav-ef2f71a47b22278b6fbafb1887d0a612.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

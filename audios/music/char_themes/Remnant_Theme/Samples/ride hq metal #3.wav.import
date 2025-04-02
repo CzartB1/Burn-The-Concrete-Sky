@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://dag5tdaix3dt6"
+path="res://.godot/imported/ride hq metal #3.wav-fafd578d33f97096b9c37ce5d7058933.sample"
+
+[deps]
+
+source_file="res://audios/music/char_themes/Remnant_Theme/Samples/ride hq metal #3.wav"
+dest_files=["res://.godot/imported/ride hq metal #3.wav-fafd578d33f97096b9c37ce5d7058933.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

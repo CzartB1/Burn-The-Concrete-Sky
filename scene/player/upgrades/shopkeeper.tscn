@@ -13,7 +13,6 @@ size = Vector3(3, 2.45703, 3)
 bg_color = Color(0, 0, 0, 1)
 
 [node name="shopkeeper" type="Area3D" node_paths=PackedStringArray("shop_screen", "screen_canvas")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 9.13325)
 script = ExtResource("1_jly2y")
 shop_screen = NodePath("CanvasLayer/shop_screen")
 screen_canvas = NodePath("CanvasLayer")
@@ -27,7 +26,7 @@ shape = SubResource("BoxShape3D_51dt0")
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 layer = 6
 
-[node name="shop_screen" type="Control" parent="CanvasLayer" node_paths=PackedStringArray("menu", "w_button1", "w_button2", "w_button3", "up_button1", "up_button2", "up_button3", "money_label", "item_icon")]
+[node name="shop_screen" type="Control" parent="CanvasLayer" node_paths=PackedStringArray("menu", "w_button1", "w_button2", "w_button3", "up_button1", "up_button2", "up_button3", "money_label", "item_icon") groups=["shop_screen"]]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0

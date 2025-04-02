@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://bwd4hwwnyi3s"
+path="res://.godot/imported/Close Grand 4.wav-b54a63ecf2452d347fb04bd0c909075a.sample"
+
+[deps]
+
+source_file="res://audios/music/char_themes/Remnant_Theme/Samples/Close Grand 4.wav"
+dest_files=["res://.godot/imported/Close Grand 4.wav-b54a63ecf2452d347fb04bd0c909075a.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

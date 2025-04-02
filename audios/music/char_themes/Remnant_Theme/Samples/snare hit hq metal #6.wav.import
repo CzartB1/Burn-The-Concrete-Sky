@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://daoasq1x3fp0h"
+path="res://.godot/imported/snare hit hq metal #6.wav-1362d7c2fad743c948800740a1dc77a9.sample"
+
+[deps]
+
+source_file="res://audios/music/char_themes/Remnant_Theme/Samples/snare hit hq metal #6.wav"
+dest_files=["res://.godot/imported/snare hit hq metal #6.wav-1362d7c2fad743c948800740a1dc77a9.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

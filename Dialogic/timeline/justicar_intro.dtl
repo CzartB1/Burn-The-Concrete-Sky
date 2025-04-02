@@ -1,6 +1,6 @@
-Justicar: A cloaked figure stands before you as you regain your footing after the fall. The figure extends a hand from its cloak and offers a gift.\
+Your body ache as you regain your consciousness, like you just fell from a great height. As you stand, you see a figure standing in front of you. The figure extends a hand from its cloak and offers a gift.\
 \
-"You're awake. Take this," a calm but stern voice comes from beneath the golden mask.
+"You're awake," it says. "The journey ahead will be rough. Take this."
 - Accept the gift
 	[signal arg="justicar_start"]
 	[end_timeline]

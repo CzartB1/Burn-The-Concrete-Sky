@@ -266,6 +266,7 @@ shape = SubResource("BoxShape3D_0x23y")
 
 [editable path="room_manager/the_pit"]
 [editable path="room_manager/the_pit/room_intro"]
+[editable path="room_manager/the_pit/room_intro/shopkeeper"]
 [editable path="room_manager/the_pit/room_intro/the_figure/CanvasLayer"]
 [editable path="room_manager/scum_town"]
 [editable path="room_manager/factory"]

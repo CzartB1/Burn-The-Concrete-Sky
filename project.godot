@@ -60,6 +60,7 @@ layout/default_style="res://Dialogic/style/style.tres"
 glossary/default_case_sensitive=true
 animations/join_default="Slide In Up"
 animations/leave_default="Slide Out Down"
+glossary/glossary_files=["res://Dialogic/Dictionary.tres"]
 
 [display]
 
