@@ -605,6 +605,7 @@ shape = SubResource("ConvexPolygonShape3D_q0hov")
 
 [node name="shopkeeper" parent="." instance=ExtResource("12_0gkh2")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, -44.8667)
+dialogic_dialogue = "justicar_factory"
 
 [node name="stake2" parent="." instance=ExtResource("12_wj006")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.289285, 0, -52.7637)

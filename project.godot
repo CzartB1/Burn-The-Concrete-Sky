@@ -31,6 +31,7 @@ directories/dch_directory={
 }
 directories/dtl_directory={
 "justicar_factory": "res://Dialogic/timeline/justicar_factory.dtl",
+"justicar_factory_preboss": "res://Dialogic/timeline/justicar_factory_preboss.dtl",
 "justicar_intro": "res://Dialogic/timeline/justicar_intro.dtl",
 "justicar_scumtown": "res://Dialogic/timeline/justicar_scumtown.dtl"
 }

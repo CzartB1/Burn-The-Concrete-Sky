@@ -1,10 +1,11 @@
-[gd_scene load_steps=8 format=3 uid="uid://dqrjqsnh1f28f"]
+[gd_scene load_steps=9 format=3 uid="uid://dqrjqsnh1f28f"]
 
 [ext_resource type="Script" uid="uid://b0l07rebrwue1" path="res://scripts/systems/upgrades/shopkeeper.gd" id="1_jly2y"]
 [ext_resource type="PackedScene" uid="uid://ovjo3gp6humn" path="res://meshes/npc/Justicar/justicar.blend" id="2_t0l8n"]
 [ext_resource type="Script" uid="uid://bocjfjp16fbof" path="res://scripts/systems/upgrades/shop_screen.gd" id="3_u0fyw"]
 [ext_resource type="Script" uid="uid://brvejlixfab31" path="res://scripts/systems/upgrades/weapon_button.gd" id="4_rpvdl"]
 [ext_resource type="Script" uid="uid://bhqhjees3jphw" path="res://scripts/systems/upgrades/ability_button.gd" id="5_0d0sk"]
+[ext_resource type="FontFile" uid="uid://g0he1dhdyetn" path="res://Fonts/better_vcr/Better VCR 9.0.1.ttf" id="6_bkw2c"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_51dt0"]
 size = Vector3(3, 2.45703, 3)
@@ -12,10 +13,11 @@ size = Vector3(3, 2.45703, 3)
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gdblg"]
 bg_color = Color(0, 0, 0, 1)
 
-[node name="shopkeeper" type="Area3D" node_paths=PackedStringArray("shop_screen", "screen_canvas")]
+[node name="shopkeeper" type="Area3D" node_paths=PackedStringArray("shop_screen", "screen_canvas", "input_text")]
 script = ExtResource("1_jly2y")
 shop_screen = NodePath("CanvasLayer/shop_screen")
 screen_canvas = NodePath("CanvasLayer")
+input_text = NodePath("Label3D")
 
 [node name="justicar" parent="." instance=ExtResource("2_t0l8n")]
 
@@ -216,6 +218,14 @@ size_flags_horizontal = 8
 theme_override_font_sizes/normal_font_size = 26
 text = "100"
 autowrap_mode = 0
+
+[node name="Label3D" type="Label3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 1.771, -0.5)
+visible = false
+outline_modulate = Color(1, 1, 1, 1)
+text = "[E]"
+font = ExtResource("6_bkw2c")
+font_size = 80
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="body_exited" from="." to="." method="_on_body_exited"]

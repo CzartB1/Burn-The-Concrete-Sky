@@ -5,6 +5,7 @@ var interactible = false
 @export var shop_screen:Shop_Screen
 @export var screen_canvas: CanvasLayer
 @export var dialogic_dialogue:String
+@export var input_text:Label3D
 var econom:Player_Economy_Manager
 var plr:Player
 var show_s=false
@@ -46,11 +47,13 @@ func _on_body_entered(body):
 		interactible = true
 		screen_canvas.layer=6
 		#make player character unable to move or interact or anything
+		input_text.visible=true
 
 func _on_body_exited(body):
 	if body is Player:
 		interactible = false
 		screen_canvas.layer=1
+		input_text.visible=false
 
 func rand_upgrades():
 	shop_screen.rand_upgrades()

@@ -1,0 +1,7 @@
+The crowds chants around you, the sound deafening even the machineries. Their enegy seems to only be contained by the thin walls flanking you on both sides. A familiar figure stands on your path towards their king.\
+\
+"The king awaits your presence," the figure says sternly. "I have some gears that may turn the tide in your favor, or not. Either way, be sure to give us a good show"
+- Buy from them
+	[signal arg="open_shop"]
+- Walk away
+	[end_timeline]
