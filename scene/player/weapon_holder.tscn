@@ -78,7 +78,7 @@ region = Rect2(160, 0, 32, 32)
 [node name="weapon_holder" type="Node3D" node_paths=PackedStringArray("weapons")]
 script = ExtResource("1_rku58")
 current_1_id = 2
-weapons = [NodePath("fist"), NodePath("Shotty"), NodePath("machine gun"), NodePath("sword"), NodePath("Revolver"), NodePath("Pistol"), NodePath("assault rifle")]
+weapons = [NodePath("fist"), NodePath("Shotty"), NodePath("\'PanzerJaeger\' LMG"), NodePath("Shank"), NodePath("Hollard Type-57"), NodePath("Pistol"), NodePath("SBR-M3 Battle Rifle")]
 
 [node name="fist" type="Node3D" parent="." node_paths=PackedStringArray("manager", "hitbox", "visual_effects", "cooldown_timer")]
 script = ExtResource("4_lfc15")
@@ -129,7 +129,7 @@ reload_sound = ExtResource("8_adchn")
 bcr_finish_sound = ExtResource("9_axoe1")
 price = 250
 icon = SubResource("AtlasTexture_3neot")
-Description = "shotty's like a melody in my head~"
+Description = "Shotty’s like a melody in your head. But instead of an earworm tune, it’s the scream of your enemy as the buckshot implodes their face. Its low capacity is only there to balance out its sheer stopping power."
 
 [node name="muzzle" type="Node3D" parent="Shotty"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1.18281)
@@ -145,38 +145,39 @@ omni_range = 2.0
 [node name="double_barrel" parent="Shotty" instance=ExtResource("8_5yu2w")]
 transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0.129903, 0.501052, -0.568073)
 
-[node name="machine gun" type="Node3D" parent="." node_paths=PackedStringArray("manager", "muzzles", "muzzle_flash")]
+[node name="\'PanzerJaeger\' LMG" type="Node3D" parent="." node_paths=PackedStringArray("manager", "muzzles", "muzzle_flash")]
 visible = false
 script = ExtResource("2_toky6")
 manager = NodePath("..")
 muzzles = [NodePath("muzzle")]
 bullet = ExtResource("3_0j408")
-fire_rate = 8.0
-damage = 5
+fire_rate = 6.7
+damage = 6
 spread = 1.5
 max_ammo = 50
+reload_duration = 5.0
 muzzle_flash = NodePath("muzzle_flash")
 anim_id = 1
 gunshot_sound = ExtResource("8_o1aab")
 price = 150
 icon = SubResource("AtlasTexture_46epw")
-Description = "machine gun"
+Description = "Its unorthodox appearance and enormous weight are balanced with its firepower and ammo capacity. In the olden days, it was used by infantrymen to bring down mechanical beasts called Panzers. Despite its age, it is still able to punch through the thickest armor, given enough patience."
 
-[node name="muzzle" type="Node3D" parent="machine gun"]
+[node name="muzzle" type="Node3D" parent="\'PanzerJaeger\' LMG"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1.18281)
 
-[node name="muzzle_flash" parent="machine gun" instance=ExtResource("7_wps2v")]
+[node name="muzzle_flash" parent="\'PanzerJaeger\' LMG" instance=ExtResource("7_wps2v")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0.144604, 0.534947, -1.77125)
 
-[node name="OmniLight3D" type="OmniLight3D" parent="machine gun/muzzle_flash"]
+[node name="OmniLight3D" type="OmniLight3D" parent="\'PanzerJaeger\' LMG/muzzle_flash"]
 light_color = Color(1, 0.815686, 0.419608, 1)
 light_energy = 0.4
 omni_range = 2.0
 
-[node name="lmg_common" parent="machine gun" instance=ExtResource("9_ugy7q")]
+[node name="lmg_common" parent="\'PanzerJaeger\' LMG" instance=ExtResource("9_ugy7q")]
 transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0.141042, 0.479726, -0.797982)
 
-[node name="assault rifle" type="Node3D" parent="." node_paths=PackedStringArray("manager", "muzzles", "muzzle_flash")]
+[node name="SBR-M3 Battle Rifle" type="Node3D" parent="." node_paths=PackedStringArray("manager", "muzzles", "muzzle_flash")]
 visible = false
 script = ExtResource("2_toky6")
 manager = NodePath("..")
@@ -186,30 +187,30 @@ fire_rate = 8.0
 damage = 5
 spread = 1.5
 shoot_range = 1.0
-max_ammo = 30
+max_ammo = 20
 muzzle_flash = NodePath("muzzle_flash")
 anim_id = 1
 gunshot_sound = ExtResource("8_o1aab")
 reload_sound = ExtResource("14_l0y5u")
 price = 150
 icon = SubResource("AtlasTexture_k0miw")
-Description = "assault rifle"
+Description = "Acting as the standard rifle for the Technocrats during the Great Magi War, this ancient weapon has fought in many grounds and stood the test of time. Its history and firepower have made it a symbol of power and justice."
 
-[node name="ar_common" parent="assault rifle" instance=ExtResource("11_g3slb")]
+[node name="ar_common" parent="SBR-M3 Battle Rifle" instance=ExtResource("11_g3slb")]
 transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0.138757, 0.522058, -0.56377)
 
-[node name="muzzle" type="Node3D" parent="assault rifle"]
+[node name="muzzle" type="Node3D" parent="SBR-M3 Battle Rifle"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1.18281)
 
-[node name="muzzle_flash" parent="assault rifle" instance=ExtResource("7_wps2v")]
+[node name="muzzle_flash" parent="SBR-M3 Battle Rifle" instance=ExtResource("7_wps2v")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0.144604, 0.525665, -1.41713)
 
-[node name="OmniLight3D" type="OmniLight3D" parent="assault rifle/muzzle_flash"]
+[node name="OmniLight3D" type="OmniLight3D" parent="SBR-M3 Battle Rifle/muzzle_flash"]
 light_color = Color(1, 0.815686, 0.419608, 1)
 light_energy = 0.4
 omni_range = 2.0
 
-[node name="sword" type="Node3D" parent="." node_paths=PackedStringArray("manager", "hitbox", "visual_effects", "cooldown_timer")]
+[node name="Shank" type="Node3D" parent="." node_paths=PackedStringArray("manager", "hitbox", "visual_effects", "cooldown_timer")]
 script = ExtResource("4_lfc15")
 manager = NodePath("..")
 hitbox = NodePath("Area3D")
@@ -218,30 +219,30 @@ deflect_bullet = true
 cooldown_timer = NodePath("cooldown")
 price = 150
 icon = SubResource("AtlasTexture_mfitw")
-Description = "sword"
+Description = "It used to mean an improvised knife, but that’s what people call any improvised blade nowadays. It’s inelegant, but it gets the job done."
 attack_sound = ExtResource("18_qn2jl")
 
-[node name="Area3D" type="Area3D" parent="sword"]
+[node name="Area3D" type="Area3D" parent="Shank"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.533335)
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="sword/Area3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Shank/Area3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.355713)
 shape = SubResource("BoxShape3D_nchdq")
 
-[node name="Sprite3D" type="Sprite3D" parent="sword/Area3D/CollisionShape3D"]
+[node name="Sprite3D" type="Sprite3D" parent="Shank/Area3D/CollisionShape3D"]
 transform = Transform3D(0.258819, -0.965926, -4.2222e-08, 0, -4.37114e-08, 1, -0.965926, -0.258819, -1.13133e-08, 0.0703011, 0, 0.365055)
 pixel_size = 0.005
 texture = ExtResource("5_pwomt")
 
-[node name="cooldown" type="Timer" parent="sword"]
+[node name="cooldown" type="Timer" parent="Shank"]
 wait_time = 0.3
 one_shot = true
 
-[node name="Revolver" type="Node3D" parent="." node_paths=PackedStringArray("manager", "muzzles", "muzzle_flash")]
+[node name="Hollard Type-57" type="Node3D" parent="." node_paths=PackedStringArray("manager", "muzzles", "muzzle_flash")]
 visible = false
 script = ExtResource("2_toky6")
 manager = NodePath("..")
-muzzles = [NodePath("../machine gun/muzzle")]
+muzzles = [NodePath("../\'PanzerJaeger\' LMG/muzzle")]
 bullet = ExtResource("3_0j408")
 fire_rate = 4.0
 damage = 10
@@ -255,20 +256,20 @@ reload_sound = ExtResource("18_l0y5u")
 bcr_finish_sound = ExtResource("19_wl3d1")
 price = 300
 icon = SubResource("AtlasTexture_7uicm")
-Description = "revolver"
+Description = "The grandfather of modern firearm. It may not compete with its children in term of sheer power, yet it’s still reliable and accurate. A masterpiece by the great Sir Hollard who brought freedom and equality to his now-gone fatherland. As they say, “god created men, guns made them equal.”"
 
-[node name="muzzle" type="Node3D" parent="Revolver"]
+[node name="muzzle" type="Node3D" parent="Hollard Type-57"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1.18281)
 
-[node name="muzzle_flash" parent="Revolver" instance=ExtResource("7_wps2v")]
+[node name="muzzle_flash" parent="Hollard Type-57" instance=ExtResource("7_wps2v")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0.146226, 0.596794, -1.11462)
 
-[node name="OmniLight3D" type="OmniLight3D" parent="Revolver/muzzle_flash"]
+[node name="OmniLight3D" type="OmniLight3D" parent="Hollard Type-57/muzzle_flash"]
 light_color = Color(1, 0.815686, 0.419608, 1)
 light_energy = 0.4
 omni_range = 2.0
 
-[node name="revolver_common" parent="Revolver" instance=ExtResource("11_4ifep")]
+[node name="revolver_common" parent="Hollard Type-57" instance=ExtResource("11_4ifep")]
 transform = Transform3D(0.0697967, -0.00214996, -0.00487779, 0.00198906, 0.0699319, -0.00236186, 0.00494558, 0.0022164, 0.0697899, 0.160184, 0.547151, -0.612012)
 
 [node name="Pistol" type="Node3D" parent="." node_paths=PackedStringArray("manager", "muzzles", "muzzle_flash")]
@@ -305,4 +306,4 @@ transform = Transform3D(0.075, 0, 0, 0, 0.075, 0, 0, 0, 0.075, 0.137532, 0.51556
 [node name="AudioListener3D" type="AudioListener3D" parent="."]
 
 [connection signal="timeout" from="fist/cooldown" to="fist" method="_on_cooldown_timeout"]
-[connection signal="timeout" from="sword/cooldown" to="sword" method="_on_cooldown_timeout"]
+[connection signal="timeout" from="Shank/cooldown" to="Shank" method="_on_cooldown_timeout"]
