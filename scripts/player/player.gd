@@ -13,6 +13,7 @@ extends CharacterBody3D
 var death_screen:Death_Screen
 var alive = true
 var invulnerable=false
+var in_dialogue=false
 @export_group("movement")
 var can_move=true
 var disabled=false

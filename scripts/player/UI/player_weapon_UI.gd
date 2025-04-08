@@ -22,6 +22,7 @@ func _ready():
 	select_check()
 
 func _process(delta):
+	if !weapon_holder: weapon_holder=get_tree().get_first_node_in_group("weapon_holder")
 	if Input.is_action_just_pressed("weapon_1") or Input.is_action_just_pressed("weapon_2"):
 		select_check()
 	

@@ -10,7 +10,7 @@ config_version=5
 
 [application]
 
-config/name="project_godless"
+config/name="Burn The Concrete Sky"
 config/version="indev"
 run/main_scene="res://scene/menus/main_menu.tscn"
 config/features=PackedStringArray("4.4", "Forward Plus")

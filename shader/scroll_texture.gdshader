@@ -1,5 +1,5 @@
 shader_type spatial;
-render_mode unshaded;
+render_mode diffuse_burley;
 
 uniform vec3 albedo : source_color;
 uniform sampler2D albedo_texture;

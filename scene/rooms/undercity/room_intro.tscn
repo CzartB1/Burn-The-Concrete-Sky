@@ -619,6 +619,7 @@ shape = SubResource("BoxShape3D_7gyhs")
 
 [node name="group_change_object" type="Area3D" parent="." node_paths=PackedStringArray("room")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.555, -0.0699944, -5.3637)
+visible = false
 script = ExtResource("15_rtegf")
 room = NodePath("..")
 

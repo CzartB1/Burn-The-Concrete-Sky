@@ -1,13 +1,68 @@
-[gd_scene load_steps=6 format=3 uid="uid://dofv6wsmohjmf"]
+[gd_scene load_steps=14 format=3 uid="uid://dofv6wsmohjmf"]
 
 [ext_resource type="Script" uid="uid://div6d2fu0v86u" path="res://scripts/player/abilities/kunoichi_decoy.gd" id="1_1pmwv"]
 [ext_resource type="PackedScene" uid="uid://cp7y4m5g1v21j" path="res://scene/utilities/stun_area.tscn" id="2_tdyq1"]
-[ext_resource type="PackedScene" uid="uid://bkps0liwiv650" path="res://meshes/player_male_base.blend" id="3_r2ceb"]
+[ext_resource type="PackedScene" uid="uid://yjth66wurbwv" path="res://meshes/player/characters/Mirage/Mirage.blend" id="3_1wf3c"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_eyfec"]
 radius = 0.421632
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vlknd"]
+transparency = 1
+cull_mode = 2
+shading_mode = 0
+diffuse_mode = 3
+disable_ambient_light = true
+disable_fog = true
+albedo_color = Color(0.333333, 0, 1, 0.333333)
+
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_ifews"]
+
+[sub_resource type="Gradient" id="Gradient_x765o"]
+offsets = PackedFloat32Array(0, 0.544586, 1)
+colors = PackedColorArray(1, 1, 1, 0.509804, 1, 1, 1, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_2dpi8"]
+gradient = SubResource("Gradient_x765o")
+
+[sub_resource type="Curve" id="Curve_5dtxi"]
+_data = [Vector2(0, 0), 0.0, 6.6258, 0, 0, Vector2(0.433526, 1), 0.0, 0.0, 0, 0, Vector2(0.867052, 0.985523), -0.128434, -0.128434, 0, 0, Vector2(0.985549, 0.030067), -26.2968, 0.0, 0, 0]
+point_count = 4
+
+[sub_resource type="CurveTexture" id="CurveTexture_oc2sl"]
+curve = SubResource("Curve_5dtxi")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_5tdd5"]
+direction = Vector3(0, 0, 0)
+spread = 180.0
+flatness = 1.0
+initial_velocity_max = 0.2
+gravity = Vector3(0, -0.2, 0)
+scale_min = 0.03
+scale_max = 0.1
+scale_curve = SubResource("CurveTexture_oc2sl")
+color = Color(0.855127, 0.7138, 0.86, 0.580392)
+color_ramp = SubResource("GradientTexture1D_2dpi8")
+collision_mode = 1
+collision_friction = 0.0
+collision_bounce = 0.0
+collision_use_scale = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_p2leq"]
+transparency = 1
+shading_mode = 0
+vertex_color_use_as_albedo = true
+vertex_color_is_srgb = true
+billboard_mode = 3
+billboard_keep_scale = true
+particles_anim_h_frames = 1
+particles_anim_v_frames = 1
+particles_anim_loop = false
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_mudwh"]
+material = SubResource("StandardMaterial3D_p2leq")
+size = Vector2(1, 1)
+orientation = 2
 
 [node name="decoy" type="CharacterBody3D" node_paths=PackedStringArray("timer") groups=["Abilities", "Decoy"]]
 collision_layer = 2
@@ -19,41 +74,70 @@ timer = NodePath("Timer")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("CapsuleShape3D_eyfec")
 
-[node name="player_male_base" parent="CollisionShape3D" instance=ExtResource("3_r2ceb")]
-transform = Transform3D(-1.2, 0, -1.04907e-07, 0, 1.2, 0, 1.04907e-07, 0, -1.2, 0, -1, 0)
+[node name="Mirage" parent="." instance=ExtResource("3_1wf3c")]
+transform = Transform3D(-1, 0, -1.50996e-07, 0, 1, 0, 1.50996e-07, 0, -1, 0, -0.861741, 0)
 
-[node name="Skeleton3D" parent="CollisionShape3D/player_male_base/metarig" index="0"]
-bones/0/position = Vector3(2.62701e-09, 0.988224, -0.00681275)
+[node name="Skeleton3D" parent="Mirage/metarig" index="0"]
+bones/0/position = Vector3(2.63418e-09, 1.0099, -0.00681275)
 bones/0/rotation = Quaternion(0, 0.382684, 0, 0.92388)
 bones/0/scale = Vector3(1, 1, 1)
 bones/1/rotation = Quaternion(0.0104663, -0.642728, 0.00878231, 0.765973)
 bones/1/scale = Vector3(1, 1, 1)
-bones/2/rotation = Quaternion(-0.0287109, -1.19157e-07, -3.52757e-09, 0.999588)
-bones/3/rotation = Quaternion(-0.455256, -0.527034, -0.543388, 0.468728)
+bones/2/rotation = Quaternion(-0.0287109, -1.19171e-07, -3.6438e-09, 0.999588)
+bones/3/rotation = Quaternion(-0.499479, -0.485389, -0.500431, 0.514283)
 bones/3/scale = Vector3(1, 1, 1)
-bones/4/rotation = Quaternion(-0.260254, 0.536736, -0.489061, 0.636398)
-bones/5/rotation = Quaternion(0.617735, -0.0868378, -0.0958598, 0.775676)
-bones/6/rotation = Quaternion(-0.0211187, 0.000166152, -0.0379608, 0.999056)
+bones/4/rotation = Quaternion(-0.470373, 0.527164, -0.460305, 0.537556)
+bones/5/rotation = Quaternion(0.00577828, 0.0288373, -0.0601521, 0.997756)
+bones/6/rotation = Quaternion(-0.0211187, 0.000166145, -0.0379608, 0.999056)
 bones/6/scale = Vector3(1, 1, 1)
-bones/7/rotation = Quaternion(-0.447143, 0.556891, 0.513434, 0.475732)
+bones/7/rotation = Quaternion(-0.499479, 0.485389, 0.500431, 0.514283)
 bones/7/scale = Vector3(1, 1, 1)
-bones/8/rotation = Quaternion(-0.237632, -0.367405, 0.752321, 0.492502)
-bones/8/scale = Vector3(1, 1, 1)
-bones/9/rotation = Quaternion(0.427223, -0.000392148, 0.0191263, 0.903944)
+bones/8/rotation = Quaternion(-0.461553, -0.534645, 0.454607, 0.542638)
+bones/9/rotation = Quaternion(0.00641642, -0.0285613, 0.0423503, 0.998674)
 bones/9/scale = Vector3(1, 1, 1)
-bones/10/rotation = Quaternion(-0.0213207, 0.00243081, 0.0257741, 0.999437)
+bones/10/rotation = Quaternion(-0.0213207, 0.00243078, 0.0257741, 0.999438)
+bones/10/scale = Vector3(1, 1, 1)
 bones/11/rotation = Quaternion(0.165634, 0.214311, -0.0302835, 0.962143)
-bones/12/rotation = Quaternion(-0.154804, -1.17772e-07, -5.53621e-08, 0.987945)
-bones/13/rotation = Quaternion(0.921547, 0.0183332, 0.379716, 0.0789363)
+bones/12/rotation = Quaternion(-0.154804, -1.17944e-07, -5.64614e-08, 0.987945)
+bones/13/position = Vector3(0.00558722, 0.0621002, 0.098)
+bones/13/rotation = Quaternion(0.919492, -0.0372499, 0.380866, 0.0899291)
 bones/13/scale = Vector3(1, 1, 1)
-bones/14/rotation = Quaternion(-0.0117801, -2.35805e-08, 1.56135e-08, 0.999931)
-bones/15/rotation = Quaternion(-0.649618, -0.0385437, 0.0383459, 0.758314)
+bones/14/rotation = Quaternion(0.111851, -1.46449e-08, -6.05286e-10, 0.993725)
+bones/15/rotation = Quaternion(-0.682957, 7.83714e-07, -7.32749e-07, 0.730459)
 bones/15/scale = Vector3(1, 1, 1)
-bones/16/rotation = Quaternion(0.908685, -0.030873, 0.41476, -0.036228)
+bones/16/position = Vector3(0.00558724, 0.0621002, -0.098)
+bones/16/rotation = Quaternion(0.905503, 0.0364207, 0.411277, -0.097928)
 bones/16/scale = Vector3(1, 1, 1)
-bones/17/rotation = Quaternion(0.389265, -0.00140529, 0.0322481, 0.92056)
-bones/18/rotation = Quaternion(-0.708037, 0.0404062, -0.0595694, 0.702498)
+bones/17/rotation = Quaternion(0.0671414, 0.00180203, 0.0102415, 0.997689)
+bones/18/rotation = Quaternion(-0.742186, 0.0109108, -0.0176839, 0.669872)
 bones/18/scale = Vector3(1, 1, 1)
+bones/19/rotation = Quaternion(-0.655919, -0.0708456, 0.0243406, 0.751105)
+bones/19/scale = Vector3(1, 1, 1)
+bones/20/rotation = Quaternion(-0.0243409, 0.751105, 0.655919, -0.0708453)
+
+[node name="Character" parent="Mirage/metarig/Skeleton3D" index="0"]
+material_override = SubResource("StandardMaterial3D_vlknd")
+
+[node name="Hair_L" parent="Mirage/metarig/Skeleton3D" index="1"]
+material_override = SubResource("StandardMaterial3D_vlknd")
+
+[node name="Hair_R" parent="Mirage/metarig/Skeleton3D" index="2"]
+material_override = SubResource("StandardMaterial3D_vlknd")
+
+[node name="Hood" parent="Mirage/metarig/Skeleton3D" index="3"]
+material_override = SubResource("StandardMaterial3D_vlknd")
+
+[node name="Hood_torso" parent="Mirage/metarig/Skeleton3D" index="4"]
+material_override = SubResource("StandardMaterial3D_vlknd")
+
+[node name="legbandage_L" parent="Mirage/metarig/Skeleton3D" index="5"]
+material_override = SubResource("StandardMaterial3D_vlknd")
+
+[node name="legbandage_R" parent="Mirage/metarig/Skeleton3D" index="6"]
+material_override = SubResource("StandardMaterial3D_vlknd")
+
+[node name="Mask" parent="Mirage/metarig/Skeleton3D" index="7"]
+material_override = SubResource("StandardMaterial3D_vlknd")
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 5.0
@@ -65,7 +149,22 @@ autostart = true
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
 shape = SubResource("CapsuleShape3D_ifews")
 
+[node name="OmniLight3D" type="OmniLight3D" parent="."]
+light_color = Color(0.666667, 0, 1, 1)
+light_energy = 5.0
+omni_range = 1.5924
+omni_attenuation = 0.6
+
+[node name="GPUParticles3D" type="GPUParticles3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.680292, 0)
+cast_shadow = 0
+amount = 5
+lifetime = 3.0
+collision_base_size = 0.1
+process_material = SubResource("ParticleProcessMaterial_5tdd5")
+draw_pass_1 = SubResource("PlaneMesh_mudwh")
+
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 [connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]
 
-[editable path="CollisionShape3D/player_male_base"]
+[editable path="Mirage"]

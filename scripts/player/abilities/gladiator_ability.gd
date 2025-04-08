@@ -3,7 +3,7 @@ extends Player_Ability
 
 @export var cooldown_timer:Timer
 @export var hook_object: PackedScene
-@export var cooldown_bar: ProgressBar
+@export var cooldown_bar: TextureProgressBar
 @export var body: Node3D
 @export var grapple_max_time: float=0.75
 @export var dist_to_disengage: float=2.5

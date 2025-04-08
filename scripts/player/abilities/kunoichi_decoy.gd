@@ -5,8 +5,8 @@ var enemies: Array
 @export var stun_area:PackedScene
 @export var timer:Timer
 
-func _ready():
-	spawn_stun()
+#func _ready():
+	#spawn_stun()
 
 func _process(delta):
 	enemies = get_tree().get_nodes_in_group("Enemy")
@@ -34,9 +34,9 @@ func dead():
 	for enemy in enemies:
 		if enemy is Enemy:
 			enemy.distraction=null
-	var instance = stun_area.instantiate()
-	get_tree().get_root().add_child(instance)
-	instance.global_position = global_position
+	#var instance = stun_area.instantiate()
+	#get_tree().get_root().add_child(instance)
+	#instance.global_position = global_position
 	queue_free()
 
 

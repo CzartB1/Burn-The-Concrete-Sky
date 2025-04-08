@@ -503,6 +503,130 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12, -1, 0)
 [node name="vent2" parent="." instance=ExtResource("14_pc8mu")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12, -1, 0)
 
+[node name="lights" type="Node3D" parent="."]
+
+[node name="hall" type="Node3D" parent="lights"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 52)
+
+[node name="OmniLight3D" type="OmniLight3D" parent="lights/hall"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, -0.480724, -12.4717)
+light_color = Color(1, 0, 0, 1)
+light_energy = 3.112
+shadow_enabled = true
+omni_range = 12.0
+omni_attenuation = -0.117
+
+[node name="OmniLight3D2" type="OmniLight3D" parent="lights/hall"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.43971, -0.480724, -12.4717)
+light_color = Color(1, 0, 0, 1)
+light_energy = 3.112
+shadow_enabled = true
+omni_range = 12.0
+omni_attenuation = -0.117
+
+[node name="OmniLight3D3" type="OmniLight3D" parent="lights/hall"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, -0.480724, 12.015)
+light_color = Color(1, 0, 0, 1)
+light_energy = 3.112
+shadow_enabled = true
+omni_range = 16.649
+omni_attenuation = -0.117
+
+[node name="OmniLight3D4" type="OmniLight3D" parent="lights/hall"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.43971, -0.480724, 12.015)
+light_color = Color(1, 0, 0, 1)
+light_energy = 3.112
+shadow_enabled = true
+omni_range = 16.649
+omni_attenuation = -0.117
+
+[node name="hall2" type="Node3D" parent="lights"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -52)
+
+[node name="OmniLight3D" type="OmniLight3D" parent="lights/hall2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, -0.480724, -12.4717)
+light_color = Color(1, 0, 0, 1)
+light_energy = 3.112
+shadow_enabled = true
+omni_range = 9.219
+omni_attenuation = -0.117
+
+[node name="OmniLight3D2" type="OmniLight3D" parent="lights/hall2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.43971, -0.480724, -12.4717)
+light_color = Color(1, 0, 0, 1)
+light_energy = 3.112
+shadow_enabled = true
+omni_range = 9.219
+omni_attenuation = -0.117
+
+[node name="OmniLight3D3" type="OmniLight3D" parent="lights/hall2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, -0.480724, 12.015)
+light_color = Color(1, 0, 0, 1)
+light_energy = 3.112
+shadow_enabled = true
+omni_range = 12.0
+omni_attenuation = -0.117
+
+[node name="OmniLight3D4" type="OmniLight3D" parent="lights/hall2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.43971, -0.480724, 12.015)
+light_color = Color(1, 0, 0, 1)
+light_energy = 3.112
+shadow_enabled = true
+omni_range = 12.0
+omni_attenuation = -0.117
+
+[node name="OmniLight3D" type="OmniLight3D" parent="lights"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 3.34921, 0)
+light_color = Color(1, 0.858167, 0.77, 1)
+light_energy = 11.168
+light_indirect_energy = 1.08
+omni_range = 20.956
+omni_attenuation = 0.557
+
+[node name="OmniLight3D2" type="OmniLight3D" parent="lights"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 3.34921, 0)
+light_color = Color(1, 0.858167, 0.77, 1)
+light_energy = 11.168
+light_indirect_energy = 1.08
+omni_range = 20.956
+omni_attenuation = 0.557
+
+[node name="OmniLight3D3" type="OmniLight3D" parent="lights"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11, 3.34921, 19)
+light_energy = 7.0
+omni_range = 18.0
+omni_attenuation = 0.8
+
+[node name="OmniLight3D4" type="OmniLight3D" parent="lights"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11, 3.34921, 19)
+light_energy = 7.0
+omni_range = 18.0
+omni_attenuation = 0.8
+
+[node name="OmniLight3D9" type="OmniLight3D" parent="lights"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11, 3.34921, -20)
+light_energy = 7.0
+omni_range = 18.0
+omni_attenuation = 0.8
+
+[node name="OmniLight3D11" type="OmniLight3D" parent="lights"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.34921, 19)
+light_energy = 7.0
+omni_range = 18.0
+omni_attenuation = 0.8
+
+[node name="OmniLight3D14" type="OmniLight3D" parent="lights"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.34921, -20)
+light_energy = 7.0
+omni_range = 18.0
+omni_attenuation = 0.8
+
+[node name="OmniLight3D10" type="OmniLight3D" parent="lights"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11, 3.34921, -20)
+light_energy = 7.0
+omni_range = 18.0
+omni_attenuation = 0.8
+
 [connection signal="body_entered" from="rooms_end" to="rooms_end" method="_on_body_entered"]
 [connection signal="body_entered" from="spawner/Trigger" to="spawner" method="_on_trigger_body_entered"]
 [connection signal="timeout" from="spawner/spawn_timer2" to="spawner" method="_on_spawn_timer_timeout"]

@@ -23,10 +23,12 @@ func _process(_delta):
 	if econom==null:
 		econom=get_tree().get_first_node_in_group("Economy")
 	if  plr == null:plr = get_tree().get_first_node_in_group("Player")
-	if Input.is_action_just_pressed("interact") and interactible and !plr.disabled:
+	if Input.is_action_just_pressed("interact") and interactible and !plr.disabled and !plr.in_dialogue:
 		print("interact")
 		econom.hide_money()
 		econom.hide_mult()
+		plr.in_dialogue=true
+		plr.can_move=false
 		if dialogic_dialogue:
 			Dialogic.start(dialogic_dialogue)
 		elif !dialogic_dialogue:

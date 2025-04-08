@@ -10,7 +10,7 @@ var mousepos
 
 
 func _process(delta):
-	if master.alive:
+	if master.alive and !master.in_dialogue:
 		if master.controller:
 			var cam_pos=body.global_position.lerp(master.cont_look_target.global_position,.2)
 			position = position.lerp(cam_pos, delta*10)
@@ -24,11 +24,14 @@ func _process(delta):
 			params.to = ray_target
 			params.exclude = []
 			var intersection = space_state.intersect_ray(params)
-			if not intersection.is_empty():
-				var pos = Vector3(intersection.position.x, global_position.y,intersection.position.z)
-				var cam_pos=body.global_position.lerp(pos,.4)
-				position = position.lerp(cam_pos, delta*10)
-	elif !master.alive:
+			#if not intersection.is_empty():
+				#var pos = Vector3(intersection.position.x, global_position.y,intersection.position.z)
+				#var cam_pos=body.global_position.lerp(pos,.4)
+				#position = position.lerp(cam_pos, delta*10)
+			var pos = Vector3(intersection.position.x, global_position.y,intersection.position.z)
+			var cam_pos=body.global_position.lerp(pos,.4)
+			position = position.lerp(cam_pos, delta*10)
+	elif !master.alive or master.in_dialogue:
 		position = body.global_position #TODO make player move with ragdoll or force after death to make it look more dynamic
 
 func reset_cam_position():

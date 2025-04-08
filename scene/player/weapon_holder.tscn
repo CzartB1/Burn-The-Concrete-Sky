@@ -75,7 +75,7 @@ stream_3/stream = ExtResource("19_icaqo")
 atlas = ExtResource("3_4xwoe")
 region = Rect2(160, 0, 32, 32)
 
-[node name="weapon_holder" type="Node3D" node_paths=PackedStringArray("weapons")]
+[node name="weapon_holder" type="Node3D" node_paths=PackedStringArray("weapons") groups=["weapon_holder"]]
 script = ExtResource("1_rku58")
 current_1_id = 2
 weapons = [NodePath("fist"), NodePath("Shotty"), NodePath("\'PanzerJaeger\' LMG"), NodePath("Shank"), NodePath("Hollard Type-57"), NodePath("Pistol"), NodePath("SBR-M3 Battle Rifle")]

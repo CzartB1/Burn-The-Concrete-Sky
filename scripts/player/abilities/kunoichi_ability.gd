@@ -2,7 +2,7 @@ extends Player_Ability
 
 @export var cooldown_timer:Timer
 @export var decoy_object: PackedScene
-@export var cooldown_bar: ProgressBar
+@export var cooldown_bar: TextureProgressBar
 var spawned=false
 var decoy
 var cooldown=false

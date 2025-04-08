@@ -2,7 +2,7 @@ extends Player_Ability
 
 @export var cooldown_timer:Timer
 @export var area: PackedScene
-@export var cooldown_bar: ProgressBar
+@export var cooldown_bar: TextureProgressBar
 @export var body: Node3D
 var spawned=false
 var buble

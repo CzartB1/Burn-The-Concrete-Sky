@@ -130,8 +130,8 @@ size = Vector3(276.536, 0.001, 129.934)
 floor_block_on_wall = false
 script = ExtResource("1_2kbpr")
 upgrade_manager = NodePath("upgrade_manager")
-HP_bar = NodePath("player_HUD/HUD/VBoxContainer/HP bar")
-time_slow_bar = NodePath("player_HUD/HUD/mouse_icon/TextureProgressBar")
+HP_bar = NodePath("player_HUD/HUD/HBoxContainer/VBoxContainer/HP bar")
+time_slow_bar = NodePath("player_HUD/HUD/HBoxContainer/MarginContainer/TextureProgressBar")
 charge_bar = NodePath("player_HUD/HUD/mouse_icon/melee charge bar")
 body = NodePath("body")
 move_speed = 15
@@ -150,7 +150,7 @@ shape = SubResource("CapsuleShape3D_6vhwg")
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, -0.778036, 0)
 
 [node name="Skeleton3D" parent="body/impact/metarig" index="0"]
-bones/0/position = Vector3(2.63418e-09, 0.986479, -0.00681275)
+bones/0/position = Vector3(2.63418e-09, 0.984981, -0.00681275)
 bones/0/rotation = Quaternion(0, 0.382684, 0, 0.92388)
 bones/0/scale = Vector3(1, 1, 1)
 bones/1/rotation = Quaternion(0.0104663, -0.642728, 0.00878231, 0.765973)
@@ -172,23 +172,23 @@ bones/10/scale = Vector3(1, 1, 1)
 bones/11/rotation = Quaternion(0.0856499, 0.218162, 0.0028567, 0.972143)
 bones/12/rotation = Quaternion(-0.112218, -0.00117268, -0.00748315, 0.993655)
 bones/13/position = Vector3(0.00558721, 0.0621001, 0.098)
-bones/13/rotation = Quaternion(0.920798, -0.0411095, 0.382854, 0.0621622)
+bones/13/rotation = Quaternion(0.921737, -0.00860831, 0.380695, 0.073469)
 bones/13/scale = Vector3(1, 1, 1)
-bones/14/rotation = Quaternion(0.462886, -0.000261833, 0.00141803, 0.886417)
-bones/15/rotation = Quaternion(-0.64888, 0.027596, -0.0273687, 0.759898)
+bones/14/rotation = Quaternion(0.0373514, -2.30484e-08, 1.02859e-08, 0.999302)
+bones/15/rotation = Quaternion(-0.64927, -0.0111009, 0.0110096, 0.760397)
 bones/15/scale = Vector3(1, 1, 1)
 bones/16/position = Vector3(0.00558726, 0.0621001, -0.098)
-bones/16/rotation = Quaternion(0.910675, 0.00374707, 0.410872, 0.0429135)
+bones/16/rotation = Quaternion(0.905517, -0.0337536, 0.413019, 0.0911837)
 bones/16/scale = Vector3(1, 1, 1)
-bones/17/rotation = Quaternion(0.027462, 0.00188025, 0.00754872, 0.999593)
-bones/18/rotation = Quaternion(-0.70641, -0.0146341, 0.0161185, 0.707468)
+bones/17/rotation = Quaternion(0.596497, -0.00262992, 0.0460466, 0.801289)
+bones/18/rotation = Quaternion(-0.709854, 0.0178661, -0.028201, 0.703557)
 bones/18/scale = Vector3(1, 1, 1)
 bones/19/rotation = Quaternion(-0.655919, -0.0708456, 0.0243406, 0.751105)
 bones/19/scale = Vector3(1, 1, 1)
 bones/20/rotation = Quaternion(-0.0243409, 0.751105, 0.655919, -0.0708453)
 
 [node name="BoneAttachment3D" type="BoneAttachment3D" parent="body/impact/metarig/Skeleton3D" index="5"]
-transform = Transform3D(-0.993829, 0.0196864, 0.109162, 0.11064, 0.246181, 0.962888, -0.00791783, 0.969024, -0.24684, -0.296652, 1.50733, 0.120614)
+transform = Transform3D(-0.993829, 0.0196864, 0.109162, 0.11064, 0.246181, 0.962888, -0.00791783, 0.969024, -0.24684, -0.296652, 1.50583, 0.120614)
 bone_name = "hand.R"
 bone_idx = 10
 
@@ -202,7 +202,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1)
 script = ExtResource("6_5m3vd")
 cooldown_timer = NodePath("Timer")
 hook_object = ExtResource("7_cjr57")
-cooldown_bar = NodePath("../../player_HUD/HUD/VBoxContainer/Ability bar")
+cooldown_bar = NodePath("../../player_HUD/HUD/HBoxContainer/Control/TextureProgressBar2")
 body = NodePath("..")
 
 [node name="Timer" type="Timer" parent="body/Ability"]
@@ -260,9 +260,6 @@ one_shot = true
 [node name="economy_manager" parent="." instance=ExtResource("11_x4fxv")]
 
 [node name="player_HUD" parent="." instance=ExtResource("10_65p3m")]
-
-[node name="HBoxContainer" parent="player_HUD/HUD/VBoxContainer" index="2" node_paths=PackedStringArray("weapon_holder")]
-weapon_holder = NodePath("../../../../body/impact/metarig/Skeleton3D/BoneAttachment3D/weapon_holder")
 
 [node name="footstep_detector" parent="." node_paths=PackedStringArray("character_controller") instance=ExtResource("11_rs8xy")]
 character_controller = NodePath("..")

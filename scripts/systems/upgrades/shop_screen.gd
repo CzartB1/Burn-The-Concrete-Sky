@@ -57,6 +57,8 @@ func _on_exit_button_pressed():
 		econom.hide_money()
 	plr.show_cursor = false
 	plr.disabled=false
+	plr.in_dialogue=false
+	plr.can_move=true
 
 func rand_upgrades():
 	if  plr == null:

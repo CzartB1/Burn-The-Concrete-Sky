@@ -7,7 +7,7 @@ extends Player_Ability
 @export var cooldown_timer:Timer
 @export var cooldown_time_max:float=100
 var cooldown_time:float
-@export var cooldown_bar: ProgressBar
+@export var cooldown_bar: TextureProgressBar
 var spawned=false
 var anchor
 var cooldown=false
