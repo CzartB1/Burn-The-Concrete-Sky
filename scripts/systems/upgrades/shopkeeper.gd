@@ -64,8 +64,18 @@ func rand_upgrades():
 func disable_shop():
 	if shop_screen: 
 		shop_screen.toggle_menu(false)
-		if shop_screen.plr!=null:shop_screen.plr.disabled=false
+		if shop_screen.plr!=null:
+			shop_screen.plr.disabled=false
+			plr.in_dialogue=false
+			plr.can_move=true 
+
+func player_exit(): #FIXME when the player refuses to buy, make a signal that calls this func
+	if  plr == null:plr = get_tree().get_first_node_in_group("Player")
+	plr.in_dialogue=false 
+	plr.can_move=true 
 
 func _on_dialogic_signal(argument:String):
 	if argument=="open_shop":
 		show_s=true
+	if argument=="close_shop":
+		player_exit()

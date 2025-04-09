@@ -13,7 +13,7 @@ extends CharacterBody3D
 var death_screen:Death_Screen
 var alive = true
 var invulnerable=false
-var in_dialogue=false
+var in_dialogue=true
 @export_group("movement")
 var can_move=true
 var disabled=false
@@ -78,6 +78,7 @@ func _ready():
 	dash_timer.wait_time = dash_duration
 	HP_bar.max_value = hp
 	HP_bar.value = hp
+	if !time_slow_bar: time_slow_bar=get_tree().get_first_node_in_group("time_slow_ui")
 	time_slow_duration = time_slow_duration_max
 	time_slow_bar.max_value = time_slow_duration_max
 	Engine.time_scale = 1.0

@@ -44,6 +44,7 @@ func walkaway():
 	if  plr == null:plr = get_tree().get_first_node_in_group("Player")
 	plr.show_cursor = false
 	plr.disabled=false
+	plr.in_dialogue=false
 	queue_free()
 
 func _on_dialogic_signal(argument:String):

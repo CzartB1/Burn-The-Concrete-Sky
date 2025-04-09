@@ -7,6 +7,7 @@ extends Control
 @export var characters: Array[PackedScene]
 @export var character_buttons: Array[Button]
 @export var name_text:RichTextLabel
+@export var name2_text:RichTextLabel
 @export var desc_text:RichTextLabel
 @export var abl_text:RichTextLabel
 @export var av_gradient_bg:TextureRect
@@ -33,8 +34,9 @@ func ready():
 func _process(_delta):
 	if game_manager.show_char_select:
 		if focus_button!=null and !foc:
-			focus_button.grab_focus() #TODO make it so that the game remembers which icon was last focused, and make the play button's top focus the last focused icon
-			foc=true
+			if Input.is_action_pressed("ui_up") or Input.is_action_pressed("ui_down") or Input.is_action_pressed("ui_left") or Input.is_action_pressed("ui_right"):
+				focus_button.grab_focus() #TODO make it so that the game remembers which icon was last focused, and make the play button's top focus the last focused icon
+				foc=true
 		update_top_neighbor()
 		#if has_chosen:
 			#print(str(char_name) + " " + str(char_desc))
@@ -51,9 +53,12 @@ func _process(_delta):
 		var tr=get_tree().get_first_node_in_group("Transition")
 		if tr is AnimationPlayer: tr.play("fade_in")
 		queue_free()
+	
+	if has_chosen!=null and play_button:play_button.visible=has_chosen
 
 func fill_name_texts():
 	name_text.text = "[b]"+str(char_name)+"[/b]"
+	name2_text.text = "[b]"+str(char_name)+"[/b]"
 	desc_text.text = str(char_desc)
 	abl_text.text = "[b]"+str(char_abl_name)+"[/b] - "+str(char_abl_desc)
 

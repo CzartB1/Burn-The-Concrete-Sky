@@ -129,7 +129,7 @@ size = Vector3(276.536, 0.001, 129.934)
 script = ExtResource("1_84f6h")
 upgrade_manager = NodePath("upgrade_manager")
 HP_bar = NodePath("player_HUD/HUD/HBoxContainer/VBoxContainer/HP bar")
-time_slow_bar = NodePath("player_HUD/HUD/HBoxContainer/MarginContainer/TextureProgressBar")
+time_slow_bar = NodePath("player_HUD/HUD/HBoxContainer/MarginContainer/focus_bar")
 charge_bar = NodePath("player_HUD/HUD/mouse_icon/melee charge bar")
 body = NodePath("body")
 time_slow_duration_max = 50.0
@@ -147,7 +147,7 @@ shape = SubResource("CapsuleShape3D_6vhwg")
 transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 0, -0.794791, 0)
 
 [node name="Skeleton3D" parent="body/Silver/metarig" index="0"]
-bones/0/position = Vector3(2.63418e-09, 0.985259, -0.00681275)
+bones/0/position = Vector3(2.63418e-09, 0.989389, -0.00681275)
 bones/0/rotation = Quaternion(0, 0.382684, 0, 0.92388)
 bones/0/scale = Vector3(1, 1, 1)
 bones/1/rotation = Quaternion(0.0104663, -0.642728, 0.00878231, 0.765973)
@@ -170,23 +170,23 @@ bones/10/scale = Vector3(1, 1, 1)
 bones/11/rotation = Quaternion(0.165634, 0.214311, -0.0302835, 0.962143)
 bones/12/rotation = Quaternion(-0.239012, 0.00234275, 0.0149519, 0.970899)
 bones/13/position = Vector3(0.00558721, 0.0621001, 0.098)
-bones/13/rotation = Quaternion(0.921708, -0.00335742, 0.380526, 0.0751153)
+bones/13/rotation = Quaternion(0.92108, 0.0201025, 0.379506, 0.0847497)
 bones/13/scale = Vector3(1, 1, 1)
-bones/14/rotation = Quaternion(0.0276578, -2.36912e-08, 1.56872e-08, 0.999618)
-bones/15/rotation = Quaternion(-0.650388, -0.0152772, 0.0151989, 0.759297)
+bones/14/rotation = Quaternion(0.0249247, 3.71375e-05, 0.000187767, 0.999689)
+bones/15/rotation = Quaternion(-0.649328, -0.0442424, 0.0440153, 0.757944)
 bones/15/scale = Vector3(1, 1, 1)
 bones/16/position = Vector3(0.00558726, 0.0621001, -0.098)
-bones/16/rotation = Quaternion(0.906541, -0.0319975, 0.413859, 0.076683)
+bones/16/rotation = Quaternion(0.906247, -0.0322487, 0.413077, -0.0839262)
 bones/16/scale = Vector3(1, 1, 1)
-bones/17/rotation = Quaternion(0.581658, -0.00255886, 0.04506, 0.81218)
-bones/18/rotation = Quaternion(-0.710917, 0.0212843, -0.0330478, 0.702177)
+bones/17/rotation = Quaternion(0.27211, -0.000699067, 0.024303, 0.961959)
+bones/18/rotation = Quaternion(-0.709602, 0.0450458, -0.0663787, 0.700021)
 bones/18/scale = Vector3(1, 1, 1)
 bones/19/rotation = Quaternion(-0.655919, -0.0708456, 0.0243406, 0.751105)
 bones/19/scale = Vector3(1, 1, 1)
 bones/20/rotation = Quaternion(-0.0243409, 0.751105, 0.655919, -0.0708453)
 
 [node name="BoneAttachment3D" type="BoneAttachment3D" parent="body/Silver/metarig/Skeleton3D" index="3"]
-transform = Transform3D(-0.997096, 0.0307138, 0.0696822, 0.0706507, 0.0316627, 0.996999, 0.0284152, 0.999027, -0.0337409, -0.207116, 1.52195, 0.520549)
+transform = Transform3D(-0.997096, 0.0307138, 0.0696822, 0.0706507, 0.0316627, 0.996999, 0.0284152, 0.999027, -0.0337409, -0.207116, 1.52608, 0.520549)
 bone_name = "hand.R"
 bone_idx = 10
 
@@ -220,7 +220,7 @@ anchor_object = ExtResource("7_u4nbx")
 body = NodePath("../body")
 spread = 5.0
 cooldown_timer = NodePath("Timer")
-cooldown_bar = NodePath("../player_HUD/HUD/HBoxContainer/Control/TextureProgressBar2")
+cooldown_bar = NodePath("../player_HUD/HUD/HBoxContainer/Control/abiity_bar")
 
 [node name="Timer" type="Timer" parent="Ability"]
 wait_time = 3.0
@@ -263,6 +263,9 @@ one_shot = true
 character_controller = NodePath("..")
 
 [node name="player_HUD" parent="." instance=ExtResource("10_t5c4u")]
+
+[node name="HBoxContainer" parent="player_HUD/HUD/HBoxContainer/VBoxContainer" index="1" node_paths=PackedStringArray("weapon_holder")]
+weapon_holder = NodePath("../../../../../body/Silver/metarig/Skeleton3D/BoneAttachment3D/weapon_holder")
 
 [connection signal="timeout" from="Ability/Timer" to="Ability" method="cooldown_timer_timeout"]
 [connection signal="timeout" from="dash_timer" to="." method="_on_dash_timer_timeout"]

@@ -32,7 +32,7 @@ func _process(delta):
 			var cam_pos=body.global_position.lerp(pos,.4)
 			position = position.lerp(cam_pos, delta*10)
 	elif !master.alive or master.in_dialogue:
-		position = body.global_position #TODO make player move with ragdoll or force after death to make it look more dynamic
+		position = lerp(global_position, body.global_position, delta*3) #TODO make player move with ragdoll or force after death to make it look more dynamic
 
 func reset_cam_position():
 	position=body.global_position

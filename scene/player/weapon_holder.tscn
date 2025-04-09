@@ -78,7 +78,7 @@ region = Rect2(160, 0, 32, 32)
 [node name="weapon_holder" type="Node3D" node_paths=PackedStringArray("weapons") groups=["weapon_holder"]]
 script = ExtResource("1_rku58")
 current_1_id = 2
-weapons = [NodePath("fist"), NodePath("Shotty"), NodePath("\'PanzerJaeger\' LMG"), NodePath("Shank"), NodePath("Hollard Type-57"), NodePath("Pistol"), NodePath("SBR-M3 Battle Rifle")]
+weapons = [NodePath("fist"), NodePath("Shotty"), NodePath("\'PanzerJaeger\' LMG"), NodePath("Shank"), NodePath("Hollard Type-57"), NodePath("\'Krasnik\' Pistol"), NodePath("SBR-M3 Battle Rifle")]
 
 [node name="fist" type="Node3D" parent="." node_paths=PackedStringArray("manager", "hitbox", "visual_effects", "cooldown_timer")]
 script = ExtResource("4_lfc15")
@@ -194,7 +194,7 @@ gunshot_sound = ExtResource("8_o1aab")
 reload_sound = ExtResource("14_l0y5u")
 price = 150
 icon = SubResource("AtlasTexture_k0miw")
-Description = "Acting as the standard rifle for the Technocrats during the Great Magi War, this ancient weapon has fought in many grounds and stood the test of time. Its history and firepower have made it a symbol of power and justice."
+Description = "Acting as the standard rifle for the Technocrats during The Great Magi War, this ancient weapon has fought in many grounds and stood the test of time. Its history and firepower have made it a symbol of power and justice."
 
 [node name="ar_common" parent="SBR-M3 Battle Rifle" instance=ExtResource("11_g3slb")]
 transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0.138757, 0.522058, -0.56377)
@@ -272,7 +272,7 @@ omni_range = 2.0
 [node name="revolver_common" parent="Hollard Type-57" instance=ExtResource("11_4ifep")]
 transform = Transform3D(0.0697967, -0.00214996, -0.00487779, 0.00198906, 0.0699319, -0.00236186, 0.00494558, 0.0022164, 0.0697899, 0.160184, 0.547151, -0.612012)
 
-[node name="Pistol" type="Node3D" parent="." node_paths=PackedStringArray("manager", "muzzles", "muzzle_flash")]
+[node name="\'Krasnik\' Pistol" type="Node3D" parent="." node_paths=PackedStringArray("manager", "muzzles", "muzzle_flash")]
 script = ExtResource("2_toky6")
 manager = NodePath("..")
 muzzles = [NodePath("muzzle")]
@@ -287,20 +287,20 @@ gunshot_sound = SubResource("AudioStreamRandomizer_vmepa")
 reload_sound = ExtResource("25_wl3d1")
 price = 75
 icon = SubResource("AtlasTexture_rvbas")
-Description = "pistol"
+Description = "A simple pistol, a common sidearm among thugs and mercenaries. It was a common sight during The Great Magi War due to its simple manufacturing and widespread adoption. Despite its common sighting and power compared to its peers, it is not to be underestimated. A single lucky shot can bring down even a god."
 
-[node name="muzzle" type="Node3D" parent="Pistol"]
+[node name="muzzle" type="Node3D" parent="\'Krasnik\' Pistol"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1.18281)
 
-[node name="muzzle_flash" parent="Pistol" instance=ExtResource("7_wps2v")]
+[node name="muzzle_flash" parent="\'Krasnik\' Pistol" instance=ExtResource("7_wps2v")]
 transform = Transform3D(-0.2, 0, -3.01992e-08, 0, 0.2, 0, 3.01992e-08, 0, -0.2, 0.124624, 0.558908, -0.741285)
 
-[node name="OmniLight3D" type="OmniLight3D" parent="Pistol/muzzle_flash"]
+[node name="OmniLight3D" type="OmniLight3D" parent="\'Krasnik\' Pistol/muzzle_flash"]
 light_color = Color(1, 0.815686, 0.419608, 1)
 light_energy = 0.4
 omni_range = 2.0
 
-[node name="pistol_common" parent="Pistol" instance=ExtResource("15_mngps")]
+[node name="pistol_common" parent="\'Krasnik\' Pistol" instance=ExtResource("15_mngps")]
 transform = Transform3D(0.075, 0, 0, 0, 0.075, 0, 0, 0, 0.075, 0.137532, 0.515562, -0.51398)
 
 [node name="AudioListener3D" type="AudioListener3D" parent="."]

@@ -130,7 +130,7 @@ script = ExtResource("1_kcs3k")
 upgrade_manager = NodePath("upgrade_manager")
 hp = 15
 HP_bar = NodePath("player_HUD/HUD/HBoxContainer/VBoxContainer/HP bar")
-time_slow_bar = NodePath("player_HUD/HUD/HBoxContainer/MarginContainer/TextureProgressBar")
+time_slow_bar = NodePath("player_HUD/HUD/HBoxContainer/MarginContainer/focus_bar")
 charge_bar = NodePath("player_HUD/HUD/mouse_icon/melee charge bar")
 body = NodePath("body")
 dash_amount = 2
@@ -152,7 +152,7 @@ shape = SubResource("CapsuleShape3D_6vhwg")
 transform = Transform3D(-1, 0, -1.50996e-07, 0, 1, 0, 1.50996e-07, 0, -1, 0, -0.861741, 0)
 
 [node name="Skeleton3D" parent="body/Mirage/metarig" index="0"]
-bones/0/position = Vector3(2.63418e-09, 0.970493, -0.00681275)
+bones/0/position = Vector3(2.63418e-09, 0.975445, -0.00681275)
 bones/0/rotation = Quaternion(0, 0.382684, 0, 0.923879)
 bones/0/scale = Vector3(1, 1, 1)
 bones/1/rotation = Quaternion(0.0104663, -0.642728, 0.00878231, 0.765973)
@@ -173,24 +173,24 @@ bones/10/rotation = Quaternion(-0.109921, 0.00679978, 0.0468696, 0.992812)
 bones/10/scale = Vector3(1, 1, 1)
 bones/11/rotation = Quaternion(0.0856499, 0.218162, 0.0028567, 0.972143)
 bones/12/rotation = Quaternion(-0.112218, -0.00117268, -0.00748315, 0.993655)
-bones/13/position = Vector3(0.00558719, 0.0621001, 0.098)
-bones/13/rotation = Quaternion(0.915785, 0.110546, 0.380648, 0.0649966)
+bones/13/position = Vector3(0.00559106, 0.0620466, 0.0979961)
+bones/13/rotation = Quaternion(0.919406, -0.0889788, 0.380618, -0.0436588)
 bones/13/scale = Vector3(1, 1, 1)
-bones/14/rotation = Quaternion(-0.00804804, 2.5436e-05, 0.000124178, 0.999968)
-bones/15/rotation = Quaternion(-0.645088, -0.0888419, 0.092281, 0.753295)
+bones/14/rotation = Quaternion(-0.0176571, -2.42829e-08, 2.07823e-08, 0.999844)
+bones/15/rotation = Quaternion(-0.646767, 0.0792633, -0.0824602, 0.754062)
 bones/15/scale = Vector3(1, 1, 1)
-bones/16/position = Vector3(0.00558728, 0.0621002, -0.098)
-bones/16/rotation = Quaternion(0.898043, -0.0992188, 0.416458, -0.10118)
+bones/16/position = Vector3(0.00558341, 0.0621537, -0.0979961)
+bones/16/rotation = Quaternion(0.907983, 0.102041, 0.405261, 0.0303058)
 bones/16/scale = Vector3(1, 1, 1)
-bones/17/rotation = Quaternion(-0.0188352, 0.0023321, 0.00426347, 0.999811)
-bones/18/rotation = Quaternion(-0.668384, 0.0860594, -0.113594, 0.730036)
+bones/17/rotation = Quaternion(0.0934059, 0.00160812, 0.0120273, 0.995554)
+bones/18/rotation = Quaternion(-0.683354, -0.0636129, 0.076476, 0.723278)
 bones/18/scale = Vector3(1, 1, 1)
 bones/19/rotation = Quaternion(-0.655919, -0.0708456, 0.0243406, 0.751105)
 bones/19/scale = Vector3(1, 1, 1)
 bones/20/rotation = Quaternion(-0.0243409, 0.751105, 0.655919, -0.0708453)
 
 [node name="BoneAttachment3D" type="BoneAttachment3D" parent="body/Mirage/metarig/Skeleton3D" index="8"]
-transform = Transform3D(-0.98335, 0.175283, 0.0479549, 0.151994, 0.648678, 0.745731, 0.099607, 0.740603, -0.664519, -0.269861, 1.54089, 0.0997746)
+transform = Transform3D(-0.98335, 0.175283, 0.0479549, 0.151994, 0.648678, 0.745731, 0.099607, 0.740603, -0.664519, -0.269861, 1.54584, 0.0997746)
 bone_name = "hand.R"
 bone_idx = 10
 
@@ -222,7 +222,7 @@ weapon_manager = NodePath("../body/Mirage/metarig/Skeleton3D/BoneAttachment3D/we
 script = ExtResource("6_0r05t")
 cooldown_timer = NodePath("Timer")
 decoy_object = ExtResource("7_qgeps")
-cooldown_bar = NodePath("../player_HUD/HUD/HBoxContainer/Control/TextureProgressBar2")
+cooldown_bar = NodePath("../player_HUD/HUD/HBoxContainer/Control/abiity_bar")
 
 [node name="Timer" type="Timer" parent="Ability"]
 wait_time = 3.0
@@ -263,7 +263,7 @@ one_shot = true
 
 [node name="player_HUD" parent="." instance=ExtResource("10_7fat4")]
 
-[node name="HBoxContainer" parent="player_HUD/HUD/HBoxContainer/VBoxContainer" index="2" node_paths=PackedStringArray("weapon_holder")]
+[node name="HBoxContainer" parent="player_HUD/HUD/HBoxContainer/VBoxContainer" index="1" node_paths=PackedStringArray("weapon_holder")]
 weapon_holder = NodePath("../../../../../body/Mirage/metarig/Skeleton3D/BoneAttachment3D/weapon_holder")
 
 [node name="footstep_detector" parent="." node_paths=PackedStringArray("character_controller") instance=ExtResource("11_8qkxl")]

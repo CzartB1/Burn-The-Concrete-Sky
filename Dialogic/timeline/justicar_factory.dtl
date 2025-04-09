@@ -5,4 +5,5 @@ the figure turns to you, "Maybe it's you. Maybe not. Either way, I've got someth
 - Buy from them
 	[signal arg="open_shop"]
 - Walk away
+	[signal arg="close_shop"]
 	[end_timeline]

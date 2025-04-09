@@ -1,12 +1,10 @@
-[gd_scene load_steps=24 format=3 uid="uid://bi7qoo74n8kdj"]
+[gd_scene load_steps=22 format=3 uid="uid://bi7qoo74n8kdj"]
 
-[ext_resource type="Texture2D" uid="uid://cddj8k55a3nh1" path="res://sprites/crosshair.png" id="1_iujy2"]
 [ext_resource type="Shader" uid="uid://da07pkkq2kl54" path="res://shader/posterize.gdshader" id="1_t8rcp"]
 [ext_resource type="Script" uid="uid://cx4fb4b6vkyv4" path="res://scripts/player/UI/player_cleared_screen.gd" id="1_wdgp3"]
-[ext_resource type="Texture2D" uid="uid://did7m5jvkwgf3" path="res://sprites/CircularProgressBar.png" id="2_m6pgi"]
+[ext_resource type="Texture2D" uid="uid://d0bwahvv1lwy1" path="res://sprites/UI/crosshair.png" id="3_1xas5"]
 [ext_resource type="Script" uid="uid://bqw842oycl3ru" path="res://scripts/player/UI/player_death_screen.gd" id="4_w4vkn"]
 [ext_resource type="Script" uid="uid://nxnviq760a0y" path="res://scripts/player/UI/player_weapon_UI.gd" id="5_slv7q"]
-[ext_resource type="Texture2D" uid="uid://t5fwovp8fj6e" path="res://sprites/crosshair_reload.png" id="5_vh3cp"]
 [ext_resource type="Texture2D" uid="uid://dr3ad8e1b01os" path="res://sprites/UI/UI_statuses.png" id="6_eks6b"]
 [ext_resource type="Script" uid="uid://ctp15x5v5plba" path="res://scripts/misc/letterboxing.gd" id="6_j5g7i"]
 [ext_resource type="PackedScene" uid="uid://t53uv01pfjjr" path="res://scene/menus/death_stat_screen.tscn" id="8_wlndf"]
@@ -23,6 +21,14 @@ bg_color = Color(0.6, 0.6, 0.6, 0)
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_762oj"]
 bg_color = Color(1, 1, 1, 1)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_vh3cp"]
+atlas = ExtResource("3_1xas5")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_eks6b"]
+atlas = ExtResource("3_1xas5")
+region = Rect2(32, 0, 32, 32)
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_benet"]
 atlas = ExtResource("6_eks6b")
 region = Rect2(0, 0, 32, 32)
@@ -30,12 +36,6 @@ region = Rect2(0, 0, 32, 32)
 [sub_resource type="AtlasTexture" id="AtlasTexture_6psnw"]
 atlas = ExtResource("6_eks6b")
 region = Rect2(0, 0, 32, 32)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_t2k5v"]
-bg_color = Color(0, 0, 0, 0.333333)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cir7g"]
-bg_color = Color(0.84, 0.84, 0.84, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_od3ta"]
 bg_color = Color(0, 0, 0, 0.333333)
@@ -114,11 +114,11 @@ show_percentage = false
 [node name="TextureRect" type="TextureRect" parent="HUD/mouse_icon"]
 modulate = Color(1, 1, 1, 0.780392)
 layout_mode = 0
-offset_left = -8.5
-offset_top = -8.5
-offset_right = 7.5
-offset_bottom = 7.5
-texture = ExtResource("1_iujy2")
+offset_left = -16.0
+offset_top = -16.0
+offset_right = 16.0
+offset_bottom = 16.0
+texture = SubResource("AtlasTexture_vh3cp")
 
 [node name="reload" type="TextureRect" parent="HUD/mouse_icon"]
 modulate = Color(1, 1, 1, 0.780392)
@@ -127,23 +127,7 @@ offset_left = -16.0
 offset_top = -16.0
 offset_right = 16.0
 offset_bottom = 16.0
-texture = ExtResource("5_vh3cp")
-
-[node name="TextureProgressBar" type="TextureProgressBar" parent="HUD/mouse_icon"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -32.0
-offset_top = -32.0
-offset_right = 174.0
-offset_bottom = 174.0
-grow_horizontal = 2
-grow_vertical = 2
-scale = Vector2(0.3, 0.3)
-value = 75.0
-fill_mode = 4
-texture_progress = ExtResource("2_m6pgi")
+texture = SubResource("AtlasTexture_eks6b")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="HUD"]
 anchors_preset = 7
@@ -159,39 +143,31 @@ grow_vertical = 0
 alignment = 1
 
 [node name="MarginContainer" type="Control" parent="HUD/HBoxContainer"]
-custom_minimum_size = Vector2(75, 0)
+custom_minimum_size = Vector2(60, 0)
 layout_mode = 2
 
-[node name="TextureProgressBar" type="TextureProgressBar" parent="HUD/HBoxContainer/MarginContainer"]
+[node name="focus_bar" type="TextureProgressBar" parent="HUD/HBoxContainer/MarginContainer" groups=["time_slow_ui"]]
 layout_mode = 1
 anchors_preset = 4
 anchor_top = 0.5
 anchor_bottom = 0.5
-offset_left = 10.0
-offset_top = -32.5
-offset_right = 42.0
-offset_bottom = -0.5
+offset_left = 12.0
+offset_top = -16.5
+offset_right = 44.0
+offset_bottom = 15.5
 grow_vertical = 2
-scale = Vector2(2, 2)
+scale = Vector2(1.5, 1.5)
 value = 75.0
 fill_mode = 4
 texture_under = SubResource("AtlasTexture_benet")
 texture_progress = SubResource("AtlasTexture_6psnw")
 tint_under = Color(1, 1, 1, 0.258824)
-tint_progress = Color(0, 0.783333, 1, 1)
+tint_progress = Color(0.2125, 0.711875, 0.85, 1)
 
 [node name="VBoxContainer" type="VBoxContainer" parent="HUD/HBoxContainer"]
 z_as_relative = false
 layout_mode = 2
 alignment = 1
-
-[node name="Ability bar" type="ProgressBar" parent="HUD/HBoxContainer/VBoxContainer"]
-custom_minimum_size = Vector2(0, 5)
-layout_mode = 2
-theme_override_styles/background = SubResource("StyleBoxFlat_t2k5v")
-theme_override_styles/fill = SubResource("StyleBoxFlat_cir7g")
-value = 75.0
-show_percentage = false
 
 [node name="HP bar" type="ProgressBar" parent="HUD/HBoxContainer/VBoxContainer"]
 custom_minimum_size = Vector2(0, 12)
@@ -280,17 +256,19 @@ stretch_mode = 5
 custom_minimum_size = Vector2(75, 0)
 layout_mode = 2
 
-[node name="TextureProgressBar2" type="TextureProgressBar" parent="HUD/HBoxContainer/Control"]
+[node name="abiity_bar" type="TextureProgressBar" parent="HUD/HBoxContainer/Control"]
 layout_mode = 0
-offset_right = 32.0
-offset_bottom = 75.0
-scale = Vector2(2, 2)
+offset_left = -2.0
+offset_top = 21.0
+offset_right = 30.0
+offset_bottom = 94.0
+scale = Vector2(1.5, 1.5)
 value = 75.0
 fill_mode = 3
 texture_under = SubResource("AtlasTexture_kcsvv")
 texture_progress = SubResource("AtlasTexture_vuepp")
 tint_under = Color(1, 1, 1, 0.215686)
-tint_progress = Color(0.966667, 1, 0, 1)
+tint_progress = Color(0.975, 1, 0.25, 1)
 
 [node name="cleared_screen" type="Control" parent="." groups=["Clear_Screen"]]
 layout_mode = 1
@@ -362,13 +340,11 @@ one_shot = true
 HUD = NodePath("../../HUD")
 
 [node name="pause_menu" parent="." node_paths=PackedStringArray("HUD", "settingsMenu") instance=ExtResource("9_1yxso")]
-visible = false
 HUD = NodePath("../HUD/HBoxContainer/VBoxContainer")
 settingsMenu = NodePath("../settingsMenu/Panel")
 
 [node name="settingsMenu" parent="." instance=ExtResource("10_3t1xs")]
 layer = 7
-visible = false
 
 [connection signal="timeout" from="cleared_screen/Timer" to="cleared_screen" method="_on_timer_timeout"]
 [connection signal="timeout" from="death_screen/Timer" to="death_screen" method="_on_timer_timeout"]

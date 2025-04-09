@@ -18,13 +18,13 @@
 [ext_resource type="PackedScene" uid="uid://dax77v5pluquy" path="res://scene/menus/demo_lock_screen.tscn" id="12_s143w"]
 [ext_resource type="PackedScene" uid="uid://d5vt4gjy1jd2" path="res://scene/player/characters/Mirage.tscn" id="13_ojb4m"]
 [ext_resource type="Script" uid="uid://exx6mb3ilk5" path="res://scripts/systems/char_manager.gd" id="20_0ogmo"]
-[ext_resource type="AudioStream" uid="uid://b2w8xrtvdnc7l" path="res://audios/music/char_themes/Empire of Rust.mp3" id="21_s143w"]
+[ext_resource type="AudioStream" uid="uid://b0if2ifkuv2pi" path="res://audios/music/char_themes/Remnant_Theme.wav" id="20_s143w"]
+[ext_resource type="AudioStream" uid="uid://ww5tyx75bmgb" path="res://audios/music/char_themes/remnant_song.wav" id="21_s143w"]
 [ext_resource type="Script" uid="uid://c7x00y40vwan" path="res://scripts/systems/music_manager.gd" id="21_ss30e"]
-[ext_resource type="AudioStream" uid="uid://bf7sdaeh7oe5c" path="res://audios/music/char_themes/Against All Odds.mp3" id="22_yfyi7"]
+[ext_resource type="AudioStream" uid="uid://ybi8tdaalhgs" path="res://audios/music/char_themes/impact_theme.wav" id="22_yfyi7"]
 [ext_resource type="AudioStream" uid="uid://c8kt3p2b25p40" path="res://audios/music/char_themes/Ashes to Ashes.mp3" id="23_frive"]
 [ext_resource type="Script" uid="uid://dsp52sgih7sk5" path="res://scripts/systems/dedzone.gd" id="23_jahdx"]
 [ext_resource type="AudioStream" uid="uid://dq603slg7hjl0" path="res://audios/music/placeholders/sci-fi-ambient-music-183269.mp3" id="23_tcdhp"]
-[ext_resource type="AudioStream" uid="uid://cfpjrddawhlh3" path="res://audios/music/placeholders/epic-battle-song-loop-182700.mp3" id="23_wm11b"]
 [ext_resource type="AudioStream" uid="uid://wr18kx8p1l8l" path="res://audios/music/placeholders/the-final-boss-battle-158700.mp3" id="24_7t3sc"]
 [ext_resource type="AudioStream" uid="uid://lryh8hxkgw7o" path="res://audios/music/char_themes/Dancing Shadows.mp3" id="24_sakl5"]
 [ext_resource type="AudioStream" uid="uid://d05pde8k01dgy" path="res://audios/music/placeholders/chicago-shuffle-blues-3912.mp3" id="25_uv8ym"]
@@ -32,10 +32,10 @@
 [sub_resource type="AudioStreamInteractive" id="AudioStreamInteractive_f3hkl"]
 clip_count = 5
 clip_0/name = &"placeholder"
-clip_0/stream = ExtResource("23_wm11b")
+clip_0/stream = ExtResource("21_s143w")
 clip_0/auto_advance = 0
 clip_1/name = &"Remnant"
-clip_1/stream = ExtResource("21_s143w")
+clip_1/stream = ExtResource("20_s143w")
 clip_1/auto_advance = 0
 clip_2/name = &"Against All Odds"
 clip_2/stream = ExtResource("22_yfyi7")

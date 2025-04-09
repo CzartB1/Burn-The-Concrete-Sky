@@ -45,10 +45,11 @@ func toggle_menu(on:bool):
 	elif !on:
 		menu.process_mode = Node.PROCESS_MODE_DISABLED
 
-func _on_button_pressed():
+func _on_button_pressed(): #exit button
 	toggle_menu(false)
 	plr.show_cursor = false
 	plr.disabled=false
+	plr.in_dialogue=false
 	body.queue_free()
 	queue_free()
 
@@ -101,6 +102,7 @@ func _on_select_pressed():
 			plr.upgrade_manager.upgrade_availability_check()
 		plr.show_cursor = false
 		plr.disabled=false
+		plr.in_dialogue=false
 		for i in get_tree().get_nodes_in_group("justicar"):
 			i.queue_free()
 	elif !selected:

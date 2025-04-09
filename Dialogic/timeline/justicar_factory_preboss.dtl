@@ -4,4 +4,5 @@ The crowds chants around you, the sound deafening even the machineries. Their en
 - Buy from them
 	[signal arg="open_shop"]
 - Walk away
+	[signal arg="close_shop"]
 	[end_timeline]
