@@ -36,6 +36,7 @@ func cooldown_timer_timeout():
 	cooldown=false
 
 func cooldownBarVisibility(delta):
+	if !cooldown_bar: return
 	if cooldown:
 		cooldown_bar.visible=true
 		cooldown_bar.max_value=cooldown_timer.wait_time

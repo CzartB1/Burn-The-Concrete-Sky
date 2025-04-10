@@ -19,7 +19,7 @@ var w1_ammo:int
 var w2_ammo:int
 
 func _ready():
-	select_check()
+	if weapon_holder: select_check()
 
 func _process(delta):
 	if !weapon_holder: weapon_holder=get_tree().get_first_node_in_group("weapon_holder")

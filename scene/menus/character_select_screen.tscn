@@ -1,10 +1,11 @@
-[gd_scene load_steps=138 format=3 uid="uid://b1au5gcyhryfm"]
+[gd_scene load_steps=139 format=3 uid="uid://b1au5gcyhryfm"]
 
 [ext_resource type="Script" uid="uid://bk8v0bbmdmjaj" path="res://scripts/player/char_select/char_select_screen.gd" id="1_hc0jr"]
 [ext_resource type="PackedScene" uid="uid://bnxrhky3nbvov" path="res://scene/player/characters/remnant_fix.tscn" id="2_7n8wp"]
 [ext_resource type="PackedScene" uid="uid://dgx2clkxdsth2" path="res://scene/player/characters/Silver.tscn" id="3_omfb8"]
 [ext_resource type="PackedScene" uid="uid://cj7kkva2uk3m0" path="res://scene/player/characters/Impact.tscn" id="4_ftefj"]
 [ext_resource type="PackedScene" uid="uid://d5vt4gjy1jd2" path="res://scene/player/characters/Mirage.tscn" id="5_3rfgy"]
+[ext_resource type="AudioStream" uid="uid://dxvv8h6fmge0e" path="res://audios/effects/intro_fall_impact.ogg" id="6_6eocl"]
 [ext_resource type="Texture2D" uid="uid://s1puncjr3djm" path="res://sprites/UI/char select/avatar_background_gradient.png" id="6_w6143"]
 [ext_resource type="Texture2D" uid="uid://ku8e1uke0onr" path="res://sprites/UI/char select/remnant_avatar/frame_12_delay-0.1s.png" id="7_kbsbg"]
 [ext_resource type="Texture2D" uid="uid://bkpx8p2uhscua" path="res://sprites/UI/char select/remnant_avatar/frame_13_delay-0.1s.png" id="8_k74f5"]
@@ -616,6 +617,7 @@ name2_text = NodePath("char_select/name text2")
 desc_text = NodePath("char_select/desc text")
 abl_text = NodePath("char_select/ability text")
 av_gradient_bg = NodePath("Panel/gradient")
+intro_fall_sound = ExtResource("6_6eocl")
 
 [node name="Panel" type="Panel" parent="."]
 layout_mode = 1

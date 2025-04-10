@@ -1,8 +1,9 @@
-[gd_scene load_steps=22 format=3 uid="uid://bi7qoo74n8kdj"]
+[gd_scene load_steps=23 format=3 uid="uid://bi7qoo74n8kdj"]
 
 [ext_resource type="Shader" uid="uid://da07pkkq2kl54" path="res://shader/posterize.gdshader" id="1_t8rcp"]
 [ext_resource type="Script" uid="uid://cx4fb4b6vkyv4" path="res://scripts/player/UI/player_cleared_screen.gd" id="1_wdgp3"]
 [ext_resource type="Texture2D" uid="uid://d0bwahvv1lwy1" path="res://sprites/UI/crosshair.png" id="3_1xas5"]
+[ext_resource type="Script" uid="uid://bqh3aktg428d" path="res://scripts/player/UI/player_hud.gd" id="3_vh3cp"]
 [ext_resource type="Script" uid="uid://bqw842oycl3ru" path="res://scripts/player/UI/player_death_screen.gd" id="4_w4vkn"]
 [ext_resource type="Script" uid="uid://nxnviq760a0y" path="res://scripts/player/UI/player_weapon_UI.gd" id="5_slv7q"]
 [ext_resource type="Texture2D" uid="uid://dr3ad8e1b01os" path="res://sprites/UI/UI_statuses.png" id="6_eks6b"]
@@ -92,8 +93,10 @@ grow_horizontal = 2
 grow_vertical = 0
 color = Color(0, 0, 0, 1)
 
-[node name="HUD" type="CanvasLayer" parent="."]
+[node name="HUD" type="CanvasLayer" parent="." node_paths=PackedStringArray("HUD_object")]
 layer = 4
+script = ExtResource("3_vh3cp")
+HUD_object = NodePath("HBoxContainer")
 
 [node name="mouse_icon" type="Control" parent="HUD"]
 layout_mode = 3

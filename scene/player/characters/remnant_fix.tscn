@@ -185,15 +185,15 @@ bones/10/scale = Vector3(1, 1, 1)
 bones/11/rotation = Quaternion(0.165634, 0.214311, -0.0302835, 0.962143)
 bones/12/rotation = Quaternion(-0.239012, 0.00234275, 0.0149519, 0.970899)
 bones/13/position = Vector3(0.00558722, 0.0621002, 0.098)
-bones/13/rotation = Quaternion(0.91952, -0.0373077, 0.380863, 0.08964)
+bones/13/rotation = Quaternion(0.91952, -0.0373092, 0.380862, 0.089641)
 bones/13/scale = Vector3(1, 1, 1)
-bones/14/rotation = Quaternion(0.111613, 1.06612e-07, 4.02857e-07, 0.993752)
+bones/14/rotation = Quaternion(0.111614, 1.12028e-07, 4.20876e-07, 0.993752)
 bones/15/rotation = Quaternion(-0.682893, 0.000174012, -0.000180725, 0.730519)
 bones/15/scale = Vector3(1, 1, 1)
 bones/16/position = Vector3(0.00558724, 0.0621002, -0.098)
-bones/16/rotation = Quaternion(0.905537, 0.0365257, 0.411253, -0.0976721)
+bones/16/rotation = Quaternion(0.905537, 0.0365265, 0.411253, -0.0976727)
 bones/16/scale = Vector3(1, 1, 1)
-bones/17/rotation = Quaternion(0.0670336, 0.00180349, 0.0102338, 0.997697)
+bones/17/rotation = Quaternion(0.0670314, 0.00180352, 0.0102336, 0.997697)
 bones/18/rotation = Quaternion(-0.742082, 0.010735, -0.0174918, 0.669995)
 bones/18/scale = Vector3(1, 1, 1)
 bones/19/rotation = Quaternion(-0.655919, -0.0708456, 0.0243406, 0.751105)
@@ -230,7 +230,7 @@ master = NodePath("..")
 cam = NodePath("Camera3D")
 body = NodePath("../body")
 
-[node name="Camera3D" type="Camera3D" parent="cam_holder"]
+[node name="Camera3D" type="Camera3D" parent="cam_holder" groups=["playercamera"]]
 transform = Transform3D(1, 0, 0, 0, -8.9407e-08, 1, 0, -1, -8.9407e-08, 0, 38.0416, 0)
 projection = 1
 size = 20.0
@@ -267,8 +267,8 @@ wait_time = 3.0
 one_shot = true
 
 [connection signal="timeout" from="dash_timer" to="." method="_on_dash_timer_timeout"]
-[connection signal="timeout" from="dash_cooldown" to="." method="_on_dash_cooldown_timeout"]
 [connection signal="timeout" from="dash_cooldown" to="." method="_on_dash_timer_timeout"]
+[connection signal="timeout" from="dash_cooldown" to="." method="_on_dash_cooldown_timeout"]
 [connection signal="timeout" from="Ability/Timer" to="Ability" method="cooldown_timer_timeout"]
 
 [editable path="body/Remnant"]

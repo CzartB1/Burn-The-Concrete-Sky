@@ -76,8 +76,9 @@ func _ready():
 	speed = (move_speed+move_speed_modifier)*move_speed_multiplier
 	current_dash_amount = dash_amount
 	dash_timer.wait_time = dash_duration
-	HP_bar.max_value = hp
-	HP_bar.value = hp
+	if HP_bar:
+		HP_bar.max_value = hp
+		HP_bar.value = hp
 	if !time_slow_bar: time_slow_bar=get_tree().get_first_node_in_group("time_slow_ui")
 	time_slow_duration = time_slow_duration_max
 	time_slow_bar.max_value = time_slow_duration_max
@@ -88,10 +89,10 @@ func _ready():
 	
 
 func _process(delta):
-	HP_bar.value = hp
+	if HP_bar: HP_bar.value = hp
 	time_slow_bar.value = time_slow_duration
 	if !cam: cam=get_tree().get_first_node_in_group("playercamera")
-	if alive:
+	if alive and !in_dialogue:
 		if controller:
 			cursor_icon.set_position(cam.unproject_position(cont_look_target.global_position))
 		elif !controller:
@@ -169,10 +170,10 @@ func _process(delta):
 			plr_check[p].queue_free()
 
 func _physics_process(delta):
-	if alive and !disabled:
+	if alive and !disabled and !in_dialogue:
 		look(delta)
 		move(delta)
-	elif disabled: 
+	elif disabled or in_dialogue: 
 		# when choosing a starting weapon, the player can still move
 		# and when they change room when theyre still in the weapons menu, they cant exit
 		# so, I just forced the plr controller to stop :D *secretly in tears from the hours fixing this

@@ -11,6 +11,11 @@ extends Control
 @export var desc_text:RichTextLabel
 @export var abl_text:RichTextLabel
 @export var av_gradient_bg:TextureRect
+@export_group("Intro Sequence")
+@export var intro_fall_sound:AudioStream
+@export var before_fall_sfx_delay=0.8
+@export var after_fall_sfx_delay=0.5
+var audio_direct=preload("res://scene/utilities/audio_direct.tscn")
 var has_chosen = false
 var chosen_char_id:int
 var char_name:String
@@ -50,9 +55,7 @@ func _process(_delta):
 		game_manager.start_count_time()
 		if !room_manager: room_manager=get_tree().get_first_node_in_group("room_manager")
 		room_manager.start()
-		var tr=get_tree().get_first_node_in_group("Transition")
-		if tr is AnimationPlayer: tr.play("fade_in")
-		queue_free()
+		intro_sequence()
 	
 	if has_chosen!=null and play_button:play_button.visible=has_chosen
 
@@ -80,10 +83,7 @@ func _on_done_button_pressed():
 		
 		game_manager.start_count_time()
 		room_manager.start()
-		visible = false
-		var tr=get_tree().get_first_node_in_group("Transition")
-		if tr is AnimationPlayer: tr.play("fade_in")
-		queue_free()
+		intro_sequence()
 
 func spawn_character(id:int): #FIXME still sometimes spawn 2 characters. Maybe add a bool that tells if one had spawned or not
 	if spawned: return
@@ -99,3 +99,20 @@ func update_top_neighbor():
 		if btn.has_focus() and play_button!=null:
 			play_button.focus_neighbor_top = btn.get_path()
 			break
+
+func intro_sequence():
+	visible = false
+	var tr=get_tree().get_first_node_in_group("Transition")
+	await get_tree().create_timer(before_fall_sfx_delay).timeout
+	play_sound(intro_fall_sound)
+	await get_tree().create_timer(after_fall_sfx_delay).timeout
+	if tr is AnimationPlayer: tr.play("fade_in")
+	queue_free()
+
+func play_sound(austr:AudioStream):
+	if austr!=null:
+		var audio=audio_direct.instantiate()
+		add_child(audio)
+		audio.play_sound(austr)
+	elif !austr:
+		print("sound not found")
