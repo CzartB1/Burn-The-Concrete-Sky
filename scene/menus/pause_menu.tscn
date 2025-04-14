@@ -100,7 +100,6 @@ libraries = {
 }
 
 [node name="Panel" type="Panel" parent="."]
-visible = false
 visibility_layer = 2
 z_index = 4
 z_as_relative = false
