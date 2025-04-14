@@ -11,6 +11,7 @@ var last_frame_time: int = 0  # Track time for manual animation updates
 func _ready():
 	last_frame_time = Time.get_ticks_usec()
 	settingsMenu.visible=false
+	layer=1
 	settingsMenu.z_index=0
 	anim.play("reset")
 	#anim.process_mode = 
@@ -39,7 +40,7 @@ func _process(delta):
 			anim.advance(anim.current_animation_position)
 			anim.play("pause_slide_in")
 			game_manager.pause()
-			layer=5
+			layer=9
 			var shp=get_tree().get_nodes_in_group("shops")
 			focus_button.grab_focus()
 			for i in shp:

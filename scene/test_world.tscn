@@ -214,7 +214,7 @@ layer = 5
 [node name="demo_lock" parent="stats" instance=ExtResource("12_s143w")]
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
-layer = 5
+layer = 8
 
 [node name="character_select_screen" parent="CanvasLayer" node_paths=PackedStringArray("room_manager", "character_buttons") instance=ExtResource("11_xgfu7")]
 room_manager = NodePath("../../room_manager")
@@ -237,6 +237,7 @@ script = ExtResource("21_ss30e")
 manager = NodePath("../room_manager")
 
 [node name="CanvasLayer2" type="CanvasLayer" parent="."]
+layer = 4
 
 [node name="Transition" type="AnimationPlayer" parent="CanvasLayer2" groups=["Transition"]]
 root_node = NodePath("../..")
