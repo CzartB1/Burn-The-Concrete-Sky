@@ -604,11 +604,11 @@ shape = SubResource("ConvexPolygonShape3D_a2nvn")
 shape = SubResource("ConvexPolygonShape3D_q0hov")
 
 [node name="shopkeeper" parent="." instance=ExtResource("12_0gkh2")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, -44.8667)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, -74.1238)
 dialogic_dialogue = "justicar_factory"
 
 [node name="stake2" parent="." instance=ExtResource("12_wj006")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.289285, 0, -52.7637)
+transform = Transform3D(1, 0, 0, 0, 0.899824, -0.436252, 0, 0.436252, 0.899824, -6.48159, -1.18631, -70.384)
 
 [node name="corpse_1" parent="stake2" index="1"]
 visible = false
@@ -647,9 +647,249 @@ draw_pass_1 = SubResource("PlaneMesh_hfb6u")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0272188, 0.464252, 0.0449142)
 light_color = Color(1, 0.616667, 0, 1)
 light_energy = 10.0
-omni_range = 3.38074
+omni_range = 14.3425
 
 [node name="GPUParticles3D2" type="GPUParticles3D" parent="stake2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.171119, 0)
+lifetime = 5.0
+process_material = SubResource("ParticleProcessMaterial_f4ypu")
+draw_pass_1 = SubResource("PlaneMesh_q4mf5")
+
+[node name="stake3" parent="." instance=ExtResource("12_wj006")]
+transform = Transform3D(1, 0, 0, 0, 0.899824, -0.436252, 0, 0.436252, 0.899824, 6.51841, -1.18631, -70.384)
+
+[node name="corpse_1" parent="stake3" index="1"]
+visible = false
+
+[node name="Skeleton3D" parent="stake3/corpse_1" index="0"]
+bones/12/rotation = Quaternion(-0.154804, -1.17772e-07, -5.53621e-08, 0.987945)
+
+[node name="Skeleton3D" parent="stake3/corpse_2" index="0"]
+bones/0/rotation = Quaternion(-0.444202, 0.55991, -0.425722, 0.554929)
+bones/1/rotation = Quaternion(0.076335, -0.70356, 0.0759571, 0.702429)
+bones/2/rotation = Quaternion(-0.196898, 0.00322748, 0.00106298, 0.980418)
+bones/3/rotation = Quaternion(-0.58982, -0.391985, -0.328313, 0.625037)
+bones/4/rotation = Quaternion(-0.351983, 0.564827, 0.177005, 0.725084)
+bones/5/rotation = Quaternion(0.14543, -0.00425391, -0.00580716, 0.989342)
+bones/7/rotation = Quaternion(-0.605147, 0.415551, 0.308504, 0.604929)
+bones/8/rotation = Quaternion(-0.316893, -0.693419, -0.227187, 0.605916)
+bones/9/rotation = Quaternion(0.0540006, -0.0213579, 0.025979, 0.997974)
+bones/11/rotation = Quaternion(-0.189993, 0.0081728, 0.00220611, 0.981749)
+bones/12/rotation = Quaternion(-0.301752, -0.0463959, -0.0811218, 0.948795)
+bones/13/rotation = Quaternion(0.766895, 0.261126, 0.573492, -0.121625)
+bones/14/rotation = Quaternion(0.566143, 0.0728384, -0.184192, 0.800157)
+bones/15/rotation = Quaternion(-0.346764, 0.124893, -0.0643204, 0.927372)
+bones/16/rotation = Quaternion(0.572091, 0.113093, 0.775428, -0.242144)
+bones/17/rotation = Quaternion(0.504202, 0.0743531, 0.169465, 0.843525)
+bones/18/rotation = Quaternion(-0.330543, -0.124869, 0.00557821, 0.935477)
+bones/20/rotation = Quaternion(-0.0243409, 0.751105, 0.655919, -0.0708453)
+
+[node name="GPUParticles3D" type="GPUParticles3D" parent="stake3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.265332, 0)
+amount = 15
+lifetime = 0.75
+process_material = SubResource("ParticleProcessMaterial_n86yb")
+draw_pass_1 = SubResource("PlaneMesh_hfb6u")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="stake3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0272188, 0.464252, 0.0449142)
+light_color = Color(1, 0.616667, 0, 1)
+light_energy = 10.0
+omni_range = 14.3425
+
+[node name="GPUParticles3D2" type="GPUParticles3D" parent="stake3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.171119, 0)
+lifetime = 5.0
+process_material = SubResource("ParticleProcessMaterial_f4ypu")
+draw_pass_1 = SubResource("PlaneMesh_q4mf5")
+
+[node name="stake4" parent="." instance=ExtResource("12_wj006")]
+transform = Transform3D(1, 0, 0, 0, 0.899824, -0.436252, 0, 0.436252, 0.899824, -6.48159, -1.18631, -66.384)
+
+[node name="corpse_1" parent="stake4" index="1"]
+visible = false
+
+[node name="Skeleton3D" parent="stake4/corpse_1" index="0"]
+bones/12/rotation = Quaternion(-0.154804, -1.17772e-07, -5.53621e-08, 0.987945)
+
+[node name="Skeleton3D" parent="stake4/corpse_2" index="0"]
+bones/0/rotation = Quaternion(-0.444202, 0.55991, -0.425722, 0.554929)
+bones/1/rotation = Quaternion(0.076335, -0.70356, 0.0759571, 0.702429)
+bones/2/rotation = Quaternion(-0.196898, 0.00322748, 0.00106298, 0.980418)
+bones/3/rotation = Quaternion(-0.58982, -0.391985, -0.328313, 0.625037)
+bones/4/rotation = Quaternion(-0.351983, 0.564827, 0.177005, 0.725084)
+bones/5/rotation = Quaternion(0.14543, -0.00425391, -0.00580716, 0.989342)
+bones/7/rotation = Quaternion(-0.605147, 0.415551, 0.308504, 0.604929)
+bones/8/rotation = Quaternion(-0.316893, -0.693419, -0.227187, 0.605916)
+bones/9/rotation = Quaternion(0.0540006, -0.0213579, 0.025979, 0.997974)
+bones/11/rotation = Quaternion(-0.189993, 0.0081728, 0.00220611, 0.981749)
+bones/12/rotation = Quaternion(-0.301752, -0.0463959, -0.0811218, 0.948795)
+bones/13/rotation = Quaternion(0.766895, 0.261126, 0.573492, -0.121625)
+bones/14/rotation = Quaternion(0.566143, 0.0728384, -0.184192, 0.800157)
+bones/15/rotation = Quaternion(-0.346764, 0.124893, -0.0643204, 0.927372)
+bones/16/rotation = Quaternion(0.572091, 0.113093, 0.775428, -0.242144)
+bones/17/rotation = Quaternion(0.504202, 0.0743531, 0.169465, 0.843525)
+bones/18/rotation = Quaternion(-0.330543, -0.124869, 0.00557821, 0.935477)
+bones/20/rotation = Quaternion(-0.0243409, 0.751105, 0.655919, -0.0708453)
+
+[node name="GPUParticles3D" type="GPUParticles3D" parent="stake4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.265332, 0)
+amount = 15
+lifetime = 0.75
+process_material = SubResource("ParticleProcessMaterial_n86yb")
+draw_pass_1 = SubResource("PlaneMesh_hfb6u")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="stake4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0272188, 0.464252, 0.0449142)
+light_color = Color(1, 0.616667, 0, 1)
+light_energy = 10.0
+omni_range = 14.3425
+
+[node name="GPUParticles3D2" type="GPUParticles3D" parent="stake4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.171119, 0)
+lifetime = 5.0
+process_material = SubResource("ParticleProcessMaterial_f4ypu")
+draw_pass_1 = SubResource("PlaneMesh_q4mf5")
+
+[node name="stake5" parent="." instance=ExtResource("12_wj006")]
+transform = Transform3D(1, 0, 0, 0, 0.899824, -0.436252, 0, 0.436252, 0.899824, 6.51841, -1.18631, -66.384)
+
+[node name="corpse_1" parent="stake5" index="1"]
+visible = false
+
+[node name="Skeleton3D" parent="stake5/corpse_1" index="0"]
+bones/12/rotation = Quaternion(-0.154804, -1.17772e-07, -5.53621e-08, 0.987945)
+
+[node name="Skeleton3D" parent="stake5/corpse_2" index="0"]
+bones/0/rotation = Quaternion(-0.444202, 0.55991, -0.425722, 0.554929)
+bones/1/rotation = Quaternion(0.076335, -0.70356, 0.0759571, 0.702429)
+bones/2/rotation = Quaternion(-0.196898, 0.00322748, 0.00106298, 0.980418)
+bones/3/rotation = Quaternion(-0.58982, -0.391985, -0.328313, 0.625037)
+bones/4/rotation = Quaternion(-0.351983, 0.564827, 0.177005, 0.725084)
+bones/5/rotation = Quaternion(0.14543, -0.00425391, -0.00580716, 0.989342)
+bones/7/rotation = Quaternion(-0.605147, 0.415551, 0.308504, 0.604929)
+bones/8/rotation = Quaternion(-0.316893, -0.693419, -0.227187, 0.605916)
+bones/9/rotation = Quaternion(0.0540006, -0.0213579, 0.025979, 0.997974)
+bones/11/rotation = Quaternion(-0.189993, 0.0081728, 0.00220611, 0.981749)
+bones/12/rotation = Quaternion(-0.301752, -0.0463959, -0.0811218, 0.948795)
+bones/13/rotation = Quaternion(0.766895, 0.261126, 0.573492, -0.121625)
+bones/14/rotation = Quaternion(0.566143, 0.0728384, -0.184192, 0.800157)
+bones/15/rotation = Quaternion(-0.346764, 0.124893, -0.0643204, 0.927372)
+bones/16/rotation = Quaternion(0.572091, 0.113093, 0.775428, -0.242144)
+bones/17/rotation = Quaternion(0.504202, 0.0743531, 0.169465, 0.843525)
+bones/18/rotation = Quaternion(-0.330543, -0.124869, 0.00557821, 0.935477)
+bones/20/rotation = Quaternion(-0.0243409, 0.751105, 0.655919, -0.0708453)
+
+[node name="GPUParticles3D" type="GPUParticles3D" parent="stake5"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.265332, 0)
+amount = 15
+lifetime = 0.75
+process_material = SubResource("ParticleProcessMaterial_n86yb")
+draw_pass_1 = SubResource("PlaneMesh_hfb6u")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="stake5"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0272188, 0.464252, 0.0449142)
+light_color = Color(1, 0.616667, 0, 1)
+light_energy = 10.0
+omni_range = 14.3425
+
+[node name="GPUParticles3D2" type="GPUParticles3D" parent="stake5"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.171119, 0)
+lifetime = 5.0
+process_material = SubResource("ParticleProcessMaterial_f4ypu")
+draw_pass_1 = SubResource("PlaneMesh_q4mf5")
+
+[node name="stake6" parent="." instance=ExtResource("12_wj006")]
+transform = Transform3D(1, 0, 0, 0, 0.899824, -0.436252, 0, 0.436252, 0.899824, -6.48159, -1.18631, -61.384)
+
+[node name="corpse_1" parent="stake6" index="1"]
+visible = false
+
+[node name="Skeleton3D" parent="stake6/corpse_1" index="0"]
+bones/12/rotation = Quaternion(-0.154804, -1.17772e-07, -5.53621e-08, 0.987945)
+
+[node name="Skeleton3D" parent="stake6/corpse_2" index="0"]
+bones/0/rotation = Quaternion(-0.444202, 0.55991, -0.425722, 0.554929)
+bones/1/rotation = Quaternion(0.076335, -0.70356, 0.0759571, 0.702429)
+bones/2/rotation = Quaternion(-0.196898, 0.00322748, 0.00106298, 0.980418)
+bones/3/rotation = Quaternion(-0.58982, -0.391985, -0.328313, 0.625037)
+bones/4/rotation = Quaternion(-0.351983, 0.564827, 0.177005, 0.725084)
+bones/5/rotation = Quaternion(0.14543, -0.00425391, -0.00580716, 0.989342)
+bones/7/rotation = Quaternion(-0.605147, 0.415551, 0.308504, 0.604929)
+bones/8/rotation = Quaternion(-0.316893, -0.693419, -0.227187, 0.605916)
+bones/9/rotation = Quaternion(0.0540006, -0.0213579, 0.025979, 0.997974)
+bones/11/rotation = Quaternion(-0.189993, 0.0081728, 0.00220611, 0.981749)
+bones/12/rotation = Quaternion(-0.301752, -0.0463959, -0.0811218, 0.948795)
+bones/13/rotation = Quaternion(0.766895, 0.261126, 0.573492, -0.121625)
+bones/14/rotation = Quaternion(0.566143, 0.0728384, -0.184192, 0.800157)
+bones/15/rotation = Quaternion(-0.346764, 0.124893, -0.0643204, 0.927372)
+bones/16/rotation = Quaternion(0.572091, 0.113093, 0.775428, -0.242144)
+bones/17/rotation = Quaternion(0.504202, 0.0743531, 0.169465, 0.843525)
+bones/18/rotation = Quaternion(-0.330543, -0.124869, 0.00557821, 0.935477)
+bones/20/rotation = Quaternion(-0.0243409, 0.751105, 0.655919, -0.0708453)
+
+[node name="GPUParticles3D" type="GPUParticles3D" parent="stake6"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.265332, 0)
+amount = 15
+lifetime = 0.75
+process_material = SubResource("ParticleProcessMaterial_n86yb")
+draw_pass_1 = SubResource("PlaneMesh_hfb6u")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="stake6"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0272188, 0.464252, 0.0449142)
+light_color = Color(1, 0.616667, 0, 1)
+light_energy = 10.0
+omni_range = 14.3425
+
+[node name="GPUParticles3D2" type="GPUParticles3D" parent="stake6"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.171119, 0)
+lifetime = 5.0
+process_material = SubResource("ParticleProcessMaterial_f4ypu")
+draw_pass_1 = SubResource("PlaneMesh_q4mf5")
+
+[node name="stake7" parent="." instance=ExtResource("12_wj006")]
+transform = Transform3D(1, 0, 0, 0, 0.899824, -0.436252, 0, 0.436252, 0.899824, 6.51841, -1.18631, -61.384)
+
+[node name="corpse_1" parent="stake7" index="1"]
+visible = false
+
+[node name="Skeleton3D" parent="stake7/corpse_1" index="0"]
+bones/12/rotation = Quaternion(-0.154804, -1.17772e-07, -5.53621e-08, 0.987945)
+
+[node name="Skeleton3D" parent="stake7/corpse_2" index="0"]
+bones/0/rotation = Quaternion(-0.444202, 0.55991, -0.425722, 0.554929)
+bones/1/rotation = Quaternion(0.076335, -0.70356, 0.0759571, 0.702429)
+bones/2/rotation = Quaternion(-0.196898, 0.00322748, 0.00106298, 0.980418)
+bones/3/rotation = Quaternion(-0.58982, -0.391985, -0.328313, 0.625037)
+bones/4/rotation = Quaternion(-0.351983, 0.564827, 0.177005, 0.725084)
+bones/5/rotation = Quaternion(0.14543, -0.00425391, -0.00580716, 0.989342)
+bones/7/rotation = Quaternion(-0.605147, 0.415551, 0.308504, 0.604929)
+bones/8/rotation = Quaternion(-0.316893, -0.693419, -0.227187, 0.605916)
+bones/9/rotation = Quaternion(0.0540006, -0.0213579, 0.025979, 0.997974)
+bones/11/rotation = Quaternion(-0.189993, 0.0081728, 0.00220611, 0.981749)
+bones/12/rotation = Quaternion(-0.301752, -0.0463959, -0.0811218, 0.948795)
+bones/13/rotation = Quaternion(0.766895, 0.261126, 0.573492, -0.121625)
+bones/14/rotation = Quaternion(0.566143, 0.0728384, -0.184192, 0.800157)
+bones/15/rotation = Quaternion(-0.346764, 0.124893, -0.0643204, 0.927372)
+bones/16/rotation = Quaternion(0.572091, 0.113093, 0.775428, -0.242144)
+bones/17/rotation = Quaternion(0.504202, 0.0743531, 0.169465, 0.843525)
+bones/18/rotation = Quaternion(-0.330543, -0.124869, 0.00557821, 0.935477)
+bones/20/rotation = Quaternion(-0.0243409, 0.751105, 0.655919, -0.0708453)
+
+[node name="GPUParticles3D" type="GPUParticles3D" parent="stake7"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.265332, 0)
+amount = 15
+lifetime = 0.75
+process_material = SubResource("ParticleProcessMaterial_n86yb")
+draw_pass_1 = SubResource("PlaneMesh_hfb6u")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="stake7"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0272188, 0.464252, 0.0449142)
+light_color = Color(1, 0.616667, 0, 1)
+light_energy = 10.0
+omni_range = 14.3425
+
+[node name="GPUParticles3D2" type="GPUParticles3D" parent="stake7"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.171119, 0)
 lifetime = 5.0
 process_material = SubResource("ParticleProcessMaterial_f4ypu")
@@ -2331,9 +2571,75 @@ transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, -6.52148, -1, -72.7832)
 [node name="technomantes_banner2" parent="." instance=ExtResource("13_lnqru")]
 transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 6.521, -1, -72.783)
 
+[node name="OmniLight3D" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.97516, 1.18121, 11.6598)
+light_energy = 4.0
+omni_range = 70.2947
+
+[node name="SpotLight3D" type="SpotLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.40151, 0.662295, 30.1296)
+spot_range = 84.4183
+spot_angle = 17.9131
+
+[node name="hall" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -98)
+
+[node name="OmniLight3D" type="OmniLight3D" parent="hall"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 0.290393, -11.2563)
+light_color = Color(1, 0, 0, 1)
+light_energy = 3.112
+shadow_enabled = true
+omni_range = 12.0
+omni_attenuation = -0.117
+
+[node name="OmniLight3D2" type="OmniLight3D" parent="hall"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.43971, 0.290393, -11.2563)
+light_color = Color(1, 0, 0, 1)
+light_energy = 3.112
+shadow_enabled = true
+omni_range = 12.0
+omni_attenuation = -0.117
+
+[node name="OmniLight3D3" type="OmniLight3D" parent="hall"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 0.290393, 13.2304)
+light_color = Color(1, 0, 0, 1)
+light_energy = 3.112
+shadow_enabled = true
+omni_range = 16.649
+omni_attenuation = -0.117
+
+[node name="OmniLight3D4" type="OmniLight3D" parent="hall"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.43971, 0.290393, 13.2304)
+light_color = Color(1, 0, 0, 1)
+light_energy = 3.112
+shadow_enabled = true
+omni_range = 16.649
+omni_attenuation = -0.117
+
+[node name="OmniLight3D5" type="OmniLight3D" parent="hall"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 0.3045, -34.9845)
+light_color = Color(1, 0, 0, 1)
+light_energy = 3.112
+shadow_enabled = true
+omni_range = 12.0
+omni_attenuation = -0.117
+
+[node name="OmniLight3D6" type="OmniLight3D" parent="hall"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.43971, 0.3045, -34.9845)
+light_color = Color(1, 0, 0, 1)
+light_energy = 3.112
+shadow_enabled = true
+omni_range = 12.0
+omni_attenuation = -0.117
+
 [connection signal="body_entered" from="rooms_end" to="rooms_end" method="_on_body_entered"]
 
 [editable path="stake2"]
+[editable path="stake3"]
+[editable path="stake4"]
+[editable path="stake5"]
+[editable path="stake6"]
+[editable path="stake7"]
 [editable path="spikes/stake"]
 [editable path="spikes/stake2"]
 [editable path="spikes/stake3"]

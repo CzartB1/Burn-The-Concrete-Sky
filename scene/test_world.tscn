@@ -1,15 +1,12 @@
-[gd_scene load_steps=36 format=3 uid="uid://dwx34svdy6oqn"]
+[gd_scene load_steps=33 format=3 uid="uid://dwx34svdy6oqn"]
 
 [ext_resource type="Script" uid="uid://d3aknym658jr2" path="res://scripts/systems/rooms/room_manager.gd" id="2_eglug"]
 [ext_resource type="PackedScene" uid="uid://cebc076cxalyg" path="res://scene/rooms/combat_group/test_cg_1.tscn" id="3_8qmyu"]
 [ext_resource type="PackedScene" uid="uid://ec2asu88nit2" path="res://scene/enemy/Common/wretch.tscn" id="3_ec2g0"]
-[ext_resource type="PackedScene" uid="uid://dobo5bwy3fiha" path="res://scene/rooms/combat_group/test_cg_2.tscn" id="4_qu5kh"]
 [ext_resource type="PackedScene" uid="uid://br6en1t6sqi7x" path="res://scene/enemy/elite/bloated.tscn" id="4_wb7kj"]
 [ext_resource type="PackedScene" uid="uid://gagx2whtjcm6" path="res://scene/rooms/combat_group/test_cg_3.tscn" id="5_kwnv4"]
 [ext_resource type="PackedScene" uid="uid://kh8x4dwsv522" path="res://scene/enemy/elite/lost.tscn" id="6_td813"]
-[ext_resource type="PackedScene" uid="uid://dnsg7vjjerv46" path="res://scene/enemy/Common/goon.tscn" id="7_j5kwb"]
 [ext_resource type="PackedScene" uid="uid://chi0yi6krxebk" path="res://scene/rooms/undercity/the_pit/room_rest.tscn" id="7_mf3ok"]
-[ext_resource type="PackedScene" uid="uid://dup18x3lqhykg" path="res://scene/enemy/elite/watcher.tscn" id="8_2wsw0"]
 [ext_resource type="PackedScene" uid="uid://bokolxfdwrhar" path="res://scene/rooms/undercity/room_boss.tscn" id="9_eqyys"]
 [ext_resource type="PackedScene" uid="uid://dks7eg8o5s7al" path="res://scene/player/characters/Remnant.tscn" id="10_0jsb7"]
 [ext_resource type="PackedScene" uid="uid://dgx2clkxdsth2" path="res://scene/player/characters/Silver.tscn" id="11_m1rxn"]
@@ -167,7 +164,7 @@ rest_room = NodePath("room_rest")
 boss_room = NodePath("room_boss")
 boss_count = 8
 combatgroup = NodePath("the_pit")
-combatgroups = [NodePath("the_pit"), NodePath("scum_town"), NodePath("factory")]
+combatgroups = [NodePath("the_pit"), null, NodePath("factory")]
 demo_lock = true
 demo_lock_screen = NodePath("../stats/demo_lock")
 
@@ -180,26 +177,13 @@ next_group = [NodePath("../factory")]
 [node name="room_intro" parent="room_manager/the_pit" index="3" node_paths=PackedStringArray("manager")]
 manager = NodePath("../..")
 
-[node name="group_change_object" parent="room_manager/the_pit/room_intro" index="6" node_paths=PackedStringArray("destination")]
-destination = NodePath("../../../scum_town")
-
 [node name="group_change_object2" parent="room_manager/the_pit/room_intro" index="7" node_paths=PackedStringArray("destination")]
 destination = NodePath("../../../factory")
-
-[node name="scum_town" parent="room_manager" node_paths=PackedStringArray("manager", "next_group", "sibling_groups") instance=ExtResource("4_qu5kh")]
-commons = Array[PackedScene]([ExtResource("7_j5kwb")])
-elites = Array[PackedScene]([ExtResource("8_2wsw0")])
-manager = NodePath("..")
-next_group = [NodePath("../the_pit")]
-sibling_groups = [NodePath("../factory")]
-
-[node name="room_preboss_cg2" parent="room_manager/scum_town" index="6"]
-visible = true
 
 [node name="factory" parent="room_manager" node_paths=PackedStringArray("manager", "next_group", "sibling_groups") instance=ExtResource("5_kwnv4")]
 manager = NodePath("..")
 next_group = [NodePath("../the_pit")]
-sibling_groups = [NodePath("../scum_town")]
+sibling_groups = [null]
 
 [node name="room_boss" parent="room_manager" instance=ExtResource("9_eqyys")]
 visible = false
@@ -269,5 +253,4 @@ shape = SubResource("BoxShape3D_0x23y")
 [editable path="room_manager/the_pit/room_intro"]
 [editable path="room_manager/the_pit/room_intro/shopkeeper"]
 [editable path="room_manager/the_pit/room_intro/the_figure/CanvasLayer"]
-[editable path="room_manager/scum_town"]
 [editable path="room_manager/factory"]

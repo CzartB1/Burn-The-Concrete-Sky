@@ -22,6 +22,7 @@ var common_spawned=0
 var plr_pos
 var prev_spawn_id=0
 var end:Room_End
+var started_spawn=false
 @onready var sp_delay:Timer = $spawn_delay
 
 func _ready(): #FIXME make some zone under the levels where enemies and players instantly dies
@@ -36,19 +37,19 @@ func _ready(): #FIXME make some zone under the levels where enemies and players 
 
 func _process(_delta):
 	if started: plr_pos = get_tree().get_first_node_in_group("Player").global_position
-	if elites_killed==elites_start and started and common_spawned<=0:
+	var enemy=get_tree().get_nodes_in_group("Enemy")
+	if Input.is_key_pressed(KEY_F1): print("enemies alive: "+str(enemy.size()))
+	if enemy.size()>0 and !started_spawn: started_spawn=true
+	if started and enemy.size()<=0 and started_spawn:
 		if !finished: #FIX ME room clears when there are commons still left.
 			print("Room cleared")
 			var cl=get_tree().get_first_node_in_group("Clear_Screen")
-			#var econom:Player_Economy_Manager=get_tree().get_first_node_in_group("Economy")
 			game_manager.stat_roomcleared+=1
 			cl.clear()
-			#econom.mult_reset()
-			#econom.hide_money()
-			#econom.hide_mult()
 			end.can_go=true
 		game_manager.in_battle=false
 		finished=true
+		started_spawn=false
 		for i in exits.size():
 			exits[i].visible=false
 			exits[i].process_mode=Node.PROCESS_MODE_DISABLED
