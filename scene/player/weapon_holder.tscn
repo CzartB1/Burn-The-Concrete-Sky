@@ -127,7 +127,7 @@ anim_id = 1
 gunshot_sound = ExtResource("6_psg06")
 reload_sound = ExtResource("8_adchn")
 bcr_finish_sound = ExtResource("9_axoe1")
-price = 250
+price = 550
 icon = SubResource("AtlasTexture_3neot")
 Description = "Shotty’s like a melody in your head. But instead of an earworm tune, it’s the scream of your enemy as the buckshot implodes their face. Its low capacity is only there to balance out its sheer stopping power."
 
@@ -159,7 +159,7 @@ reload_duration = 5.0
 muzzle_flash = NodePath("muzzle_flash")
 anim_id = 1
 gunshot_sound = ExtResource("8_o1aab")
-price = 150
+price = 1200
 icon = SubResource("AtlasTexture_46epw")
 Description = "Its unorthodox appearance and enormous weight are balanced with its firepower and ammo capacity. In the olden days, it was used by infantrymen to bring down mechanical beasts called Panzers. Despite its age, it is still able to punch through the thickest armor, given enough patience."
 
@@ -192,7 +192,7 @@ muzzle_flash = NodePath("muzzle_flash")
 anim_id = 1
 gunshot_sound = ExtResource("8_o1aab")
 reload_sound = ExtResource("14_l0y5u")
-price = 150
+price = 700
 icon = SubResource("AtlasTexture_k0miw")
 Description = "Acting as the standard rifle for the Technocrats during The Great Magi War, this ancient weapon has fought in many grounds and stood the test of time. Its history and firepower have made it a symbol of power and justice."
 
@@ -285,7 +285,7 @@ reload_duration = 1.5
 muzzle_flash = NodePath("muzzle_flash")
 gunshot_sound = SubResource("AudioStreamRandomizer_vmepa")
 reload_sound = ExtResource("25_wl3d1")
-price = 75
+price = 200
 icon = SubResource("AtlasTexture_rvbas")
 Description = "A simple pistol, a common sidearm among thugs and mercenaries. It was a common sight during The Great Magi War due to its simple manufacturing and widespread adoption. Despite its common sighting and power compared to its peers, it is not to be underestimated. A single lucky shot can bring down even a god."
 

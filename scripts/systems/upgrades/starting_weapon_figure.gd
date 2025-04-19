@@ -4,6 +4,7 @@ var interactible = false
 @export var weapon_screen: Starting_Weapon_Screen
 @export var canvas:CanvasLayer
 @export var from_start=false
+var finish_fade=false
 var plr:Player
 
 func _ready():
@@ -16,11 +17,12 @@ func _process(_delta):
 	if  plr == null:
 		plr = get_tree().get_first_node_in_group("Player")
 	elif plr!=null:
-		if from_start: 
+		if from_start and finish_fade: 
 			plr.show_cursor = true
 			plr.disabled=true
 			Dialogic.start("justicar_intro")
 			from_start=false
+			finish_fade=false
 #
 #func _on_body_entered(body):
 	#if body is Player:

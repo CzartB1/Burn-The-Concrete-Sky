@@ -17,12 +17,15 @@ func _ready():
 	cooldown_time=cooldown_time_max
 	cooldown_bar.max_value=cooldown_time_max
 	cooldown_bar.value=cooldown_time
+	cooldown_bar.visible=true
 
 func _process(delta):
 	super._process(delta)
-	cooldownBarVisibility()
 	cooldown_bar.max_value=cooldown_time_max
 	cooldown_bar.value=cooldown_time
+	if anchor==null and anchored:
+		anchored=false
+		cooldown_time=0
 	if cooldown_time<cooldown_time_max: cooldown_time+=delta*10
 
 func Ability():
@@ -33,13 +36,6 @@ func Ability():
 		anchored=true
 	else:
 		if anchored: teleport()
-	#TODO tp to anchor when pressed after placing anchor
-
-func cooldownBarVisibility():
-	if cooldown_time>=cooldown_time_max: # FULL
-		cooldown_bar.visible=false
-	elif cooldown_time<=cooldown_time_max: # NOT FULL
-		cooldown_bar.visible=true
 
 func teleport():
 	if anchor!=null:

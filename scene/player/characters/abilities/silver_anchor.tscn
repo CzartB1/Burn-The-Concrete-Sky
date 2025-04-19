@@ -13,7 +13,7 @@ roughness = 0.57
 material = SubResource("StandardMaterial3D_h6hk2")
 size = Vector2(0.4, 0.75)
 
-[node name="SilverAnchor" type="Node3D"]
+[node name="SilverAnchor" type="Node3D" groups=["Abilities", "anchor"]]
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 transform = Transform3D(0.905421, 0.424515, 0, -0.424515, 0.905421, 0, 0, 0, 1, 0, 0.107541, 0)

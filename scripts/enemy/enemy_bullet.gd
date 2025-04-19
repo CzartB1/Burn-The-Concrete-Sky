@@ -20,8 +20,10 @@ func _on_timer_timeout():
 	queue_free()
 
 func _on_area_3d_body_entered(body):
+	if body is Player_Bullet:
+		queue_free()
 	if !deflected:
-		if body != Enemy and body != self and body != Enemy_Bullet and body!=Player_Bullet:
+		if body != Enemy and body != self and body != Enemy_Bullet:
 			if body is Player and !body.dashing:
 				body.take_damage(damage)
 			if body is Kunoichi_Decoy:
@@ -32,6 +34,7 @@ func _on_area_3d_body_entered(body):
 			if body is Enemy:
 				body.take_damage(damage)
 			queue_free()
+	
 
 func deflect():
 	damage*=2

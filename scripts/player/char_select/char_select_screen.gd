@@ -107,6 +107,8 @@ func intro_sequence():
 	play_sound(intro_fall_sound)
 	await get_tree().create_timer(after_fall_sfx_delay).timeout
 	if tr is AnimationPlayer: tr.play("fade_in")
+	var jus=get_tree().get_first_node_in_group("justicar")
+	jus.finish_fade=true
 	queue_free()
 
 func play_sound(austr:AudioStream):
