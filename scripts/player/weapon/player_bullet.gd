@@ -15,19 +15,18 @@ func _on_timer_timeout():
 
 func _on_area_3d_body_entered(body):
 	if body==self:return
-	if body != Player and body != Player_Bullet and body != Enemy_Bullet:
+	if body != Player and body != Player_Bullet:
 		if body is Enemy:
 			body.take_damage(damage,global_position)
-		#if body is enemy_shield:
-			#print("shield")
-			#body.take_damage(damage,global_position)
+		if body is Enemy_Bullet:
+			print("Wowzie! You just hit a bullet!!!")
+			body.queue_free()
 		else:
-			print("sssa")
 			var instance = wall_particle.instantiate()
 			get_tree().get_root().add_child(instance)
 			instance.global_position = global_position
 			instance.look_at(get_tree().get_first_node_in_group("Player").global_position)
 			instance.global_rotation.y+=180
 			instance.emitting=true
-		print(str(body.name))
+		#print(str(body.name))
 		queue_free()

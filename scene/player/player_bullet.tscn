@@ -42,7 +42,7 @@ one_shot = true
 
 [node name="Area3D" type="Area3D" parent="."]
 disable_mode = 2
-collision_layer = 0
+collision_layer = 4
 input_ray_pickable = false
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]

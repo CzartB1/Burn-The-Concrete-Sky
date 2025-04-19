@@ -30,7 +30,7 @@ func _on_area_3d_body_entered(body):
 				body.damage()
 			queue_free()
 	elif deflected:
-		if body != Player and body != self and body != Enemy_Bullet and body!=Player_Bullet:
+		if body != Player and body != self and body != Enemy_Bullet:
 			if body is Enemy:
 				body.take_damage(damage)
 			queue_free()
