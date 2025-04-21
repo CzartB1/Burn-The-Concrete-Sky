@@ -1,4 +1,4 @@
-[gd_scene load_steps=139 format=3 uid="uid://b1au5gcyhryfm"]
+[gd_scene load_steps=143 format=3 uid="uid://b1au5gcyhryfm"]
 
 [ext_resource type="Script" uid="uid://bk8v0bbmdmjaj" path="res://scripts/player/char_select/char_select_screen.gd" id="1_hc0jr"]
 [ext_resource type="PackedScene" uid="uid://bnxrhky3nbvov" path="res://scene/player/characters/remnant_fix.tscn" id="2_7n8wp"]
@@ -100,6 +100,8 @@
 [ext_resource type="Texture2D" uid="uid://cxtfwhfv5xbl6" path="res://sprites/UI/char select/impact_avatar/frame_28_delay-0.1s.png" id="94_klndo"]
 [ext_resource type="Texture2D" uid="uid://bps867lm4bo50" path="res://sprites/UI/char select/impact_avatar/frame_29_delay-0.1s.png" id="95_ogfrb"]
 [ext_resource type="FontFile" uid="uid://vrniihdi55co" path="res://Fonts/Hexa.otf" id="97_d0n3h"]
+[ext_resource type="Script" uid="uid://7nmxpcsms4dy" path="res://scripts/player/UI/diff_rating.gd" id="97_fv7li"]
+[ext_resource type="Texture2D" uid="uid://b3jilim3k1mik" path="res://sprites/UI/char select/char_select_diff_icon.png" id="98_ia5kj"]
 [ext_resource type="FontFile" uid="uid://g0he1dhdyetn" path="res://Fonts/better_vcr/Better VCR 9.0.1.ttf" id="98_oohl4"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gdblg"]
@@ -416,6 +418,14 @@ corner_radius_top_right = 5
 corner_radius_bottom_right = 5
 corner_radius_bottom_left = 5
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_w6say"]
+atlas = ExtResource("98_ia5kj")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j5nt4"]
+atlas = ExtResource("98_ia5kj")
+region = Rect2(0, 0, 32, 32)
+
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_oohl4"]
 bg_color = Color(0.85, 0, 0, 1)
 border_width_left = 1
@@ -600,7 +610,7 @@ modulate_color = Color(0.5, 0, 0, 1)
 texture = SubResource("AtlasTexture_xguls")
 texture_margin_left = 32.0
 
-[node name="character_select_screen" type="Control" node_paths=PackedStringArray("focus_button", "play_button", "character_buttons", "name_text", "name2_text", "desc_text", "abl_text", "av_gradient_bg") groups=["char_select"]]
+[node name="character_select_screen" type="Control" node_paths=PackedStringArray("focus_button", "play_button", "name_text", "name2_text", "desc_text", "abl_text", "av_gradient_bg") groups=["char_select"]]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -611,7 +621,6 @@ script = ExtResource("1_hc0jr")
 focus_button = NodePath("char_select/GridContainer/remnant_button")
 play_button = NodePath("char_select/done_button")
 characters = Array[PackedScene]([ExtResource("2_7n8wp"), ExtResource("3_omfb8"), ExtResource("4_ftefj"), ExtResource("5_3rfgy")])
-character_buttons = [NodePath("char_select/GridContainer/remnant_button"), NodePath("char_select/GridContainer/silver_button"), NodePath("char_select/GridContainer/impact_button"), NodePath("char_select/GridContainer/mirage_button")]
 name_text = NodePath("char_select/name text")
 name2_text = NodePath("char_select/name text2")
 desc_text = NodePath("char_select/desc text")
@@ -690,8 +699,18 @@ layout_mode = 0
 offset_left = 21.0
 offset_top = 65.0
 offset_right = 579.0
-offset_bottom = 499.0
+offset_bottom = 549.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_4ipgk")
+
+[node name="diff_rating" type="HBoxContainer" parent="char_select"]
+layout_mode = 0
+offset_left = 75.0
+offset_top = 198.0
+offset_right = 115.0
+offset_bottom = 238.0
+script = ExtResource("97_fv7li")
+filled_texture = SubResource("AtlasTexture_w6say")
+empty_texture = SubResource("AtlasTexture_j5nt4")
 
 [node name="done_button" type="Button" parent="char_select" node_paths=PackedStringArray("name_text", "name2_text", "desc_text", "abl_text")]
 layout_mode = 1
@@ -728,15 +747,14 @@ anchors_preset = 2
 anchor_top = 1.0
 anchor_bottom = 1.0
 offset_left = 63.0
-offset_top = -451.0
+offset_top = -422.0
 offset_right = 490.0
-offset_bottom = -329.0
+offset_bottom = -300.0
 grow_vertical = 0
 theme_override_colors/default_color = Color(1, 0, 0, 0.74902)
 theme_override_fonts/bold_font = ExtResource("97_d0n3h")
 theme_override_font_sizes/bold_font_size = 80
 bbcode_enabled = true
-text = "[b]TEST"
 
 [node name="name text2" type="RichTextLabel" parent="char_select"]
 layout_mode = 1
@@ -744,15 +762,14 @@ anchors_preset = 2
 anchor_top = 1.0
 anchor_bottom = 1.0
 offset_left = 68.0
-offset_top = -422.0
+offset_top = -393.0
 offset_right = 486.0
-offset_bottom = -312.0
+offset_bottom = -283.0
 grow_vertical = 0
 theme_override_colors/default_color = Color(1, 1, 1, 1)
 theme_override_fonts/bold_font = ExtResource("98_oohl4")
 theme_override_font_sizes/bold_font_size = 28
 bbcode_enabled = true
-text = "[b]TEST"
 
 [node name="desc text" type="RichTextLabel" parent="char_select"]
 layout_mode = 1
@@ -760,9 +777,9 @@ anchors_preset = 2
 anchor_top = 1.0
 anchor_bottom = 1.0
 offset_left = 75.0
-offset_top = -390.0
+offset_top = -361.0
 offset_right = 486.0
-offset_bottom = -213.0
+offset_bottom = -184.0
 grow_vertical = 0
 text = "Choose a character!"
 
@@ -772,9 +789,9 @@ anchors_preset = 2
 anchor_top = 1.0
 anchor_bottom = 1.0
 offset_left = 75.0
-offset_top = -255.0
+offset_top = -226.0
 offset_right = 486.0
-offset_bottom = -140.0
+offset_bottom = -111.0
 grow_vertical = 0
 theme_override_font_sizes/normal_font_size = 16
 theme_override_font_sizes/bold_font_size = 18
