@@ -28,20 +28,24 @@ func update_rating(value: int) -> void:
 	set_rating(value)
 
 func _update_stars() -> void:
+	print("Updating stars with rating =", rating)
+
 	# Remove existing icons
 	for child in get_children():
 		child.queue_free()
 
-	# Add icons based on current rating
+	if not filled_texture or not empty_texture:
+		push_warning("Missing textures for difficulty UI!")
+		return
+
 	for i in range(max_stars):
-		var icon = TextureRect.new()
-		if i < rating:
-			icon.texture = filled_texture
-		else:
-			icon.texture = empty_texture
+		var icon := TextureRect.new()
+		icon.texture = filled_texture if i < rating else empty_texture
 		icon.expand = true
 		icon.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_CENTERED
+		icon.custom_minimum_size = Vector2(16, 16) # Ensure visibility
 		add_child(icon)
+
 
 # At runtime you can update the rating for different characters:
 # $DifficultyRating.update_rating(some_character.difficulty)
