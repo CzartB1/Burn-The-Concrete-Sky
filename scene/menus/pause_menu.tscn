@@ -167,7 +167,7 @@ theme_override_styles/pressed_mirrored = SubResource("StyleBoxFlat_ekmyp")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_abyvj")
 theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_vws7g")
 theme_override_styles/normal = SubResource("StyleBoxEmpty_gesil")
-text = "Restart"
+text = "New Run"
 
 [node name="settings" type="Button" parent="Panel/VBoxContainer"]
 layout_mode = 2

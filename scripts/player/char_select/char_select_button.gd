@@ -9,24 +9,20 @@ extends Button
 @export_multiline var ablt_desc:String = "ability"
 @export var bust: AnimatedSprite2D 
 @export var bg_color:Color
+@export_range(0,5) var difficulty:int
 
 func _ready():
 	bust.visible=false
-#
+
 func _process(_delta):
 	if is_hovered() and !selector.has_chosen or has_focus() and !selector.has_chosen:
-		#if !has_focus():grab_focus()
-		
 		selector.chosen_char_id=char_id
 		selector.char_name=char_name
 		selector.char_desc=char_desc
 		selector.char_abl_name=ablt_name
 		selector.char_abl_desc=ablt_desc
 		selector.fill_name_texts()
-		#selector.av_gradient_bg.modulate.r=bg_color.r
-		#selector.av_gradient_bg.modulate.g=bg_color.g
-		#selector.av_gradient_bg.modulate.b=bg_color.b
-		#selector.av_gradient_bg.modulate.a=bg_color.a
+		get_tree().get_first_node_in_group("diff_rating").update_rating(difficulty)
 	elif selector.has_chosen and selector.selected_btn==self:
 		bust.visible=true
 		selector.av_gradient_bg.modulate.r=bg_color.r
@@ -49,6 +45,7 @@ func _on_pressed():
 	selector.char_abl_desc=ablt_desc
 	selector.selected_btn=self
 	selector.fill_name_texts()
+	get_tree().get_first_node_in_group("diff_rating").update_rating(2)
 	for butt in selector.character_buttons:
 		if butt!=self:butt.set_pressed_no_signal(false)
 	if !selector.has_chosen: selector.has_chosen=true

@@ -702,12 +702,12 @@ offset_right = 579.0
 offset_bottom = 549.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_4ipgk")
 
-[node name="diff_rating" type="HBoxContainer" parent="char_select" groups=["diff_rating"]]
+[node name="diff_rating" type="HBoxContainer" parent="char_select"]
 layout_mode = 0
 offset_left = 75.0
 offset_top = 198.0
-offset_right = 494.0
-offset_bottom = 460.0
+offset_right = 115.0
+offset_bottom = 238.0
 script = ExtResource("97_fv7li")
 filled_texture = SubResource("AtlasTexture_w6say")
 empty_texture = SubResource("AtlasTexture_j5nt4")
@@ -827,7 +827,6 @@ ablt_name = "Mobile Shield"
 ablt_desc = "Block incoming projectiles with a shield in front of him."
 bust = NodePath("../../../Panel/Busts/Remnant")
 bg_color = Color(0.3888, 0.47952, 0.54, 1)
-difficulty = 1
 
 [node name="silver_button" type="Button" parent="char_select/GridContainer" node_paths=PackedStringArray("selector", "bust")]
 layout_mode = 2
@@ -848,7 +847,6 @@ ablt_name = "Anchor Card"
 ablt_desc = "Place a card which acts as an anchor where you can teleport back to."
 bust = NodePath("../../../Panel/Busts/Silver")
 bg_color = Color(0.86, 0.834773, 0.7654, 1)
-difficulty = 3
 
 [node name="impact_button" type="Button" parent="char_select/GridContainer" node_paths=PackedStringArray("selector", "bust")]
 layout_mode = 2
@@ -869,7 +867,6 @@ ablt_name = "Grapple"
 ablt_desc = "Pull an enemy towards her with her grappling hook."
 bust = NodePath("../../../Panel/Busts/Impact")
 bg_color = Color(0.87, 0, 0, 1)
-difficulty = 2
 
 [node name="mirage_button" type="Button" parent="char_select/GridContainer" node_paths=PackedStringArray("selector", "bust")]
 layout_mode = 2
@@ -890,7 +887,6 @@ ablt_name = "Decoy"
 ablt_desc = "Place a decoy to trick the enemies."
 bust = NodePath("../../../Panel/Busts/Mirage")
 bg_color = Color(0.36211, 0.2058, 0.49, 1)
-difficulty = 5
 
 [connection signal="pressed" from="char_select/done_button" to="." method="_on_done_button_pressed"]
 [connection signal="focus_entered" from="char_select/GridContainer/remnant_button" to="char_select/GridContainer/remnant_button" method="_on_focus_entered"]

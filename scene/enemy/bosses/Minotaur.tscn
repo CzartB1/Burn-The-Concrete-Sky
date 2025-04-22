@@ -33,7 +33,7 @@ bg_color = Color(0.572549, 0, 0, 1)
 
 [node name="enemy_test" type="CharacterBody3D" node_paths=PackedStringArray("navigation_agent", "anim", "gore_manager", "mesh_instances") groups=["Enemy"]]
 script = ExtResource("1_12ga4")
-hp = 1000
+hp = 500
 navigation_agent = NodePath("behavior_master/NavigationAgent3D")
 anim = NodePath("mesh/AnimationPlayer")
 gore_manager = NodePath("gore_manager")
@@ -147,25 +147,25 @@ show_percentage = false
 transform = Transform3D(-3, 0, -3.77489e-07, 0, 2.5, 0, 4.52987e-07, 0, -2.5, 0, -1, 0)
 
 [node name="Skeleton3D" parent="mesh/metarig" index="0"]
-bones/0/position = Vector3(0, 0.97361, -0.00681275)
+bones/0/position = Vector3(0, 1.0084, -0.00681275)
 bones/1/rotation = Quaternion(0.00966109, -0.707041, 0.0096611, 0.707041)
 bones/2/rotation = Quaternion(-0.0287109, -1.19157e-07, -3.52896e-09, 0.999588)
-bones/3/rotation = Quaternion(-0.452069, -0.39042, -0.577623, 0.556379)
+bones/3/rotation = Quaternion(-0.497727, -0.439001, -0.541808, 0.515742)
 bones/4/position = Vector3(0.00661594, 0.17689, -0.00828764)
-bones/4/rotation = Quaternion(-0.476635, 0.629716, -0.348214, 0.504999)
-bones/5/rotation = Quaternion(0.177137, 0.00831504, -0.102917, 0.978755)
-bones/7/rotation = Quaternion(-0.541815, 0.484792, 0.501052, 0.469426)
+bones/4/rotation = Quaternion(-0.422523, 0.563581, -0.4133, 0.577091)
+bones/5/rotation = Quaternion(0.298862, -0.00157105, -0.103568, 0.948658)
+bones/7/rotation = Quaternion(-0.499132, 0.440479, 0.54061, 0.51438)
 bones/8/position = Vector3(-0.00661598, 0.17689, -0.00828782)
-bones/8/rotation = Quaternion(-0.321739, -0.512919, 0.449542, 0.656742)
-bones/9/rotation = Quaternion(0.190671, -0.156574, 0.209402, 0.946192)
+bones/8/rotation = Quaternion(-0.412988, -0.568255, 0.408749, 0.582624)
+bones/9/rotation = Quaternion(0.298081, 0.0062901, 0.126698, 0.946074)
 bones/11/rotation = Quaternion(0.169656, 2.34962e-07, 4.04477e-08, 0.985503)
 bones/12/rotation = Quaternion(-0.154804, -1.17772e-07, -5.53621e-08, 0.987945)
-bones/13/rotation = Quaternion(0.700077, -0.0994604, 0.700077, 0.0994603)
-bones/14/rotation = Quaternion(0.15507, -1.51919e-08, 6.51634e-09, 0.987904)
-bones/15/rotation = Quaternion(-0.682957, 7.83714e-07, -7.32749e-07, 0.730459)
-bones/16/rotation = Quaternion(0.705009, 0.0544216, 0.70501, -0.0544216)
-bones/17/rotation = Quaternion(0.111851, -1.54369e-08, 5.8567e-09, 0.993725)
-bones/18/rotation = Quaternion(-0.799424, 6.44666e-07, -8.57665e-07, 0.600767)
+bones/13/rotation = Quaternion(0.706704, -0.0238641, 0.706704, 0.0238641)
+bones/14/rotation = Quaternion(0.13384, -1.53285e-08, 6.19076e-09, 0.991003)
+bones/15/rotation = Quaternion(-0.743107, 9.69385e-07, -5.28372e-07, 0.669173)
+bones/16/rotation = Quaternion(0.693085, -0.140117, 0.693085, 0.140117)
+bones/17/rotation = Quaternion(0.627642, -1.30846e-08, 1.41638e-08, 0.778502)
+bones/18/rotation = Quaternion(-0.744935, 7.15842e-07, -7.99239e-07, 0.667137)
 bones/20/rotation = Quaternion(-0.0243409, 0.751105, 0.655919, -0.0708453)
 
 [connection signal="velocity_computed" from="behavior_master/NavigationAgent3D" to="behavior_master" method="_on_navigation_agent_3d_velocity_computed"]

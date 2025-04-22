@@ -37,6 +37,7 @@ func ready():
 
 
 func _process(_delta):
+	get_tree().get_first_node_in_group("diff_rating").update_rating(2)
 	if game_manager.show_char_select:
 		if focus_button!=null and !foc:
 			if Input.is_action_pressed("ui_up") or Input.is_action_pressed("ui_down") or Input.is_action_pressed("ui_left") or Input.is_action_pressed("ui_right"):

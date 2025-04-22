@@ -92,12 +92,13 @@ theme_override_constants/separation = 25
 alignment = 1
 
 [node name="restart" type="Button" parent="stat_screen/Panel/HBoxContainer"]
+visible = false
 layout_mode = 2
 text = "Restart"
 
 [node name="choose char" type="Button" parent="stat_screen/Panel/HBoxContainer"]
 layout_mode = 2
-text = "Choose Another Character"
+text = "New Run"
 
 [node name="exit" type="Button" parent="stat_screen/Panel/HBoxContainer"]
 layout_mode = 2
