@@ -7,6 +7,7 @@ extends Button
 @export_multiline var char_desc:String = "char"
 @export var ablt_name:String = "ability"
 @export_multiline var ablt_desc:String = "ability"
+@export var str_wpn_name:String
 @export var bust: AnimatedSprite2D 
 @export var bg_color:Color
 @export_range(0,5) var difficulty:int
@@ -21,6 +22,7 @@ func _process(_delta):
 		selector.char_desc=char_desc
 		selector.char_abl_name=ablt_name
 		selector.char_abl_desc=ablt_desc
+		selector.start_wpn_text.text=str("[b]Start Weapon -[/b] "+str_wpn_name)
 		selector.fill_name_texts()
 		get_tree().get_first_node_in_group("diff_rating").update_rating(difficulty)
 	elif selector.has_chosen and selector.selected_btn==self:
@@ -43,9 +45,10 @@ func _on_pressed():
 	selector.char_desc=char_desc
 	selector.char_abl_name=ablt_name
 	selector.char_abl_desc=ablt_desc
+	selector.start_wpn_text.text=str("[b]Start Weapon -[/b] "+str_wpn_name)
 	selector.selected_btn=self
 	selector.fill_name_texts()
-	get_tree().get_first_node_in_group("diff_rating").update_rating(2)
+	get_tree().get_first_node_in_group("diff_rating").update_rating(difficulty)
 	for butt in selector.character_buttons:
 		if butt!=self:butt.set_pressed_no_signal(false)
 	if !selector.has_chosen: selector.has_chosen=true
