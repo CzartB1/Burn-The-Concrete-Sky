@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://dpek10cnt4lrj"]
+[gd_scene load_steps=8 format=3 uid="uid://dpek10cnt4lrj"]
 
 [ext_resource type="Script" uid="uid://dg4p74jujwcil" path="res://Dialogic/style/CustomStyle/default_layout_base.gd" id="1_ifsho"]
 [ext_resource type="AnimationLibrary" uid="uid://c1nobsn3hqg4x" path="res://Dialogic/style/dialogue_animation_library.tres" id="5_j6ogb"]
@@ -11,9 +11,6 @@
 bg_color = Color(0, 0, 0, 1)
 border_width_left = 4
 border_width_right = 4
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rgnsg"]
-bg_color = Color(0.15, 0.15, 0.15, 1)
 
 [node name="Custom" type="CanvasLayer"]
 script = ExtResource("1_ifsho")
@@ -87,77 +84,66 @@ custom_minimum_size = Vector2(0, 25)
 mouse_force_pass_scroll_events = false
 mouse_default_cursor_shape = 2
 theme_override_font_sizes/font_size = 10
-theme_override_styles/normal = SubResource("StyleBoxFlat_rgnsg")
 
 [node name="DialogicNode_ChoiceButton2" parent="VN_ChoiceLayer/Choices" index="1"]
 custom_minimum_size = Vector2(0, 25)
 mouse_force_pass_scroll_events = false
 mouse_default_cursor_shape = 2
 theme_override_font_sizes/font_size = 10
-theme_override_styles/normal = SubResource("StyleBoxFlat_rgnsg")
 
 [node name="DialogicNode_ChoiceButton3" parent="VN_ChoiceLayer/Choices" index="2"]
 custom_minimum_size = Vector2(0, 25)
 mouse_force_pass_scroll_events = false
 mouse_default_cursor_shape = 2
 theme_override_font_sizes/font_size = 10
-theme_override_styles/normal = SubResource("StyleBoxFlat_rgnsg")
 
 [node name="DialogicNode_ChoiceButton4" parent="VN_ChoiceLayer/Choices" index="3"]
 custom_minimum_size = Vector2(0, 25)
 mouse_force_pass_scroll_events = false
 mouse_default_cursor_shape = 2
 theme_override_font_sizes/font_size = 10
-theme_override_styles/normal = SubResource("StyleBoxFlat_rgnsg")
 
 [node name="DialogicNode_ChoiceButton5" parent="VN_ChoiceLayer/Choices" index="4"]
 custom_minimum_size = Vector2(0, 25)
 mouse_force_pass_scroll_events = false
 mouse_default_cursor_shape = 2
 theme_override_font_sizes/font_size = 10
-theme_override_styles/normal = SubResource("StyleBoxFlat_rgnsg")
 
 [node name="DialogicNode_ChoiceButton6" parent="VN_ChoiceLayer/Choices" index="5"]
 custom_minimum_size = Vector2(0, 25)
 mouse_force_pass_scroll_events = false
 mouse_default_cursor_shape = 2
 theme_override_font_sizes/font_size = 10
-theme_override_styles/normal = SubResource("StyleBoxFlat_rgnsg")
 
 [node name="DialogicNode_ChoiceButton7" parent="VN_ChoiceLayer/Choices" index="6"]
 custom_minimum_size = Vector2(0, 25)
 mouse_force_pass_scroll_events = false
 mouse_default_cursor_shape = 2
 theme_override_font_sizes/font_size = 10
-theme_override_styles/normal = SubResource("StyleBoxFlat_rgnsg")
 
 [node name="DialogicNode_ChoiceButton8" parent="VN_ChoiceLayer/Choices" index="7"]
 custom_minimum_size = Vector2(0, 25)
 mouse_force_pass_scroll_events = false
 mouse_default_cursor_shape = 2
 theme_override_font_sizes/font_size = 10
-theme_override_styles/normal = SubResource("StyleBoxFlat_rgnsg")
 
 [node name="DialogicNode_ChoiceButton9" parent="VN_ChoiceLayer/Choices" index="8"]
 custom_minimum_size = Vector2(0, 25)
 mouse_force_pass_scroll_events = false
 mouse_default_cursor_shape = 2
 theme_override_font_sizes/font_size = 10
-theme_override_styles/normal = SubResource("StyleBoxFlat_rgnsg")
 
 [node name="DialogicNode_ChoiceButton10" parent="VN_ChoiceLayer/Choices" index="9"]
 custom_minimum_size = Vector2(0, 25)
 mouse_force_pass_scroll_events = false
 mouse_default_cursor_shape = 2
 theme_override_font_sizes/font_size = 10
-theme_override_styles/normal = SubResource("StyleBoxFlat_rgnsg")
 
 [node name="DialogicNode_ChoiceButton11" parent="VN_ChoiceLayer/Choices" index="10"]
 custom_minimum_size = Vector2(0, 25)
 mouse_force_pass_scroll_events = false
 mouse_default_cursor_shape = 2
 theme_override_font_sizes/font_size = 10
-theme_override_styles/normal = SubResource("StyleBoxFlat_rgnsg")
 
 [editable path="VN_TextboxLayer"]
 [editable path="VN_ChoiceLayer"]

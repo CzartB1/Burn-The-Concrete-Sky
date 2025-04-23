@@ -347,7 +347,7 @@ HUD = NodePath("../HUD/HBoxContainer/VBoxContainer")
 settingsMenu = NodePath("../settingsMenu/Panel")
 
 [node name="settingsMenu" parent="." instance=ExtResource("10_3t1xs")]
-layer = 7
+layer = 10
 
 [connection signal="timeout" from="cleared_screen/Timer" to="cleared_screen" method="_on_timer_timeout"]
 [connection signal="timeout" from="death_screen/Timer" to="death_screen" method="_on_timer_timeout"]

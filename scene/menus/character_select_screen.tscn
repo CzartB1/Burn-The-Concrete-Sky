@@ -1,4 +1,4 @@
-[gd_scene load_steps=143 format=3 uid="uid://b1au5gcyhryfm"]
+[gd_scene load_steps=142 format=3 uid="uid://b1au5gcyhryfm"]
 
 [ext_resource type="Script" uid="uid://bk8v0bbmdmjaj" path="res://scripts/player/char_select/char_select_screen.gd" id="1_hc0jr"]
 [ext_resource type="PackedScene" uid="uid://bnxrhky3nbvov" path="res://scene/player/characters/remnant_fix.tscn" id="2_7n8wp"]
@@ -407,16 +407,7 @@ animations = [{
 }]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4ipgk"]
-bg_color = Color(0.15, 0.15, 0.15, 1)
-border_width_left = 3
-border_width_top = 3
-border_width_right = 3
-border_width_bottom = 3
-border_color = Color(0.25, 0.25, 0.25, 1)
-corner_radius_top_left = 5
-corner_radius_top_right = 5
-corner_radius_bottom_right = 5
-corner_radius_bottom_left = 5
+bg_color = Color(1, 1, 1, 1)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_w6say"]
 atlas = ExtResource("98_ia5kj")
@@ -426,17 +417,13 @@ region = Rect2(32, 0, 32, 32)
 atlas = ExtResource("98_ia5kj")
 region = Rect2(0, 0, 32, 32)
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_oohl4"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fv7li"]
 bg_color = Color(0.85, 0, 0, 1)
 border_width_left = 1
 border_width_top = 1
 border_width_right = 1
 border_width_bottom = 1
 border_color = Color(1, 0, 0, 1)
-corner_radius_top_left = 5
-corner_radius_top_right = 5
-corner_radius_bottom_right = 5
-corner_radius_bottom_left = 5
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6eocl"]
 bg_color = Color(0.6, 0, 0, 1)
@@ -445,34 +432,9 @@ border_width_top = 1
 border_width_right = 1
 border_width_bottom = 1
 border_color = Color(0.7, 0, 0, 1)
-corner_radius_top_left = 5
-corner_radius_top_right = 5
-corner_radius_bottom_right = 5
-corner_radius_bottom_left = 5
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fv7li"]
-bg_color = Color(0.85, 0, 0, 1)
-border_width_left = 1
-border_width_top = 1
-border_width_right = 1
-border_width_bottom = 1
-border_color = Color(1, 0, 0, 1)
-corner_radius_top_left = 5
-corner_radius_top_right = 5
-corner_radius_bottom_right = 5
-corner_radius_bottom_left = 5
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ia5kj"]
 bg_color = Color(0.85, 0.85, 0.85, 1)
-border_width_left = 1
-border_width_top = 1
-border_width_right = 1
-border_width_bottom = 1
-border_color = Color(1, 1, 1, 1)
-corner_radius_top_left = 5
-corner_radius_top_right = 5
-corner_radius_bottom_right = 5
-corner_radius_bottom_left = 5
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_jnt1c"]
 load_path = "res://.godot/imported/char_select_portrait.png-616b8b54b41b4ce5d2f84db6e4783ad3.ctex"
@@ -697,11 +659,11 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="Panel" type="Panel" parent="char_select"]
+visible = false
 layout_mode = 0
-offset_left = 21.0
-offset_top = 65.0
-offset_right = 579.0
-offset_bottom = 549.0
+offset_left = 32.0
+offset_right = 561.0
+offset_bottom = 648.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_4ipgk")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="char_select"]
@@ -744,7 +706,12 @@ grow_vertical = 0
 focus_neighbor_left = NodePath("../GridContainer/remnant_button")
 focus_neighbor_top = NodePath("../GridContainer/remnant_button")
 focus_neighbor_right = NodePath("../GridContainer/mirage_button")
-theme_override_styles/focus = SubResource("StyleBoxFlat_oohl4")
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_styles/focus = SubResource("StyleBoxFlat_fv7li")
 theme_override_styles/hover_pressed = SubResource("StyleBoxFlat_6eocl")
 theme_override_styles/hover = SubResource("StyleBoxFlat_fv7li")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_ia5kj")
