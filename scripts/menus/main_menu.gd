@@ -6,11 +6,13 @@ extends CanvasLayer
 @export var background_scene:MainMenuBackground
 @export var intro:PoemIntro
 @export var focus_button:Button
+@export var main_light:DirectionalLight3D
 var pressed=false
 
 func _ready():
 	settingsMenu.visible=false
 	settingsMenu.z_index=0
+	main_light.light_energy=1
 
 func _process(_delta):
 	if !pressed and Input.is_anything_pressed() and intro.intro_finished:
@@ -18,6 +20,7 @@ func _process(_delta):
 		anim.play("title_screen_press")
 		pressed=true
 		focus_button.grab_focus()
+		main_light.light_energy=0
 
 func _on_play_pressed():
 	get_tree().change_scene_to_file("res://scene/test_world.tscn")

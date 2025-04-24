@@ -220,14 +220,14 @@ sky_material = SubResource("ProceduralSkyMaterial_dnxt3")
 background_mode = 1
 background_color = Color(0.4644, 0.5085, 0.54, 1)
 sky = SubResource("Sky_muahy")
-tonemap_mode = 2
+tonemap_mode = 3
 fog_sky_affect = 0.1
 fog_depth_curve = 1.93187
 volumetric_fog_enabled = true
 volumetric_fog_length = 8.0
 volumetric_fog_sky_affect = 0.0
 
-[node name="MainMenu" type="CanvasLayer" node_paths=PackedStringArray("anim", "settingsMenu", "background_scene", "intro", "focus_button")]
+[node name="MainMenu" type="CanvasLayer" node_paths=PackedStringArray("anim", "settingsMenu", "background_scene", "intro", "focus_button", "main_light")]
 layer = 5
 script = ExtResource("1_psoe4")
 game_scene = ExtResource("2_cowbv")
@@ -236,6 +236,7 @@ settingsMenu = NodePath("settingsMenu/Panel")
 background_scene = NodePath("scene")
 intro = NodePath("poemIntro")
 focus_button = NodePath("MarginContainer/VBoxContainer/play")
+main_light = NodePath("scene/DirectionalLight3D")
 
 [node name="Panel" type="Panel" parent="."]
 visible = false
@@ -359,8 +360,8 @@ particles = [NodePath("Arktol/smoke"), NodePath("Arktol/ember")]
 particle_transition_speed = 1.0
 world_environment = NodePath("WorldEnvironment")
 fixed_bg_color = Color(0.3698, 0.404917, 0.43, 1)
-flicker_bg_color1 = Color(0.35, 0.116958, 0.0525, 1)
-flicker_bg_color2 = Color(0.19, 0.0634917, 0.0285, 1)
+flicker_bg_color1 = Color(0.5, 0, 0, 1)
+flicker_bg_color2 = Color(0.72, 0, 0, 1)
 
 [node name="Camera3D" type="Camera3D" parent="scene"]
 transform = Transform3D(0.446198, 0.231626, 0.86444, 0, 0.965926, -0.258819, -0.894934, 0.115484, 0.430994, 25.808, 3.576, 79.004)
@@ -452,6 +453,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -27.0186, -4.5872, 105.448)
 mesh = SubResource("PlaneMesh_oi3pj")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="scene"]
+light_energy = 0.0
 light_bake_mode = 1
 shadow_enabled = true
 directional_shadow_blend_splits = true

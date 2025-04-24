@@ -78,4 +78,4 @@ func reset():
 	for t in get_tree().get_nodes_in_group("temps"): #kill all temporary objects
 		t.queue_free()
 	
-	#if shopkeepers.size()>0: for i in shopkeepers: i.rand_upgrades()
+	if shopkeepers.size()>0: for i in shopkeepers: i.shop_screen.toggle_menu(false)

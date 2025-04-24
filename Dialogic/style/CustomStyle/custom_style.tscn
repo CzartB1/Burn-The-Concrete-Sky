@@ -7,11 +7,10 @@
 [ext_resource type="Script" uid="uid://meqhnc6o6x36" path="res://Dialogic/style/dialogue_anim_script.gd" id="6_x2for"]
 [ext_resource type="PackedScene" uid="uid://bquja8jyk8kbr" path="res://addons/dialogic/Modules/DefaultLayoutParts/Layer_VN_Textbox/vn_textbox_layer.tscn" id="8_vlc13"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_w3d1y"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3oh5d"]
 bg_color = Color(0, 0, 0, 1)
-border_width_left = 5
-border_width_right = 5
-border_blend = true
+border_width_left = 4
+border_width_right = 4
 
 [node name="Custom" type="CanvasLayer"]
 script = ExtResource("1_ifsho")
@@ -50,7 +49,7 @@ offset_top = -150.0
 offset_bottom = 215.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_w3d1y")
+theme_override_styles/panel = SubResource("StyleBoxFlat_3oh5d")
 
 [node name="DialogTextPanel" parent="VN_TextboxLayer/Anchor/AnimationParent/Sizer" index="1"]
 offset_left = 4.0
@@ -62,6 +61,9 @@ theme_override_font_sizes/italics_font_size = 8
 theme_override_font_sizes/normal_font_size = 8
 theme_override_font_sizes/bold_font_size = 8
 
+[node name="NameLabelPanel" parent="VN_TextboxLayer/Anchor/AnimationParent/Sizer/DialogTextPanel/NameLabelHolder" index="0"]
+self_modulate = Color(0.01, 0.01, 0.01, 0)
+
 [node name="VN_ChoiceLayer" parent="." instance=ExtResource("6_dvwwn")]
 mouse_filter = 0
 mouse_force_pass_scroll_events = false
@@ -69,65 +71,76 @@ font_size_custom = 10
 apply_overrides_on_ready = true
 
 [node name="Choices" parent="VN_ChoiceLayer" index="0"]
-offset_left = 194.0
-offset_top = 117.0
-offset_right = 500.0
-offset_bottom = 419.0
+offset_left = 189.0
+offset_top = 111.0
+offset_right = 505.0
+offset_bottom = 426.0
 mouse_filter = 0
 mouse_force_pass_scroll_events = false
 alignment = 0
 
 [node name="DialogicNode_ChoiceButton1" parent="VN_ChoiceLayer/Choices" index="0"]
+custom_minimum_size = Vector2(0, 25)
 mouse_force_pass_scroll_events = false
 mouse_default_cursor_shape = 2
 theme_override_font_sizes/font_size = 10
 
 [node name="DialogicNode_ChoiceButton2" parent="VN_ChoiceLayer/Choices" index="1"]
+custom_minimum_size = Vector2(0, 25)
 mouse_force_pass_scroll_events = false
 mouse_default_cursor_shape = 2
 theme_override_font_sizes/font_size = 10
 
 [node name="DialogicNode_ChoiceButton3" parent="VN_ChoiceLayer/Choices" index="2"]
+custom_minimum_size = Vector2(0, 25)
 mouse_force_pass_scroll_events = false
 mouse_default_cursor_shape = 2
 theme_override_font_sizes/font_size = 10
 
 [node name="DialogicNode_ChoiceButton4" parent="VN_ChoiceLayer/Choices" index="3"]
+custom_minimum_size = Vector2(0, 25)
 mouse_force_pass_scroll_events = false
 mouse_default_cursor_shape = 2
 theme_override_font_sizes/font_size = 10
 
 [node name="DialogicNode_ChoiceButton5" parent="VN_ChoiceLayer/Choices" index="4"]
+custom_minimum_size = Vector2(0, 25)
 mouse_force_pass_scroll_events = false
 mouse_default_cursor_shape = 2
 theme_override_font_sizes/font_size = 10
 
 [node name="DialogicNode_ChoiceButton6" parent="VN_ChoiceLayer/Choices" index="5"]
+custom_minimum_size = Vector2(0, 25)
 mouse_force_pass_scroll_events = false
 mouse_default_cursor_shape = 2
 theme_override_font_sizes/font_size = 10
 
 [node name="DialogicNode_ChoiceButton7" parent="VN_ChoiceLayer/Choices" index="6"]
+custom_minimum_size = Vector2(0, 25)
 mouse_force_pass_scroll_events = false
 mouse_default_cursor_shape = 2
 theme_override_font_sizes/font_size = 10
 
 [node name="DialogicNode_ChoiceButton8" parent="VN_ChoiceLayer/Choices" index="7"]
+custom_minimum_size = Vector2(0, 25)
 mouse_force_pass_scroll_events = false
 mouse_default_cursor_shape = 2
 theme_override_font_sizes/font_size = 10
 
 [node name="DialogicNode_ChoiceButton9" parent="VN_ChoiceLayer/Choices" index="8"]
+custom_minimum_size = Vector2(0, 25)
 mouse_force_pass_scroll_events = false
 mouse_default_cursor_shape = 2
 theme_override_font_sizes/font_size = 10
 
 [node name="DialogicNode_ChoiceButton10" parent="VN_ChoiceLayer/Choices" index="9"]
+custom_minimum_size = Vector2(0, 25)
 mouse_force_pass_scroll_events = false
 mouse_default_cursor_shape = 2
 theme_override_font_sizes/font_size = 10
 
 [node name="DialogicNode_ChoiceButton11" parent="VN_ChoiceLayer/Choices" index="10"]
+custom_minimum_size = Vector2(0, 25)
 mouse_force_pass_scroll_events = false
 mouse_default_cursor_shape = 2
 theme_override_font_sizes/font_size = 10

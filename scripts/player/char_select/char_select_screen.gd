@@ -10,6 +10,7 @@ extends Control
 @export var name2_text:RichTextLabel
 @export var desc_text:RichTextLabel
 @export var abl_text:RichTextLabel
+@export var start_wpn_text:RichTextLabel
 @export var av_gradient_bg:TextureRect
 @export_group("Intro Sequence")
 @export var intro_fall_sound:AudioStream

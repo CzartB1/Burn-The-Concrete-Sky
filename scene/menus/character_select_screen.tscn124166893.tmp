@@ -1,4 +1,4 @@
-[gd_scene load_steps=142 format=3 uid="uid://b1au5gcyhryfm"]
+[gd_scene load_steps=143 format=3 uid="uid://b1au5gcyhryfm"]
 
 [ext_resource type="Script" uid="uid://bk8v0bbmdmjaj" path="res://scripts/player/char_select/char_select_screen.gd" id="1_hc0jr"]
 [ext_resource type="PackedScene" uid="uid://bnxrhky3nbvov" path="res://scene/player/characters/remnant_fix.tscn" id="2_7n8wp"]
@@ -407,7 +407,16 @@ animations = [{
 }]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4ipgk"]
-bg_color = Color(1, 1, 1, 1)
+bg_color = Color(0.15, 0.15, 0.15, 1)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0.25, 0.25, 0.25, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_w6say"]
 atlas = ExtResource("98_ia5kj")
@@ -417,13 +426,17 @@ region = Rect2(32, 0, 32, 32)
 atlas = ExtResource("98_ia5kj")
 region = Rect2(0, 0, 32, 32)
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fv7li"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_oohl4"]
 bg_color = Color(0.85, 0, 0, 1)
 border_width_left = 1
 border_width_top = 1
 border_width_right = 1
 border_width_bottom = 1
 border_color = Color(1, 0, 0, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6eocl"]
 bg_color = Color(0.6, 0, 0, 1)
@@ -432,9 +445,34 @@ border_width_top = 1
 border_width_right = 1
 border_width_bottom = 1
 border_color = Color(0.7, 0, 0, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fv7li"]
+bg_color = Color(0.85, 0, 0, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(1, 0, 0, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ia5kj"]
 bg_color = Color(0.85, 0.85, 0.85, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_jnt1c"]
 load_path = "res://.godot/imported/char_select_portrait.png-616b8b54b41b4ce5d2f84db6e4783ad3.ctex"
@@ -572,7 +610,7 @@ modulate_color = Color(0.5, 0, 0, 1)
 texture = SubResource("AtlasTexture_xguls")
 texture_margin_left = 32.0
 
-[node name="character_select_screen" type="Control" node_paths=PackedStringArray("focus_button", "play_button", "name_text", "name2_text", "desc_text", "abl_text", "start_wpn_text", "av_gradient_bg") groups=["char_select"]]
+[node name="character_select_screen" type="Control" node_paths=PackedStringArray("focus_button", "play_button", "name_text", "name2_text", "desc_text", "abl_text", "av_gradient_bg") groups=["char_select"]]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -587,10 +625,8 @@ name_text = NodePath("char_select/name text")
 name2_text = NodePath("char_select/name text2")
 desc_text = NodePath("char_select/desc text")
 abl_text = NodePath("char_select/ability text")
-start_wpn_text = NodePath("char_select/start weapon text")
 av_gradient_bg = NodePath("Panel/gradient")
 intro_fall_sound = ExtResource("6_6eocl")
-metadata/_edit_horizontal_guides_ = [135.0, 143.0]
 
 [node name="Panel" type="Panel" parent="."]
 layout_mode = 1
@@ -659,36 +695,22 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="Panel" type="Panel" parent="char_select"]
-visible = false
 layout_mode = 0
-offset_left = 32.0
-offset_right = 561.0
-offset_bottom = 648.0
+offset_left = 21.0
+offset_top = 65.0
+offset_right = 579.0
+offset_bottom = 549.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_4ipgk")
 
-[node name="HBoxContainer" type="HBoxContainer" parent="char_select"]
+[node name="diff_rating" type="HBoxContainer" parent="char_select" groups=["diff_rating"]]
 layout_mode = 0
 offset_left = 75.0
-offset_top = 187.0
-offset_right = 495.0
-offset_bottom = 192.0
-
-[node name="diff_rating" type="HBoxContainer" parent="char_select/HBoxContainer" node_paths=PackedStringArray("diff_description") groups=["diff_rating"]]
-layout_mode = 2
+offset_top = 198.0
+offset_right = 494.0
+offset_bottom = 460.0
 script = ExtResource("97_fv7li")
 filled_texture = SubResource("AtlasTexture_w6say")
 empty_texture = SubResource("AtlasTexture_j5nt4")
-descriptors = Array[String](["|| Very Easy", "|| Easy", "|| Normal", "|| Hard", "|| Expert"])
-diff_description = NodePath("../diff_desc")
-
-[node name="diff_desc" type="RichTextLabel" parent="char_select/HBoxContainer"]
-clip_contents = false
-custom_minimum_size = Vector2(200, 0)
-layout_mode = 2
-theme_override_font_sizes/normal_font_size = 20
-bbcode_enabled = true
-fit_content = true
-scroll_active = false
 
 [node name="done_button" type="Button" parent="char_select" node_paths=PackedStringArray("name_text", "name2_text", "desc_text", "abl_text")]
 layout_mode = 1
@@ -706,12 +728,7 @@ grow_vertical = 0
 focus_neighbor_left = NodePath("../GridContainer/remnant_button")
 focus_neighbor_top = NodePath("../GridContainer/remnant_button")
 focus_neighbor_right = NodePath("../GridContainer/mirage_button")
-theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
-theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
-theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
-theme_override_styles/focus = SubResource("StyleBoxFlat_fv7li")
+theme_override_styles/focus = SubResource("StyleBoxFlat_oohl4")
 theme_override_styles/hover_pressed = SubResource("StyleBoxFlat_6eocl")
 theme_override_styles/hover = SubResource("StyleBoxFlat_fv7li")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_ia5kj")
@@ -730,9 +747,9 @@ anchors_preset = 2
 anchor_top = 1.0
 anchor_bottom = 1.0
 offset_left = 63.0
-offset_top = -430.0
+offset_top = -422.0
 offset_right = 490.0
-offset_bottom = -324.0
+offset_bottom = -300.0
 grow_vertical = 0
 theme_override_colors/default_color = Color(1, 0, 0, 0.74902)
 theme_override_fonts/bold_font = ExtResource("97_d0n3h")
@@ -745,9 +762,9 @@ anchors_preset = 2
 anchor_top = 1.0
 anchor_bottom = 1.0
 offset_left = 68.0
-offset_top = -399.0
+offset_top = -393.0
 offset_right = 486.0
-offset_bottom = -346.0
+offset_bottom = -283.0
 grow_vertical = 0
 theme_override_colors/default_color = Color(1, 1, 1, 1)
 theme_override_fonts/bold_font = ExtResource("98_oohl4")
@@ -760,12 +777,10 @@ anchors_preset = 2
 anchor_top = 1.0
 anchor_bottom = 1.0
 offset_left = 75.0
-offset_top = -346.0
+offset_top = -361.0
 offset_right = 486.0
-offset_bottom = -169.0
+offset_bottom = -184.0
 grow_vertical = 0
-theme_override_font_sizes/normal_font_size = 14
-theme_override_font_sizes/bold_font_size = 16
 text = "Choose a character!"
 
 [node name="ability text" type="RichTextLabel" parent="char_select"]
@@ -774,28 +789,13 @@ anchors_preset = 2
 anchor_top = 1.0
 anchor_bottom = 1.0
 offset_left = 75.0
-offset_top = -249.0
+offset_top = -226.0
 offset_right = 486.0
-offset_bottom = -174.0
+offset_bottom = -111.0
 grow_vertical = 0
-theme_override_font_sizes/normal_font_size = 14
-theme_override_font_sizes/bold_font_size = 16
+theme_override_font_sizes/normal_font_size = 16
+theme_override_font_sizes/bold_font_size = 18
 bbcode_enabled = true
-
-[node name="start weapon text" type="RichTextLabel" parent="char_select"]
-layout_mode = 1
-anchors_preset = 2
-anchor_top = 1.0
-anchor_bottom = 1.0
-offset_left = 75.0
-offset_top = -169.0
-offset_right = 486.0
-offset_bottom = -121.0
-grow_vertical = 0
-theme_override_font_sizes/normal_font_size = 14
-theme_override_font_sizes/bold_font_size = 16
-bbcode_enabled = true
-text = "[b]Starting Weapon:[b] "
 
 [node name="GridContainer" type="GridContainer" parent="char_select"]
 layout_mode = 1
@@ -825,7 +825,6 @@ char_name = "REMNANT"
 char_desc = "An armored soldier out of time. In one of his mission, he was time frozen in a mission against a Chronomacer. When he woke up, his world is but a distant memory."
 ablt_name = "Mobile Shield"
 ablt_desc = "Block incoming projectiles with a shield in front of him."
-str_wpn_name = "SBR-M3 Battle Rifle"
 bust = NodePath("../../../Panel/Busts/Remnant")
 bg_color = Color(0.3888, 0.47952, 0.54, 1)
 difficulty = 1
@@ -847,10 +846,9 @@ char_name = "SILVER"
 char_desc = "A gentleman-thief and a follower of Kyklosism. He believes that Arktol is in a prolonged state of stagnation, and that he is chosen as an agent of change."
 ablt_name = "Anchor Card"
 ablt_desc = "Place a card which acts as an anchor where you can teleport back to."
-str_wpn_name = "'Hollard' Type-57 Revolver"
 bust = NodePath("../../../Panel/Busts/Silver")
 bg_color = Color(0.86, 0.834773, 0.7654, 1)
-difficulty = 4
+difficulty = 3
 
 [node name="impact_button" type="Button" parent="char_select/GridContainer" node_paths=PackedStringArray("selector", "bust")]
 layout_mode = 2
@@ -869,10 +867,9 @@ char_name = "IMPACT"
 char_desc = "A slave-gladiator fighting for freedom. Sold by her parents at a young age, she honed her combat skill early, which she eventually uses for her escape."
 ablt_name = "Grapple"
 ablt_desc = "Pull an enemy towards her with her grappling hook."
-str_wpn_name = "'Shotty' Sawed-off Double Barrel Shotgun"
 bust = NodePath("../../../Panel/Busts/Impact")
 bg_color = Color(0.87, 0, 0, 1)
-difficulty = 3
+difficulty = 2
 
 [node name="mirage_button" type="Button" parent="char_select/GridContainer" node_paths=PackedStringArray("selector", "bust")]
 layout_mode = 2
@@ -891,7 +888,6 @@ char_name = "MIRAGE"
 char_desc = "An assassin on a quest for vengeance. She was born to a lineage of magical assassins, but her family was massacred on suspicions of treason."
 ablt_name = "Decoy"
 ablt_desc = "Place a decoy to trick the enemies."
-str_wpn_name = "Shank"
 bust = NodePath("../../../Panel/Busts/Mirage")
 bg_color = Color(0.36211, 0.2058, 0.49, 1)
 difficulty = 5

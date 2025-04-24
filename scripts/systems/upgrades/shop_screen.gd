@@ -42,6 +42,10 @@ func _process(_delta):
 		start = false
 	if  plr == null:
 		plr = get_tree().get_first_node_in_group("Player")
+	
+	if selected_button:
+		$Panel/MarginContainer/HBoxContainer/descriptions/HBoxContainer/weapon1select_button.disabled=selected_button.disabled
+		$Panel/MarginContainer/HBoxContainer/descriptions/HBoxContainer/weapon2select_button.disabled=selected_button.disabled
 
 func toggle_menu(on:bool):
 	menu.visible = on
@@ -125,6 +129,7 @@ func _on_weapon_2_select_button_pressed():
 			print(str(-plr.upgrade_manager.weapon_manager.available_weapons[selected_weapon_id].price)+" money")
 			plr.upgrade_manager.weapon_manager.change_weapon_2(selected_weapon_id)
 			has_selected=false
+			selected_button.disabled=true
 			selected=null
 		elif selected and (econom.money-plr.upgrade_manager.weapon_manager.available_weapons[selected_weapon_id].price)<0:
 			print("ur broke")
@@ -140,6 +145,7 @@ func _on_weapon_1_select_button_pressed():
 			print(str(-plr.upgrade_manager.weapon_manager.available_weapons[selected_weapon_id].price)+" money")
 			plr.upgrade_manager.weapon_manager.change_weapon_1(selected_weapon_id)
 			has_selected=false
+			selected_button.disabled=true
 			selected=null
 		elif selected and (econom.money-plr.upgrade_manager.weapon_manager.available_weapons[selected_weapon_id].price)<0:
 			print("ur broke")

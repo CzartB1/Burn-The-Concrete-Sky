@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://blwyb80tpldxb"]
+[gd_scene load_steps=15 format=3 uid="uid://blwyb80tpldxb"]
 
 [ext_resource type="Script" uid="uid://2anfk75352qw" path="res://scripts/menus/pause_menu.gd" id="1_83na2"]
 
@@ -62,8 +62,11 @@ bg_color = Color(0, 0, 0, 1)
 border_width_left = 2
 border_width_right = 2
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6o3w0"]
-bg_color = Color(0.69, 0, 0, 1)
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gi80i"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+border_width_top = 2
+border_width_bottom = 2
+border_color = Color(0.75, 0.75, 0.75, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3t38a"]
 bg_color = Color(0.69, 0, 0, 1)
@@ -72,9 +75,6 @@ bg_color = Color(0.69, 0, 0, 1)
 bg_color = Color(0.69, 0, 0, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dps5p"]
-bg_color = Color(0.69, 0, 0, 1)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gi80i"]
 bg_color = Color(0.69, 0, 0, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ekmyp"]
@@ -120,13 +120,13 @@ anchors_preset = 13
 anchor_left = 0.5
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -160.0
+offset_left = -167.0
 offset_top = 283.0
-offset_right = 160.0
+offset_right = 167.0
 offset_bottom = -121.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_constants/separation = 25
+theme_override_constants/separation = 5
 alignment = 1
 
 [node name="resume" type="Button" parent="Panel/VBoxContainer"]
@@ -138,7 +138,7 @@ theme_override_colors/font_hover_color = Color(0.745098, 0.745098, 0.745098, 1)
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_colors/font_focus_color = Color(1, 1, 1, 1)
 theme_override_colors/font_pressed_color = Color(1, 1, 1, 1)
-theme_override_styles/focus = SubResource("StyleBoxFlat_6o3w0")
+theme_override_styles/focus = SubResource("StyleBoxFlat_gi80i")
 theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxFlat_3t38a")
 theme_override_styles/hover_pressed = SubResource("StyleBoxFlat_ged0c")
 theme_override_styles/hover_mirrored = SubResource("StyleBoxFlat_dps5p")
@@ -158,7 +158,7 @@ theme_override_colors/font_hover_color = Color(0.745098, 0.745098, 0.745098, 1)
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_colors/font_focus_color = Color(1, 1, 1, 1)
 theme_override_colors/font_pressed_color = Color(1, 1, 1, 1)
-theme_override_styles/focus = SubResource("StyleBoxFlat_6o3w0")
+theme_override_styles/focus = SubResource("StyleBoxFlat_gi80i")
 theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxFlat_3t38a")
 theme_override_styles/hover_pressed = SubResource("StyleBoxFlat_ged0c")
 theme_override_styles/hover_mirrored = SubResource("StyleBoxFlat_dps5p")
@@ -167,7 +167,7 @@ theme_override_styles/pressed_mirrored = SubResource("StyleBoxFlat_ekmyp")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_abyvj")
 theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_vws7g")
 theme_override_styles/normal = SubResource("StyleBoxEmpty_gesil")
-text = "Restart"
+text = "New Run"
 
 [node name="settings" type="Button" parent="Panel/VBoxContainer"]
 layout_mode = 2
@@ -178,7 +178,7 @@ theme_override_colors/font_hover_color = Color(0.745098, 0.745098, 0.745098, 1)
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_colors/font_focus_color = Color(1, 1, 1, 1)
 theme_override_colors/font_pressed_color = Color(1, 1, 1, 1)
-theme_override_styles/focus = SubResource("StyleBoxFlat_6o3w0")
+theme_override_styles/focus = SubResource("StyleBoxFlat_gi80i")
 theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxFlat_3t38a")
 theme_override_styles/hover_pressed = SubResource("StyleBoxFlat_ged0c")
 theme_override_styles/hover_mirrored = SubResource("StyleBoxFlat_dps5p")
@@ -198,7 +198,7 @@ theme_override_colors/font_hover_color = Color(0.745098, 0.745098, 0.745098, 1)
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_colors/font_focus_color = Color(1, 1, 1, 1)
 theme_override_colors/font_pressed_color = Color(1, 1, 1, 1)
-theme_override_styles/focus = SubResource("StyleBoxFlat_6o3w0")
+theme_override_styles/focus = SubResource("StyleBoxFlat_gi80i")
 theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxFlat_3t38a")
 theme_override_styles/hover_pressed = SubResource("StyleBoxFlat_ged0c")
 theme_override_styles/hover_mirrored = SubResource("StyleBoxFlat_dps5p")
@@ -218,7 +218,7 @@ theme_override_colors/font_hover_color = Color(0.745098, 0.745098, 0.745098, 1)
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_colors/font_focus_color = Color(1, 1, 1, 1)
 theme_override_colors/font_pressed_color = Color(1, 1, 1, 1)
-theme_override_styles/focus = SubResource("StyleBoxFlat_6o3w0")
+theme_override_styles/focus = SubResource("StyleBoxFlat_gi80i")
 theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxFlat_3t38a")
 theme_override_styles/hover_pressed = SubResource("StyleBoxFlat_ged0c")
 theme_override_styles/hover_mirrored = SubResource("StyleBoxFlat_dps5p")
