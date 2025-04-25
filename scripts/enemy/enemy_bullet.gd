@@ -12,7 +12,7 @@ func _physics_process(_delta):
 	
 	if homing:
 		var plr=get_tree().get_first_node_in_group("Player")
-		look_at(plr.global_position)
+		if plr: look_at(plr.global_position)
 #	#TODO make it so that some bullets can be shot down
 	move_and_slide()
 
@@ -32,7 +32,7 @@ func _on_area_3d_body_entered(body):
 	elif deflected:
 		if body != Player and body != self and body != Enemy_Bullet:
 			if body is Enemy:
-				body.take_damage(damage)
+				body.take_damage(damage, global_position)
 			queue_free()
 	
 

@@ -10,7 +10,7 @@ var stat_starttime:int=0
 var stat_timenow:int=0
 var time_count_stop=false
 var paused:bool=false
-var prev_timescale
+var prev_timescale: float = 1.0
 var char_selection:Array=[]
 var time_slowed:bool=false
 var in_battle:bool=false
@@ -18,11 +18,7 @@ var players_list:Array[Node]=[]
 
 func _process(delta):
 	players_list=get_tree().get_nodes_in_group("Player")
-	if players_list.size()>1:
-		for plr in players_list:
-			if players_list.find(plr)>0:
-				plr.queue_free()
-	
+	if players_list.size()>1:for plr in players_list:if players_list.find(plr)>0: plr.queue_free()
 
 # TODO show_char_select variable reset when exiting
 func reset_stat():
@@ -48,28 +44,30 @@ func stop_count_time():
 	
 	return str_elapsed
 
-func restart(set_char_select:bool):
-	var plr=get_tree().get_first_node_in_group("Player")
-	if plr is Player:
-		plr.queue_free()
-		in_battle=false
-		Engine.time_scale = 1.0
-		AudioServer.playback_speed_scale=1.0
-		show_char_select=set_char_select #FIXME stage overhaul fucked non-char select restart up
-		reset_stat()
-		for k in get_tree().get_nodes_in_group("Enemy"): #kill all enemy in restart
-			k.queue_free()
-		get_tree().reload_current_scene()
+func restart(set_char_select: bool):
+	# kill everything
+	kill_all_enemies()
+	var pl = get_tree().get_first_node_in_group("Player")
+	if pl:
+		pl.queue_free()
+	# store your intent for new scene
+	show_char_select = set_char_select
+	# reset gameplay stats
+	reset_stat()
+	in_battle = false
+	Engine.time_scale = 1.0
+	AudioServer.playback_speed_scale = 1.0
+	# reload
+	get_tree().reload_current_scene()
 
 func pause():
-	prev_timescale=Engine.time_scale
-	Engine.time_scale=0
-	paused=true
+	prev_timescale = Engine.time_scale
+	Engine.time_scale = 0
+	paused = true
 
 func unpause():
-	if prev_timescale!=null: Engine.time_scale=prev_timescale
-	elif !prev_timescale: Engine.time_scale=1
-	paused=false
+	Engine.time_scale = prev_timescale
+	paused = false
 
 func kill_all_enemies():
 	var en=get_tree().get_nodes_in_group("Enemy")

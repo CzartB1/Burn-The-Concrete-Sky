@@ -16,7 +16,7 @@
 [ext_resource type="PackedScene" uid="uid://d5vt4gjy1jd2" path="res://scene/player/characters/Mirage.tscn" id="13_ojb4m"]
 [ext_resource type="Script" uid="uid://exx6mb3ilk5" path="res://scripts/systems/char_manager.gd" id="20_0ogmo"]
 [ext_resource type="AudioStream" uid="uid://b0if2ifkuv2pi" path="res://audios/music/char_themes/Remnant_Theme.wav" id="20_s143w"]
-[ext_resource type="AudioStream" uid="uid://ww5tyx75bmgb" path="res://audios/music/char_themes/remnant_song.wav" id="21_s143w"]
+[ext_resource type="AudioStream" uid="uid://ww5tyx75bmgb" path="res://audios/music/char_themes/placeholder_song.wav" id="21_s143w"]
 [ext_resource type="Script" uid="uid://c7x00y40vwan" path="res://scripts/systems/music_manager.gd" id="21_ss30e"]
 [ext_resource type="AudioStream" uid="uid://ybi8tdaalhgs" path="res://audios/music/char_themes/impact_theme.wav" id="22_yfyi7"]
 [ext_resource type="AudioStream" uid="uid://c8kt3p2b25p40" path="res://audios/music/char_themes/Ashes to Ashes.mp3" id="23_frive"]

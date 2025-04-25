@@ -3,12 +3,12 @@
 importer="wav"
 type="AudioStreamWAV"
 uid="uid://ww5tyx75bmgb"
-path="res://.godot/imported/remnant_song.wav-216c0f185639f5f27b7846ea45dbc80b.sample"
+path="res://.godot/imported/placeholder_song.wav-8e1efb844af4abb09163c52f46c80004.sample"
 
 [deps]
 
-source_file="res://audios/music/char_themes/remnant_song.wav"
-dest_files=["res://.godot/imported/remnant_song.wav-216c0f185639f5f27b7846ea45dbc80b.sample"]
+source_file="res://audios/music/char_themes/placeholder_song.wav"
+dest_files=["res://.godot/imported/placeholder_song.wav-8e1efb844af4abb09163c52f46c80004.sample"]
 
 [params]
 

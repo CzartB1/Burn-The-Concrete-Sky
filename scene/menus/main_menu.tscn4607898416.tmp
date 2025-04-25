@@ -361,7 +361,7 @@ particle_transition_speed = 1.0
 world_environment = NodePath("WorldEnvironment")
 fixed_bg_color = Color(0.3698, 0.404917, 0.43, 1)
 flicker_bg_color1 = Color(0.69, 0, 0, 1)
-flicker_bg_color2 = Color(1, 0.281333, 0.12, 1)
+flicker_bg_color2 = Color(0.98, 0, 0, 1)
 
 [node name="Camera3D" type="Camera3D" parent="scene"]
 transform = Transform3D(0.446198, 0.231626, 0.86444, 0, 0.965926, -0.258819, -0.894934, 0.115484, 0.430994, 25.808, 3.576, 79.004)

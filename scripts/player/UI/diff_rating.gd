@@ -27,7 +27,7 @@ func _ready():
 		push_warning("`descriptors` length (" + str(descriptors.size()) + ") does not match `max_stars` (" + str(max_stars) + ").")
 	if diff_description == null:
 		push_warning("`diff_description` is not assigned. Descriptor text will not show.")
-	_update_stars()
+	#_update_stars()
 
 func update_rating(value: int) -> void:
 	rating = clamp(value, 0, max_stars)
@@ -56,6 +56,3 @@ func _update_stars() -> void:
 		diff_description.clear()  # Remove previous text
 		if rating > 0 and rating <= descriptors.size():
 			diff_description.append_text(descriptors[rating - 1])
-
-# Example runtime call:
-# $DifficultyRating.update_rating(character.difficulty)

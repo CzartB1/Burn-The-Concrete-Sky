@@ -20,7 +20,6 @@ var disabled=false
 # At the class level, define the two velocity vectors:
 var input_velocity: Vector3 = Vector3.ZERO
 var external_velocity: Vector3 = Vector3.ZERO
-var vel: Vector3 = Vector3.ZERO
 # Set how quickly external pushes fade away.
 var external_decay_rate: float = 10.0
 @export var body:Node3D
@@ -66,6 +65,7 @@ var show_cursor = false
 var mousepos
 @export_group("animation")
 @export var anim_manager:AnimationTree
+@onready var gore_manager:Gore_Manager=$gore_manager
 @export_group("music")
 @export var combat_music_index:int=0 #HACK if you wanna change the music, add it to the combat music list in the musicmanager and set this to its index
 @export_group("audio")
@@ -87,11 +87,15 @@ func _ready():
 	if cam:cam_normal_size=cam.size
 	total_speed_mult=move_speed_multiplier
 	
+	var all = get_tree().get_nodes_in_group("Player")
+	for i in range(all.size()-1, 0, -1):
+		all[i].queue_free()
+
 
 func _process(delta):
 	if HP_bar: HP_bar.value = hp
-	time_slow_bar.value = time_slow_duration
-	if !cam: cam=get_tree().get_first_node_in_group("playercamera")
+	if time_slow_bar and time_slow_duration: time_slow_bar.value = time_slow_duration
+	if !cam and is_inside_tree(): cam=get_tree().get_first_node_in_group("playercamera")
 	if alive and !in_dialogue:
 		if controller:
 			cursor_icon.set_position(cam.unproject_position(cont_look_target.global_position))
@@ -122,25 +126,14 @@ func _process(delta):
 		dash_cooldown_timer.stop()
 		recharging_dash = false
 	
-	if hp <= 0:
-		death()
+	if hp <= 0:death()
 	
 	if Input.is_action_just_pressed("slow_time") and !game_manager.paused:
 		if letter_box==null: letter_box = get_tree().get_first_node_in_group("l8rbox")
 		if time_slowed:
-			var cam_size_tween=create_tween()
-			Engine.time_scale = 1.0
-			AudioServer.playback_speed_scale=1.0
-			letter_box.show_box=false
-			time_slowed=false
-			cam_size_tween.tween_property($cam_holder/Camera3D,"size",cam_normal_size,1*Engine.time_scale)
-		elif !time_slowed:
-			var cam_size_tween=create_tween()
-			Engine.time_scale = 0.2
-			AudioServer.playback_speed_scale=0.2
-			letter_box.show_box=true
-			time_slowed=true
-			cam_size_tween.tween_property($cam_holder/Camera3D,"size",focus_zoom_size,1*Engine.time_scale)
+			stop_time_slow()
+		else:
+			start_time_slow()
 	if time_slowed:
 		total_speed_mult=move_speed_multiplier*time_slow_speed_mult
 		time_slow_duration-=delta*time_slow_decrease_multiplier/Engine.time_scale
@@ -163,17 +156,12 @@ func _process(delta):
 	elif !show_cursor:
 		Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
 		cursor_icon.visible = true
-	
-	var plr_check=get_tree().get_nodes_in_group("Player")
-	for p in plr_check.size()-1:
-		if p < 0:
-			plr_check[p].queue_free()
 
 func _physics_process(delta):
 	if alive and !disabled and !in_dialogue:
 		look(delta)
 		move(delta)
-	elif disabled or in_dialogue: 
+	elif disabled or in_dialogue or !alive: 
 		# when choosing a starting weapon, the player can still move
 		# and when they change room when theyre still in the weapons menu, they cant exit
 		# so, I just forced the plr controller to stop :D *secretly in tears from the hours fixing this
@@ -244,16 +232,22 @@ func _on_dash_cooldown_timeout():
 	if current_dash_amount < dash_amount:
 		dash_timer.start()
 
-func take_damage(damage:int):
+func take_damage(damage:int, attacker:Vector3=global_position):
 	if hurt_sound!=null:play_sound(hurt_sound)
 	if !dashing and !invulnerable:
 		print(name + " took " + str(damage) + " damage")
 		hp-=damage*damage_taken_multiplier
 		var econom=get_tree().get_first_node_in_group("Economy")
 		if econom is Player_Economy_Manager:econom.mult_reset(true)
+	if gore_manager!=null:
+		gore_manager.mist_activate(attacker)
+		if hp>0:
+			gore_manager.shoot_squirt(attacker)
+		elif hp<=0: gore_manager.shoot_splatters(attacker)
 
 func death():
 	game_manager.stop_count_time()
+	body.visible=false
 	alive = false
 	death_screen=get_tree().get_first_node_in_group("death_screen")
 	var econom=get_tree().get_first_node_in_group("Economy")
@@ -282,3 +276,19 @@ func play_sound(austr:AudioStream):
 		audio.play_sound(austr)
 	elif !austr:
 		print("sound not found")
+
+func start_time_slow():
+	var cam_size_tween = create_tween()
+	Engine.time_scale = 0.2
+	AudioServer.playback_speed_scale = 0.2
+	letter_box.show_box = true
+	time_slowed = true
+	cam_size_tween.tween_property($cam_holder/Camera3D, "size", focus_zoom_size, 1 * Engine.time_scale)
+
+func stop_time_slow():
+	var cam_size_tween = create_tween()
+	Engine.time_scale = 1.0
+	AudioServer.playback_speed_scale = 1.0
+	letter_box.show_box = false
+	time_slowed = false
+	cam_size_tween.tween_property($cam_holder/Camera3D, "size", cam_normal_size, 1 * Engine.time_scale)

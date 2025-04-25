@@ -14,7 +14,7 @@ func _ready():
 	layer=1
 	settingsMenu.z_index=0
 	anim.play("reset")
-	#anim.process_mode = 
+	plr = get_tree().get_first_node_in_group("Player")
 
 func _process(delta):
 	var current_time = Time.get_ticks_usec()
@@ -25,7 +25,8 @@ func _process(delta):
 	if anim.is_playing():
 		anim.advance(actual_delta)
 	
-	plr = get_tree().get_first_node_in_group("Player")
+	if plr == null:plr = get_tree().get_first_node_in_group("Player")
+	
 	HUD.visible=!game_manager.paused
 	#menu.visible=game_manager.paused
 	if Input.is_action_just_pressed("pause"):
@@ -42,9 +43,11 @@ func _process(delta):
 			game_manager.pause()
 			layer=9
 			var shp=get_tree().get_nodes_in_group("shops")
-			focus_button.grab_focus()
+			if focus_button:focus_button.grab_focus()
 			for i in shp:
 				if i is Shopkeeper: i.disable_shop()
+	
+	if settingsMenu.visible and !game_manager.paused: settingsMenu.visible=false
 
 func _on_resume_pressed():
 	if game_manager.paused:
@@ -66,6 +69,7 @@ func _on_main_menuu_exit_pressed():
 	print("quitting to menu")
 
 func _on_restart_pressed():
+	get_tree().get_first_node_in_group("Player").queue_free()
 	game_manager.kill_all_enemies()
 	game_manager.restart(true)
 	game_manager.unpause()

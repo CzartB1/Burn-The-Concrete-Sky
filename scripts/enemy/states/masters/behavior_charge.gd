@@ -77,8 +77,8 @@ func end_charging():
 func _on_charge_hitbox_body_entered(body):
 	if !charging: return
 	end_charging()
-	if body is Player: body.take_damage(charge_damage)
-	elif body is Enemy and body!=master: body.take_damage(charge_damage)
+	if body is Player: body.take_damage(charge_damage, global_position)
+	elif body is Enemy and body!=master: body.take_damage(charge_damage, global_position)
 
 func _on_cooldown_timer_timeout():
 	can_attack=true

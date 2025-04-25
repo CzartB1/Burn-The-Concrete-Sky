@@ -22,7 +22,7 @@ func _process(delta): #TODO music for death and char select
 		if !combat:
 			if stream.get_clip_stream(1).instantiate_playback() is AudioStreamPlaybackInteractive:
 				#HACK copy this code for rest,ambient, and boss music
-				stream.get_clip_stream(1).initial_clip=plr.combat_music_index 
+				if plr: stream.get_clip_stream(1).initial_clip=plr.combat_music_index 
 				#Just changing the initial clip cuz godot hasn't added a good way to replace a clip in audiostreaminteractive
 				#I'm sweatin, cryin, shittin, pissin, vomitin, lactatin, and cummin right now
 			if manager.current_room_category==1:

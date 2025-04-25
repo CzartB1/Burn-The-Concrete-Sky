@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=3 uid="uid://bnxrhky3nbvov"]
+[gd_scene load_steps=33 format=3 uid="uid://bnxrhky3nbvov"]
 
 [ext_resource type="Script" uid="uid://bnh4kfsbfcrbs" path="res://scripts/player/player.gd" id="1_p385m"]
 [ext_resource type="AudioStream" uid="uid://gvwkqtej1w5x" path="res://audios/effects/player_hurt.wav" id="2_8x8wo"]
@@ -12,6 +12,7 @@
 [ext_resource type="Script" uid="uid://cp8lfu07mltsr" path="res://scripts/player/abilities/remnant_ability.gd" id="10_bkvo7"]
 [ext_resource type="PackedScene" uid="uid://bpfjiepxftms8" path="res://scene/player/footstep_detector.tscn" id="10_xbfqs"]
 [ext_resource type="PackedScene" uid="uid://cbe7vyi0jjwbi" path="res://scene/player/characters/abilities/remnant_ability_area.tscn" id="11_hvpsy"]
+[ext_resource type="PackedScene" uid="uid://derh5gmq2d8f8" path="res://scene/utilities/gore/gore_manager.tscn" id="13_s7tit"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_fhlo8"]
 radius = 0.252089
@@ -163,7 +164,7 @@ body = NodePath("..")
 transform = Transform3D(-1, 0, -1.50996e-07, 0, 1, 0, 1.50996e-07, 0, -1, 0, -0.789583, 0)
 
 [node name="Skeleton3D" parent="body/Remnant/metarig" index="0"]
-bones/0/position = Vector3(2.63418e-09, 1.00982, -0.00681275)
+bones/0/position = Vector3(2.63418e-09, 1.00984, -0.00681275)
 bones/0/rotation = Quaternion(0, 0.382684, 0, 0.92388)
 bones/0/scale = Vector3(1, 1, 1)
 bones/1/rotation = Quaternion(0.0104663, -0.642728, 0.00878231, 0.765973)
@@ -185,23 +186,23 @@ bones/10/scale = Vector3(1, 1, 1)
 bones/11/rotation = Quaternion(0.165634, 0.214311, -0.0302835, 0.962143)
 bones/12/rotation = Quaternion(-0.239012, 0.00234275, 0.0149519, 0.970899)
 bones/13/position = Vector3(0.00558722, 0.0621002, 0.098)
-bones/13/rotation = Quaternion(0.91952, -0.0373092, 0.380862, 0.089641)
+bones/13/rotation = Quaternion(0.919488, -0.036963, 0.380895, 0.0899713)
 bones/13/scale = Vector3(1, 1, 1)
-bones/14/rotation = Quaternion(0.111614, 1.12028e-07, 4.20876e-07, 0.993752)
-bones/15/rotation = Quaternion(-0.682893, 0.000174012, -0.000180725, 0.730519)
+bones/14/rotation = Quaternion(0.111587, -1.46621e-08, -5.76927e-10, 0.993755)
+bones/15/rotation = Quaternion(-0.682892, -0.000135117, 0.000140474, 0.730519)
 bones/15/scale = Vector3(1, 1, 1)
 bones/16/position = Vector3(0.00558724, 0.0621002, -0.098)
-bones/16/rotation = Quaternion(0.905537, 0.0365265, 0.411253, -0.0976727)
+bones/16/rotation = Quaternion(0.905508, 0.036095, 0.411321, -0.0978135)
 bones/16/scale = Vector3(1, 1, 1)
-bones/17/rotation = Quaternion(0.0670314, 0.00180352, 0.0102336, 0.997697)
-bones/18/rotation = Quaternion(-0.742082, 0.010735, -0.0174918, 0.669995)
+bones/17/rotation = Quaternion(0.0674228, 0.00179813, 0.0102614, 0.99767)
+bones/18/rotation = Quaternion(-0.742057, 0.0110391, -0.0178162, 0.67001)
 bones/18/scale = Vector3(1, 1, 1)
 bones/19/rotation = Quaternion(-0.655919, -0.0708456, 0.0243406, 0.751105)
 bones/19/scale = Vector3(1, 1, 1)
 bones/20/rotation = Quaternion(-0.0243409, 0.751105, 0.655919, -0.0708453)
 
 [node name="BoneAttachment3D" type="BoneAttachment3D" parent="body/Remnant/metarig/Skeleton3D" index="1"]
-transform = Transform3D(-0.997096, 0.0307141, 0.0696822, 0.0706507, 0.0316627, 0.996999, 0.0284156, 0.999027, -0.0337409, -0.207116, 1.54652, 0.520549)
+transform = Transform3D(-0.997096, 0.0307141, 0.0696822, 0.0706507, 0.0316627, 0.996999, 0.0284156, 0.999027, -0.0337409, -0.207116, 1.54654, 0.520549)
 bone_name = "hand.R"
 bone_idx = 10
 
@@ -265,6 +266,8 @@ body = NodePath("../body")
 [node name="Timer" type="Timer" parent="Ability"]
 wait_time = 3.0
 one_shot = true
+
+[node name="gore_manager" parent="." instance=ExtResource("13_s7tit")]
 
 [connection signal="timeout" from="dash_timer" to="." method="_on_dash_timer_timeout"]
 [connection signal="timeout" from="dash_cooldown" to="." method="_on_dash_timer_timeout"]
