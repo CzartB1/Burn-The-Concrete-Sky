@@ -1,12 +1,20 @@
-[gd_scene load_steps=4 format=3 uid="uid://dcr5km4dago7k"]
+[gd_scene load_steps=6 format=3 uid="uid://dcr5km4dago7k"]
 
 [ext_resource type="Script" uid="uid://cbqi2o4hlwfi3" path="res://scripts/player/upgrades/wind_blade_object.gd" id="1_kcw5y"]
+[ext_resource type="PackedScene" uid="uid://yqqv3mnbaeic" path="res://meshes/player/abilities/wind_blade.blend" id="2_3tvfn"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_7rswg"]
-radius = 1.8
+radius = 2.33014
 
-[sub_resource type="SphereMesh" id="SphereMesh_r8rey"]
-radius = 1.75
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_3tvfn"]
+animation = &"spin"
+
+[sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_33hjy"]
+graph_offset = Vector2(-358.133, 123.445)
+nodes/Animation/node = SubResource("AnimationNodeAnimation_3tvfn")
+nodes/Animation/position = Vector2(220, 200)
+nodes/output/position = Vector2(440, 160)
+node_connections = [&"output", 0, &"Animation"]
 
 [node name="wind_blade_object" type="Area3D" groups=["temps"]]
 script = ExtResource("1_kcw5y")
@@ -14,11 +22,20 @@ script = ExtResource("1_kcw5y")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("SphereShape3D_7rswg")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-mesh = SubResource("SphereMesh_r8rey")
-
 [node name="Timer" type="Timer" parent="."]
 autostart = true
 
+[node name="wind_blade" parent="." instance=ExtResource("2_3tvfn")]
+
+[node name="Cube" parent="wind_blade" index="0"]
+transform = Transform3D(0.900969, 0, 0.433884, 0, 1, 0, -0.433884, 0, 0.900969, 0, 0, 0)
+
+[node name="AnimationTree" type="AnimationTree" parent="."]
+root_node = NodePath("../wind_blade")
+tree_root = SubResource("AnimationNodeBlendTree_33hjy")
+anim_player = NodePath("../wind_blade/AnimationPlayer")
+
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+
+[editable path="wind_blade"]
