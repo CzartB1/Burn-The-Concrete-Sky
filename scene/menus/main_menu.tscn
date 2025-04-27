@@ -1,9 +1,11 @@
-[gd_scene load_steps=38 format=3 uid="uid://dwsbb66nlsgy1"]
+[gd_scene load_steps=40 format=3 uid="uid://dwsbb66nlsgy1"]
 
 [ext_resource type="Script" uid="uid://bihhpxn887ica" path="res://scripts/menus/main_menu.gd" id="1_psoe4"]
 [ext_resource type="PackedScene" uid="uid://dwx34svdy6oqn" path="res://scene/test_world.tscn" id="2_cowbv"]
 [ext_resource type="Texture2D" uid="uid://bewcyc8yfjlxo" path="res://sprites/Title.png" id="3_7wtxt"]
+[ext_resource type="AudioStream" uid="uid://0bd51lsbw0at" path="res://audios/music/title_soft.wav" id="3_fdv2l"]
 [ext_resource type="PackedScene" uid="uid://beurm5o4g7kuq" path="res://scene/menus/settings_menu.tscn" id="4_7cyxg"]
+[ext_resource type="AudioStream" uid="uid://cghq5n0tw8tba" path="res://audios/music/climax_theme.wav" id="4_n02at"]
 [ext_resource type="Script" uid="uid://ch3wqfrw3qmvh" path="res://scripts/menus/main_menu_background.gd" id="5_al40l"]
 [ext_resource type="PackedScene" uid="uid://xfkyjhqxxcl6" path="res://meshes/environment/Arktol.blend" id="5_aso8j"]
 [ext_resource type="Script" uid="uid://cadnq40sgh4r8" path="res://scripts/menus/poem_intro.gd" id="7_1jlfq"]
@@ -227,7 +229,7 @@ volumetric_fog_enabled = true
 volumetric_fog_length = 8.0
 volumetric_fog_sky_affect = 0.0
 
-[node name="MainMenu" type="CanvasLayer" node_paths=PackedStringArray("anim", "settingsMenu", "background_scene", "intro", "focus_button", "main_light")]
+[node name="MainMenu" type="CanvasLayer" node_paths=PackedStringArray("anim", "settingsMenu", "background_scene", "intro", "focus_button", "main_light", "aud_plr")]
 layer = 5
 script = ExtResource("1_psoe4")
 game_scene = ExtResource("2_cowbv")
@@ -237,6 +239,9 @@ background_scene = NodePath("scene")
 intro = NodePath("poemIntro")
 focus_button = NodePath("MarginContainer/VBoxContainer/play")
 main_light = NodePath("scene/DirectionalLight3D")
+aud_plr = NodePath("scene/Camera3D/AudioStreamPlayer")
+soft_theme = ExtResource("3_fdv2l")
+rough_theme = ExtResource("4_n02at")
 
 [node name="Panel" type="Panel" parent="."]
 visible = false
@@ -365,6 +370,8 @@ flicker_bg_color2 = Color(1, 0.281333, 0.12, 1)
 
 [node name="Camera3D" type="Camera3D" parent="scene"]
 transform = Transform3D(0.446198, 0.231626, 0.86444, 0, 0.965926, -0.258819, -0.894934, 0.115484, 0.430994, 25.808, 3.576, 79.004)
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="scene/Camera3D"]
 
 [node name="Arktol" parent="scene" instance=ExtResource("5_aso8j")]
 

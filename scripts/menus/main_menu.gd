@@ -7,15 +7,23 @@ extends CanvasLayer
 @export var intro:PoemIntro
 @export var focus_button:Button
 @export var main_light:DirectionalLight3D
+@export_group("music")
+@export var aud_plr:AudioStreamPlayer
+@export var soft_theme:AudioStream
+@export var rough_theme:AudioStream
 var pressed=false
 
 func _ready():
 	settingsMenu.visible=false
 	settingsMenu.z_index=0
 	main_light.light_energy=1
+	aud_plr.stream=soft_theme
+	aud_plr.play()
 
 func _process(_delta):
 	if !pressed and Input.is_anything_pressed() and intro.intro_finished:
+		aud_plr.stream=rough_theme
+		aud_plr.play()
 		background_scene.flicker_enabled=true
 		anim.play("title_screen_press")
 		pressed=true
