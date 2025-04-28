@@ -936,134 +936,8 @@ input_ray_pickable = false
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.41271, -1.2511, -0.744627)
 shape = SubResource("BoxShape3D_b3dmv")
 
-[node name="Node3D" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -20.1201)
-
-[node name="wall_corpse" parent="Node3D" instance=ExtResource("11_ybb64")]
-transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 0.105885, -0.745681, 0)
-
-[node name="Skeleton3D" parent="Node3D/wall_corpse/corpse" index="0"]
-bones/1/rotation = Quaternion(0.0404926, -0.705947, 0.0404926, 0.705946)
-bones/2/rotation = Quaternion(0.0149178, -1.19213e-07, 1.67156e-09, 0.999889)
-bones/3/rotation = Quaternion(-0.47233, -0.491499, -0.399487, 0.612979)
-bones/4/rotation = Quaternion(0.0118416, 0.630649, -0.00844084, 0.775932)
-bones/7/rotation = Quaternion(-0.464763, 0.5023, 0.405542, 0.605992)
-bones/8/rotation = Quaternion(0.00216458, -0.637654, -0.0121453, 0.770225)
-bones/11/rotation = Quaternion(0.296838, 2.27624e-07, 7.07691e-08, 0.954928)
-bones/12/rotation = Quaternion(0.10617, -1.18639e-07, 3.79544e-08, 0.994348)
-bones/14/rotation = Quaternion(0.0683987, -1.56479e-08, 5.18378e-09, 0.997658)
-bones/17/rotation = Quaternion(0.0683987, -1.56479e-08, 5.18378e-09, 0.997658)
-bones/20/rotation = Quaternion(-0.0243409, 0.751105, 0.655919, -0.0708453)
-
-[node name="AnimationTree" type="AnimationTree" parent="Node3D/wall_corpse"]
-tree_root = SubResource("AnimationNodeBlendTree_t6umr")
-anim_player = NodePath("../AnimationPlayer")
-
-[node name="wall_corpse3" parent="Node3D" instance=ExtResource("11_ybb64")]
-transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, -7.89411, -0.745681, 0)
-
-[node name="Skeleton3D" parent="Node3D/wall_corpse3/corpse" index="0"]
-bones/1/rotation = Quaternion(0.0404926, -0.705947, 0.0404926, 0.705946)
-bones/2/rotation = Quaternion(0.0149178, -1.19213e-07, 1.67156e-09, 0.999889)
-bones/3/rotation = Quaternion(-0.47233, -0.491499, -0.399487, 0.612979)
-bones/4/rotation = Quaternion(0.0118416, 0.630649, -0.00844084, 0.775932)
-bones/7/rotation = Quaternion(-0.464763, 0.5023, 0.405542, 0.605992)
-bones/8/rotation = Quaternion(0.00216458, -0.637654, -0.0121453, 0.770225)
-bones/11/rotation = Quaternion(0.296838, 2.27624e-07, 7.07691e-08, 0.954928)
-bones/12/rotation = Quaternion(0.10617, -1.18639e-07, 3.79544e-08, 0.994348)
-bones/14/rotation = Quaternion(0.0683987, -1.56479e-08, 5.18378e-09, 0.997658)
-bones/17/rotation = Quaternion(0.0683987, -1.56479e-08, 5.18378e-09, 0.997658)
-bones/20/rotation = Quaternion(-0.0243409, 0.751105, 0.655919, -0.0708453)
-
-[node name="AnimationTree" type="AnimationTree" parent="Node3D/wall_corpse3"]
-tree_root = SubResource("AnimationNodeBlendTree_t6umr")
-anim_player = NodePath("../AnimationPlayer")
-
-[node name="wall_corpse2" parent="Node3D" instance=ExtResource("11_ybb64")]
-transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 8.10588, -0.745681, 0)
-
-[node name="Skeleton3D" parent="Node3D/wall_corpse2/corpse" index="0"]
-bones/1/rotation = Quaternion(0.0404926, -0.705947, 0.0404926, 0.705946)
-bones/2/rotation = Quaternion(0.0149178, -1.19213e-07, 1.67156e-09, 0.999889)
-bones/3/rotation = Quaternion(-0.47233, -0.491499, -0.399487, 0.612979)
-bones/4/rotation = Quaternion(0.0118416, 0.630649, -0.00844084, 0.775932)
-bones/7/rotation = Quaternion(-0.464763, 0.5023, 0.405542, 0.605992)
-bones/8/rotation = Quaternion(0.00216458, -0.637654, -0.0121453, 0.770225)
-bones/11/rotation = Quaternion(0.296838, 2.27624e-07, 7.07691e-08, 0.954928)
-bones/12/rotation = Quaternion(0.10617, -1.18639e-07, 3.79544e-08, 0.994348)
-bones/14/rotation = Quaternion(0.0683987, -1.56479e-08, 5.18378e-09, 0.997658)
-bones/17/rotation = Quaternion(0.0683987, -1.56479e-08, 5.18378e-09, 0.997658)
-bones/20/rotation = Quaternion(-0.0243409, 0.751105, 0.655919, -0.0708453)
-
-[node name="AnimationTree" type="AnimationTree" parent="Node3D/wall_corpse2"]
-tree_root = SubResource("AnimationNodeBlendTree_t6umr")
-anim_player = NodePath("../AnimationPlayer")
-
-[node name="Node3D4" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 19.4035)
-
-[node name="wall_corpse" parent="Node3D4" instance=ExtResource("11_ybb64")]
-transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 0.105885, -0.745681, 0)
-
-[node name="Skeleton3D" parent="Node3D4/wall_corpse/corpse" index="0"]
-bones/1/rotation = Quaternion(0.0404926, -0.705947, 0.0404926, 0.705946)
-bones/2/rotation = Quaternion(0.0149178, -1.19213e-07, 1.67156e-09, 0.999889)
-bones/3/rotation = Quaternion(-0.47233, -0.491499, -0.399487, 0.612979)
-bones/4/rotation = Quaternion(0.0118416, 0.630649, -0.00844084, 0.775932)
-bones/7/rotation = Quaternion(-0.464763, 0.5023, 0.405542, 0.605992)
-bones/8/rotation = Quaternion(0.00216458, -0.637654, -0.0121453, 0.770225)
-bones/11/rotation = Quaternion(0.296838, 2.27624e-07, 7.07691e-08, 0.954928)
-bones/12/rotation = Quaternion(0.10617, -1.18639e-07, 3.79544e-08, 0.994348)
-bones/14/rotation = Quaternion(0.0683987, -1.56479e-08, 5.18378e-09, 0.997658)
-bones/17/rotation = Quaternion(0.0683987, -1.56479e-08, 5.18378e-09, 0.997658)
-bones/20/rotation = Quaternion(-0.0243409, 0.751105, 0.655919, -0.0708453)
-
-[node name="AnimationTree" type="AnimationTree" parent="Node3D4/wall_corpse"]
-tree_root = SubResource("AnimationNodeBlendTree_t6umr")
-anim_player = NodePath("../AnimationPlayer")
-
-[node name="wall_corpse3" parent="Node3D4" instance=ExtResource("11_ybb64")]
-transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, -7.89411, -0.745681, 0)
-
-[node name="Skeleton3D" parent="Node3D4/wall_corpse3/corpse" index="0"]
-bones/1/rotation = Quaternion(0.0404926, -0.705947, 0.0404926, 0.705946)
-bones/2/rotation = Quaternion(0.0149178, -1.19213e-07, 1.67156e-09, 0.999889)
-bones/3/rotation = Quaternion(-0.47233, -0.491499, -0.399487, 0.612979)
-bones/4/rotation = Quaternion(0.0118416, 0.630649, -0.00844084, 0.775932)
-bones/7/rotation = Quaternion(-0.464763, 0.5023, 0.405542, 0.605992)
-bones/8/rotation = Quaternion(0.00216458, -0.637654, -0.0121453, 0.770225)
-bones/11/rotation = Quaternion(0.296838, 2.27624e-07, 7.07691e-08, 0.954928)
-bones/12/rotation = Quaternion(0.10617, -1.18639e-07, 3.79544e-08, 0.994348)
-bones/14/rotation = Quaternion(0.0683987, -1.56479e-08, 5.18378e-09, 0.997658)
-bones/17/rotation = Quaternion(0.0683987, -1.56479e-08, 5.18378e-09, 0.997658)
-bones/20/rotation = Quaternion(-0.0243409, 0.751105, 0.655919, -0.0708453)
-
-[node name="AnimationTree" type="AnimationTree" parent="Node3D4/wall_corpse3"]
-tree_root = SubResource("AnimationNodeBlendTree_t6umr")
-anim_player = NodePath("../AnimationPlayer")
-
-[node name="wall_corpse2" parent="Node3D4" instance=ExtResource("11_ybb64")]
-transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 8.10588, -0.745681, 0)
-
-[node name="Skeleton3D" parent="Node3D4/wall_corpse2/corpse" index="0"]
-bones/1/rotation = Quaternion(0.0404926, -0.705947, 0.0404926, 0.705946)
-bones/2/rotation = Quaternion(0.0149178, -1.19213e-07, 1.67156e-09, 0.999889)
-bones/3/rotation = Quaternion(-0.47233, -0.491499, -0.399487, 0.612979)
-bones/4/rotation = Quaternion(0.0118416, 0.630649, -0.00844084, 0.775932)
-bones/7/rotation = Quaternion(-0.464763, 0.5023, 0.405542, 0.605992)
-bones/8/rotation = Quaternion(0.00216458, -0.637654, -0.0121453, 0.770225)
-bones/11/rotation = Quaternion(0.296838, 2.27624e-07, 7.07691e-08, 0.954928)
-bones/12/rotation = Quaternion(0.10617, -1.18639e-07, 3.79544e-08, 0.994348)
-bones/14/rotation = Quaternion(0.0683987, -1.56479e-08, 5.18378e-09, 0.997658)
-bones/17/rotation = Quaternion(0.0683987, -1.56479e-08, 5.18378e-09, 0.997658)
-bones/20/rotation = Quaternion(-0.0243409, 0.751105, 0.655919, -0.0708453)
-
-[node name="AnimationTree" type="AnimationTree" parent="Node3D4/wall_corpse2"]
-tree_root = SubResource("AnimationNodeBlendTree_t6umr")
-anim_player = NodePath("../AnimationPlayer")
-
 [node name="Node3D2" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 27, 0, -0.390357)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 29, 0, -0.390357)
 
 [node name="wall_corpse" parent="Node3D2" instance=ExtResource("11_ybb64")]
 transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 0.105885, -0.745681, 0)
@@ -1085,48 +959,8 @@ bones/20/rotation = Quaternion(-0.0243409, 0.751105, 0.655919, -0.0708453)
 tree_root = SubResource("AnimationNodeBlendTree_t6umr")
 anim_player = NodePath("../AnimationPlayer")
 
-[node name="wall_corpse3" parent="Node3D2" instance=ExtResource("11_ybb64")]
-transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, -7.89411, -0.745681, 0)
-
-[node name="Skeleton3D" parent="Node3D2/wall_corpse3/corpse" index="0"]
-bones/1/rotation = Quaternion(0.0404926, -0.705947, 0.0404926, 0.705946)
-bones/2/rotation = Quaternion(0.0149178, -1.19213e-07, 1.67156e-09, 0.999889)
-bones/3/rotation = Quaternion(-0.47233, -0.491499, -0.399487, 0.612979)
-bones/4/rotation = Quaternion(0.0118416, 0.630649, -0.00844084, 0.775932)
-bones/7/rotation = Quaternion(-0.464763, 0.5023, 0.405542, 0.605992)
-bones/8/rotation = Quaternion(0.00216458, -0.637654, -0.0121453, 0.770225)
-bones/11/rotation = Quaternion(0.296838, 2.27624e-07, 7.07691e-08, 0.954928)
-bones/12/rotation = Quaternion(0.10617, -1.18639e-07, 3.79544e-08, 0.994348)
-bones/14/rotation = Quaternion(0.0683987, -1.56479e-08, 5.18378e-09, 0.997658)
-bones/17/rotation = Quaternion(0.0683987, -1.56479e-08, 5.18378e-09, 0.997658)
-bones/20/rotation = Quaternion(-0.0243409, 0.751105, 0.655919, -0.0708453)
-
-[node name="AnimationTree" type="AnimationTree" parent="Node3D2/wall_corpse3"]
-tree_root = SubResource("AnimationNodeBlendTree_t6umr")
-anim_player = NodePath("../AnimationPlayer")
-
-[node name="wall_corpse2" parent="Node3D2" instance=ExtResource("11_ybb64")]
-transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 8.10588, -0.745681, 0)
-
-[node name="Skeleton3D" parent="Node3D2/wall_corpse2/corpse" index="0"]
-bones/1/rotation = Quaternion(0.0404926, -0.705947, 0.0404926, 0.705946)
-bones/2/rotation = Quaternion(0.0149178, -1.19213e-07, 1.67156e-09, 0.999889)
-bones/3/rotation = Quaternion(-0.47233, -0.491499, -0.399487, 0.612979)
-bones/4/rotation = Quaternion(0.0118416, 0.630649, -0.00844084, 0.775932)
-bones/7/rotation = Quaternion(-0.464763, 0.5023, 0.405542, 0.605992)
-bones/8/rotation = Quaternion(0.00216458, -0.637654, -0.0121453, 0.770225)
-bones/11/rotation = Quaternion(0.296838, 2.27624e-07, 7.07691e-08, 0.954928)
-bones/12/rotation = Quaternion(0.10617, -1.18639e-07, 3.79544e-08, 0.994348)
-bones/14/rotation = Quaternion(0.0683987, -1.56479e-08, 5.18378e-09, 0.997658)
-bones/17/rotation = Quaternion(0.0683987, -1.56479e-08, 5.18378e-09, 0.997658)
-bones/20/rotation = Quaternion(-0.0243409, 0.751105, 0.655919, -0.0708453)
-
-[node name="AnimationTree" type="AnimationTree" parent="Node3D2/wall_corpse2"]
-tree_root = SubResource("AnimationNodeBlendTree_t6umr")
-anim_player = NodePath("../AnimationPlayer")
-
 [node name="Node3D3" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -27, 0, -0.39)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -29, 0, -0.39)
 
 [node name="wall_corpse" parent="Node3D3" instance=ExtResource("11_ybb64")]
 transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 0.105885, -0.745681, 0)
@@ -1148,60 +982,10 @@ bones/20/rotation = Quaternion(-0.0243409, 0.751105, 0.655919, -0.0708453)
 tree_root = SubResource("AnimationNodeBlendTree_t6umr")
 anim_player = NodePath("../AnimationPlayer")
 
-[node name="wall_corpse3" parent="Node3D3" instance=ExtResource("11_ybb64")]
-transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, -7.89411, -0.745681, 0)
-
-[node name="Skeleton3D" parent="Node3D3/wall_corpse3/corpse" index="0"]
-bones/1/rotation = Quaternion(0.0404926, -0.705947, 0.0404926, 0.705946)
-bones/2/rotation = Quaternion(0.0149178, -1.19213e-07, 1.67156e-09, 0.999889)
-bones/3/rotation = Quaternion(-0.47233, -0.491499, -0.399487, 0.612979)
-bones/4/rotation = Quaternion(0.0118416, 0.630649, -0.00844084, 0.775932)
-bones/7/rotation = Quaternion(-0.464763, 0.5023, 0.405542, 0.605992)
-bones/8/rotation = Quaternion(0.00216458, -0.637654, -0.0121453, 0.770225)
-bones/11/rotation = Quaternion(0.296838, 2.27624e-07, 7.07691e-08, 0.954928)
-bones/12/rotation = Quaternion(0.10617, -1.18639e-07, 3.79544e-08, 0.994348)
-bones/14/rotation = Quaternion(0.0683987, -1.56479e-08, 5.18378e-09, 0.997658)
-bones/17/rotation = Quaternion(0.0683987, -1.56479e-08, 5.18378e-09, 0.997658)
-bones/20/rotation = Quaternion(-0.0243409, 0.751105, 0.655919, -0.0708453)
-
-[node name="AnimationTree" type="AnimationTree" parent="Node3D3/wall_corpse3"]
-tree_root = SubResource("AnimationNodeBlendTree_t6umr")
-anim_player = NodePath("../AnimationPlayer")
-
-[node name="wall_corpse2" parent="Node3D3" instance=ExtResource("11_ybb64")]
-transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 8.10588, -0.745681, 0)
-
-[node name="Skeleton3D" parent="Node3D3/wall_corpse2/corpse" index="0"]
-bones/1/rotation = Quaternion(0.0404926, -0.705947, 0.0404926, 0.705946)
-bones/2/rotation = Quaternion(0.0149178, -1.19213e-07, 1.67156e-09, 0.999889)
-bones/3/rotation = Quaternion(-0.47233, -0.491499, -0.399487, 0.612979)
-bones/4/rotation = Quaternion(0.0118416, 0.630649, -0.00844084, 0.775932)
-bones/7/rotation = Quaternion(-0.464763, 0.5023, 0.405542, 0.605992)
-bones/8/rotation = Quaternion(0.00216458, -0.637654, -0.0121453, 0.770225)
-bones/11/rotation = Quaternion(0.296838, 2.27624e-07, 7.07691e-08, 0.954928)
-bones/12/rotation = Quaternion(0.10617, -1.18639e-07, 3.79544e-08, 0.994348)
-bones/14/rotation = Quaternion(0.0683987, -1.56479e-08, 5.18378e-09, 0.997658)
-bones/17/rotation = Quaternion(0.0683987, -1.56479e-08, 5.18378e-09, 0.997658)
-bones/20/rotation = Quaternion(-0.0243409, 0.751105, 0.655919, -0.0708453)
-
-[node name="AnimationTree" type="AnimationTree" parent="Node3D3/wall_corpse2"]
-tree_root = SubResource("AnimationNodeBlendTree_t6umr")
-anim_player = NodePath("../AnimationPlayer")
-
 [connection signal="body_entered" from="rooms_end" to="rooms_end" method="_on_body_entered"]
 [connection signal="body_entered" from="spawner/Trigger" to="spawner" method="_on_trigger_body_entered"]
 [connection signal="timeout" from="spawner/spawn_timer2" to="spawner" method="_on_spawn_timer_timeout"]
 [connection signal="timeout" from="spawner/spawn_delay" to="spawner" method="_on_spawn_delay_timeout"]
 
-[editable path="Node3D/wall_corpse"]
-[editable path="Node3D/wall_corpse3"]
-[editable path="Node3D/wall_corpse2"]
-[editable path="Node3D4/wall_corpse"]
-[editable path="Node3D4/wall_corpse3"]
-[editable path="Node3D4/wall_corpse2"]
 [editable path="Node3D2/wall_corpse"]
-[editable path="Node3D2/wall_corpse3"]
-[editable path="Node3D2/wall_corpse2"]
 [editable path="Node3D3/wall_corpse"]
-[editable path="Node3D3/wall_corpse3"]
-[editable path="Node3D3/wall_corpse2"]
