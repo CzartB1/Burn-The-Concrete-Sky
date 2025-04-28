@@ -233,17 +233,21 @@ func _on_dash_cooldown_timeout():
 		dash_timer.start()
 
 func take_damage(damage:int, attacker:Vector3=global_position):
+	var don=false
 	if hurt_sound!=null:play_sound(hurt_sound)
 	if !dashing and !invulnerable:
 		print(name + " took " + str(damage) + " damage")
 		hp-=damage*damage_taken_multiplier
 		var econom=get_tree().get_first_node_in_group("Economy")
 		if econom is Player_Economy_Manager:econom.mult_reset(true)
-	if gore_manager!=null:
+	if gore_manager!=null and !don:
 		gore_manager.mist_activate(attacker)
+		don=true
 		if hp>0:
 			gore_manager.shoot_squirt(attacker)
-		elif hp<=0: gore_manager.shoot_splatters(attacker)
+		elif hp<=0: 
+			gore_manager.shoot_splatters(attacker)
+			don=true
 
 func death():
 	game_manager.stop_count_time()

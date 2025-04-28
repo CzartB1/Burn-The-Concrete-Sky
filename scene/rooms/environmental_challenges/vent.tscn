@@ -51,6 +51,7 @@ orientation = 2
 
 [node name="vent" type="Area3D" node_paths=PackedStringArray("steam_particles", "damage_timer")]
 script = ExtResource("1_0mkji")
+damage_amount = 3
 steam_particles = NodePath("GPUParticles3D")
 damage_timer = NodePath("damage_timer")
 
