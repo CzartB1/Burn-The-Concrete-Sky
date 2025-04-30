@@ -1,6 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://beurm5o4g7kuq"]
+[gd_scene load_steps=12 format=3 uid="uid://beurm5o4g7kuq"]
 
 [ext_resource type="Script" uid="uid://b2irg2t3uyowr" path="res://scripts/menus/settings_menu.gd" id="1_15yu6"]
+[ext_resource type="Script" uid="uid://didwpr8c0l01i" path="res://scripts/menus/ui_button_sound_manager.gd" id="2_jehpf"]
+[ext_resource type="AudioStream" uid="uid://fhej05fu4oyd" path="res://audios/effects/ui/ui_button_hover.wav" id="3_kp41g"]
+[ext_resource type="AudioStream" uid="uid://cj7vhftw02j2s" path="res://audios/effects/ui/ui_button_press.wav" id="4_0fe1x"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_iibtn"]
 bg_color = Color(0, 0, 0, 1)
@@ -27,6 +30,14 @@ border_width_right = 1
 border_width_bottom = 1
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_vws7g"]
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_kghdl"]
+streams_count = 1
+stream_0/stream = ExtResource("3_kp41g")
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_jxg3v"]
+streams_count = 1
+stream_0/stream = ExtResource("4_0fe1x")
 
 [node name="settingsMenu" type="CanvasLayer" node_paths=PackedStringArray("master_slider", "music_slider", "sfx_slider", "resolution_option", "fullscreen_toggle", "menu")]
 script = ExtResource("1_15yu6")
@@ -138,6 +149,12 @@ theme_override_styles/pressed = SubResource("StyleBoxFlat_hjccn")
 theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_vws7g")
 theme_override_styles/normal = SubResource("StyleBoxEmpty_vws7g")
 text = "Back"
+
+[node name="UI_Sound_Manager" type="Node" parent="."]
+script = ExtResource("2_jehpf")
+hover_sound = SubResource("AudioStreamRandomizer_kghdl")
+press_sound = SubResource("AudioStreamRandomizer_jxg3v")
+metadata/_custom_type_script = "uid://didwpr8c0l01i"
 
 [connection signal="value_changed" from="Panel/VBoxContainer/masterV/HSlider" to="." method="_on_master_slider_value_changed"]
 [connection signal="value_changed" from="Panel/VBoxContainer/MusicV/HSlider" to="." method="_on_music_slider_value_changed"]

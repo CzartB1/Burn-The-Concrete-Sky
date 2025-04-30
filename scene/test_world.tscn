@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=3 uid="uid://dwx34svdy6oqn"]
+[gd_scene load_steps=38 format=3 uid="uid://dwx34svdy6oqn"]
 
 [ext_resource type="Script" uid="uid://d3aknym658jr2" path="res://scripts/systems/rooms/room_manager.gd" id="2_eglug"]
 [ext_resource type="PackedScene" uid="uid://cebc076cxalyg" path="res://scene/rooms/combat_group/test_cg_1.tscn" id="3_8qmyu"]
@@ -25,6 +25,9 @@
 [ext_resource type="AudioStream" uid="uid://wr18kx8p1l8l" path="res://audios/music/placeholders/the-final-boss-battle-158700.mp3" id="24_7t3sc"]
 [ext_resource type="AudioStream" uid="uid://lryh8hxkgw7o" path="res://audios/music/char_themes/Dancing Shadows.mp3" id="24_sakl5"]
 [ext_resource type="AudioStream" uid="uid://d05pde8k01dgy" path="res://audios/music/placeholders/chicago-shuffle-blues-3912.mp3" id="25_uv8ym"]
+[ext_resource type="Script" uid="uid://didwpr8c0l01i" path="res://scripts/menus/ui_button_sound_manager.gd" id="26_s143w"]
+[ext_resource type="AudioStream" uid="uid://fhej05fu4oyd" path="res://audios/effects/ui/ui_button_hover.wav" id="27_yfyi7"]
+[ext_resource type="AudioStream" uid="uid://cj7vhftw02j2s" path="res://audios/effects/ui/ui_button_press.wav" id="28_frive"]
 
 [sub_resource type="AudioStreamInteractive" id="AudioStreamInteractive_f3hkl"]
 clip_count = 5
@@ -151,6 +154,14 @@ adjustment_contrast = 1.5
 [sub_resource type="BoxShape3D" id="BoxShape3D_0x23y"]
 size = Vector3(1000, 7.62074, 1000)
 
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_s143w"]
+streams_count = 1
+stream_0/stream = ExtResource("27_yfyi7")
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_yfyi7"]
+streams_count = 1
+stream_0/stream = ExtResource("28_frive")
+
 [node name="Node3D" type="Node3D"]
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
@@ -245,6 +256,12 @@ script = ExtResource("23_jahdx")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="dedzone"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -17.9122, 0)
 shape = SubResource("BoxShape3D_0x23y")
+
+[node name="UI_Sound_Manager" type="Node" parent="."]
+script = ExtResource("26_s143w")
+hover_sound = SubResource("AudioStreamRandomizer_s143w")
+press_sound = SubResource("AudioStreamRandomizer_yfyi7")
+metadata/_custom_type_script = "uid://didwpr8c0l01i"
 
 [connection signal="body_entered" from="dedzone" to="dedzone" method="_on_body_entered"]
 

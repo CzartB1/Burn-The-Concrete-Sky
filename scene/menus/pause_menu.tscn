@@ -1,6 +1,9 @@
-[gd_scene load_steps=15 format=3 uid="uid://blwyb80tpldxb"]
+[gd_scene load_steps=20 format=3 uid="uid://blwyb80tpldxb"]
 
 [ext_resource type="Script" uid="uid://2anfk75352qw" path="res://scripts/menus/pause_menu.gd" id="1_83na2"]
+[ext_resource type="Script" uid="uid://didwpr8c0l01i" path="res://scripts/menus/ui_button_sound_manager.gd" id="2_7op71"]
+[ext_resource type="AudioStream" uid="uid://fhej05fu4oyd" path="res://audios/effects/ui/ui_button_hover.wav" id="3_prhdn"]
+[ext_resource type="AudioStream" uid="uid://cj7vhftw02j2s" path="res://audios/effects/ui/ui_button_press.wav" id="4_c43v3"]
 
 [sub_resource type="Animation" id="Animation_8wiok"]
 length = 0.001
@@ -86,6 +89,14 @@ bg_color = Color(0.69, 0, 0, 1)
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_vws7g"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_gesil"]
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_7ir4a"]
+streams_count = 1
+stream_0/stream = ExtResource("3_prhdn")
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_wktys"]
+streams_count = 1
+stream_0/stream = ExtResource("4_c43v3")
 
 [node name="pause_menu" type="CanvasLayer" node_paths=PackedStringArray("menu", "anim", "focus_button")]
 layer = 6
@@ -229,8 +240,24 @@ theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_vws7g")
 theme_override_styles/normal = SubResource("StyleBoxEmpty_gesil")
 text = "Desktop"
 
+[node name="UI_Sound_Manager" type="Node" parent="Panel"]
+script = ExtResource("2_7op71")
+hover_sound = SubResource("AudioStreamRandomizer_7ir4a")
+press_sound = SubResource("AudioStreamRandomizer_wktys")
+metadata/_custom_type_script = "uid://didwpr8c0l01i"
+
+[connection signal="mouse_entered" from="Panel/VBoxContainer/resume" to="Panel/UI_Sound_Manager" method="_on_mouse_entered"]
 [connection signal="pressed" from="Panel/VBoxContainer/resume" to="." method="_on_resume_pressed"]
+[connection signal="pressed" from="Panel/VBoxContainer/resume" to="Panel/UI_Sound_Manager" method="_on_button_pressed"]
+[connection signal="mouse_entered" from="Panel/VBoxContainer/restart" to="Panel/UI_Sound_Manager" method="_on_mouse_entered"]
 [connection signal="pressed" from="Panel/VBoxContainer/restart" to="." method="_on_restart_pressed"]
+[connection signal="pressed" from="Panel/VBoxContainer/restart" to="Panel/UI_Sound_Manager" method="_on_button_pressed"]
+[connection signal="mouse_entered" from="Panel/VBoxContainer/settings" to="Panel/UI_Sound_Manager" method="_on_mouse_entered"]
 [connection signal="pressed" from="Panel/VBoxContainer/settings" to="." method="_on_settings_pressed"]
+[connection signal="pressed" from="Panel/VBoxContainer/settings" to="Panel/UI_Sound_Manager" method="_on_button_pressed"]
+[connection signal="mouse_entered" from="Panel/VBoxContainer/main_menu_exit" to="Panel/UI_Sound_Manager" method="_on_mouse_entered"]
 [connection signal="pressed" from="Panel/VBoxContainer/main_menu_exit" to="." method="_on_main_menuu_exit_pressed"]
+[connection signal="pressed" from="Panel/VBoxContainer/main_menu_exit" to="Panel/UI_Sound_Manager" method="_on_button_pressed"]
+[connection signal="mouse_entered" from="Panel/VBoxContainer/exit_desktop" to="Panel/UI_Sound_Manager" method="_on_mouse_entered"]
 [connection signal="pressed" from="Panel/VBoxContainer/exit_desktop" to="." method="_on_exit_desktop_pressed"]
+[connection signal="pressed" from="Panel/VBoxContainer/exit_desktop" to="Panel/UI_Sound_Manager" method="_on_button_pressed"]

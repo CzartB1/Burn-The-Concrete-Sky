@@ -1,4 +1,4 @@
-[gd_scene load_steps=40 format=3 uid="uid://dwsbb66nlsgy1"]
+[gd_scene load_steps=45 format=3 uid="uid://dwsbb66nlsgy1"]
 
 [ext_resource type="Script" uid="uid://bihhpxn887ica" path="res://scripts/menus/main_menu.gd" id="1_psoe4"]
 [ext_resource type="PackedScene" uid="uid://dwx34svdy6oqn" path="res://scene/test_world.tscn" id="2_cowbv"]
@@ -9,6 +9,9 @@
 [ext_resource type="Script" uid="uid://ch3wqfrw3qmvh" path="res://scripts/menus/main_menu_background.gd" id="5_al40l"]
 [ext_resource type="PackedScene" uid="uid://xfkyjhqxxcl6" path="res://meshes/environment/Arktol.blend" id="5_aso8j"]
 [ext_resource type="Script" uid="uid://cadnq40sgh4r8" path="res://scripts/menus/poem_intro.gd" id="7_1jlfq"]
+[ext_resource type="Script" uid="uid://didwpr8c0l01i" path="res://scripts/menus/ui_button_sound_manager.gd" id="10_n02at"]
+[ext_resource type="AudioStream" uid="uid://fhej05fu4oyd" path="res://audios/effects/ui/ui_button_hover.wav" id="11_vrtbl"]
+[ext_resource type="AudioStream" uid="uid://cj7vhftw02j2s" path="res://audios/effects/ui/ui_button_press.wav" id="12_rt778"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_eeqin"]
 bg_color = Color(0, 0, 0, 1)
@@ -229,6 +232,14 @@ volumetric_fog_enabled = true
 volumetric_fog_length = 8.0
 volumetric_fog_sky_affect = 0.0
 
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_vrtbl"]
+streams_count = 1
+stream_0/stream = ExtResource("11_vrtbl")
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_rt778"]
+streams_count = 1
+stream_0/stream = ExtResource("12_rt778")
+
 [node name="MainMenu" type="CanvasLayer" node_paths=PackedStringArray("anim", "settingsMenu", "background_scene", "intro", "focus_button", "main_light", "aud_plr")]
 layer = 5
 script = ExtResource("1_psoe4")
@@ -372,6 +383,7 @@ flicker_bg_color2 = Color(1, 0.281333, 0.12, 1)
 transform = Transform3D(0.446198, 0.231626, 0.86444, 0, 0.965926, -0.258819, -0.894934, 0.115484, 0.430994, 25.808, 3.576, 79.004)
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="scene/Camera3D"]
+bus = &"Music"
 
 [node name="Arktol" parent="scene" instance=ExtResource("5_aso8j")]
 
@@ -539,6 +551,12 @@ theme_override_font_sizes/bold_font_size = 28
 bbcode_enabled = true
 text = "[center][color=red][b]Your mission is to burn it all down.[/b][/color]"
 fit_content = true
+
+[node name="UI_Sound_Manager" type="Node" parent="."]
+script = ExtResource("10_n02at")
+hover_sound = SubResource("AudioStreamRandomizer_vrtbl")
+press_sound = SubResource("AudioStreamRandomizer_rt778")
+metadata/_custom_type_script = "uid://didwpr8c0l01i"
 
 [connection signal="pressed" from="MarginContainer/VBoxContainer/play" to="." method="_on_play_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/settings" to="." method="_on_settings_pressed"]

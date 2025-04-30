@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://bi7qoo74n8kdj"]
+[gd_scene load_steps=28 format=3 uid="uid://bi7qoo74n8kdj"]
 
 [ext_resource type="Shader" uid="uid://da07pkkq2kl54" path="res://shader/posterize.gdshader" id="1_t8rcp"]
 [ext_resource type="Script" uid="uid://cx4fb4b6vkyv4" path="res://scripts/player/UI/player_cleared_screen.gd" id="1_wdgp3"]
@@ -11,6 +11,9 @@
 [ext_resource type="PackedScene" uid="uid://t53uv01pfjjr" path="res://scene/menus/death_stat_screen.tscn" id="8_wlndf"]
 [ext_resource type="PackedScene" uid="uid://blwyb80tpldxb" path="res://scene/menus/pause_menu.tscn" id="9_1yxso"]
 [ext_resource type="PackedScene" uid="uid://beurm5o4g7kuq" path="res://scene/menus/settings_menu.tscn" id="10_3t1xs"]
+[ext_resource type="Script" uid="uid://didwpr8c0l01i" path="res://scripts/menus/ui_button_sound_manager.gd" id="12_6psnw"]
+[ext_resource type="AudioStream" uid="uid://fhej05fu4oyd" path="res://audios/effects/ui/ui_button_hover.wav" id="13_t2k5v"]
+[ext_resource type="AudioStream" uid="uid://cj7vhftw02j2s" path="res://audios/effects/ui/ui_button_press.wav" id="14_od3ta"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_yknq1"]
 shader = ExtResource("1_t8rcp")
@@ -51,6 +54,14 @@ region = Rect2(32, 0, 32, 32)
 [sub_resource type="AtlasTexture" id="AtlasTexture_vuepp"]
 atlas = ExtResource("6_eks6b")
 region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_kcsvv"]
+streams_count = 1
+stream_0/stream = ExtResource("13_t2k5v")
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_vuepp"]
+streams_count = 1
+stream_0/stream = ExtResource("14_od3ta")
 
 [node name="player_HUD" type="Control"]
 layout_mode = 3
@@ -348,6 +359,12 @@ settingsMenu = NodePath("../settingsMenu/Panel")
 
 [node name="settingsMenu" parent="." instance=ExtResource("10_3t1xs")]
 layer = 10
+
+[node name="UI_Sound_Manager" type="Node" parent="."]
+script = ExtResource("12_6psnw")
+hover_sound = SubResource("AudioStreamRandomizer_kcsvv")
+press_sound = SubResource("AudioStreamRandomizer_vuepp")
+metadata/_custom_type_script = "uid://didwpr8c0l01i"
 
 [connection signal="timeout" from="cleared_screen/Timer" to="cleared_screen" method="_on_timer_timeout"]
 [connection signal="timeout" from="death_screen/Timer" to="death_screen" method="_on_timer_timeout"]
