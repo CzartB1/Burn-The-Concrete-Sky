@@ -5,7 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://bewcyc8yfjlxo" path="res://sprites/Title.png" id="3_7wtxt"]
 [ext_resource type="AudioStream" uid="uid://0bd51lsbw0at" path="res://audios/music/title_soft.wav" id="3_fdv2l"]
 [ext_resource type="PackedScene" uid="uid://beurm5o4g7kuq" path="res://scene/menus/settings_menu.tscn" id="4_7cyxg"]
-[ext_resource type="AudioStream" uid="uid://cghq5n0tw8tba" path="res://audios/music/climax_theme.wav" id="4_n02at"]
+[ext_resource type="AudioStream" uid="uid://chiifvcfrvi8i" path="res://audios/music/title_climax.wav" id="4_vrtbl"]
 [ext_resource type="Script" uid="uid://ch3wqfrw3qmvh" path="res://scripts/menus/main_menu_background.gd" id="5_al40l"]
 [ext_resource type="PackedScene" uid="uid://xfkyjhqxxcl6" path="res://meshes/environment/Arktol.blend" id="5_aso8j"]
 [ext_resource type="Script" uid="uid://cadnq40sgh4r8" path="res://scripts/menus/poem_intro.gd" id="7_1jlfq"]
@@ -252,7 +252,7 @@ focus_button = NodePath("MarginContainer/VBoxContainer/play")
 main_light = NodePath("scene/DirectionalLight3D")
 aud_plr = NodePath("scene/Camera3D/AudioStreamPlayer")
 soft_theme = ExtResource("3_fdv2l")
-rough_theme = ExtResource("4_n02at")
+rough_theme = ExtResource("4_vrtbl")
 
 [node name="Panel" type="Panel" parent="."]
 visible = false
