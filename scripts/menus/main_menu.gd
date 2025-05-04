@@ -9,8 +9,11 @@ extends CanvasLayer
 @export var main_light:DirectionalLight3D
 @export_group("music")
 @export var aud_plr:AudioStreamPlayer
+@export var amb_plr:AudioStreamPlayer
 @export var soft_theme:AudioStream
 @export var rough_theme:AudioStream
+@export var soft_ambient:AudioStream
+@export var rough_ambient:AudioStream
 var pressed=false
 
 func _ready():
@@ -19,11 +22,15 @@ func _ready():
 	main_light.light_energy=1
 	aud_plr.stream=soft_theme
 	aud_plr.play()
+	amb_plr.stream=soft_ambient
+	amb_plr.play()
 
 func _process(_delta):
 	if !pressed and Input.is_anything_pressed() and intro.intro_finished:
 		aud_plr.stream=rough_theme
 		aud_plr.play()
+		amb_plr.stream=rough_ambient
+		amb_plr.play()
 		background_scene.flicker_enabled=true
 		anim.play("title_screen_press")
 		pressed=true

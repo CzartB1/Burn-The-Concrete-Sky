@@ -1,4 +1,4 @@
-[gd_scene load_steps=45 format=3 uid="uid://dwsbb66nlsgy1"]
+[gd_scene load_steps=47 format=3 uid="uid://dwsbb66nlsgy1"]
 
 [ext_resource type="Script" uid="uid://bihhpxn887ica" path="res://scripts/menus/main_menu.gd" id="1_psoe4"]
 [ext_resource type="PackedScene" uid="uid://dwx34svdy6oqn" path="res://scene/test_world.tscn" id="2_cowbv"]
@@ -8,6 +8,8 @@
 [ext_resource type="AudioStream" uid="uid://chiifvcfrvi8i" path="res://audios/music/title_climax.wav" id="4_vrtbl"]
 [ext_resource type="Script" uid="uid://ch3wqfrw3qmvh" path="res://scripts/menus/main_menu_background.gd" id="5_al40l"]
 [ext_resource type="PackedScene" uid="uid://xfkyjhqxxcl6" path="res://meshes/environment/Arktol.blend" id="5_aso8j"]
+[ext_resource type="AudioStream" uid="uid://cvb37nb1tbifi" path="res://audios/music/title_soft_ambient.wav" id="5_kasrd"]
+[ext_resource type="AudioStream" uid="uid://bcjhbweewqy0q" path="res://audios/music/title_climax_ambient.wav" id="6_y3l4v"]
 [ext_resource type="Script" uid="uid://cadnq40sgh4r8" path="res://scripts/menus/poem_intro.gd" id="7_1jlfq"]
 [ext_resource type="Script" uid="uid://didwpr8c0l01i" path="res://scripts/menus/ui_button_sound_manager.gd" id="10_n02at"]
 [ext_resource type="AudioStream" uid="uid://fhej05fu4oyd" path="res://audios/effects/ui/ui_button_hover.wav" id="11_vrtbl"]
@@ -240,7 +242,7 @@ stream_0/stream = ExtResource("11_vrtbl")
 streams_count = 1
 stream_0/stream = ExtResource("12_rt778")
 
-[node name="MainMenu" type="CanvasLayer" node_paths=PackedStringArray("anim", "settingsMenu", "background_scene", "intro", "focus_button", "main_light", "aud_plr")]
+[node name="MainMenu" type="CanvasLayer" node_paths=PackedStringArray("anim", "settingsMenu", "background_scene", "intro", "focus_button", "main_light", "aud_plr", "amb_plr")]
 layer = 5
 script = ExtResource("1_psoe4")
 game_scene = ExtResource("2_cowbv")
@@ -250,9 +252,12 @@ background_scene = NodePath("scene")
 intro = NodePath("poemIntro")
 focus_button = NodePath("MarginContainer/VBoxContainer/play")
 main_light = NodePath("scene/DirectionalLight3D")
-aud_plr = NodePath("scene/Camera3D/AudioStreamPlayer")
+aud_plr = NodePath("scene/Camera3D/ostplr")
+amb_plr = NodePath("scene/Camera3D/ambplr")
 soft_theme = ExtResource("3_fdv2l")
 rough_theme = ExtResource("4_vrtbl")
+soft_ambient = ExtResource("5_kasrd")
+rough_ambient = ExtResource("6_y3l4v")
 
 [node name="Panel" type="Panel" parent="."]
 visible = false
@@ -382,8 +387,12 @@ flicker_bg_color2 = Color(1, 0.281333, 0.12, 1)
 [node name="Camera3D" type="Camera3D" parent="scene"]
 transform = Transform3D(0.446198, 0.231626, 0.86444, 0, 0.965926, -0.258819, -0.894934, 0.115484, 0.430994, 25.808, 3.576, 79.004)
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="scene/Camera3D"]
+[node name="ostplr" type="AudioStreamPlayer" parent="scene/Camera3D"]
 bus = &"Music"
+
+[node name="ambplr" type="AudioStreamPlayer" parent="scene/Camera3D"]
+volume_db = -3.0
+bus = &"Ambient"
 
 [node name="Arktol" parent="scene" instance=ExtResource("5_aso8j")]
 
