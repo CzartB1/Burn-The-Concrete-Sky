@@ -22,6 +22,7 @@ func _on_body_entered(body):
 	if body is Player and room.process_mode == Node.PROCESS_MODE_INHERIT and can_go and (!room.manager.can_change or intro):
 		#await get_tree().physics_frame
 		#print("asdf")
+		body.dashing=false
 		room.manager.can_change=true
 		intro=false
 		room.change_level()
