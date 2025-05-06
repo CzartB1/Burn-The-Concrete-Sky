@@ -1,4 +1,4 @@
-[gd_scene load_steps=47 format=3 uid="uid://dwsbb66nlsgy1"]
+[gd_scene load_steps=48 format=3 uid="uid://dwsbb66nlsgy1"]
 
 [ext_resource type="Script" uid="uid://bihhpxn887ica" path="res://scripts/menus/main_menu.gd" id="1_psoe4"]
 [ext_resource type="PackedScene" uid="uid://dwx34svdy6oqn" path="res://scene/test_world.tscn" id="2_cowbv"]
@@ -14,6 +14,7 @@
 [ext_resource type="Script" uid="uid://didwpr8c0l01i" path="res://scripts/menus/ui_button_sound_manager.gd" id="10_n02at"]
 [ext_resource type="AudioStream" uid="uid://fhej05fu4oyd" path="res://audios/effects/ui/ui_button_hover.wav" id="11_vrtbl"]
 [ext_resource type="AudioStream" uid="uid://cj7vhftw02j2s" path="res://audios/effects/ui/ui_button_press.wav" id="12_rt778"]
+[ext_resource type="PackedScene" uid="uid://7errhfc15ky3" path="res://scene/menus/credit.tscn" id="15_y3l4v"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_eeqin"]
 bg_color = Color(0, 0, 0, 1)
@@ -242,12 +243,13 @@ stream_0/stream = ExtResource("11_vrtbl")
 streams_count = 1
 stream_0/stream = ExtResource("12_rt778")
 
-[node name="MainMenu" type="CanvasLayer" node_paths=PackedStringArray("anim", "settingsMenu", "background_scene", "intro", "focus_button", "main_light", "aud_plr", "amb_plr")]
+[node name="MainMenu" type="CanvasLayer" node_paths=PackedStringArray("anim", "settingsMenu", "creditsMenu", "background_scene", "intro", "focus_button", "main_light", "aud_plr", "amb_plr")]
 layer = 5
 script = ExtResource("1_psoe4")
 game_scene = ExtResource("2_cowbv")
 anim = NodePath("AnimationPlayer")
 settingsMenu = NodePath("settingsMenu/Panel")
+creditsMenu = NodePath("Credit")
 background_scene = NodePath("scene")
 intro = NodePath("poemIntro")
 focus_button = NodePath("MarginContainer/VBoxContainer/play")
@@ -334,6 +336,21 @@ theme_override_styles/pressed = SubResource("StyleBoxFlat_5bcsr")
 theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_ed6kd")
 theme_override_styles/normal = SubResource("StyleBoxEmpty_he1wl")
 text = "Settings"
+alignment = 0
+
+[node name="credit" type="Button" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 18
+theme_override_styles/focus = SubResource("StyleBoxFlat_w6ka8")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxFlat_w6ka8")
+theme_override_styles/hover_pressed = SubResource("StyleBoxFlat_w6ka8")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxFlat_w6ka8")
+theme_override_styles/hover = SubResource("StyleBoxFlat_w6ka8")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxFlat_kkn0v")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_5bcsr")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_ed6kd")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_he1wl")
+text = "Credits"
 alignment = 0
 
 [node name="exit" type="Button" parent="MarginContainer/VBoxContainer"]
@@ -567,8 +584,11 @@ hover_sound = SubResource("AudioStreamRandomizer_vrtbl")
 press_sound = SubResource("AudioStreamRandomizer_rt778")
 metadata/_custom_type_script = "uid://didwpr8c0l01i"
 
+[node name="Credit" parent="." instance=ExtResource("15_y3l4v")]
+
 [connection signal="pressed" from="MarginContainer/VBoxContainer/play" to="." method="_on_play_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/settings" to="." method="_on_settings_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/credit" to="." method="_on_credit_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/exit" to="." method="_on_exit_pressed"]
 
 [editable path="settingsMenu"]

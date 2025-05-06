@@ -1,0 +1,149 @@
+[gd_scene load_steps=3 format=3 uid="uid://7errhfc15ky3"]
+
+[ext_resource type="Script" uid="uid://bshg8fl5k4qe" path="res://scripts/menus/credit.gd" id="1_0iu3p"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_11jmi"]
+bg_color = Color(0, 0, 0, 1)
+
+[node name="Credit" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_0iu3p")
+scroll_speed = 100.0
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_11jmi")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 113.0
+offset_top = -485.0
+offset_right = -113.0
+offset_bottom = -485.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 15
+
+[node name="Dev" type="VBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="VBoxContainer/Dev"]
+layout_mode = 2
+bbcode_enabled = true
+text = "[b]Developer"
+fit_content = true
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="VBoxContainer/Dev"]
+layout_mode = 2
+bbcode_enabled = true
+text = "Hawal Farras Kurniadhana \"CzartB\""
+fit_content = true
+
+[node name="Assets" type="VBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="RichTextLabel3" type="RichTextLabel" parent="VBoxContainer/Assets"]
+layout_mode = 2
+bbcode_enabled = true
+text = "[b]Assets"
+fit_content = true
+
+[node name="RichTextLabel4" type="RichTextLabel" parent="VBoxContainer/Assets"]
+layout_mode = 2
+bbcode_enabled = true
+text = "Classic64 - texture (edited)"
+fit_content = true
+
+[node name="RichTextLabel5" type="RichTextLabel" parent="VBoxContainer/Assets"]
+layout_mode = 2
+bbcode_enabled = true
+text = "Zapsplat.com - sound effects"
+fit_content = true
+
+[node name="RichTextLabel6" type="RichTextLabel" parent="VBoxContainer/Assets"]
+layout_mode = 2
+bbcode_enabled = true
+text = "Pixabay - sound effects"
+fit_content = true
+
+[node name="RichTextLabel7" type="RichTextLabel" parent="VBoxContainer/Assets"]
+layout_mode = 2
+bbcode_enabled = true
+text = "Freesound.org - sound effects"
+fit_content = true
+
+[node name="Playtest" type="VBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="RichTextLabel8" type="RichTextLabel" parent="VBoxContainer/Playtest"]
+layout_mode = 2
+bbcode_enabled = true
+text = "[b]Playtesters"
+fit_content = true
+
+[node name="RichTextLabel9" type="RichTextLabel" parent="VBoxContainer/Playtest"]
+layout_mode = 2
+bbcode_enabled = true
+text = "Koyumasa"
+fit_content = true
+
+[node name="RichTextLabel10" type="RichTextLabel" parent="VBoxContainer/Playtest"]
+layout_mode = 2
+bbcode_enabled = true
+text = "BigBallzAmogus"
+fit_content = true
+
+[node name="RichTextLabel11" type="RichTextLabel" parent="VBoxContainer/Playtest"]
+layout_mode = 2
+bbcode_enabled = true
+text = "WiroSableng"
+fit_content = true
+
+[node name="RichTextLabel12" type="RichTextLabel" parent="VBoxContainer/Playtest"]
+layout_mode = 2
+bbcode_enabled = true
+text = "Oofyguy"
+fit_content = true
+
+[node name="RichTextLabel13" type="RichTextLabel" parent="VBoxContainer/Playtest"]
+layout_mode = 2
+bbcode_enabled = true
+text = "duke of the archnemesis-frontman"
+fit_content = true
+
+[node name="RichTextLabel14" type="RichTextLabel" parent="VBoxContainer/Playtest"]
+layout_mode = 2
+bbcode_enabled = true
+text = "Boss"
+fit_content = true
+
+[node name="RichTextLabel15" type="RichTextLabel" parent="VBoxContainer/Playtest"]
+layout_mode = 2
+bbcode_enabled = true
+text = "bob"
+fit_content = true
+
+[node name="RichTextLabel16" type="RichTextLabel" parent="VBoxContainer/Playtest"]
+layout_mode = 2
+bbcode_enabled = true
+text = "Ben"
+fit_content = true
+
+[node name="RichTextLabel17" type="RichTextLabel" parent="VBoxContainer/Playtest"]
+layout_mode = 2
+bbcode_enabled = true
+text = "zafran"
+fit_content = true

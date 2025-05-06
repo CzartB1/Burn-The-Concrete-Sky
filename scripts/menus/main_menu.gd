@@ -3,6 +3,7 @@ extends CanvasLayer
 @export var game_scene:PackedScene
 @export var anim:AnimationPlayer
 @export var settingsMenu:Control
+@export var creditsMenu:Control
 @export var background_scene:MainMenuBackground
 @export var intro:PoemIntro
 @export var focus_button:Button
@@ -18,7 +19,9 @@ var pressed=false
 
 func _ready():
 	settingsMenu.visible=false
+	creditsMenu.visible=false
 	settingsMenu.z_index=0
+	creditsMenu.z_index=0
 	main_light.light_energy=1
 	aud_plr.stream=soft_theme
 	aud_plr.play()
@@ -46,3 +49,9 @@ func _on_exit_pressed():
 func _on_settings_pressed():
 	settingsMenu.visible=true
 	settingsMenu.z_index=7
+
+func _on_credit_pressed():
+	creditsMenu.visible=true
+	creditsMenu.z_index=7
+	creditsMenu.restart_pos()
+	creditsMenu.start_scrolling=true
