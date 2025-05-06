@@ -15,6 +15,7 @@ extends Node3D
 @export var demo_lock_screen: Control
 var current_room_category:int
 var current_combatgroup: Combat_Group #TODO make rooms set the current group with their group
+var cur_room_obj
 var plr: Player
 var intro = true
 var room_count = 0

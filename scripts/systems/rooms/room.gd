@@ -6,6 +6,7 @@ extends Node3D
 @export var spawner:enemy_spawner
 @export var navmesh:NavigationRegion3D
 @export var shopkeepers:Array[Shopkeeper]
+@export var music_index:int=0
 var combat_group:Combat_Group
 var active = false
 var plr

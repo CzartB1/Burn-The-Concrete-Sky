@@ -1,4 +1,4 @@
-[gd_scene load_steps=38 format=3 uid="uid://dwx34svdy6oqn"]
+[gd_scene load_steps=39 format=3 uid="uid://dwx34svdy6oqn"]
 
 [ext_resource type="Script" uid="uid://d3aknym658jr2" path="res://scripts/systems/rooms/room_manager.gd" id="2_eglug"]
 [ext_resource type="PackedScene" uid="uid://cebc076cxalyg" path="res://scene/rooms/combat_group/test_cg_1.tscn" id="3_8qmyu"]
@@ -21,10 +21,10 @@
 [ext_resource type="AudioStream" uid="uid://ybi8tdaalhgs" path="res://audios/music/char_themes/impact_theme.wav" id="22_yfyi7"]
 [ext_resource type="AudioStream" uid="uid://c8kt3p2b25p40" path="res://audios/music/char_themes/Ashes to Ashes.mp3" id="23_frive"]
 [ext_resource type="Script" uid="uid://dsp52sgih7sk5" path="res://scripts/systems/dedzone.gd" id="23_jahdx"]
+[ext_resource type="AudioStream" uid="uid://lx80dcnrme23" path="res://audios/music/factory_ambient.wav" id="23_s143w"]
 [ext_resource type="AudioStream" uid="uid://dq603slg7hjl0" path="res://audios/music/placeholders/sci-fi-ambient-music-183269.mp3" id="23_tcdhp"]
 [ext_resource type="AudioStream" uid="uid://wr18kx8p1l8l" path="res://audios/music/placeholders/the-final-boss-battle-158700.mp3" id="24_7t3sc"]
 [ext_resource type="AudioStream" uid="uid://lryh8hxkgw7o" path="res://audios/music/char_themes/Dancing Shadows.mp3" id="24_sakl5"]
-[ext_resource type="AudioStream" uid="uid://d05pde8k01dgy" path="res://audios/music/placeholders/chicago-shuffle-blues-3912.mp3" id="25_uv8ym"]
 [ext_resource type="Script" uid="uid://didwpr8c0l01i" path="res://scripts/menus/ui_button_sound_manager.gd" id="26_s143w"]
 [ext_resource type="AudioStream" uid="uid://fhej05fu4oyd" path="res://audios/effects/ui/ui_button_hover.wav" id="27_yfyi7"]
 [ext_resource type="AudioStream" uid="uid://cj7vhftw02j2s" path="res://audios/effects/ui/ui_button_press.wav" id="28_frive"]
@@ -47,6 +47,12 @@ clip_4/name = &"Dancing Shadows"
 clip_4/stream = ExtResource("24_sakl5")
 clip_4/auto_advance = 0
 
+[sub_resource type="AudioStreamInteractive" id="AudioStreamInteractive_yfyi7"]
+clip_count = 1
+clip_0/name = &"Factory Ambient"
+clip_0/stream = ExtResource("23_s143w")
+clip_0/auto_advance = 0
+
 [sub_resource type="AudioStreamInteractive" id="AudioStreamInteractive_nry77"]
 clip_count = 4
 clip_0/name = &"Ambient"
@@ -59,7 +65,7 @@ clip_2/name = &"Boss"
 clip_2/stream = ExtResource("24_7t3sc")
 clip_2/auto_advance = 0
 clip_3/name = &"Rest"
-clip_3/stream = ExtResource("25_uv8ym")
+clip_3/stream = SubResource("AudioStreamInteractive_yfyi7")
 clip_3/auto_advance = 0
 _transitions = {
 Vector2i(0, 1): {

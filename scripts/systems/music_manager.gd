@@ -20,12 +20,10 @@ func _process(delta): #TODO music for death and char select
 			plr = plr_check
 	if game_manager.in_battle:
 		if !combat:
-			if stream.get_clip_stream(1).instantiate_playback() is AudioStreamPlaybackInteractive:
-				#HACK copy this code for rest,ambient, and boss music
-				if plr: stream.get_clip_stream(1).initial_clip=plr.combat_music_index 
-				#Just changing the initial clip cuz godot hasn't added a good way to replace a clip in audiostreaminteractive
-				#I'm sweatin, cryin, shittin, pissin, vomitin, lactatin, and cummin right now
 			if manager.current_room_category==1:
+				if stream.get_clip_stream(1).instantiate_playback() is AudioStreamPlaybackInteractive:
+				#HACK copy this code for rest,ambient, and boss music
+					if plr: stream.get_clip_stream(1).initial_clip=plr.combat_music_index 
 				get_stream_playback().switch_to_clip(1)
 			elif manager.current_room_category==4:
 				get_stream_playback().switch_to_clip(2)
@@ -33,14 +31,16 @@ func _process(delta): #TODO music for death and char select
 			ambient=false
 			rest=false
 	elif !game_manager.in_battle: 
-		if manager.current_room_category==1:
+		if manager.current_room_category==1: #ambient
 			if !ambient:
 				get_stream_playback().switch_to_clip(0)
 				combat=false
 				ambient=true
 				rest=false
-		elif manager.current_room_category==2:
+		elif manager.current_room_category==2: #rest
 			if !rest:
+				if stream.get_clip_stream(3).instantiate_playback() is AudioStreamPlaybackInteractive:
+					if manager.cur_room_obj: stream.get_clip_stream(3).initial_clip=manager.cur_room_obj.music_index 
 				get_stream_playback().switch_to_clip(3)
 				combat=false
 				ambient=false

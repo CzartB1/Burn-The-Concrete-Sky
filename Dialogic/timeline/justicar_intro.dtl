@@ -7,11 +7,3 @@ Your body ache as you regain your consciousness, like you just fell from a great
 - Walk away
 	[signal arg="walkaway_start"]
 	[end_timeline]
-- Ask a question
-	Justicar: "What would you like to know?"
-	- Accept the gift
-		[end_timeline]
-		[signal arg="justicar_start"]
-	- Walk away
-		[signal arg="walkaway_start"]
-		[end_timeline]
