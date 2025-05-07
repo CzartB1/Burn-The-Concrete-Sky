@@ -1,4 +1,4 @@
-[gd_scene load_steps=160 format=4 uid="uid://btqeey3k04vc2"]
+[gd_scene load_steps=161 format=4 uid="uid://btqeey3k04vc2"]
 
 [ext_resource type="Script" uid="uid://co3c0f6rssoiw" path="res://scripts/systems/rooms/room.gd" id="1_dkwe2"]
 [ext_resource type="Script" uid="uid://rj37g3i8nor3" path="res://scripts/systems/rooms/room_end.gd" id="2_kvk8v"]
@@ -519,6 +519,9 @@ points = PackedVector3Array(-4, 0.496094, -20, -4, 0, -20, 4, 0, -20, 4, 0.49609
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_nvthg"]
 size = Vector3(7.83008, 7.63159, 7.66406)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_2hxyw"]
+size = Vector3(15.3867, 3.96387, 1)
 
 [node name="room_2" type="Node3D" node_paths=PackedStringArray("start_pos", "spawner", "navmesh") groups=["room"]]
 script = ExtResource("1_dkwe2")
@@ -1113,6 +1116,13 @@ input_ray_pickable = false
 [node name="CollisionShape3D2" type="CollisionShape3D" parent="NavigationRegion3D/StaticBody3D6"]
 transform = Transform3D(0.707107, 0, 0.707107, 0, 1, 0, -0.707107, 0, 0.707107, 0.173669, -1.2511, -0.590752)
 shape = SubResource("BoxShape3D_nvthg")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 56)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.48193, 0)
+shape = SubResource("BoxShape3D_2hxyw")
 
 [connection signal="body_entered" from="rooms_end" to="rooms_end" method="_on_body_entered"]
 [connection signal="body_entered" from="spawner/Trigger" to="spawner" method="_on_trigger_body_entered"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=94 format=4 uid="uid://cstkrfvtb6jxk"]
+[gd_scene load_steps=95 format=4 uid="uid://cstkrfvtb6jxk"]
 
 [ext_resource type="Script" uid="uid://co3c0f6rssoiw" path="res://scripts/systems/rooms/room.gd" id="1_jm0l7"]
 [ext_resource type="Script" uid="uid://ykg70hu78l4m" path="res://addons/func_godot/src/map/func_godot_map.gd" id="5_dsjhb"]
@@ -13,6 +13,9 @@
 [ext_resource type="Material" uid="uid://cp6bkk0fsmx57" path="res://textures/gore/meat_2.tres" id="12_tg87j"]
 [ext_resource type="PackedScene" uid="uid://bhtf62172hlno" path="res://meshes/environment/undercity/the_pit/stake.blend" id="12_wj006"]
 [ext_resource type="PackedScene" uid="uid://b5e1gl13g5aij" path="res://meshes/environment/undercity/technomantes_banner.blend" id="13_lnqru"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_6ckyu"]
+size = Vector3(15.3867, 3.96387, 1)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_qe6j2"]
 size = Vector3(18.6658, 3, 4.74561)
@@ -377,6 +380,13 @@ shopkeepers = [NodePath("shopkeeper")]
 
 [node name="spawn" type="Node3D" parent="." groups=["spawn_pos"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -9)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="spawn"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 12)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="spawn/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.48193, 0)
+shape = SubResource("BoxShape3D_6ckyu")
 
 [node name="rooms_end" type="Area3D" parent="." node_paths=PackedStringArray("room")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.960752, 0.0700168, -109.729)

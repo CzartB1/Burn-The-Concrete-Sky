@@ -1,4 +1,4 @@
-[gd_scene load_steps=121 format=4 uid="uid://b13rkk6xn8xrc"]
+[gd_scene load_steps=122 format=4 uid="uid://b13rkk6xn8xrc"]
 
 [ext_resource type="Script" uid="uid://co3c0f6rssoiw" path="res://scripts/systems/rooms/room.gd" id="1_b70dc"]
 [ext_resource type="Script" uid="uid://rj37g3i8nor3" path="res://scripts/systems/rooms/room_end.gd" id="2_f33tj"]
@@ -15,6 +15,9 @@
 [ext_resource type="Material" uid="uid://bcesxplk7qv40" path="res://textures/environments/vent.tres" id="13_qxpq5"]
 [ext_resource type="Material" uid="uid://dwq2v3x8tn5ix" path="res://textures/buildings/metal_1.tres" id="14_dgi7k"]
 [ext_resource type="PackedScene" uid="uid://cvhypjvukmb3d" path="res://scene/rooms/environmental_challenges/vent.tscn" id="15_qxpq5"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_qxpq5"]
+size = Vector3(15.3867, 3.96387, 1)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_qe6j2"]
 size = Vector3(15.1521, 3, 5.13471)
@@ -449,6 +452,13 @@ navmesh = NodePath("NavigationRegion3D")
 
 [node name="spawn" type="Node3D" parent="." groups=["spawn_pos"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 71)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="spawn"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 8)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="spawn/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.48193, 0)
+shape = SubResource("BoxShape3D_qxpq5")
 
 [node name="rooms_end" type="Area3D" parent="." node_paths=PackedStringArray("room")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0392475, -0.956803, -52.585)

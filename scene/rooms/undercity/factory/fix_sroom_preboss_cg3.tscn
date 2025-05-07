@@ -1,4 +1,4 @@
-[gd_scene load_steps=64 format=4 uid="uid://bochid44ruy06"]
+[gd_scene load_steps=65 format=4 uid="uid://bochid44ruy06"]
 
 [ext_resource type="Script" uid="uid://co3c0f6rssoiw" path="res://scripts/systems/rooms/room.gd" id="1_naoxm"]
 [ext_resource type="Script" uid="uid://rj37g3i8nor3" path="res://scripts/systems/rooms/room_end.gd" id="2_ao1qq"]
@@ -13,6 +13,9 @@
 [ext_resource type="PackedScene" uid="uid://dqrjqsnh1f28f" path="res://scene/player/upgrades/shopkeeper.tscn" id="11_ydeeq"]
 [ext_resource type="Script" uid="uid://ccytq7v6yt0a" path="res://scripts/misc/crowd.gd" id="12_qoxaw"]
 [ext_resource type="PackedScene" uid="uid://dx34fa54gclwt" path="res://meshes/environment/undercity/crowd.blend" id="13_8ra1f"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_wdpex"]
+size = Vector3(15.3867, 3.96387, 1)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_qe6j2"]
 size = Vector3(18.6658, 3, 4.74561)
@@ -243,6 +246,13 @@ start_pos = NodePath("spawn")
 shopkeepers = [NodePath("shopkeeper")]
 
 [node name="spawn" type="Node3D" parent="." groups=["spawn_pos"]]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="spawn"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 8)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="spawn/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.48193, 0)
+shape = SubResource("BoxShape3D_wdpex")
 
 [node name="rooms_end" type="Area3D" parent="." node_paths=PackedStringArray("room")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.960752, 0.0700168, -129.729)
