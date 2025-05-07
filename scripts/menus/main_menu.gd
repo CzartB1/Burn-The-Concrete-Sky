@@ -31,7 +31,8 @@ func _ready():
 	
 
 func _process(_delta):
-	if !pressed and Input.is_anything_pressed() and intro.intro_finished:
+	if !intro.intro_finished:return
+	if !pressed and Input.is_anything_pressed():
 		aud_plr.stream=rough_theme
 		aud_plr.play()
 		amb_plr.stream=rough_ambient
