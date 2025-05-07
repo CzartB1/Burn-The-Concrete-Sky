@@ -20,7 +20,7 @@
 bg_color = Color(0, 0, 0, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_w6ka8"]
-bg_color = Color(0.6, 0, 0, 1)
+bg_color = Color(0.8, 0, 0, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kkn0v"]
 bg_color = Color(0.69, 0, 0, 1)
@@ -83,7 +83,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0.5, 1),
 "transitions": PackedFloat32Array(0.217637, 8.28212),
 "update": 0,
-"values": [Vector2(0, 648), Vector2(0, 397)]
+"values": [Vector2(0, 648), Vector2(0, 420)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -275,6 +275,7 @@ layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_bottom = 6.10352e-05
 grow_horizontal = 2
 grow_vertical = 2
 

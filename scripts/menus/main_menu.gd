@@ -16,6 +16,7 @@ extends CanvasLayer
 @export var soft_ambient:AudioStream
 @export var rough_ambient:AudioStream
 var pressed=false
+var foc=false
 
 func _ready():
 	settingsMenu.visible=false
@@ -27,6 +28,7 @@ func _ready():
 	aud_plr.play()
 	amb_plr.stream=soft_ambient
 	amb_plr.play()
+	
 
 func _process(_delta):
 	if !pressed and Input.is_anything_pressed() and intro.intro_finished:
@@ -37,8 +39,12 @@ func _process(_delta):
 		background_scene.flicker_enabled=true
 		anim.play("title_screen_press")
 		pressed=true
-		focus_button.grab_focus()
 		main_light.light_energy=0
+	elif pressed:
+		if focus_button!=null and !foc:
+			if Input.is_action_pressed("ui_up") or Input.is_action_pressed("ui_down") or Input.is_action_pressed("ui_left") or Input.is_action_pressed("ui_right"):
+				focus_button.grab_focus() #TODO make it so that the game remembers which icon was last focused, and make the play button's top focus the last focused icon
+				foc=true
 
 func _on_play_pressed():
 	get_tree().change_scene_to_file("res://scene/test_world.tscn")

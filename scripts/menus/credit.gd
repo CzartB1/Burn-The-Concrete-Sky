@@ -24,7 +24,7 @@ func _process(delta: float) -> void:
 		# Scroll credits upward
 		credits_container.position.y -= scroll_speed * delta
 		# If fully scrolled past, begin fade-out
-		if credits_container.position.y < top_pos:
+		if credits_container.position.y < top_pos or Input.is_anything_pressed():
 			fading = true
 			fade_timer = fade_duration
 	else:
