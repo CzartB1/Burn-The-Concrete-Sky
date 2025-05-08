@@ -24,6 +24,9 @@ var prev_spawn_id=0
 var end:Room_End
 var started_spawn=false
 @onready var sp_delay:Timer = $spawn_delay
+@export_group("effects")
+@onready var sfx_player:AudioStreamPlayer=$AudioStreamPlayer
+@export var finish_sfx:AudioStream
 
 func _ready(): #FIXME make some zone under the levels where enemies and players instantly dies
 	entrance.visible = false
@@ -41,12 +44,8 @@ func _process(_delta):
 	if Input.is_key_pressed(KEY_F1): print("enemies alive: "+str(enemy.size()))
 	if enemy.size()>0 and !started_spawn: started_spawn=true
 	if started and enemy.size()<=0 and started_spawn:
-		if !finished: #FIX ME room clears when there are commons still left.
-			print("Room cleared")
-			var cl=get_tree().get_first_node_in_group("Clear_Screen")
-			game_manager.stat_roomcleared+=1
-			cl.clear()
-			end.can_go=true
+		if !finished:
+			room_clear()
 		game_manager.in_battle=false
 		finished=true
 		started_spawn=false
@@ -121,7 +120,15 @@ func reset_spawner():
 		exits[i].visible=false
 		exits[i].process_mode=Node.PROCESS_MODE_DISABLED
 
-
 func _on_spawn_delay_timeout():
 	spawn_timer.start()
 	started = true
+
+func room_clear():
+	print("Room cleared")
+	var cl=get_tree().get_first_node_in_group("Clear_Screen")
+	game_manager.stat_roomcleared+=1
+	sfx_player.stream=finish_sfx
+	sfx_player.play()
+	cl.clear()
+	end.can_go=true

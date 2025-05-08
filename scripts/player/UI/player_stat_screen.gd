@@ -41,9 +41,13 @@ func _on_exit_pressed(): #FIX ME main menu button
 
 func show_anim():
 	anim.play("show")
+	if !plr:plr = get_tree().get_first_node_in_group("Player")
+	plr.show_cursor = true
 	if HUD and HUD.visible: HUD.visible=false
-
 
 func _on_animation_player_animation_finished(anim_name):
 	if anim_name=="show":
 		game_manager.pause()
+
+func _on_exit_desktop_pressed():
+	get_tree().quit()

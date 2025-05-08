@@ -67,10 +67,10 @@ bbcode_enabled = true
 text = "Classic64 - texture (edited)"
 fit_content = true
 
-[node name="RichTextLabel5" type="RichTextLabel" parent="VBoxContainer/Assets"]
+[node name="RichTextLabel7" type="RichTextLabel" parent="VBoxContainer/Assets"]
 layout_mode = 2
 bbcode_enabled = true
-text = "Zapsplat.com - sound effects"
+text = "Freesound.org - sound effects"
 fit_content = true
 
 [node name="RichTextLabel6" type="RichTextLabel" parent="VBoxContainer/Assets"]
@@ -79,10 +79,10 @@ bbcode_enabled = true
 text = "Pixabay - sound effects"
 fit_content = true
 
-[node name="RichTextLabel7" type="RichTextLabel" parent="VBoxContainer/Assets"]
+[node name="RichTextLabel5" type="RichTextLabel" parent="VBoxContainer/Assets"]
 layout_mode = 2
 bbcode_enabled = true
-text = "Freesound.org - sound effects"
+text = "Zapsplat.com - sound effects"
 fit_content = true
 
 [node name="Playtest" type="VBoxContainer" parent="VBoxContainer"]
@@ -94,34 +94,10 @@ bbcode_enabled = true
 text = "[b]Playtesters"
 fit_content = true
 
-[node name="RichTextLabel9" type="RichTextLabel" parent="VBoxContainer/Playtest"]
-layout_mode = 2
-bbcode_enabled = true
-text = "Koyumasa"
-fit_content = true
-
 [node name="RichTextLabel10" type="RichTextLabel" parent="VBoxContainer/Playtest"]
 layout_mode = 2
 bbcode_enabled = true
 text = "BigBallzAmogus"
-fit_content = true
-
-[node name="RichTextLabel11" type="RichTextLabel" parent="VBoxContainer/Playtest"]
-layout_mode = 2
-bbcode_enabled = true
-text = "WiroSableng"
-fit_content = true
-
-[node name="RichTextLabel12" type="RichTextLabel" parent="VBoxContainer/Playtest"]
-layout_mode = 2
-bbcode_enabled = true
-text = "Oofyguy"
-fit_content = true
-
-[node name="RichTextLabel13" type="RichTextLabel" parent="VBoxContainer/Playtest"]
-layout_mode = 2
-bbcode_enabled = true
-text = "duke of the archnemesis-frontman"
 fit_content = true
 
 [node name="RichTextLabel14" type="RichTextLabel" parent="VBoxContainer/Playtest"]
@@ -140,6 +116,30 @@ fit_content = true
 layout_mode = 2
 bbcode_enabled = true
 text = "Ben"
+fit_content = true
+
+[node name="RichTextLabel13" type="RichTextLabel" parent="VBoxContainer/Playtest"]
+layout_mode = 2
+bbcode_enabled = true
+text = "duke of the archnemesis-frontman"
+fit_content = true
+
+[node name="RichTextLabel9" type="RichTextLabel" parent="VBoxContainer/Playtest"]
+layout_mode = 2
+bbcode_enabled = true
+text = "Koyumasa"
+fit_content = true
+
+[node name="RichTextLabel12" type="RichTextLabel" parent="VBoxContainer/Playtest"]
+layout_mode = 2
+bbcode_enabled = true
+text = "Oofyguy"
+fit_content = true
+
+[node name="RichTextLabel11" type="RichTextLabel" parent="VBoxContainer/Playtest"]
+layout_mode = 2
+bbcode_enabled = true
+text = "WiroSableng"
 fit_content = true
 
 [node name="RichTextLabel17" type="RichTextLabel" parent="VBoxContainer/Playtest"]

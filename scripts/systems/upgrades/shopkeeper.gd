@@ -33,7 +33,7 @@ func _process(_delta):
 			Dialogic.start(dialogic_dialogue)
 		elif !dialogic_dialogue:
 			show_menu()
-	if show_s: #IDK why show_menu() don't wanna be called by Dialogic. This is my solution.
+	if show_s:
 		show_menu()
 		show_s=false
 

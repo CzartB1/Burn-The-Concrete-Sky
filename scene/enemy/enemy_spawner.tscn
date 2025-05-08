@@ -1,16 +1,21 @@
-[gd_scene load_steps=3 format=3 uid="uid://bqiys4354dkyo"]
+[gd_scene load_steps=4 format=3 uid="uid://bqiys4354dkyo"]
 
 [ext_resource type="Script" uid="uid://b67c7f3fqqcpi" path="res://scripts/enemy/enemy_spawner.gd" id="1_t23lb"]
 [ext_resource type="PackedScene" uid="uid://ckvitxqasphd0" path="res://scene/enemy/enemy_base.tscn" id="2_qt3j3"]
+[ext_resource type="AudioStream" uid="uid://d2vup7v2v8jaw" path="res://audios/effects/room_clear.wav" id="3_tlppp"]
 
 [node name="spawner" type="Node3D" node_paths=PackedStringArray("spawners")]
 script = ExtResource("1_t23lb")
 spawners = [null, null, null]
 enemies = Array[PackedScene]([ExtResource("2_qt3j3")])
 elites_spawn_delay_probability = Vector2i(1, 1)
+finish_sfx = ExtResource("3_tlppp")
 
 [node name="spawn_timer" type="Timer" parent="."]
 wait_time = 0.05
 one_shot = true
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+bus = &"SFX"
 
 [connection signal="timeout" from="spawn_timer" to="." method="_on_spawn_timer_timeout"]

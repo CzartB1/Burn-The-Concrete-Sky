@@ -1,4 +1,4 @@
-[gd_scene load_steps=39 format=3 uid="uid://7elo11bnf3va"]
+[gd_scene load_steps=40 format=3 uid="uid://7elo11bnf3va"]
 
 [ext_resource type="Script" uid="uid://cw7kdng7csvp6" path="res://scripts/player/weapon/weapon_manager.gd" id="1_rku58"]
 [ext_resource type="Script" uid="uid://bvumx55vmv8m" path="res://scripts/player/weapon/projectile_gun.gd" id="2_toky6"]
@@ -19,6 +19,7 @@
 [ext_resource type="PackedScene" uid="uid://llmcibq3mjbm" path="res://meshes/player/weapons/revolver_common.blend" id="11_4ifep"]
 [ext_resource type="PackedScene" uid="uid://5ys7ompy1j6u" path="res://meshes/player/weapons/ar_common.blend" id="11_g3slb"]
 [ext_resource type="AudioStream" uid="uid://xtsbvmwbu5lh" path="res://audios/weapons/ranged/reloads/276964__gfl7__m4a1-or-m16-reload-sound.mp3" id="14_l0y5u"]
+[ext_resource type="AudioStream" uid="uid://cb36iaieaa0ta" path="res://audios/music/machine_gun_reload.wav" id="14_qn2jl"]
 [ext_resource type="PackedScene" uid="uid://c2u4ckc0gt2cq" path="res://meshes/player/weapons/pistol_common.blend" id="15_mngps"]
 [ext_resource type="AudioStream" uid="uid://cfy6yrvpkq6dv" path="res://audios/weapons/ranged/pistol/pistol_light-01-2.wav" id="16_sr3eg"]
 [ext_resource type="AudioStream" uid="uid://citqnoqall3li" path="res://audios/weapons/ranged/pistol/pistol_light-02-2.wav" id="17_gkc2o"]
@@ -159,6 +160,7 @@ reload_duration = 5.0
 muzzle_flash = NodePath("muzzle_flash")
 anim_id = 1
 gunshot_sound = ExtResource("8_o1aab")
+reload_sound = ExtResource("14_qn2jl")
 price = 1200
 icon = SubResource("AtlasTexture_46epw")
 Description = "Its unorthodox appearance and enormous weight are balanced with its firepower and ammo capacity. In the olden days, it was used by infantrymen to bring down mechanical beasts called Panzers. Despite its age, it is still able to punch through the thickest armor, given enough patience."

@@ -586,6 +586,7 @@ press_sound = SubResource("AudioStreamRandomizer_rt778")
 metadata/_custom_type_script = "uid://didwpr8c0l01i"
 
 [node name="Credit" parent="." instance=ExtResource("15_y3l4v")]
+scroll_speed = 25.0
 
 [connection signal="pressed" from="MarginContainer/VBoxContainer/play" to="." method="_on_play_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/settings" to="." method="_on_settings_pressed"]

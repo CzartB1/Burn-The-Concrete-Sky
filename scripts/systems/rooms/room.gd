@@ -47,6 +47,7 @@ func _process(_delta): #FIXME preboss of cg3 randomly replaces itself with prebo
 			end.can_go=true
 
 func move_player_to_spawn():
+	if shopkeepers.size()>0: for i in shopkeepers: i.shop_screen.toggle_menu(false)
 	print("moviing player")
 	active=true
 	if navmesh!=null:
@@ -63,6 +64,7 @@ func move_player_to_spawn():
 	print("moving player done")
 
 func change_level():
+	
 	reset()
 	active = false
 	if navmesh!=null:

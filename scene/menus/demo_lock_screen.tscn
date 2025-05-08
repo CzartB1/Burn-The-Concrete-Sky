@@ -155,12 +155,17 @@ theme_override_constants/separation = 5
 alignment = 1
 
 [node name="choose char" type="Button" parent="ColorRect/HBoxContainer"]
+visible = false
 layout_mode = 2
 text = "Play Again"
 
+[node name="main menu" type="Button" parent="ColorRect/HBoxContainer"]
+layout_mode = 2
+text = "Main Menu"
+
 [node name="exit" type="Button" parent="ColorRect/HBoxContainer"]
 layout_mode = 2
-text = "Exit"
+text = "Desktop"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
@@ -168,5 +173,6 @@ libraries = {
 }
 
 [connection signal="pressed" from="ColorRect/HBoxContainer/choose char" to="." method="_on_choose_char_pressed"]
-[connection signal="pressed" from="ColorRect/HBoxContainer/exit" to="." method="_on_exit_pressed"]
+[connection signal="pressed" from="ColorRect/HBoxContainer/main menu" to="." method="_on_exit_pressed"]
+[connection signal="pressed" from="ColorRect/HBoxContainer/exit" to="." method="_on_exit_desktop_pressed"]
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
