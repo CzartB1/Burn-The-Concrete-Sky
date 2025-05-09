@@ -15,6 +15,7 @@ var char_selection:Array=[]
 var time_slowed:bool=false
 var in_battle:bool=false
 var players_list:Array[Node]=[]
+var school_mode:bool=true
 
 func _process(delta):
 	players_list=get_tree().get_nodes_in_group("Player")

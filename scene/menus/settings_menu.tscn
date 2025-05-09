@@ -39,13 +39,14 @@ stream_0/stream = ExtResource("3_kp41g")
 streams_count = 1
 stream_0/stream = ExtResource("4_0fe1x")
 
-[node name="settingsMenu" type="CanvasLayer" node_paths=PackedStringArray("master_slider", "music_slider", "sfx_slider", "resolution_option", "fullscreen_toggle", "menu")]
+[node name="settingsMenu" type="CanvasLayer" node_paths=PackedStringArray("master_slider", "music_slider", "sfx_slider", "resolution_option", "fullscreen_toggle", "schoolmode_toggle", "menu")]
 script = ExtResource("1_15yu6")
 master_slider = NodePath("Panel/VBoxContainer/masterV/HSlider")
 music_slider = NodePath("Panel/VBoxContainer/MusicV/HSlider")
 sfx_slider = NodePath("Panel/VBoxContainer/SFXV/HSlider")
 resolution_option = NodePath("Panel/VBoxContainer/Resolution/OptionButton")
 fullscreen_toggle = NodePath("Panel/VBoxContainer/Fullscreen/CheckBox")
+schoolmode_toggle = NodePath("Panel/VBoxContainer/Schoolmode/Schoolmode")
 menu = NodePath("Panel")
 
 [node name="Panel" type="Panel" parent="."]
@@ -53,9 +54,9 @@ anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 offset_left = 384.0
-offset_top = 104.0
+offset_top = 81.0
 offset_right = -384.0
-offset_bottom = -104.0
+offset_bottom = -81.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_iibtn")
@@ -79,7 +80,7 @@ alignment = 1
 [node name="Label" type="RichTextLabel" parent="Panel/VBoxContainer"]
 layout_mode = 2
 bbcode_enabled = true
-text = "[b]Settings[/b]"
+text = "[center][b]Settings[/b]"
 fit_content = true
 autowrap_mode = 2
 
@@ -131,11 +132,14 @@ layout_mode = 2
 
 [node name="CheckBox" type="CheckBox" parent="Panel/VBoxContainer/Fullscreen"]
 layout_mode = 2
+text = "Fullscreen"
 
-[node name="Label" type="Label" parent="Panel/VBoxContainer/Fullscreen"]
+[node name="Schoolmode" type="HBoxContainer" parent="Panel/VBoxContainer"]
 layout_mode = 2
-text = "Fullscreen
-"
+
+[node name="Schoolmode" type="CheckBox" parent="Panel/VBoxContainer/Schoolmode"]
+layout_mode = 2
+text = "School Mode"
 
 [node name="Button" type="Button" parent="Panel/VBoxContainer"]
 layout_mode = 2
@@ -161,4 +165,5 @@ metadata/_custom_type_script = "uid://didwpr8c0l01i"
 [connection signal="value_changed" from="Panel/VBoxContainer/SFXV/HSlider" to="." method="_on_sfx_slider_value_changed"]
 [connection signal="item_selected" from="Panel/VBoxContainer/Resolution/OptionButton" to="." method="_on_resolution_option_item_selected"]
 [connection signal="toggled" from="Panel/VBoxContainer/Fullscreen/CheckBox" to="." method="_on_fullscreen_toggle_toggled"]
+[connection signal="toggled" from="Panel/VBoxContainer/Schoolmode/Schoolmode" to="." method="_on_schoolmode_toggled"]
 [connection signal="pressed" from="Panel/VBoxContainer/Button" to="." method="_on_back_button_pressed"]

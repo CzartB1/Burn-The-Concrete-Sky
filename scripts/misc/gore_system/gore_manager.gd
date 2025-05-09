@@ -18,49 +18,66 @@ extends Node3D
 @export var blood_squirt_amount:Vector2i=Vector2(1,8)
 @export var blood_squirt_size:Vector2=Vector2(0.1,0.8)
 @export var blood_squirt_rot_mod:float=5
+@export_group("school mode")
+@export var confetti:GPUParticles3D
 
 func mist_activate(attacker:Vector3):
-	blood_mist.look_at(attacker)
-	blood_mist.emitting=true
+	if game_manager.school_mode: 
+		school_gore(attacker)
+	elif !game_manager.school_mode:
+		blood_mist.look_at(attacker)
+		blood_mist.emitting=true
 
 func activate_death_effect():
-	var instance = death_effect.instantiate()
-	get_tree().get_root().add_child(instance)
-	instance.global_position = global_position
-	instance.global_rotation=global_rotation
-	instance.global_rotation.y+=180
-	instance.emitting=true
+	if game_manager.school_mode: 
+		school_gore(global_position)
+	elif !game_manager.school_mode:
+		var instance = death_effect.instantiate()
+		get_tree().get_root().add_child(instance)
+		instance.global_position = global_position
+		instance.global_rotation=global_rotation
+		instance.global_rotation.y+=180
+		instance.emitting=true
 
 func shoot_splatters(attacker:Vector3):
-	var am=randi_range(blood_splat_amount.x,blood_splat_amount.y)
-	for i in am:
-		var instance = blood_splatter.instantiate()
-		get_tree().get_root().add_child(instance)
-		instance.global_position = global_position
-		var s=randf_range(blood_splat_size.x,blood_splat_size.y)
-		instance.scale=Vector3(s,s,s)#FIXME fix scaling
-		instance.look_at(attacker)
-		instance.global_rotation.y-=(180+randf_range(-blood_splat_rot_mod,blood_splat_rot_mod))
-		instance.apply_impulse((get_parent_node_3d().transform.basis.z+Vector3(randf_range(-0.5,0.5),0,0)) * randf_range(blood_splat_force.x, blood_splat_force.y))
-	var gi=randi_range(gib_splat_amount.x,gib_splat_amount.y)
-	for g in gi:
-		print("gib spawn")
-		var gibi = gib.instantiate()
-		get_tree().get_root().add_child(gibi)
-		gibi.global_position = global_position
-		var s=randf_range(gib_splat_size.x,gib_splat_size.y)
-		gibi.scale=Vector3(s,s,s)#FIXME fix scaling
-		gibi.look_at(attacker)
-		gibi.global_rotation.y-=(180+randf_range(-blood_splat_rot_mod,blood_splat_rot_mod))
-		gibi.apply_impulse((get_parent_node_3d().transform.basis.z+Vector3(randf_range(-0.5,0.5),0,0)) * randf_range(gib_splat_force.x, gib_splat_force.y))
+	if game_manager.school_mode: 
+		school_gore(attacker)
+	elif !game_manager.school_mode:
+		var am=randi_range(blood_splat_amount.x,blood_splat_amount.y)
+		for i in am:
+			var instance = blood_splatter.instantiate()
+			get_tree().get_root().add_child(instance)
+			instance.global_position = global_position
+			var s=randf_range(blood_splat_size.x,blood_splat_size.y)
+			instance.scale=Vector3(s,s,s)#FIXME fix scaling
+			instance.look_at(attacker)
+			instance.global_rotation.y-=(180+randf_range(-blood_splat_rot_mod,blood_splat_rot_mod))
+			instance.apply_impulse((get_parent_node_3d().transform.basis.z+Vector3(randf_range(-0.5,0.5),0,0)) * randf_range(blood_splat_force.x, blood_splat_force.y))
+		var gi=randi_range(gib_splat_amount.x,gib_splat_amount.y)
+		for g in gi:
+			print("gib spawn")
+			var gibi = gib.instantiate()
+			get_tree().get_root().add_child(gibi)
+			gibi.global_position = global_position
+			var s=randf_range(gib_splat_size.x,gib_splat_size.y)
+			gibi.scale=Vector3(s,s,s)#FIXME fix scaling
+			gibi.look_at(attacker)
+			gibi.global_rotation.y-=(180+randf_range(-blood_splat_rot_mod,blood_splat_rot_mod))
+			gibi.apply_impulse((get_parent_node_3d().transform.basis.z+Vector3(randf_range(-0.5,0.5),0,0)) * randf_range(gib_splat_force.x, gib_splat_force.y))
 
 func shoot_squirt(attacker:Vector3):
-	var am=randi_range(blood_squirt_amount.x,blood_squirt_amount.y)
-	for i in am:
-		var instance = blood_splatter.instantiate()
-		get_tree().get_root().add_child(instance)
-		instance.global_position = global_position
-		instance.look_at(attacker)
-		instance.global_rotation.y-=(180+randf_range(-blood_squirt_rot_mod,blood_squirt_rot_mod))
-		instance.apply_impulse((get_parent_node_3d().transform.basis.z+Vector3(randf_range(-0.5,0.5),0,0)) * randf_range(blood_squirt_force.x, blood_squirt_force.y))
-		instance.splatter_scale=blood_squirt_size
+	if game_manager.school_mode: school_gore(attacker)
+	elif !game_manager.school_mode:
+		var am=randi_range(blood_squirt_amount.x,blood_squirt_amount.y)
+		for i in am:
+			var instance = blood_splatter.instantiate()
+			get_tree().get_root().add_child(instance)
+			instance.global_position = global_position
+			instance.look_at(attacker)
+			instance.global_rotation.y-=(180+randf_range(-blood_squirt_rot_mod,blood_squirt_rot_mod))
+			instance.apply_impulse((get_parent_node_3d().transform.basis.z+Vector3(randf_range(-0.5,0.5),0,0)) * randf_range(blood_squirt_force.x, blood_squirt_force.y))
+			instance.splatter_scale=blood_squirt_size
+
+func school_gore(attacker:Vector3):
+	confetti.look_at(attacker)
+	confetti.emitting=true
