@@ -75,11 +75,6 @@ func _process(_delta):
 		elif i != combatgroup:
 			if i:i.enabled=false
 			elif !i:combatgroups.erase(i)
-	
-	SaveManager.current_room_id=current_room
-	SaveManager.current_room_category=current_room_category
-	SaveManager.next_room_category=next_room_category
-	SaveManager.current_room_count=room_count
 
 func randomize_room(): # this was (and kinda still is) basically a big-ass RNG checking machine
 	if !can_change: return

@@ -25,19 +25,14 @@ func _process(_delta): #FIXME preboss of cg3 randomly replaces itself with prebo
 		if _man is Room_manager:
 			manager = _man
 			print("manager found")
-	elif manager != null:
-		SaveManager.current_combat_group=manager.combatgroups.find(combat_group)
 	
 	if navmesh!=null and spawner!=null:
 		if spawner.started and !navmesh.enabled and !spawner.finished:
 			navmesh.enabled=true
-		#elif spawner.finished and navmesh.enabled:
-			#navmesh.enabled=false
 	
 	if active:
 		if navmesh!=null:
 			navmesh.enabled = true
-			#print("nav enabled")
 		if spawner!=null:
 			manager.current_room_category=1
 			if spawner.end!=end: 
@@ -64,7 +59,6 @@ func move_player_to_spawn():
 	print("moving player done")
 
 func change_level():
-	
 	reset()
 	active = false
 	if navmesh!=null:
