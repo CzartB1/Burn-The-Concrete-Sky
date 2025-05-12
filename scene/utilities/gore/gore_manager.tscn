@@ -1,16 +1,60 @@
-[gd_scene load_steps=5 format=3 uid="uid://derh5gmq2d8f8"]
+[gd_scene load_steps=10 format=3 uid="uid://derh5gmq2d8f8"]
 
 [ext_resource type="Script" uid="uid://bfst3vsp6bdjb" path="res://scripts/misc/gore_system/gore_manager.gd" id="1_uoa86"]
 [ext_resource type="PackedScene" uid="uid://bciheosskkwqp" path="res://scene/effects/blood_mist.tscn" id="2_th8vv"]
 [ext_resource type="PackedScene" uid="uid://c4skxyme680aw" path="res://scene/effects/blood_splat_projectille.tscn" id="3_f2lpi"]
 [ext_resource type="PackedScene" uid="uid://be1d0m78mo0vw" path="res://scene/effects/gore/gib.tscn" id="4_xuxy3"]
 
-[node name="gore_manager" type="Node3D" node_paths=PackedStringArray("blood_mist")]
+[sub_resource type="Curve" id="Curve_xuxy3"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), -2.56685, 0.0, 0, 0]
+point_count = 2
+metadata/_snap_count = 8
+
+[sub_resource type="CurveTexture" id="CurveTexture_8cfp4"]
+curve = SubResource("Curve_xuxy3")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_e7tjs"]
+direction = Vector3(0, 0.25, -1)
+spread = 25.0
+initial_velocity_min = 5.0
+initial_velocity_max = 12.0
+scale_min = 0.1
+scale_max = 0.2
+alpha_curve = SubResource("CurveTexture_8cfp4")
+hue_variation_min = -1.0
+hue_variation_max = 1.0
+collision_mode = 2
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_bfkrk"]
+transparency = 1
+vertex_color_use_as_albedo = true
+disable_receive_shadows = true
+billboard_mode = 3
+billboard_keep_scale = true
+particles_anim_h_frames = 1
+particles_anim_v_frames = 1
+particles_anim_loop = false
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_solse"]
+material = SubResource("StandardMaterial3D_bfkrk")
+size = Vector2(2, 1)
+orientation = 2
+
+[node name="gore_manager" type="Node3D" node_paths=PackedStringArray("blood_mist", "confetti")]
 script = ExtResource("1_uoa86")
 blood_mist = NodePath("blood_mist")
 death_effect = ExtResource("2_th8vv")
 blood_splatter = ExtResource("3_f2lpi")
 gib = ExtResource("4_xuxy3")
+confetti = NodePath("confetti")
 
 [node name="blood_mist" parent="." instance=ExtResource("2_th8vv")]
 transform = Transform3D(0.266111, 0, 0.963942, 0, 1, 0, -0.963942, 0, 0.266111, 0, 0, 0)
+
+[node name="confetti" type="GPUParticles3D" parent="."]
+emitting = false
+lifetime = 0.5
+one_shot = true
+explosiveness = 1.0
+process_material = SubResource("ParticleProcessMaterial_e7tjs")
+draw_pass_1 = SubResource("PlaneMesh_solse")

@@ -175,7 +175,7 @@ transform = Transform3D(1, 0, 0, 0, 0.72095, 0.692987, 0, -0.692987, 0.72095, 0,
 visible = false
 directional_shadow_mode = 0
 
-[node name="room_manager" type="Node3D" parent="." node_paths=PackedStringArray("rest_room", "boss_room", "combatgroup", "combatgroups", "demo_lock_screen") groups=["room_manager"]]
+[node name="room_manager" type="Node3D" parent="." node_paths=PackedStringArray("rest_room", "boss_room", "combatgroup", "combatgroups", "demo_lock_screen", "transition_screen") groups=["room_manager"]]
 script = ExtResource("2_eglug")
 rest_room = NodePath("room_rest")
 boss_room = NodePath("room_boss")
@@ -184,6 +184,7 @@ combatgroup = NodePath("the_pit")
 combatgroups = [NodePath("the_pit"), null, NodePath("factory")]
 demo_lock = true
 demo_lock_screen = NodePath("../stats/demo_lock")
+transition_screen = NodePath("../CanvasLayer2/Transition/ColorRect")
 
 [node name="the_pit" parent="room_manager" node_paths=PackedStringArray("manager", "next_group") instance=ExtResource("3_8qmyu")]
 commons = Array[PackedScene]([ExtResource("3_ec2g0")])

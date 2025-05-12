@@ -13,6 +13,8 @@ extends Node3D
 @export_group("Demo")
 @export var demo_lock: bool=false
 @export var demo_lock_screen: Control
+@export_group("Transition")
+@export var transition_screen: ColorRect
 var current_room_category:int
 var current_combatgroup: Combat_Group #TODO make rooms set the current group with their group
 var cur_room_obj
@@ -25,6 +27,7 @@ var upgrading = false
 var faded=false
 var can_change=true
 var preboss:Room
+var started=false
 
 func _ready():
 	intro_room=combatgroup.intro_room
@@ -54,8 +57,10 @@ func _process(_delta):
 		for i in plrs.size()-1:
 			if i!=0:
 				plrs[i].queue_free()
-	#if next_room_category == 0:
-		#current_room = 0
+	
+	if !faded and transition_screen.self_modulate.a>0 and started:
+		var tr=get_tree().get_first_node_in_group("Transition")
+		tr.play("fade_in")
 	
 	if next_room_category == 1: 
 		# the duct tape for the room 2 (room with id: 1) navigation problem
@@ -70,11 +75,6 @@ func _process(_delta):
 		elif i != combatgroup:
 			if i:i.enabled=false
 			elif !i:combatgroups.erase(i)
-	
-	SaveManager.current_room_id=current_room
-	SaveManager.current_room_category=current_room_category
-	SaveManager.next_room_category=next_room_category
-	SaveManager.current_room_count=room_count
 
 func randomize_room(): # this was (and kinda still is) basically a big-ass RNG checking machine
 	if !can_change: return
@@ -154,6 +154,7 @@ func check_room(): # This basically enables and disables shit, and also change c
 		next_room_category=2
 		print("room "+ str(room_count) +" || type: boss")
 	var tr=get_tree().get_first_node_in_group("Transition")
+	if !started:started=true
 	tr.play("fade_in")
 	faded=false
 
@@ -195,7 +196,6 @@ func start():
 	intro_room.move_player_to_spawn()
 
 func go_to_next_room():
-	
 	randomize_room()
 
 func clear_abilities():
