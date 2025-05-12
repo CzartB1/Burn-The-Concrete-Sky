@@ -16,7 +16,7 @@ func _ready():
 
 func _process(delta):
 	money_label.text=str(money)
-	multiplier_label.text="[center]"+str(multiplier)
+	multiplier_label.text="[center]x"+str(multiplier)
 
 	if multiplier_timer_bar.value>0:
 		multiplier_timer_bar.value-=delta*(15*ceil(multiplier/5))

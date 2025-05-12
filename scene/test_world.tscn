@@ -16,11 +16,11 @@
 [ext_resource type="PackedScene" uid="uid://d5vt4gjy1jd2" path="res://scene/player/characters/Mirage.tscn" id="13_ojb4m"]
 [ext_resource type="Script" uid="uid://exx6mb3ilk5" path="res://scripts/systems/char_manager.gd" id="20_0ogmo"]
 [ext_resource type="AudioStream" uid="uid://b0if2ifkuv2pi" path="res://audios/music/char_themes/Remnant_Theme.wav" id="20_s143w"]
+[ext_resource type="AudioStream" uid="uid://bdijfiaeg4wan" path="res://audios/music/char_themes/silver_theme.wav" id="20_yfyi7"]
 [ext_resource type="AudioStream" uid="uid://ww5tyx75bmgb" path="res://audios/music/char_themes/placeholder_song.wav" id="21_s143w"]
 [ext_resource type="Script" uid="uid://c7x00y40vwan" path="res://scripts/systems/music_manager.gd" id="21_ss30e"]
 [ext_resource type="AudioStream" uid="uid://blhikb6sovlkv" path="res://audios/music/char_themes/mirage_theme.wav" id="21_yfyi7"]
 [ext_resource type="AudioStream" uid="uid://ybi8tdaalhgs" path="res://audios/music/char_themes/impact_theme.wav" id="22_yfyi7"]
-[ext_resource type="AudioStream" uid="uid://c8kt3p2b25p40" path="res://audios/music/char_themes/Ashes to Ashes.mp3" id="23_frive"]
 [ext_resource type="Script" uid="uid://dsp52sgih7sk5" path="res://scripts/systems/dedzone.gd" id="23_jahdx"]
 [ext_resource type="AudioStream" uid="uid://lx80dcnrme23" path="res://audios/music/factory_ambient.wav" id="23_s143w"]
 [ext_resource type="AudioStream" uid="uid://dq603slg7hjl0" path="res://audios/music/placeholders/sci-fi-ambient-music-183269.mp3" id="23_tcdhp"]
@@ -34,14 +34,14 @@ clip_count = 5
 clip_0/name = &"placeholder"
 clip_0/stream = ExtResource("21_s143w")
 clip_0/auto_advance = 0
-clip_1/name = &"Remnant"
+clip_1/name = &"Empire of Rust"
 clip_1/stream = ExtResource("20_s143w")
 clip_1/auto_advance = 0
 clip_2/name = &"Against All Odds"
 clip_2/stream = ExtResource("22_yfyi7")
 clip_2/auto_advance = 0
 clip_3/name = &"Ashes To Ashes"
-clip_3/stream = ExtResource("23_frive")
+clip_3/stream = ExtResource("20_yfyi7")
 clip_3/auto_advance = 0
 clip_4/name = &"Dancing Shadows"
 clip_4/stream = ExtResource("21_yfyi7")
