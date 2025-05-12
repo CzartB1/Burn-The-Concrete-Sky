@@ -15,12 +15,12 @@
 [ext_resource type="PackedScene" uid="uid://dax77v5pluquy" path="res://scene/menus/demo_lock_screen.tscn" id="12_s143w"]
 [ext_resource type="PackedScene" uid="uid://d5vt4gjy1jd2" path="res://scene/player/characters/Mirage.tscn" id="13_ojb4m"]
 [ext_resource type="Script" uid="uid://exx6mb3ilk5" path="res://scripts/systems/char_manager.gd" id="20_0ogmo"]
-[ext_resource type="AudioStream" uid="uid://b0if2ifkuv2pi" path="res://audios/music/char_themes/Remnant_Theme.wav" id="20_s143w"]
-[ext_resource type="AudioStream" uid="uid://bdijfiaeg4wan" path="res://audios/music/char_themes/silver_theme.wav" id="20_yfyi7"]
+[ext_resource type="AudioStream" uid="uid://b3iusavoqm6o" path="res://audios/music/char_themes/empire_of_rust.wav" id="20_s143w"]
+[ext_resource type="AudioStream" uid="uid://rrqwtqbopwa6" path="res://audios/music/char_themes/ashes_to_ashes.wav" id="20_yfyi7"]
 [ext_resource type="AudioStream" uid="uid://ww5tyx75bmgb" path="res://audios/music/char_themes/placeholder_song.wav" id="21_s143w"]
 [ext_resource type="Script" uid="uid://c7x00y40vwan" path="res://scripts/systems/music_manager.gd" id="21_ss30e"]
-[ext_resource type="AudioStream" uid="uid://blhikb6sovlkv" path="res://audios/music/char_themes/mirage_theme.wav" id="21_yfyi7"]
-[ext_resource type="AudioStream" uid="uid://ybi8tdaalhgs" path="res://audios/music/char_themes/impact_theme.wav" id="22_yfyi7"]
+[ext_resource type="AudioStream" uid="uid://vokdfujmc4hk" path="res://audios/music/char_themes/dancing_shadows.wav" id="21_yfyi7"]
+[ext_resource type="AudioStream" uid="uid://ekwlji50lqyy" path="res://audios/music/char_themes/against_all_odds.wav" id="22_yfyi7"]
 [ext_resource type="Script" uid="uid://dsp52sgih7sk5" path="res://scripts/systems/dedzone.gd" id="23_jahdx"]
 [ext_resource type="AudioStream" uid="uid://lx80dcnrme23" path="res://audios/music/factory_ambient.wav" id="23_s143w"]
 [ext_resource type="AudioStream" uid="uid://dq603slg7hjl0" path="res://audios/music/placeholders/sci-fi-ambient-music-183269.mp3" id="23_tcdhp"]
@@ -28,6 +28,7 @@
 [ext_resource type="Script" uid="uid://didwpr8c0l01i" path="res://scripts/menus/ui_button_sound_manager.gd" id="26_s143w"]
 [ext_resource type="AudioStream" uid="uid://fhej05fu4oyd" path="res://audios/effects/ui/ui_button_hover.wav" id="27_yfyi7"]
 [ext_resource type="AudioStream" uid="uid://cj7vhftw02j2s" path="res://audios/effects/ui/ui_button_press.wav" id="28_frive"]
+
 
 [sub_resource type="AudioStreamInteractive" id="AudioStreamInteractive_f3hkl"]
 clip_count = 5
