@@ -212,9 +212,9 @@ func activate_group(chos:Combat_Group):
 	if boss_room!=null:
 		boss_room.visible=false
 		boss_room.process_mode=Node.PROCESS_MODE_DISABLED
-	if chos.sibling_groups.size()>0:
-		for sibling in chos.sibling_groups:
-			sibling.queue_free()
+	#if chos.sibling_groups.size()!=0:
+		#for sibling in chos.sibling_groups:
+			#sibling.queue_free()
 	#visible=false
 	#process_mode = Node.PROCESS_MODE_DISABLED
 	print("Group chosen: " + str(chos.name))

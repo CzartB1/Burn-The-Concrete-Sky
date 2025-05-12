@@ -22,7 +22,7 @@ size = Vector3(15.1072, 3, 5.13471)
 [sub_resource type="BoxMesh" id="BoxMesh_bhy5n"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_nn2hp"]
-size = Vector3(1, 2.02344, 5)
+size = Vector3(1, 2.02344, 7.3584)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_pyr0l"]
 size = Vector3(1, 1.99023, 16)
@@ -430,6 +430,7 @@ mesh = SubResource("BoxMesh_bhy5n")
 skeleton = NodePath("../Entrance")
 
 [node name="Entrance" type="CollisionShape3D" parent="spawner/entrance2"]
+transform = Transform3D(1, 0, -7.31859e-13, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 shape = SubResource("BoxShape3D_nn2hp")
 
 [node name="exit2" type="StaticBody3D" parent="spawner"]

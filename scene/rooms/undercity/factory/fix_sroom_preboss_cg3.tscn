@@ -1,4 +1,4 @@
-[gd_scene load_steps=65 format=4 uid="uid://bochid44ruy06"]
+[gd_scene load_steps=72 format=4 uid="uid://bochid44ruy06"]
 
 [ext_resource type="Script" uid="uid://co3c0f6rssoiw" path="res://scripts/systems/rooms/room.gd" id="1_naoxm"]
 [ext_resource type="Script" uid="uid://rj37g3i8nor3" path="res://scripts/systems/rooms/room_end.gd" id="2_ao1qq"]
@@ -13,6 +13,13 @@
 [ext_resource type="PackedScene" uid="uid://dqrjqsnh1f28f" path="res://scene/player/upgrades/shopkeeper.tscn" id="11_ydeeq"]
 [ext_resource type="Script" uid="uid://ccytq7v6yt0a" path="res://scripts/misc/crowd.gd" id="12_qoxaw"]
 [ext_resource type="PackedScene" uid="uid://dx34fa54gclwt" path="res://meshes/environment/undercity/crowd.blend" id="13_8ra1f"]
+[ext_resource type="AudioStream" uid="uid://bgccksg34vbge" path="res://audios/effects/factory_chamt/fct_chant-01.wav" id="14_a7i0o"]
+[ext_resource type="AudioStream" uid="uid://d1c6uxovk6ysr" path="res://audios/effects/factory_chamt/fct_chant-02.wav" id="15_eswed"]
+[ext_resource type="AudioStream" uid="uid://bqyihvtk731o8" path="res://audios/effects/factory_chamt/fct_chant-03.wav" id="16_nnaoq"]
+[ext_resource type="AudioStream" uid="uid://d37ewjntuc02m" path="res://audios/effects/factory_chamt/fct_chant-04.wav" id="17_e8v3j"]
+[ext_resource type="AudioStream" uid="uid://dcjk7hceqvxch" path="res://audios/effects/factory_chamt/fct_chant-05.wav" id="18_3uq7h"]
+[ext_resource type="AudioStream" uid="uid://btffm3keilbfs" path="res://audios/effects/factory_chamt/fct_chant-06.wav" id="19_vnvwq"]
+[ext_resource type="AudioStream" uid="uid://boagiwgqqvbmg" path="res://audios/effects/factory_chamt/fct_chant-07.wav" id="20_wv4ta"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_wdpex"]
 size = Vector3(15.3867, 3.96387, 1)
@@ -14662,6 +14669,269 @@ light_energy = 9.0
 light_bake_mode = 1
 shadow_enabled = true
 omni_range = 10.0039
+
+[node name="Node3D" type="Node3D" parent="."]
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="Node3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.4853, -4.76837e-07, -43.0294)
+stream = ExtResource("14_a7i0o")
+attenuation_model = 2
+volume_db = 2.0
+unit_size = 16.4
+autoplay = true
+bus = &"SFX"
+
+[node name="AudioStreamPlayer3D2" type="AudioStreamPlayer3D" parent="Node3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.442, -4.76837e-07, -51.0294)
+stream = ExtResource("15_eswed")
+attenuation_model = 2
+volume_db = 2.0
+unit_size = 16.4
+autoplay = true
+bus = &"SFX"
+
+[node name="AudioStreamPlayer3D3" type="AudioStreamPlayer3D" parent="Node3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.44201, -4.76837e-07, -57.0294)
+stream = ExtResource("16_nnaoq")
+attenuation_model = 2
+volume_db = 2.0
+unit_size = 16.4
+autoplay = true
+bus = &"SFX"
+
+[node name="AudioStreamPlayer3D4" type="AudioStreamPlayer3D" parent="Node3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.442, -4.76837e-07, -65.0294)
+stream = ExtResource("17_e8v3j")
+attenuation_model = 2
+volume_db = 2.0
+unit_size = 16.4
+autoplay = true
+bus = &"SFX"
+
+[node name="AudioStreamPlayer3D5" type="AudioStreamPlayer3D" parent="Node3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.442, -4.76837e-07, -74.0294)
+stream = ExtResource("18_3uq7h")
+attenuation_model = 2
+volume_db = 2.0
+unit_size = 16.4
+autoplay = true
+bus = &"SFX"
+
+[node name="AudioStreamPlayer3D6" type="AudioStreamPlayer3D" parent="Node3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.442, -4.76837e-07, -82.0294)
+stream = ExtResource("19_vnvwq")
+attenuation_model = 2
+volume_db = 2.0
+unit_size = 16.4
+autoplay = true
+bus = &"SFX"
+
+[node name="AudioStreamPlayer3D7" type="AudioStreamPlayer3D" parent="Node3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.442, -4.76837e-07, -96.0294)
+stream = ExtResource("20_wv4ta")
+attenuation_model = 2
+volume_db = 2.0
+unit_size = 16.4
+autoplay = true
+bus = &"SFX"
+
+[node name="Node3D3" type="Node3D" parent="."]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 21.5204, 0, -134.637)
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="Node3D3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.4853, -4.76837e-07, -43.0294)
+stream = ExtResource("14_a7i0o")
+attenuation_model = 2
+volume_db = 2.0
+unit_size = 16.4
+autoplay = true
+bus = &"SFX"
+
+[node name="AudioStreamPlayer3D2" type="AudioStreamPlayer3D" parent="Node3D3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.442, -4.76837e-07, -51.0294)
+stream = ExtResource("15_eswed")
+attenuation_model = 2
+volume_db = 2.0
+unit_size = 16.4
+autoplay = true
+bus = &"SFX"
+
+[node name="AudioStreamPlayer3D3" type="AudioStreamPlayer3D" parent="Node3D3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.44201, -4.76837e-07, -57.0294)
+stream = ExtResource("16_nnaoq")
+attenuation_model = 2
+volume_db = 2.0
+unit_size = 16.4
+autoplay = true
+bus = &"SFX"
+
+[node name="AudioStreamPlayer3D4" type="AudioStreamPlayer3D" parent="Node3D3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.442, -4.76837e-07, -65.0294)
+stream = ExtResource("17_e8v3j")
+attenuation_model = 2
+volume_db = 2.0
+unit_size = 16.4
+autoplay = true
+bus = &"SFX"
+
+[node name="AudioStreamPlayer3D5" type="AudioStreamPlayer3D" parent="Node3D3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.442, -4.76837e-07, -74.0294)
+stream = ExtResource("18_3uq7h")
+attenuation_model = 2
+volume_db = 2.0
+unit_size = 16.4
+autoplay = true
+bus = &"SFX"
+
+[node name="AudioStreamPlayer3D6" type="AudioStreamPlayer3D" parent="Node3D3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.442, -4.76837e-07, -82.0294)
+stream = ExtResource("19_vnvwq")
+attenuation_model = 2
+volume_db = 2.0
+unit_size = 16.4
+autoplay = true
+bus = &"SFX"
+
+[node name="AudioStreamPlayer3D7" type="AudioStreamPlayer3D" parent="Node3D3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.442, -4.76837e-07, -96.0294)
+stream = ExtResource("20_wv4ta")
+attenuation_model = 2
+volume_db = 2.0
+unit_size = 16.4
+autoplay = true
+bus = &"SFX"
+
+[node name="Node3D2" type="Node3D" parent="."]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, -137)
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="Node3D2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.4853, -4.76837e-07, -43.0294)
+stream = ExtResource("14_a7i0o")
+attenuation_model = 2
+volume_db = 2.0
+unit_size = 16.4
+autoplay = true
+bus = &"SFX"
+
+[node name="AudioStreamPlayer3D2" type="AudioStreamPlayer3D" parent="Node3D2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.442, -4.76837e-07, -51.0294)
+stream = ExtResource("15_eswed")
+attenuation_model = 2
+volume_db = 2.0
+unit_size = 16.4
+autoplay = true
+bus = &"SFX"
+
+[node name="AudioStreamPlayer3D3" type="AudioStreamPlayer3D" parent="Node3D2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.44201, -4.76837e-07, -57.0294)
+stream = ExtResource("16_nnaoq")
+attenuation_model = 2
+volume_db = 2.0
+unit_size = 16.4
+autoplay = true
+bus = &"SFX"
+
+[node name="AudioStreamPlayer3D4" type="AudioStreamPlayer3D" parent="Node3D2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.442, -4.76837e-07, -65.0294)
+stream = ExtResource("17_e8v3j")
+attenuation_model = 2
+volume_db = 2.0
+unit_size = 16.4
+autoplay = true
+bus = &"SFX"
+
+[node name="AudioStreamPlayer3D5" type="AudioStreamPlayer3D" parent="Node3D2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.442, -4.76837e-07, -74.0294)
+stream = ExtResource("18_3uq7h")
+attenuation_model = 2
+volume_db = 2.0
+unit_size = 16.4
+autoplay = true
+bus = &"SFX"
+
+[node name="AudioStreamPlayer3D6" type="AudioStreamPlayer3D" parent="Node3D2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.442, -4.76837e-07, -82.0294)
+stream = ExtResource("19_vnvwq")
+attenuation_model = 2
+volume_db = 2.0
+unit_size = 16.4
+autoplay = true
+bus = &"SFX"
+
+[node name="AudioStreamPlayer3D7" type="AudioStreamPlayer3D" parent="Node3D2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.442, -4.76837e-07, -96.0294)
+stream = ExtResource("20_wv4ta")
+attenuation_model = 2
+volume_db = 2.0
+unit_size = 16.4
+autoplay = true
+bus = &"SFX"
+
+[node name="Node3D4" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 1.74846e-07, 0, 1, 0, -1.74846e-07, 0, 1, -21, 0, -1)
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="Node3D4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.4853, -4.76837e-07, -43.0294)
+stream = ExtResource("14_a7i0o")
+attenuation_model = 2
+volume_db = 2.0
+unit_size = 16.4
+autoplay = true
+bus = &"SFX"
+
+[node name="AudioStreamPlayer3D2" type="AudioStreamPlayer3D" parent="Node3D4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.442, -4.76837e-07, -51.0294)
+stream = ExtResource("15_eswed")
+attenuation_model = 2
+volume_db = 2.0
+unit_size = 16.4
+autoplay = true
+bus = &"SFX"
+
+[node name="AudioStreamPlayer3D3" type="AudioStreamPlayer3D" parent="Node3D4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.44201, -4.76837e-07, -57.0294)
+stream = ExtResource("16_nnaoq")
+attenuation_model = 2
+volume_db = 2.0
+unit_size = 16.4
+autoplay = true
+bus = &"SFX"
+
+[node name="AudioStreamPlayer3D4" type="AudioStreamPlayer3D" parent="Node3D4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.442, -4.76837e-07, -65.0294)
+stream = ExtResource("17_e8v3j")
+attenuation_model = 2
+volume_db = 2.0
+unit_size = 16.4
+autoplay = true
+bus = &"SFX"
+
+[node name="AudioStreamPlayer3D5" type="AudioStreamPlayer3D" parent="Node3D4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.442, -4.76837e-07, -74.0294)
+stream = ExtResource("18_3uq7h")
+attenuation_model = 2
+volume_db = 2.0
+unit_size = 16.4
+autoplay = true
+bus = &"SFX"
+
+[node name="AudioStreamPlayer3D6" type="AudioStreamPlayer3D" parent="Node3D4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.442, -4.76837e-07, -82.0294)
+stream = ExtResource("19_vnvwq")
+attenuation_model = 2
+volume_db = 2.0
+unit_size = 16.4
+autoplay = true
+bus = &"SFX"
+
+[node name="AudioStreamPlayer3D7" type="AudioStreamPlayer3D" parent="Node3D4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.442, -4.76837e-07, -96.0294)
+stream = ExtResource("20_wv4ta")
+attenuation_model = 2
+volume_db = 2.0
+unit_size = 16.4
+autoplay = true
+bus = &"SFX"
 
 [connection signal="body_entered" from="rooms_end" to="rooms_end" method="_on_body_entered"]
 
