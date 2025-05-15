@@ -1,4 +1,4 @@
-class_name base_weapon
+class_name BaseWeapon
 extends Node3D
 
 @export var manager: Weapon_Manager

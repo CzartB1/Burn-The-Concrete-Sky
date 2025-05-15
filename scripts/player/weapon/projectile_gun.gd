@@ -1,7 +1,6 @@
 class_name Projectile_Gun
-extends Node3D
+extends BaseWeapon
 
-@export var manager: Weapon_Manager
 @export var muzzles: Array[Node3D]
 @export var bullet: PackedScene
 @export var fire_rate = 3.0
@@ -9,7 +8,6 @@ extends Node3D
 @export var spread:float = 5
 @export var pellets:int = 1
 @export var shoot_range: float = 5.0
-var can_shoot=true
 @export_group("reloading")
 @export var max_ammo:int=10
 @export var reload_duration:float=2
@@ -25,7 +23,6 @@ var bcr_can_reload=true
 @export var muzzle_flash:Node3D
 @export var anim_id=0
 @export_group("audio")
-var audio_direct=preload("res://scene/utilities/audio_direct.tscn")
 @export var gunshot_sound:AudioStream
 @export var reload_sound:AudioStream
 @export var bcr_finish_sound:AudioStream
@@ -34,26 +31,17 @@ var audio_direct=preload("res://scene/utilities/audio_direct.tscn")
 @export_group("lore")
 @export var icon:AtlasTexture
 @export_multiline var Description:String
+
 func _ready():
 	current_ammo=max_ammo
 	if muzzle_flash!=null:
 		muzzle_flash.visible=false
 
 func _process(_delta):
+	super._process(_delta)
 	#weapon animation
 	manager.master.anim_manager.set("parameters/weapon_anim_id/blend_position",float(anim_id))
 	
-	if Input.is_action_pressed("attack")and manager.master.alive and !manager.master.disabled and can_shoot and !game_manager.paused:
-		var dec=get_tree().get_first_node_in_group("Decoy")
-		if dec!=null and dec is Kunoichi_Decoy: dec.dead()
-		
-		if current_ammo>0:
-			shoot()
-			bcr_reloading=false
-		elif current_ammo<=0:
-			empty()
-	elif Input.is_action_just_released("attack"):
-		shoot_after_reload=true
 	if Input.is_action_just_pressed("reload") and current_ammo < max_ammo:
 		shoot_after_reload=false
 		if !bullet_counted_reload:
@@ -67,6 +55,19 @@ func _process(_delta):
 			bcr_reloading=false
 			play_sound(bcr_finish_sound)
 	if Input.is_action_just_released("reload"):bcr_reloading=false
+
+func attack_hold():
+	var dec=get_tree().get_first_node_in_group("Decoy")
+	if dec!=null and dec is Kunoichi_Decoy: dec.dead()
+	
+	if current_ammo>0:
+		shoot()
+		bcr_reloading=false
+	elif current_ammo<=0:
+		empty()
+
+func attack_released():
+	shoot_after_reload=true
 
 func shoot():
 	for k in pellets:
@@ -88,7 +89,7 @@ func shoot():
 	current_ammo-=1
 	play_sound(gunshot_sound)
 	muzzle_flash_visual()
-	can_shoot=false
+	can_attack=false
 	toggle_shoot()
 
 func empty():
@@ -118,18 +119,10 @@ func bcr_reload():
 
 func toggle_shoot():
 	await get_tree().create_timer(1/((fire_rate+manager.attack_speed_modifier)*manager.attack_speed_multiplier)).timeout
-	can_shoot=true
+	can_attack=true
 
 func muzzle_flash_visual():
 	if muzzle_flash!=null:
 		muzzle_flash.visible=true
 		await get_tree().create_timer(.1).timeout
 		muzzle_flash.visible=false
-
-func play_sound(austr:AudioStream):
-	if austr!=null:
-		var audio=audio_direct.instantiate()
-		add_child(audio)
-		audio.play_sound(austr)
-	elif !austr:
-		print("sound not found")
