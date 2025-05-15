@@ -29,7 +29,6 @@
 [ext_resource type="AudioStream" uid="uid://fhej05fu4oyd" path="res://audios/effects/ui/ui_button_hover.wav" id="27_yfyi7"]
 [ext_resource type="AudioStream" uid="uid://cj7vhftw02j2s" path="res://audios/effects/ui/ui_button_press.wav" id="28_frive"]
 
-
 [sub_resource type="AudioStreamInteractive" id="AudioStreamInteractive_f3hkl"]
 clip_count = 5
 clip_0/name = &"placeholder"

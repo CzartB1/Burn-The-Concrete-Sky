@@ -60,11 +60,6 @@ func _process(_delta):
 			reload()
 		elif bullet_counted_reload:
 			bcr_reloading=true
-	#if manager.ammo_counter!=null:
-		#if current_ammo>0:
-			#manager.ammo_counter.text=str(current_ammo)
-		#elif current_ammo<=0:
-			#manager.ammo_counter.text="0"
 	while bcr_reloading and current_ammo<max_ammo and bcr_can_reload and Input.is_action_pressed("reload"):
 		play_sound(reload_sound)
 		bcr_reload()
@@ -73,7 +68,7 @@ func _process(_delta):
 			play_sound(bcr_finish_sound)
 	if Input.is_action_just_released("reload"):bcr_reloading=false
 
-func shoot(): #TODO add pellets for shotguns and stuff
+func shoot():
 	for k in pellets:
 		for i in muzzles.size():
 			var start_rot = muzzles[i].rotation_degrees.y
