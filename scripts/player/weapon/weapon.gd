@@ -5,6 +5,11 @@ extends Node3D
 var audio_direct=preload("res://scene/utilities/audio_direct.tscn")
 var holding=false
 var can_attack=true
+@export_group("shop")
+@export var price:int=100
+@export_group("lore")
+@export var icon:AtlasTexture
+@export_multiline var Description:String
 
 func _process(_delta):
 	if !manager.master.alive and manager.master.disabled and game_manager.paused and manager.master.in_dialogue: return

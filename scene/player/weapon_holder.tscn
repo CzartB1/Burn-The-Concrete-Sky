@@ -30,36 +30,36 @@
 [ext_resource type="AudioStream" uid="uid://8eybsy0yyq6v" path="res://audios/weapons/ranged/reloads/revolver_reload_finish.wav" id="19_wl3d1"]
 [ext_resource type="AudioStream" uid="uid://dbb2xnljx8uqh" path="res://audios/weapons/ranged/reloads/276959__gfl7__pistol-reload-sound.mp3" id="25_wl3d1"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_b8guf"]
-atlas = ExtResource("3_4xwoe")
-region = Rect2(0, 0, 32, 32)
-
 [sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_pvctk"]
 streams_count = 1
 stream_0/stream = ExtResource("5_qn2jl")
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_b8guf"]
+atlas = ExtResource("3_4xwoe")
+region = Rect2(0, 0, 32, 32)
+
 [sub_resource type="BoxShape3D" id="BoxShape3D_nchdq"]
 size = Vector3(1.2627, 1, 0.804445)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_3neot"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_qn2jl"]
 atlas = ExtResource("3_4xwoe")
-region = Rect2(32, 0, 32, 32)
+region = Rect2(34, 0, 30, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_46epw"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_pvctk"]
 atlas = ExtResource("3_4xwoe")
 region = Rect2(64, 0, 32, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_k0miw"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_18wyp"]
 atlas = ExtResource("3_4xwoe")
-region = Rect2(192, 0, 32, 32)
+region = Rect2(191, 0, 33, 31)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_mfitw"]
 atlas = ExtResource("3_4xwoe")
 region = Rect2(96, 0, 32, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_7uicm"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_iq4dl"]
 atlas = ExtResource("3_4xwoe")
-region = Rect2(128, 0, 32, 32)
+region = Rect2(129, 0, 32, 32)
 
 [sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_vmepa"]
 playback_mode = 1
@@ -72,9 +72,9 @@ stream_2/stream = ExtResource("18_l6r30")
 stream_2/weight = 3.0
 stream_3/stream = ExtResource("19_icaqo")
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_rvbas"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_xnafs"]
 atlas = ExtResource("3_4xwoe")
-region = Rect2(160, 0, 32, 32)
+region = Rect2(159, 0, 32, 32)
 
 [node name="weapon_holder" type="Node3D" node_paths=PackedStringArray("weapons") groups=["weapon_holder"]]
 script = ExtResource("1_rku58")
@@ -88,10 +88,10 @@ visual_effects = NodePath("Area3D/CollisionShape3D/Sprite3D")
 cooldown_timer = NodePath("cooldown")
 stance = 2
 strike_type = 0
-icon = SubResource("AtlasTexture_b8guf")
-Description = "Some are born with silver tongues, others with steady trigger fingers. You were born with these. They’re yours. Own them. And if someone asks why you're punching them, tell them it’s divine intervention."
 attack_sound = SubResource("AudioStreamRandomizer_pvctk")
 manager = NodePath("..")
+icon = SubResource("AtlasTexture_b8guf")
+Description = "Some are born with silver tongues, others with steady trigger fingers. You were born with these. They’re yours. Own them. And if someone asks why you're punching them, tell them it’s divine intervention."
 
 [node name="Area3D" type="Area3D" parent="fist"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.533335)
@@ -127,10 +127,10 @@ anim_id = 1
 gunshot_sound = ExtResource("6_psg06")
 reload_sound = ExtResource("8_adchn")
 bcr_finish_sound = ExtResource("9_axoe1")
-price = 550
-icon = SubResource("AtlasTexture_3neot")
-Description = "Shotty’s like a melody in your head. But instead of an earworm tune, it’s the scream of your enemy as the buckshot implodes their face. Its low capacity is only there to balance out its sheer stopping power."
 manager = NodePath("..")
+price = 600
+icon = SubResource("AtlasTexture_qn2jl")
+Description = "Shotty’s like a melody in your head. But instead of an earworm tune, it’s the scream of your enemy as the buckshot implodes their face. Its low capacity is only there to balance out its sheer stopping power."
 
 [node name="muzzle" type="Node3D" parent="Shotty"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1.18281)
@@ -160,10 +160,10 @@ muzzle_flash = NodePath("muzzle_flash")
 anim_id = 1
 gunshot_sound = ExtResource("8_o1aab")
 reload_sound = ExtResource("14_qn2jl")
-price = 1200
-icon = SubResource("AtlasTexture_46epw")
-Description = "Its unorthodox appearance and enormous weight are balanced with its firepower and ammo capacity. In the olden days, it was used by infantrymen to bring down mechanical beasts called Panzers. Despite its age, it is still able to punch through the thickest armor, given enough patience."
 manager = NodePath("..")
+price = 1200
+icon = SubResource("AtlasTexture_pvctk")
+Description = "Its unorthodox appearance and enormous weight are balanced with its firepower and ammo capacity. In the olden days, it was used by infantrymen to bring down mechanical beasts called Panzers. Despite its age, it is still able to punch through the thickest armor, given enough patience."
 
 [node name="muzzle" type="Node3D" parent="\'PanzerJaeger\' LMG"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1.18281)
@@ -193,10 +193,10 @@ muzzle_flash = NodePath("muzzle_flash")
 anim_id = 1
 gunshot_sound = ExtResource("8_o1aab")
 reload_sound = ExtResource("14_l0y5u")
-price = 700
-icon = SubResource("AtlasTexture_k0miw")
-Description = "Acting as the standard rifle for the Technocrats during The Great Magi War, this ancient weapon has fought in many grounds and stood the test of time. Its history and firepower have made it a symbol of power and justice."
 manager = NodePath("..")
+price = 800
+icon = SubResource("AtlasTexture_18wyp")
+Description = "Acting as the standard rifle for the Technocrats during the Great Magi War, this ancient weapon has fought in many grounds and stood the test of time. Its history and firepower have made it a symbol of power and justice."
 
 [node name="ar_common" parent="SBR-M3 Battle Rifle" instance=ExtResource("11_g3slb")]
 transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0.138757, 0.522058, -0.56377)
@@ -218,11 +218,11 @@ hitbox = NodePath("Area3D")
 visual_effects = NodePath("Area3D/CollisionShape3D/Sprite3D")
 deflect_bullet = true
 cooldown_timer = NodePath("cooldown")
+attack_sound = ExtResource("18_qn2jl")
+manager = NodePath("..")
 price = 150
 icon = SubResource("AtlasTexture_mfitw")
 Description = "It used to mean an improvised knife, but that’s what people call any improvised blade nowadays. It’s inelegant, but it gets the job done."
-attack_sound = ExtResource("18_qn2jl")
-manager = NodePath("..")
 
 [node name="Area3D" type="Area3D" parent="Shank"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.533335)
@@ -255,10 +255,12 @@ muzzle_flash = NodePath("muzzle_flash")
 gunshot_sound = ExtResource("9_o61uu")
 reload_sound = ExtResource("18_l0y5u")
 bcr_finish_sound = ExtResource("19_wl3d1")
-price = 300
-icon = SubResource("AtlasTexture_7uicm")
-Description = "The grandfather of modern firearm. It may not compete with its children in term of sheer power, yet it’s still reliable and accurate. A masterpiece by the great Sir Hollard who brought freedom and equality to his now-gone fatherland. As they say, “god created men, guns made them equal.”"
 manager = NodePath("..")
+price = 550
+icon = SubResource("AtlasTexture_iq4dl")
+Description = "# 
+
+The grandfather of modern firearm. It may not compete with its children in term of sheer power, yet it’s still reliable and accurate. A masterpiece by the great Sir Hollard who brought freedom and equality to his now-gone fatherland. As they say, “god created men, guns made them equal.”"
 
 [node name="muzzle" type="Node3D" parent="Hollard Type-57"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1.18281)
@@ -286,10 +288,10 @@ reload_duration = 1.5
 muzzle_flash = NodePath("muzzle_flash")
 gunshot_sound = SubResource("AudioStreamRandomizer_vmepa")
 reload_sound = ExtResource("25_wl3d1")
-price = 200
-icon = SubResource("AtlasTexture_rvbas")
-Description = "A simple pistol, a common sidearm among thugs and mercenaries. It was a common sight during The Great Magi War due to its simple manufacturing and widespread adoption. Despite its common sighting and power compared to its peers, it is not to be underestimated. A single lucky shot can bring down even a god."
 manager = NodePath("..")
+price = 450
+icon = SubResource("AtlasTexture_xnafs")
+Description = "A simple pistol, a common sidearm among thugs and mercenaries. It was a common sight during @The Great Magi War due to its simple manufacturing and widespread adoption. Despite its common sighting and power compared to its peers, it is not to be underestimated. A single lucky shot can bring down even a god."
 
 [node name="muzzle" type="Node3D" parent="\'Krasnik\' Pistol"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1.18281)

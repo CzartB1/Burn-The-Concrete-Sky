@@ -14,14 +14,9 @@ var charge_start
 var charge_dur
 var damage_add: int
 var damage: int
-@export_group("shop")
-@export var price:int=100
 @export_group("animation")
 @export_range(2,3) var stance:int=3
 @export_range(0,1) var strike_type:int=1
-@export_group("lore")
-@export var icon:AtlasTexture
-@export_multiline var Description:String
 @export_group("audio")
 @export var attack_sound:AudioStream
 var attacking: bool = false
@@ -66,10 +61,9 @@ func attack_released():
 	if !charge_start: return
 	var dec=get_tree().get_first_node_in_group("Decoy")
 	if dec!=null and dec is Kunoichi_Decoy: dec.dead()
-	
 	play_sound(attack_sound)
 	manager.master.charge_bar.value=0
-	charge_dur=clamp(Time.get_ticks_msec()/1000-charge_start,0,3) #FIXME sometimes crashes the game. maybe bcs it activated when another function thats needed isn't ready yet.
+	charge_dur=clamp(Time.get_ticks_msec()/1000-charge_start,0,3)
 	damage=min_damage*(max_damage-min_damage)*charge_dur
 	if damage > max_damage: damage=max_damage
 	elif damage < min_damage: damage=min_damage

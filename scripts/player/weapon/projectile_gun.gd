@@ -26,11 +26,6 @@ var bcr_can_reload=true
 @export var gunshot_sound:AudioStream
 @export var reload_sound:AudioStream
 @export var bcr_finish_sound:AudioStream
-@export_group("shop")
-@export var price:int=100
-@export_group("lore")
-@export var icon:AtlasTexture
-@export_multiline var Description:String
 
 func _ready():
 	current_ammo=max_ammo
