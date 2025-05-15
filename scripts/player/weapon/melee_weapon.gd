@@ -56,12 +56,12 @@ func _process(delta):
 	attack()
 
 func attack():
-	if !manager.master.alive and manager.master.disabled and game_manager.paused: return
-	if can_attack and Input.is_action_just_pressed("attack"):
+	if !manager.master.alive and manager.master.disabled and game_manager.paused and manager.master.in_dialogue: return
+	if can_attack and Input.is_action_just_pressed("attack") and !manager.master.in_dialogue:
 		manager.master.charge_bar.max_value=max_damage
 		charge_start=Time.get_ticks_msec()/1000.0
 		charging=true
-	if can_attack and Input.is_action_pressed("attack"):
+	if can_attack and Input.is_action_pressed("attack") and !manager.master.in_dialogue:
 		if !charging:
 			manager.master.charge_bar.max_value=max_damage
 			charge_start=Time.get_ticks_msec()/1000.0
@@ -69,7 +69,7 @@ func attack():
 		elif charging:
 			charge_dur=clamp(Time.get_ticks_msec()/1000.0-charge_start,0,3)
 			manager.master.charge_bar.value=min_damage*(max_damage-min_damage)*charge_dur
-	if can_attack and Input.is_action_just_released("attack") and charging:
+	if can_attack and Input.is_action_just_released("attack") and charging and !manager.master.in_dialogue:
 		var dec=get_tree().get_first_node_in_group("Decoy")
 		if dec!=null and dec is Kunoichi_Decoy: dec.dead()
 		

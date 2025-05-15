@@ -94,6 +94,7 @@ func rand_weapons():
 
 func _on_select_pressed():
 	if selected:
+		if  plr == null:plr = get_tree().get_first_node_in_group("Player")
 		has_selected=true
 		toggle_menu(false)
 		if weapon: plr.upgrade_manager.weapon_manager.change_weapon_2(selected_weapon_id)
@@ -103,6 +104,7 @@ func _on_select_pressed():
 		plr.show_cursor = false
 		plr.disabled=false
 		plr.in_dialogue=false
+		Engine.time_scale=1.0
 		for i in get_tree().get_nodes_in_group("justicar"):
 			i.queue_free()
 	elif !selected:
