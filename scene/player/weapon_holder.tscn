@@ -81,9 +81,8 @@ script = ExtResource("1_rku58")
 current_1_id = 2
 weapons = [NodePath("fist"), NodePath("Shotty"), NodePath("\'PanzerJaeger\' LMG"), NodePath("Shank"), NodePath("Hollard Type-57"), NodePath("\'Krasnik\' Pistol"), NodePath("SBR-M3 Battle Rifle")]
 
-[node name="fist" type="Node3D" parent="." node_paths=PackedStringArray("manager", "hitbox", "visual_effects", "cooldown_timer")]
+[node name="fist" type="Node3D" parent="." node_paths=PackedStringArray("hitbox", "visual_effects", "cooldown_timer", "manager")]
 script = ExtResource("4_lfc15")
-manager = NodePath("..")
 hitbox = NodePath("Area3D")
 visual_effects = NodePath("Area3D/CollisionShape3D/Sprite3D")
 cooldown_timer = NodePath("cooldown")
@@ -92,6 +91,7 @@ strike_type = 0
 icon = SubResource("AtlasTexture_b8guf")
 Description = "Some are born with silver tongues, others with steady trigger fingers. You were born with these. They’re yours. Own them. And if someone asks why you're punching them, tell them it’s divine intervention."
 attack_sound = SubResource("AudioStreamRandomizer_pvctk")
+manager = NodePath("..")
 
 [node name="Area3D" type="Area3D" parent="fist"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.533335)
@@ -212,9 +212,8 @@ light_color = Color(1, 0.815686, 0.419608, 1)
 light_energy = 0.4
 omni_range = 2.0
 
-[node name="Shank" type="Node3D" parent="." node_paths=PackedStringArray("manager", "hitbox", "visual_effects", "cooldown_timer")]
+[node name="Shank" type="Node3D" parent="." node_paths=PackedStringArray("hitbox", "visual_effects", "cooldown_timer", "manager")]
 script = ExtResource("4_lfc15")
-manager = NodePath("..")
 hitbox = NodePath("Area3D")
 visual_effects = NodePath("Area3D/CollisionShape3D/Sprite3D")
 deflect_bullet = true
@@ -223,6 +222,7 @@ price = 150
 icon = SubResource("AtlasTexture_mfitw")
 Description = "It used to mean an improvised knife, but that’s what people call any improvised blade nowadays. It’s inelegant, but it gets the job done."
 attack_sound = ExtResource("18_qn2jl")
+manager = NodePath("..")
 
 [node name="Area3D" type="Area3D" parent="Shank"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.533335)
