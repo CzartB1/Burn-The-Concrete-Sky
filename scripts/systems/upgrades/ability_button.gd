@@ -8,6 +8,7 @@ var price:int=100
 @export var menu:Shop_Screen
 @export var button_enable:Control
 @export var button_disable:Control
+@export var tag_box:RichTextLabel
 @export var description_box:RichTextLabel
 
 
@@ -20,6 +21,7 @@ func _process(_delta):
 		text=up_object.name+" - "+str(price)
 
 func _on_pressed():
+	tag_box.text=" "
 	var econom=get_tree().get_first_node_in_group("Economy")
 	button_disable.visible=false
 	button_enable.visible=true

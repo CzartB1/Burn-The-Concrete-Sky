@@ -8,7 +8,9 @@ var deflected = false
 
 func _physics_process(_delta):
 	if !deflected: velocity = global_transform.basis.z * -speed
-	elif deflected: velocity = global_transform.basis.z * speed
+	elif deflected: 
+		velocity = global_transform.basis.z * speed
+		if homing: homing=false
 	
 	if homing:
 		var plr=get_tree().get_first_node_in_group("Player")

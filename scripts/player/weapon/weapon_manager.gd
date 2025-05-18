@@ -56,10 +56,6 @@ func gun_check():
 			elif i == current_1_id:
 				weapons[i].process_mode=Node.PROCESS_MODE_INHERIT
 				weapons[i].visible = true
-		#if weapons[current_1_id] is Projectile_Gun:
-			#ammo_counter.visible=true
-		#elif weapons[current_1_id] != Projectile_Gun:
-			#ammo_counter.visible=false
 	if selected_weapon==2:
 		for i in weapons.size():
 			if i != current_2_id:
@@ -68,10 +64,6 @@ func gun_check():
 			elif i == current_2_id:
 				weapons[i].process_mode=Node.PROCESS_MODE_INHERIT
 				weapons[i].visible = true
-		#if weapons[current_2_id] is Projectile_Gun:
-			#ammo_counter.visible=true
-		#elif weapons[current_2_id] != Projectile_Gun:
-			#ammo_counter.visible=false
 
 func weapon_availability_check():
 	available_weapons.clear()
