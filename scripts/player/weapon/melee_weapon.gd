@@ -13,6 +13,7 @@ var ignore_bodies:Array=[]
 var charge_start
 var charge_dur
 var damage_add: int
+var damage_mult: int =1
 var damage: int
 @export_group("animation")
 @export_range(2,3) var stance:int=3
@@ -64,9 +65,9 @@ func attack_released():
 	play_sound(attack_sound)
 	manager.master.charge_bar.value=0
 	charge_dur=clamp(Time.get_ticks_msec()/1000-charge_start,0,3)
-	damage=min_damage*(max_damage-min_damage)*charge_dur
-	if damage > max_damage: damage=max_damage
-	elif damage < min_damage: damage=min_damage
+	damage=((min_damage*(max_damage-min_damage)*charge_dur*damage_mult)+manager.damage_modifier)*manager.damage_multiplier
+	if damage > max_damage*damage_mult: damage=max_damage*damage_mult
+	elif damage < min_damage*damage_mult: damage=min_damage*damage_mult
 	print("final damage: "+str(damage))
 	manager.master.anim_manager.set("parameters/melee_attack_type/blend_position",float(strike_type))
 	manager.master.anim_manager.set("parameters/melee_attack/request",AnimationNodeOneShot.ONE_SHOT_REQUEST_FIRE)

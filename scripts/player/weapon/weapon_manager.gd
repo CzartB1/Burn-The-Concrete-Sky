@@ -6,7 +6,7 @@ extends Node3D
 @export var selected_weapon:int = 1
 @export var current_1_id:int = 0
 @export var current_2_id:int = 0
-@export var weapons:Array[Node3D]
+@export var weapons:Array[BaseWeapon]
 var available_weapons:Array[Node3D]
 var erase_fist=false
 @export_group("modifiers")

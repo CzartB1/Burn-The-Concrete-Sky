@@ -1,8 +1,11 @@
-[gd_scene load_steps=17 format=3 uid="uid://d2ssiplk0o8os"]
+[gd_scene load_steps=23 format=3 uid="uid://d2ssiplk0o8os"]
 
 [ext_resource type="Script" uid="uid://btt14cf1ooqko" path="res://scripts/player/upgrade_manager.gd" id="1_vpp7q"]
 [ext_resource type="Script" uid="uid://bbkl2h5u0fr7w" path="res://scripts/player/upgrades/upgrade.gd" id="2_jt6tb"]
+[ext_resource type="Script" uid="uid://vwdc1g3utysi" path="res://scripts/player/upgrades/see_no_evil.gd" id="3_m6klv"]
 [ext_resource type="Script" uid="uid://dtivduh7tgrx7" path="res://scripts/player/upgrades/focus.gd" id="3_p0mjj"]
+[ext_resource type="Script" uid="uid://ctj1o0xqtxkhc" path="res://scripts/player/upgrades/knockout_artist.gd" id="3_ymawj"]
+[ext_resource type="Shader" uid="uid://f2j2lv6vj8ai" path="res://shader/see_no_evil_vignette.gdshader" id="4_11bgf"]
 [ext_resource type="Script" uid="uid://bht2yn5wfydlh" path="res://scripts/player/upgrades/tachypsychia.gd" id="4_ff6n0"]
 [ext_resource type="Texture2D" uid="uid://cfdgceryqooel" path="res://sprites/UI/upgrade_icons.png" id="4_r2t1j"]
 [ext_resource type="Script" uid="uid://kxd200r1r1dn" path="res://scripts/player/upgrades/last_stand.gd" id="5_0qw0a"]
@@ -10,6 +13,19 @@
 [ext_resource type="Script" uid="uid://jt6vqtn6d1p" path="res://scripts/player/upgrades/hermes.gd" id="7_tehaf"]
 [ext_resource type="Script" uid="uid://dgmsooong0v4d" path="res://scripts/player/upgrades/wind_blade.gd" id="8_ygamq"]
 [ext_resource type="PackedScene" uid="uid://dcr5km4dago7k" path="res://scene/player/upgrades/wind_blade_object.tscn" id="9_4w774"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m6klv"]
+atlas = ExtResource("4_r2t1j")
+region = Rect2(448, 0, 64, 84)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ut6lg"]
+shader = ExtResource("4_11bgf")
+shader_parameter/outerRadius = 1.0
+shader_parameter/MainAlpha = 1.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ymawj"]
+atlas = ExtResource("4_r2t1j")
+region = Rect2(640, 0, 64, 83)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_j8iib"]
 atlas = ExtResource("4_r2t1j")
@@ -37,11 +53,28 @@ region = Rect2(384, 0, 64, 84)
 
 [node name="upgrade_manager" type="Node3D" node_paths=PackedStringArray("upgrade_list")]
 script = ExtResource("1_vpp7q")
-upgrade_list = [NodePath("Wind Blade"), NodePath("Hermes"), NodePath("Heavy"), NodePath("Last Stand"), NodePath("Tachypsychia"), NodePath("Focus")]
+upgrade_list = [NodePath("Wind Blade"), NodePath("Hermes"), NodePath("Heavy"), NodePath("Last Stand"), NodePath("Tachypsychia"), NodePath("Focus"), NodePath("See No Evil"), NodePath("Knockout Artist")]
 
 [node name="upgrade" type="Node" parent="."]
 script = ExtResource("2_jt6tb")
 Description = "Template"
+
+[node name="See No Evil" type="Node" parent="." node_paths=PackedStringArray("vignette")]
+script = ExtResource("3_m6klv")
+vignette = NodePath("ColorRect")
+icon = SubResource("AtlasTexture_m6klv")
+Description = "Template"
+
+[node name="ColorRect" type="ColorRect" parent="See No Evil"]
+material = SubResource("ShaderMaterial_ut6lg")
+offset_right = 1152.0
+offset_bottom = 648.0
+
+[node name="Knockout Artist" type="Node" parent="."]
+script = ExtResource("3_ymawj")
+price = 450
+icon = SubResource("AtlasTexture_ymawj")
+Description = "With a well placed strike, even a titan can be felled with our blood and flesh. With this, your unarmed strikes will be more powerful. No pushups required."
 
 [node name="Focus" type="Node" parent="."]
 script = ExtResource("3_p0mjj")
@@ -51,14 +84,14 @@ Description = "Lowers spread when slowing time. Just because your enemies move s
 
 [node name="Tachypsychia" type="Node" parent="."]
 script = ExtResource("4_ff6n0")
-price = 300
+price = 400
 icon = SubResource("AtlasTexture_5qx07")
 Description = "Move faster when slowing time. Remember, move wisely. If you hit a wall or trip yourself when using this, I will not stop laughing."
 
 [node name="Last Stand" type="Node" parent="." node_paths=PackedStringArray("i_timer")]
 script = ExtResource("5_0qw0a")
 i_timer = NodePath("Timer")
-price = 500
+price = 850
 icon = SubResource("AtlasTexture_8dvvg")
 Description = "If you fall, you will rise. Once. If you go down again, well… that is what we call a ‘you’ problem."
 
@@ -81,7 +114,7 @@ Description = "Your movement will be swift and blessed by the ancient deity of t
 [node name="Wind Blade" type="Node" parent="."]
 script = ExtResource("8_ygamq")
 blade = ExtResource("9_4w774")
-price = 300
+price = 560
 icon = SubResource("AtlasTexture_bpcgy")
 Description = "Leave behind wind blades that will cut up any enemies that touches it when dashing. If you trip over your own wind blade, I will not stop laughing."
 
