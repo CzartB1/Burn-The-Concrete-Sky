@@ -39,6 +39,8 @@ var will_stop_on_close=true
 var anim_move_state: float = 0.0  # whether running or not
 var current_speed: float
 var looking=true
+var frame_between_calls:=20
+var frame_counter:=0
 
 func _ready():
 	target = global_position
@@ -50,17 +52,21 @@ func _ready():
 	current_speed = 0.0
 
 func _process(delta): # HACK spread the pathfinding update so each enemies update in different frames and not at the same time to reduce workload
-	plrpos = get_tree().get_first_node_in_group("Player").global_position
-	var pl_flat = Vector3(plrpos.x,master.global_position.y,plrpos.z)
-	if master.distraction != null:
-		var de_flat = Vector3(master.distraction.global_position.x,master.global_position.y,master.distraction.global_position.z)
-		target = de_flat
-		plrdist = global_position.distance_to(target)
-		if !disable_look:look_ray.look_at(target)
-	elif master.distraction == null:
-		target = pl_flat
-		plrdist = global_position.distance_to(target)
-		if !disable_look:look_ray.look_at(target)
+	if frame_counter <= frame_between_calls:
+		plrpos = get_tree().get_first_node_in_group("Player").global_position
+		var pl_flat = Vector3(plrpos.x,master.global_position.y,plrpos.z)
+		if master.distraction != null:
+			var de_flat = Vector3(master.distraction.global_position.x,master.global_position.y,master.distraction.global_position.z)
+			target = de_flat
+			plrdist = global_position.distance_to(target)
+			if !disable_look:look_ray.look_at(target)
+		elif master.distraction == null:
+			target = pl_flat
+			plrdist = global_position.distance_to(target)
+			if !disable_look:look_ray.look_at(target)
+		frame_counter=0
+		frame_between_calls=18+randi_range(-6,5)
+	elif frame_counter > frame_between_calls: frame_counter+=1
 	
 	states()
 	

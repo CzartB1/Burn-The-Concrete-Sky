@@ -1,7 +1,8 @@
-[gd_scene load_steps=23 format=3 uid="uid://d2ssiplk0o8os"]
+[gd_scene load_steps=24 format=3 uid="uid://d2ssiplk0o8os"]
 
 [ext_resource type="Script" uid="uid://btt14cf1ooqko" path="res://scripts/player/upgrade_manager.gd" id="1_vpp7q"]
 [ext_resource type="Script" uid="uid://bbkl2h5u0fr7w" path="res://scripts/player/upgrades/upgrade.gd" id="2_jt6tb"]
+[ext_resource type="Script" uid="uid://ddfehe624slmf" path="res://scripts/player/upgrades/the_cleansing.gd" id="3_11bgf"]
 [ext_resource type="Script" uid="uid://vwdc1g3utysi" path="res://scripts/player/upgrades/see_no_evil.gd" id="3_m6klv"]
 [ext_resource type="Script" uid="uid://dtivduh7tgrx7" path="res://scripts/player/upgrades/focus.gd" id="3_p0mjj"]
 [ext_resource type="Script" uid="uid://ctj1o0xqtxkhc" path="res://scripts/player/upgrades/knockout_artist.gd" id="3_ymawj"]
@@ -53,10 +54,14 @@ region = Rect2(384, 0, 64, 84)
 
 [node name="upgrade_manager" type="Node3D" node_paths=PackedStringArray("upgrade_list")]
 script = ExtResource("1_vpp7q")
-upgrade_list = [NodePath("Wind Blade"), NodePath("Hermes"), NodePath("Heavy"), NodePath("Last Stand"), NodePath("Tachypsychia"), NodePath("Focus"), NodePath("See No Evil"), NodePath("Knockout Artist")]
+upgrade_list = [NodePath("Wind Blade"), NodePath("Hermes"), NodePath("Heavy"), NodePath("Last Stand"), NodePath("Tachypsychia"), NodePath("Focus"), NodePath("See No Evil"), NodePath("Knockout Artist"), NodePath("The Cleansing")]
 
 [node name="upgrade" type="Node" parent="."]
 script = ExtResource("2_jt6tb")
+Description = "Template"
+
+[node name="The Cleansing" type="Node" parent="."]
+script = ExtResource("3_11bgf")
 Description = "Template"
 
 [node name="See No Evil" type="Node" parent="." node_paths=PackedStringArray("vignette")]

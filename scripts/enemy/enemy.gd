@@ -3,12 +3,14 @@ extends CharacterBody3D
 
 @export var hp = 10
 @export var elite=false
+@export var tags: Array[String] = []
 @export var death_delay:float = 0
 var alive = true
 var spawner:enemy_spawner
 var speed:float
 var stunned=false
 var distraction: Node3D
+var damage_taken_mult=1
 @export var navigation_agent: NavigationAgent3D
 @export var anim: AnimationPlayer
 @export_group("loot")
@@ -38,7 +40,6 @@ func _process(_delta):
 		alive = false
 		stop_nav=true
 		if anim!=null and anim.has_animation("metarig | death"):
-			 
 			anim.play("metarig | death")
 		if death_delay>0: await get_tree().create_timer(death_delay).timeout
 		game_manager.stat_kills+=1
@@ -58,8 +59,7 @@ func set_movement_target(movement_target: Vector3):
 func _physics_process(_delta):
 	if is_on_floor(): velocity.y=0
 	elif !is_on_floor(): velocity.y=-19
-	if navigation_agent.is_navigation_finished() or stunned:
-		return
+	if navigation_agent.is_navigation_finished() or stunned: return
 	if !stop_nav and alive:
 		var next_path_position: Vector3 = navigation_agent.get_next_path_position()
 		var current_agent_position: Vector3 = global_position
@@ -77,7 +77,7 @@ func _on_velocity_computed(safe_velocity: Vector3):
 func take_damage(damage:int,attacker:Vector3=global_position):
 	#print(name.get_basename() + " took " + str(damage) + " damage")
 	flash()
-	hp-=damage
+	hp-=damage*damage_taken_mult
 	if hurt_sound!=null:play_sound(hurt_sound)
 	if gore_manager!=null:
 		gore_manager.mist_activate(attacker)
@@ -145,3 +145,12 @@ func play_sound(austr:AudioStream):
 		audio.play_sound(austr)
 	elif !austr:
 		print("sound not found")
+
+func has_tag(tag: String) -> bool:
+	return tag in tags
+
+func get_tags() -> String:
+	var result := ""
+	for tag in tags:
+		result += "[ " + tag.capitalize() + " ] "
+	return result.strip_edges()
