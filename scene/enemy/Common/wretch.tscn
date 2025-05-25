@@ -1,17 +1,29 @@
-[gd_scene load_steps=18 format=3 uid="uid://ec2asu88nit2"]
+[gd_scene load_steps=22 format=3 uid="uid://ec2asu88nit2"]
 
 [ext_resource type="Script" uid="uid://oisxcn4h6tg2" path="res://scripts/enemy/enemy.gd" id="1_3ia0x"]
 [ext_resource type="AudioStream" uid="uid://cl6od6rm8g8e3" path="res://audios/effects/enemy_hurt.wav" id="2_2loa8"]
 [ext_resource type="PackedScene" uid="uid://c8cjf5ijwasly" path="res://meshes/enemies/cg1_pit/wretch/wretch.blend" id="3_bpmr3"]
 [ext_resource type="Script" uid="uid://br0k5mvuhwc5u" path="res://scripts/enemy/states/masters/behavior_charge.gd" id="3_sepvj"]
 [ext_resource type="Script" uid="uid://dcobhyh2ydvef" path="res://addons/finite_state_machine/scripts/finite_state_machine.gd" id="4_nmrwv"]
+[ext_resource type="Texture2D" uid="uid://dvpi8a2q66ngp" path="res://meshes/enemies/cg1_pit/wretch/wretch_palette.png" id="4_xejde"]
 [ext_resource type="Script" uid="uid://dj3y7t3gdn6bj" path="res://addons/finite_state_machine/scripts/state_machine_state.gd" id="5_a05kw"]
+[ext_resource type="Texture2D" uid="uid://f107kmikago0" path="res://meshes/enemies/cg1_pit/wretch/textures/wretch_body.png" id="5_l8a6r"]
 [ext_resource type="Script" uid="uid://dug1msh1cc714" path="res://scripts/enemy/states/idle_state.gd" id="6_u8t3r"]
 [ext_resource type="Script" uid="uid://t3yepo8pmdk" path="res://scripts/enemy/states/chase_state.gd" id="7_tiws1"]
 [ext_resource type="Script" uid="uid://4p7iwa71qh84" path="res://scripts/enemy/states/avoid_state.gd" id="8_snly6"]
 [ext_resource type="PackedScene" uid="uid://derh5gmq2d8f8" path="res://scene/utilities/gore/gore_manager.tscn" id="9_jf6dc"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_gjrny"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_k4ikt"]
+cull_mode = 2
+diffuse_mode = 3
+albedo_texture = ExtResource("4_xejde")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_15mu1"]
+diffuse_mode = 3
+specular_mode = 1
+albedo_texture = ExtResource("5_l8a6r")
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_btmf1"]
 animation = &"idle"
@@ -55,33 +67,37 @@ shape = SubResource("CapsuleShape3D_gjrny")
 transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 0, -1, 0)
 
 [node name="Skeleton3D" parent="mesh/metarig" index="0"]
-bones/0/position = Vector3(0, 1.02632, -0.00681275)
+bones/0/position = Vector3(0, 1.02594, -0.00681275)
 bones/0/rotation = Quaternion(0, 0.707107, 0, 0.707107)
 bones/1/rotation = Quaternion(0.101866, -0.699731, 0.101866, 0.699731)
-bones/2/rotation = Quaternion(0.0672558, -1.18978e-07, 7.90777e-09, 0.997736)
+bones/2/rotation = Quaternion(0.067795, -1.18974e-07, 7.97205e-09, 0.997699)
 bones/3/position = Vector3(0.0183, 0.324628, -0.00610971)
 bones/3/rotation = Quaternion(-0.66585, -0.620822, -0.366796, 0.191531)
 bones/4/position = Vector3(0.00608176, 0.157778, -0.00830019)
 bones/4/rotation = Quaternion(-0.183683, 0.37376, -0.55227, 0.722193)
-bones/5/rotation = Quaternion(0.277315, -0.00391459, 0.0133965, 0.960678)
+bones/5/rotation = Quaternion(0.286741, -0.00512304, 0.0137572, 0.957896)
 bones/6/rotation = Quaternion(-0.0223499, -0.00118914, -0.0266289, 0.999395)
 bones/7/position = Vector3(-0.0183, 0.324628, -0.00610971)
 bones/7/rotation = Quaternion(-0.654235, 0.613084, 0.364439, 0.251572)
 bones/8/position = Vector3(-0.0060927, 0.158169, -0.00829984)
 bones/8/rotation = Quaternion(-0.139511, -0.305528, 0.594912, 0.730252)
-bones/9/rotation = Quaternion(0.234872, -0.00129283, 0.00693629, 0.972001)
+bones/9/rotation = Quaternion(0.244398, -9.59789e-05, 0.00623333, 0.969655)
 bones/10/rotation = Quaternion(-0.0225636, 0.00381004, 0.0141313, 0.999638)
 bones/11/rotation = Quaternion(0.0394198, -0.0233542, -0.0839684, 0.995414)
 bones/12/rotation = Quaternion(-0.154215, -0.0134922, -0.0861052, 0.984186)
 bones/13/position = Vector3(0.00558717, 0.0621001, 0.098)
-bones/13/rotation = Quaternion(0.702926, 0.0767737, 0.702927, -0.0767736)
-bones/14/rotation = Quaternion(0.439921, -1.27324e-08, 1.06354e-08, 0.898037)
+bones/13/rotation = Quaternion(0.688963, -0.159152, 0.688964, 0.159152)
+bones/14/rotation = Quaternion(0.0927386, -1.54423e-08, 5.60869e-09, 0.995691)
 bones/15/rotation = Quaternion(-0.682957, 7.83714e-07, -7.32749e-07, 0.730459)
 bones/16/position = Vector3(0.00558735, 0.0621001, -0.098)
-bones/16/rotation = Quaternion(0.688465, -0.161296, 0.688465, 0.161296)
-bones/17/rotation = Quaternion(0.127388, -1.53262e-08, 6.05601e-09, 0.991853)
+bones/16/rotation = Quaternion(0.703214, 0.074091, 0.703215, -0.074091)
+bones/17/rotation = Quaternion(0.497479, -1.15569e-08, 1.15473e-08, 0.867476)
 bones/18/rotation = Quaternion(-0.682957, 7.83714e-07, -7.32749e-07, 0.730459)
 bones/20/rotation = Quaternion(-0.0243409, 0.751105, 0.655919, -0.0708453)
+
+[node name="Character" parent="mesh/metarig/Skeleton3D" index="0"]
+surface_material_override/0 = SubResource("StandardMaterial3D_k4ikt")
+surface_material_override/1 = SubResource("StandardMaterial3D_15mu1")
 
 [node name="AnimationTree" type="AnimationTree" parent="."]
 root_node = NodePath("../mesh")
