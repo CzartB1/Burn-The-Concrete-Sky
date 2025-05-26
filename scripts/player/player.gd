@@ -43,13 +43,15 @@ var dashing = false
 var recharging_dash = false
 @export_subgroup("Time Slow")
 @export var time_slow_duration_max = 30.0
-@export var time_slow_recharge_multiplier=10
+@export var time_slow_recharge_multiplier=1
 @export var time_slow_decrease_multiplier=10
 @export var focus_zoom_size:float=18
 @export var time_slow_speed_mult:float=1.8
 var total_speed_mult
 var time_slow_duration
 var time_slowed = false
+@export_subgroup("Time Slow Modifiers")
+@export var time_slow_recharge_multiplier_add=0
 @export_subgroup("Controller")
 @export var controller:bool = false
 @export var cont_look_target: Node3D
@@ -147,7 +149,7 @@ func _process(delta):
 	elif !time_slowed:
 		total_speed_mult=move_speed_multiplier
 		if time_slow_duration < time_slow_duration_max:
-			time_slow_duration += delta*time_slow_recharge_multiplier/Engine.time_scale
+			time_slow_duration += delta*(time_slow_recharge_multiplier+time_slow_recharge_multiplier_add)/Engine.time_scale
 	game_manager.time_slowed=time_slowed
 	
 	if show_cursor:

@@ -3,9 +3,6 @@ extends Upgrade
 @export var damage_mult:int=5
 var a = false
 
-func _ready():
-	pass
-
 func _process(delta):
 	if enabled:
 		if manager.player != null and !a:

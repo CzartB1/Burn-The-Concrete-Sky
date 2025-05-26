@@ -1,10 +1,12 @@
-[gd_scene load_steps=24 format=3 uid="uid://d2ssiplk0o8os"]
+[gd_scene load_steps=29 format=3 uid="uid://d2ssiplk0o8os"]
 
 [ext_resource type="Script" uid="uid://btt14cf1ooqko" path="res://scripts/player/upgrade_manager.gd" id="1_vpp7q"]
 [ext_resource type="Script" uid="uid://bbkl2h5u0fr7w" path="res://scripts/player/upgrades/upgrade.gd" id="2_jt6tb"]
+[ext_resource type="Script" uid="uid://dcvjh010xf6gh" path="res://scripts/player/upgrades/recycling.gd" id="3_8rvte"]
 [ext_resource type="Script" uid="uid://ddfehe624slmf" path="res://scripts/player/upgrades/the_cleansing.gd" id="3_11bgf"]
 [ext_resource type="Script" uid="uid://vwdc1g3utysi" path="res://scripts/player/upgrades/see_no_evil.gd" id="3_m6klv"]
 [ext_resource type="Script" uid="uid://dtivduh7tgrx7" path="res://scripts/player/upgrades/focus.gd" id="3_p0mjj"]
+[ext_resource type="Script" uid="uid://b3cn3i3uu3gs1" path="res://scripts/player/upgrades/take_a_breath.gd" id="3_ut6lg"]
 [ext_resource type="Script" uid="uid://ctj1o0xqtxkhc" path="res://scripts/player/upgrades/knockout_artist.gd" id="3_ymawj"]
 [ext_resource type="Shader" uid="uid://f2j2lv6vj8ai" path="res://shader/see_no_evil_vignette.gdshader" id="4_11bgf"]
 [ext_resource type="Script" uid="uid://bht2yn5wfydlh" path="res://scripts/player/upgrades/tachypsychia.gd" id="4_ff6n0"]
@@ -14,6 +16,18 @@
 [ext_resource type="Script" uid="uid://jt6vqtn6d1p" path="res://scripts/player/upgrades/hermes.gd" id="7_tehaf"]
 [ext_resource type="Script" uid="uid://dgmsooong0v4d" path="res://scripts/player/upgrades/wind_blade.gd" id="8_ygamq"]
 [ext_resource type="PackedScene" uid="uid://dcr5km4dago7k" path="res://scene/player/upgrades/wind_blade_object.tscn" id="9_4w774"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e5fej"]
+atlas = ExtResource("4_r2t1j")
+region = Rect2(512, 0, 64, 84)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ut6lg"]
+atlas = ExtResource("4_r2t1j")
+region = Rect2(704, 0, 64, 84)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8rvte"]
+atlas = ExtResource("4_r2t1j")
+region = Rect2(576, 0, 64, 84)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_m6klv"]
 atlas = ExtResource("4_r2t1j")
@@ -26,7 +40,7 @@ shader_parameter/MainAlpha = 1.0
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ymawj"]
 atlas = ExtResource("4_r2t1j")
-region = Rect2(640, 0, 64, 83)
+region = Rect2(640, 0, 64, 84)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_j8iib"]
 atlas = ExtResource("4_r2t1j")
@@ -54,21 +68,32 @@ region = Rect2(384, 0, 64, 84)
 
 [node name="upgrade_manager" type="Node3D" node_paths=PackedStringArray("upgrade_list")]
 script = ExtResource("1_vpp7q")
-upgrade_list = [NodePath("Wind Blade"), NodePath("Hermes"), NodePath("Heavy"), NodePath("Last Stand"), NodePath("Tachypsychia"), NodePath("Focus"), NodePath("See No Evil"), NodePath("Knockout Artist"), NodePath("The Cleansing")]
+upgrade_list = [NodePath("Wind Blade"), NodePath("Hermes"), NodePath("Heavy"), NodePath("Last Stand"), NodePath("Tachypsychia"), NodePath("Focus"), NodePath("See No Evil"), NodePath("Knockout Artist"), NodePath("The Cleansing"), NodePath("Take A Breath"), NodePath("Recycling")]
 
 [node name="upgrade" type="Node" parent="."]
 script = ExtResource("2_jt6tb")
 Description = "Template"
 
+[node name="Recycling" type="Node" parent="." groups=["recycling_ability"]]
+script = ExtResource("3_8rvte")
+icon = SubResource("AtlasTexture_e5fej")
+Description = "Wouldn't it be wasteful to waste all those tasty meat? Those who were your enemies may help you, may heal you, if only you take the step to consume them."
+
+[node name="Take A Breath" type="Node" parent="."]
+script = ExtResource("3_ut6lg")
+icon = SubResource("AtlasTexture_ut6lg")
+Description = "Template"
+
 [node name="The Cleansing" type="Node" parent="."]
 script = ExtResource("3_11bgf")
-Description = "Template"
+icon = SubResource("AtlasTexture_8rvte")
+Description = "The witches must burn. Your arms will become the fire that cleanses those who uses the arcane arts. Damages against mages are increased."
 
 [node name="See No Evil" type="Node" parent="." node_paths=PackedStringArray("vignette")]
 script = ExtResource("3_m6klv")
 vignette = NodePath("ColorRect")
 icon = SubResource("AtlasTexture_m6klv")
-Description = "Template"
+Description = "They say losing a sense will empower the others, right? You will sacrifice your sight. In exchange, you will become faster, hit harder."
 
 [node name="ColorRect" type="ColorRect" parent="See No Evil"]
 material = SubResource("ShaderMaterial_ut6lg")
