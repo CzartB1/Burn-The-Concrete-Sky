@@ -77,23 +77,23 @@ Description = "Template"
 [node name="Recycling" type="Node" parent="." groups=["recycling_ability"]]
 script = ExtResource("3_8rvte")
 icon = SubResource("AtlasTexture_e5fej")
-Description = "Wouldn't it be wasteful to waste all those tasty meat? Those who were your enemies may help you, may heal you, if only you take the step to consume them."
+Description = "Crack open the carcass and chow down on the scraps. Whenever you walk over enemy gibs, you automatically devour them—restoring your health one morsel at a time. Resourcefulness never tasted so good."
 
 [node name="Take A Breath" type="Node" parent="."]
 script = ExtResource("3_ut6lg")
 icon = SubResource("AtlasTexture_ut6lg")
-Description = "Template"
+Description = "Deep breath. Focus. Let the world slow down. While standing still, your focus returns faster. Sometimes, stillness is deadlier than speed."
 
 [node name="The Cleansing" type="Node" parent="."]
 script = ExtResource("3_11bgf")
 icon = SubResource("AtlasTexture_8rvte")
-Description = "The witches must burn. Your arms will become the fire that cleanses those who uses the arcane arts. Damages against mages are increased."
+Description = "The witches must burn. Your arms are now the fire that purges the arcane. Deal increased damage to magic users. This is divine justice. Or just personal."
 
 [node name="See No Evil" type="Node" parent="." node_paths=PackedStringArray("vignette")]
 script = ExtResource("3_m6klv")
 vignette = NodePath("ColorRect")
 icon = SubResource("AtlasTexture_m6klv")
-Description = "They say losing a sense will empower the others, right? You will sacrifice your sight. In exchange, you will become faster, hit harder."
+Description = "They say losing a sense sharpens the rest. You sacrifice your sight—permanently. In return, you move faster, hit harder, and remove your enemies not only from your sight, but also from the world."
 
 [node name="ColorRect" type="ColorRect" parent="See No Evil"]
 material = SubResource("ShaderMaterial_ut6lg")
@@ -104,7 +104,7 @@ offset_bottom = 648.0
 script = ExtResource("3_ymawj")
 price = 450
 icon = SubResource("AtlasTexture_ymawj")
-Description = "With a well placed strike, even a titan can be felled with our blood and flesh. With this, your unarmed strikes will be more powerful. No pushups required."
+Description = "Why carry a weapon when your fists are an artillery? Your unarmed strikes deal significantly more damage. Even titans drop if you hit just right. No pushups required."
 
 [node name="Focus" type="Node" parent="."]
 script = ExtResource("3_p0mjj")
