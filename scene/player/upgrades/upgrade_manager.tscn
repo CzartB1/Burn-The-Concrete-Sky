@@ -37,6 +37,7 @@ region = Rect2(448, 0, 64, 84)
 shader = ExtResource("4_11bgf")
 shader_parameter/outerRadius = 1.0
 shader_parameter/MainAlpha = 1.0
+shader_parameter/Color = Color(2, 2, 2, 2)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ymawj"]
 atlas = ExtResource("4_r2t1j")

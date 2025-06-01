@@ -1,8 +1,9 @@
-[gd_scene load_steps=14 format=3 uid="uid://dofv6wsmohjmf"]
+[gd_scene load_steps=16 format=3 uid="uid://dofv6wsmohjmf"]
 
 [ext_resource type="Script" uid="uid://div6d2fu0v86u" path="res://scripts/player/abilities/kunoichi_decoy.gd" id="1_1pmwv"]
 [ext_resource type="PackedScene" uid="uid://cp7y4m5g1v21j" path="res://scene/utilities/stun_area.tscn" id="2_tdyq1"]
 [ext_resource type="PackedScene" uid="uid://yjth66wurbwv" path="res://meshes/player/characters/Mirage/Mirage.blend" id="3_1wf3c"]
+[ext_resource type="Shader" uid="uid://f2j2lv6vj8ai" path="res://shader/see_no_evil_vignette.gdshader" id="4_vlknd"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_eyfec"]
 radius = 0.421632
@@ -63,6 +64,12 @@ particles_anim_loop = false
 material = SubResource("StandardMaterial3D_p2leq")
 size = Vector2(1, 1)
 orientation = 2
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_x765o"]
+shader = ExtResource("4_vlknd")
+shader_parameter/outerRadius = 2.574
+shader_parameter/MainAlpha = 1.0
+shader_parameter/Color = Color(0.35088, 0.1122, 0.51, 1)
 
 [node name="decoy" type="CharacterBody3D" node_paths=PackedStringArray("timer") groups=["Abilities", "Decoy"]]
 collision_layer = 2
@@ -163,6 +170,11 @@ lifetime = 3.0
 collision_base_size = 0.1
 process_material = SubResource("ParticleProcessMaterial_5tdd5")
 draw_pass_1 = SubResource("PlaneMesh_mudwh")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+material = SubResource("ShaderMaterial_x765o")
+offset_right = 1152.0
+offset_bottom = 648.0
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 [connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]
